@@ -99,6 +99,19 @@
 </section>
 
 <main>
+  <div class="card" style="border:1px solid rgba(255,217,61,0.4);background:linear-gradient(135deg, rgba(255,217,61,0.06), rgba(108,99,255,0.06))">
+    <h3>🎯 Agenda ทั้งคอร์สที่ผู้สอนตั้งใจให้ทุกคนจำ</h3>
+    <p>ก่อนเข้าเนื้อหาเลย ผู้สอนพูดชัดว่า <em>"อยากจะให้สิ่งนี้ติดไปในสมองของทุกท่าน"</em> — ความรู้การลงทุนแบ่งเป็น 3 คำถามที่ <strong>แยกออกจากกันเด็ดขาด</strong>:</p>
+    <div class="grid-3" style="margin-top:14px">
+      <div class="card" style="margin:0;background:var(--surface2)"><p style="font-size:13px"><strong>1. หุ้นตัวนี้ดีหรือไม่ดี</strong><br><span style="color:var(--text-muted);font-size:12px">Macro → Industry → Fundamentals → Financials → Management → Growth</span></p></div>
+      <div class="card" style="margin:0;background:var(--surface2)"><p style="font-size:13px"><strong>2. หุ้นตัวนี้ถูกหรือแพง</strong><br><span style="color:var(--text-muted);font-size:12px">Valuation</span></p></div>
+      <div class="card" style="margin:0;background:var(--surface2)"><p style="font-size:13px"><strong>3. จะลงทุนอย่างไร</strong><br><span style="color:var(--text-muted);font-size:12px">Strategy → Portfolio → Psychology</span></p></div>
+    </div>
+    <div class="quote" style="margin-top:16px">"หุ้นดีอาจจะแพงก็ได้" — ผ่านข้อ 1 ไม่ได้แปลว่าซื้อได้เลย ต้องผ่านข้อ 2 ด้วย และการเรียงบทของทั้งคอร์สก็เดินตามกรอบ 3 ข้อนี้เป๊ะๆ</div>
+    <div class="note"><span class="note-icon">🔍</span><p>เจอจุดนี้จากการถาม NotebookLM ว่ากรอบ "10 ปัจจัย" เดิมมาจากไหน — NotebookLM ชี้ถูกสไลด์ (หน้า 11) แต่ citation จาก transcript ที่แนบมาไม่ตรงประเด็นเลย grep เทียบเองจึงเจอกรอบ 3 คำถามนี้แทน ซึ่งดีกว่าของเดิมมาก — บทเรียน: ห้ามเชื่อ citation ของ NotebookLM โดยไม่ verify เอง</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · verify ตรงจาก raw transcript โดยตรง</div>
+  </div>
+
   <div class="section-header" id="basics">
     <div class="section-icon">💡</div>
     <div><h2>หุ้นคืออะไร แล้วเลือกวิธีลงทุนยังไง</h2><p>บทที่ 1-5</p></div>
@@ -177,7 +190,9 @@
       <li><strong>สินค้าทดแทน</strong> — เปลี่ยนไปใช้อย่างอื่นง่ายแค่ไหน</li>
     </ul>
     <div class="cross-ref"><p>🔗 structured doc ที่ generate อัตโนมัติติดป้ายหัวข้อนี้ว่า "ปัจจัยมหภาค" แต่เนื้อหาจริงคือ Five Forces ระดับอุตสาหกรรม — แก้ป้ายให้ถูกจุดแล้วในสรุปนี้</p></div>
-    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 7</div>
+    <p style="margin-top:14px"><strong>ทำไม "ผู้ขายมีอำนาจมาก" ถึงโผล่เป็น GPM ต่ำ:</strong> GPM = (รายได้ − COGS) ÷ รายได้ — ถ้าผู้ขายวัตถุดิบมีอำนาจต่อรองสูง เขาขึ้นราคาให้บริษัทได้ตามใจ → COGS สูงขึ้น → กำไรขั้นต้นบีบแคบทันที นี่คือกลไกที่แปลง Force ข้อ 3 เป็นตัวเลขวัดได้จากงบ ไม่ใช่แค่ความรู้สึก</p>
+    <div class="note"><span class="note-icon">🔎</span><p><strong>ถ้าบริษัทขึ้นราคาขายตามทันล่ะ?</strong> แปลว่าต้องมีอำนาจต่อรองฝั่งลูกค้า (Force ข้อ 4) แข็งแรงด้วย ถึงผลักภาระต้นทุนไปลูกค้าได้ — ธุรกิจที่โดนบีบทั้งสองทาง (ซัพพลายเออร์ขึ้นราคาได้ แต่ตัวเองขึ้นราคาขายไม่ได้) จะเห็น GPM ผันผวนชัดสุด เช่น สายการบินที่ราคาน้ำมันขึ้นแต่ขึ้นค่าตั๋วตามไม่ทัน</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 7 (กลไก GPM/COGS อนุมานจากนิยามที่คอร์สสอนไว้แล้วในบทที่ 10)</div>
   </div>
 
   <div class="card">
@@ -255,7 +270,14 @@
       <li><strong>Expected Return</strong> — คิดลดมูลค่าอนาคตกลับมาปัจจุบัน (PV)</li>
       <li><strong>Margin of Safety</strong> — ยิ่งสมมติฐานไม่แน่นอนสูง ยิ่งต้องเผื่อมาก (ระดับ 20-40% แต่ไม่ตายตัว)</li>
     </ol>
-    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 13</div>
+    <p style="margin-top:14px"><strong>ทำไมยิ่งไม่แน่นอนยิ่งต้องเผื่อ MOS มาก:</strong> ราคาเป้าหมายที่คำนวณได้เป็นแค่ "เดา" (มาจาก Assumption ในข้อ 2) — ยิ่งสมมติฐานเสี่ยงผิดสูง ตัวเลขก็ยิ่งคลาดเคลื่อนได้มาก MOS คือ "กันชน" ระหว่างราคาที่จ่ายจริงกับราคาเป้าหมาย ยิ่งกันชนหนา ต่อให้สมมติฐานผิดไปพอสมควรก็ยังไม่ขาดทุน</p>
+    <div class="grid-2">
+      <div class="card" style="margin:0;background:var(--surface2)"><p style="font-size:13px">🔎 <strong>MOS สูงเกินไป?</strong> รอราคาถูกมากจนอาจไม่มีวันได้ซื้อหุ้นดีๆ เลย — เสียโอกาส</p></div>
+      <div class="card" style="margin:0;background:var(--surface2)"><p style="font-size:13px">🔎 <strong>MOS ต่ำเกินไป?</strong> สมมติฐานผิดนิดเดียวก็อาจซื้อแพงกว่ามูลค่าจริงทันที</p></div>
+    </div>
+    <p style="margin-top:10px;font-size:13px"><strong>เทียบให้เห็นภาพ:</strong> เหมือนซื้อรถมือสอง — เช็คสภาพ/ลองขับได้เต็มที่ (ไม่แน่นอนต่ำ) จ่ายใกล้ราคาที่คิดว่าคุ้มได้ แต่ถ้าซื้อแบบไม่เห็นรถจริง (ไม่แน่นอนสูง) ต้องต่อราคาต่ำกว่านั้นเผื่อปัญหาที่มองไม่เห็น</p>
+    <div class="external"><p>🌐 <strong>ความรู้เสริม (WebSearch 2026-07-07):</strong> แนวคิด Margin of Safety บัญญัติโดย Benjamin Graham (<em>Security Analysis</em>, 1934) — ธุรกิจกำไรสม่ำเสมอ (สาธารณูปโภค) ใช้ MOS แค่ ~15-20% พอ ส่วนธุรกิจวัฏจักรแรง/ธุรกิจใหม่ควรใช้ 40%+ ตรงกับกรอบ 20-40% ที่ผู้สอนพูดถึง — <a href="https://en.wikipedia.org/wiki/Margin_of_safety_(financial)" style="color:#7dd3fc">Wikipedia: Margin of safety (financial)</a></p></div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 13 (กลไก/เหตุผลเบื้องหลัง MOS เป็นการขยายความ ไม่ใช่คำพูดตรงจากผู้สอน)</div>
   </div>
 
   <div class="card">
@@ -301,7 +323,8 @@
   <details class="recall"><summary>คู่แข่งน้อยราย ทำไมไปได้ทั้งดีและแย่ต่อกำไร?</summary><div class="answer">อาจฮั้วราคากัน (ดี) หรือแข่งกันหนักเพราะรู้ว่าใครแพ้ชนะมีผลมาก (แย่)</div></details>
   <details class="recall"><summary>ทำไมเคส Jubilee สอนว่า "คนต่อคิวเยอะ" อย่างเดียวไม่พอ?</summary><div class="answer">ปริมาณ (คนต่อคิว) ต้อง cross-check กับคุณภาพ (ตัวเลขในงบ) เสมอ อาจดูดีแต่กำไรจริงไม่ตาม</div></details>
   <details class="recall"><summary>ทำไมซื้อหุ้นคืนไม่ใช่การเติบโตจริง?</summary><div class="answer">EPS ดูดีขึ้นเพราะจำนวนหุ้นลด ไม่ใช่เพราะกำไรจริงของธุรกิจเพิ่ม</div></details>
-  <details class="recall"><summary>Margin of Safety ควรสูงหรือต่ำถ้าไม่มั่นใจสมมติฐาน?</summary><div class="answer">ควรสูง — ยิ่งไม่แน่นอน ยิ่งต้องเผื่อส่วนลดปกป้องตัวเองมาก</div></details>
+  <details class="recall"><summary>Margin of Safety ควรสูงหรือต่ำถ้าไม่มั่นใจสมมติฐาน? แล้วตั้งสูงเกินไปเสียอะไร?</summary><div class="answer">ควรสูง — ยิ่งไม่แน่นอน ยิ่งต้องเผื่อกันชนมาก แต่สูงเกินไปก็เสียโอกาส (รอราคาถูกจนไม่ได้ซื้อเลย) — เหมือนซื้อรถมือสองที่ไม่ได้ลองขับ ต้องต่อราคาต่ำกว่าที่คิดว่าคุ้มไว้เยอะๆ</div></details>
+  <details class="recall"><summary>ทำไม "ผู้ขายมีอำนาจต่อรองสูง" ถึงวัดผลออกมาเป็น GPM ต่ำโดยเฉพาะ?</summary><div class="answer">ผู้ขายขึ้นราคาได้ตามใจ → COGS สูงขึ้น → กำไรขั้นต้นบีบแคบ (GPM = (รายได้-COGS)/รายได้) — ธุรกิจที่รอดคือธุรกิจที่มีอำนาจต่อรองฝั่งลูกค้าแข็งแรงพอจะขึ้นราคาขายตามได้ด้วย</div></details>
   <details class="recall"><summary>ทำไมผลตอบแทนมหาศาลของผู้สอนมาจาก "ถือยาว" ไม่ใช่ "เทรดบ่อย"?</summary><div class="answer">หุ้น 30/10/8/7/5 เด้งมาจากถือ Runway ยาว 5-10 ปี ไม่ใช่ซื้อวันนี้ขายปีหน้า</div></details>
 
   <div class="apply-card" style="margin-top:24px">
