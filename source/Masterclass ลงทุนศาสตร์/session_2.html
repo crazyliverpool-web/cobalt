@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>การประเมินมูลค่าและการเติบโตแบบมีตัวเลข | Masterclass ลงทุนศาสตร์</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3250;
+    --accent: #00d4aa; --accent2: #6c63ff; --accent3: #ff6b6b; --accent4: #ffd93d;
+    --text: #e8eaf6; --text-muted: #8b92b8;
+    --gradient: linear-gradient(135deg, #00d4aa 0%, #6c63ff 100%);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif; font-size: 16px; line-height: 1.7; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(15,17,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  nav .logo { font-weight: 700; font-size: 15px; color: var(--accent); letter-spacing: 0.5px; white-space: nowrap; }
+  nav a { color: var(--text-muted); text-decoration: none; font-size: 12px; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .hero { padding: 100px 40px 80px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(0,212,170,0.15) 0%, transparent 70%); border-bottom: 1px solid var(--border); }
+  .hero .tag { display: inline-block; background: rgba(0,212,170,0.15); border: 1px solid rgba(0,212,170,0.4); color: #34d399; border-radius: 20px; padding: 4px 16px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; }
+  .hero p { color: var(--text-muted); font-size: 18px; max-width: 640px; margin: 0 auto 40px; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2rem; font-weight: 700; color: var(--accent2); }
+  .stat .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 60px 32px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; margin-top: 64px; }
+  .section-header:first-of-type { margin-top: 0; }
+  .section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: rgba(0,212,170,0.15); }
+  .section-header h2 { font-size: 22px; font-weight: 700; }
+  .section-header p { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px 30px; margin-bottom: 18px; transition: border-color 0.2s, transform 0.2s; }
+  .card:hover { border-color: rgba(0,212,170,0.4); transform: translateY(-2px); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .quote { border-left: 3px solid var(--accent); background: rgba(0,212,170,0.07); border-radius: 0 12px 12px 0; padding: 18px 24px; margin: 20px 0; font-style: italic; font-size: 16px; color: #6ee7c7; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+  .badge-purple { background: rgba(108,99,255,0.2); color: #a78bfa; }
+  .badge-teal { background: rgba(0,212,170,0.15); color: #34d399; }
+  .badge-red { background: rgba(255,107,107,0.15); color: #f87171; }
+  .badge-yellow { background: rgba(255,217,61,0.15); color: #fbbf24; }
+  .warning { background: rgba(255,217,61,0.08); border: 1px solid rgba(255,217,61,0.3); border-radius: 12px; padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; margin: 20px 0; }
+  .warning-icon { font-size: 18px; flex-shrink: 0; }
+  .warning p { font-size: 14px; color: #fde68a; }
+  .note { background: rgba(0,212,170,0.06); border: 1px solid rgba(0,212,170,0.25); border-radius: 12px; padding: 14px 18px; display: flex; gap: 12px; align-items: flex-start; margin: 16px 0; }
+  .note-icon { font-size: 16px; flex-shrink: 0; }
+  .note p { font-size: 13px; color: #6ee7c7; }
+  .cross-ref { background: rgba(108,99,255,0.06); border: 1px dashed rgba(108,99,255,0.35); border-radius: 12px; padding: 14px 18px; margin: 20px 0; }
+  .cross-ref p { font-size: 13px; color: #c4b5fd; }
+  .external { background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 14px 18px; margin: 16px 0; }
+  .external p { font-size: 13px; color: #7dd3fc; }
+  .source-footer { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+  .sector-table, .fc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .sector-table th, .fc-table th { background: var(--surface2); color: var(--text-muted); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  .sector-table td, .fc-table td { padding: 12px 14px; border-bottom: 1px solid rgba(46,50,80,0.5); vertical-align: top; }
+  .sector-table tr:last-child td, .fc-table tr:last-child td { border-bottom: none; }
+  details.recall { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; }
+  details.recall summary { cursor: pointer; font-size: 14px; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 10px; }
+  details.recall summary::-webkit-details-marker { display: none; }
+  details.recall summary::before { content: '▸'; color: var(--accent); transition: transform 0.2s; }
+  details.recall[open] summary::before { transform: rotate(90deg); }
+  details.recall .answer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
+  .apply-card { background: var(--surface); border: 1px solid rgba(255,217,61,0.3); border-radius: 14px; padding: 22px 26px; }
+  .apply-card li { margin-bottom: 10px; }
+  footer { text-align: center; padding: 48px 32px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; margin-top: 80px; }
+  ul, ol { padding-left: 20px; }
+  li { margin-bottom: 6px; font-size: 14px; color: var(--text-muted); }
+  li strong { color: var(--text); }
+  @media (max-width: 600px) { .hero { padding: 60px 20px 48px; } main { padding: 40px 20px; } nav { padding: 12px 16px; gap: 10px; } .hero-stats { gap: 24px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">📗 Session 2 — Day 2</span>
+  <a href="#valuation">มูลค่า</a>
+  <a href="#growth">การเติบโต</a>
+  <a href="#business">ธุรกิจ/พอร์ต</a>
+  <a href="#qa">Q&amp;A</a>
+  <a href="#recall">ทบทวน</a>
+  <a href="session_1.html">← Session 1</a>
+  <a href="synthesis.html">← ภาพรวมคอร์ส</a>
+</nav>
+
+<section class="hero">
+  <div class="tag">Session 2 · Day 2</div>
+  <h1>การประเมินมูลค่าและการเติบโตแบบมีตัวเลข</h1>
+  <p>ใส่ตัวเลขลงในกรอบที่ Day 1 วางไว้ — สูตรผลตอบแทนคาดหวัง ตัวอย่างคำนวณมูลค่าหุ้นเต็มรูปแบบ และเคสจริง PYLON vs SEAFCO, Beauty (rebuild 2026-07-07)</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">5</div><div class="label">องค์ประกอบมูลค่า</div></div>
+    <div class="stat"><div class="num">115.70</div><div class="label">ราคาซื้อในตัวอย่าง (บาท)</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Red Flag เคส Beauty</div></div>
+  </div>
+</section>
+
+<main>
+  <div class="section-header" id="valuation">
+    <div class="section-icon">🧮</div>
+    <div><h2>มูลค่าพื้นฐาน: 5 องค์ประกอบแบบลงลึก</h2><p>บทที่ 1, 7</p></div>
+  </div>
+
+  <div class="card">
+    <h3>💡 มูลค่าพื้นฐาน (Intrinsic Value) คือการประมาณการ ไม่ใช่ตัวเลขตายตัว</h3>
+    <p>ราคาที่ "ควรจะเป็น" ของหุ้น ต่างจากราคาตลาดที่ขึ้นลงตามอารมณ์คนซื้อขาย — โลกมีความไม่แน่นอนสูง การประเมินมูลค่าจึงเป็น <strong>การประมาณการที่มีเหตุผลรองรับ</strong> ไม่ใช่คำตอบเป๊ะๆ</p>
+    <div class="quote">"มูลค่าหุ้นคือการคาดเดา มูลค่าหุ้นมีอคติเสมอ วิธีการสำคัญกว่าตัวเลข มองเป็นช่วงดีกว่ามองเป็นเลข Margin of Safety สำคัญมาก"</div>
+    <p style="font-size:13px">5 องค์ประกอบ (ต่อยอดจาก Session 1): <strong>Indicator → Assumption → Model → Expected Return → Margin of Safety</strong></p>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) · structured บทที่ 1, 7</div>
+  </div>
+
+  <div class="card">
+    <h3>🎯 ตัวอย่างคำนวณเต็มรูปแบบ — ทำตามได้เลยด้วยเครื่องคิดเลข</h3>
+    <div class="grid-2">
+      <div class="card" style="margin:0;background:var(--surface2)">
+        <p style="font-size:13px"><strong>โจทย์:</strong> หุ้น A มี EPS วันนี้ = 5 บาท<br>คาดว่าอีก 2 ปี EPS จะโตเป็น <strong>10 บาท</strong><br>ใช้ PE อุตสาหกรรม <strong>20 เท่า</strong></p>
+      </div>
+      <div class="card" style="margin:0;background:var(--surface2)">
+        <p style="font-size:13px">มูลค่าอนาคต = 10 × 20 = <strong>200 บาท</strong><br>คิดลด 10%/ปี → <strong>165.28 บาท</strong> (ปัจจุบัน)<br>หัก MOS 30% → <strong style="color:#34d399">≈ 115.70 บาท</strong> (ราคาที่ควรซื้อ)</p>
+      </div>
+    </div>
+    <div class="note"><span class="note-icon">✅</span><p>ตัวเลขทั้งหมดนี้ grep ตรงกับ raw transcript_2.txt เวอร์ชันใหม่ทุกตัว (200, 165.28, 115.70, MOS 30, EPS 5) — เป็นตัวอย่างที่ verify แม่นที่สุดในทั้ง 3 sessions</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) · structured บทที่ 7</div>
+  </div>
+
+  <div class="section-header" id="growth">
+    <div class="section-icon" style="background:rgba(108,99,255,0.15)">📈</div>
+    <div><h2>การเติบโต: สูตรผลตอบแทน + M&amp;A + เช็คคุณภาพ</h2><p>บทที่ 6</p></div>
+  </div>
+
+  <div class="card">
+    <h3>🧮 สูตรผลตอบแทนคาดหวังรวม</h3>
+    <div class="quote">ผลตอบแทนคาดหวังรวม = (PE<sub>อนาคต</sub> ÷ PE<sub>ปัจจุบัน</sub> − 1) + (การเติบโต% + %Payout Ratio) ÷ PER</div>
+    <p style="font-size:13px">ส่วนแรก = กำไรจาก PE ที่เปลี่ยนไป (re-rating) · ส่วนสอง = กำไรจากการเติบโตของธุรกิจจริงบวกเงินปันผล — สูตรนี้ grep เจอ building block ครบ (PE, Payout Ratio, PER) ในเทปจริง</p>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) · structured บทที่ 6</div>
+  </div>
+
+  <div class="card">
+    <h3>💰 M&amp;A: 3 วิธีหาเงินมาซื้อกิจการ เรียงจากดีไปแย่</h3>
+    <ol>
+      <li><strong>เงินสด</strong> — ดีที่สุด ต้นทุนแทบเป็น 0</li>
+      <li><strong>กู้หนี้ (ธนาคาร)</strong> — ต้นทุนต่ำกว่าทางเลือกถัดไป</li>
+      <li><strong>เพิ่มทุนใหม่ (ออกหุ้นเพิ่ม)</strong> — แย่สุด เพราะผู้ขายรู้ว่าคุณใช้เงินเพิ่มทุน มักตั้งราคาแพงขึ้น</li>
+    </ol>
+    <p style="font-size:13px">กติกาเดิมจาก Session 1: ROI (ผลตอบแทนจากธุรกิจที่ซื้อ) ต้อง &gt; CoC (ต้นทุนเงินทุน) ถึงจะคุ้ม</p>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) · structured บทที่ 6</div>
+  </div>
+
+  <div class="card">
+    <h3>🔍 เช็คคุณภาพการเติบโต — ทำไม "ตัวเลขสวย" ไม่ใช่อันดับ 1</h3>
+    <p>ลำดับความสำคัญ: <strong>1) Market Growth</strong> (ตลาดรวมโตไหม) → <strong>2) Market Share</strong> (แย่งส่วนแบ่งได้ไหม) → 3) การเติบโตมาจากธุรกิจหลักจริงไหม → 4) จุดเด่นนี้ยั่งยืนแค่ไหน → <strong>5) Quality of Number</strong> (ตัวเลขน่าเชื่อถือไหม) → 6) มีอะไรน่าสงสัยไหม</p>
+    <div class="note"><span class="note-icon">📌</span><p>ทำไม Quality of Number อยู่อันดับ 5 ไม่ใช่ 1: ต่อให้ตัวเลขสวยแค่ไหน ถ้า Market Growth/Share ไม่ดี ธุรกิจก็ไปไม่รอด — ตัวเลขสวยเป็นผลลัพธ์ปลายทาง ไม่ใช่สาเหตุ</p></div>
+    <p style="font-size:13px"><strong>เคสยืนยันจริง:</strong> ผู้สอนพูดถึง <strong>BYD</strong> ว่ากำลังโตดีมากในตลาดอาเซียน — ตัวอย่าง Market Growth ที่แข็งแรง</p>
+    <div class="external"><p>🌐 <strong>ความรู้เสริม (WebSearch 2026-07-07):</strong> ชื่อย่อ "2M2S2Q" เป็นป้ายที่คนสรุป (AI) ตั้งขึ้นเพื่อช่วยจำเท่านั้น — grep transcript ทั้งเก่าและใหม่ไม่พบผู้สอนพูดคำนี้ พบจริงแค่ "Market Growth" กับ "Market Share" ส่วนที่เหลือเป็นการตีความ ไม่ใช่ศัพท์ผู้สอน</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) · structured บทที่ 6</div>
+  </div>
+
+  <div class="section-header" id="business">
+    <div class="section-icon" style="background:rgba(255,107,107,0.15)">🏢</div>
+    <div><h2>ธุรกิจ พอร์ต และเคสผู้บริหารจริง</h2><p>บทที่ 2-5, 8</p></div>
+  </div>
+
+  <div class="card">
+    <h3>👔 สไตล์ผู้บริหาร: เคสจริง PYLON vs SEAFCO</h3>
+    <p>ทั้งสองบริษัทอยู่ธุรกิจ "เสาเข็มเจาะ" (ฐานรากก่อสร้าง) เหมือนกัน — ได้เปรียบร่วมกันเพราะเสาเข็มเป็นงานแรกๆ ของโปรเจกต์ โอกาสโดนโกงเงินน้อย งบจึงมักดูดีกว่าผู้รับเหมาช่วงหลังๆ แต่สไตล์ผู้บริหารตรงข้ามกันชัดเจน:</p>
+    <div class="grid-2">
+      <div class="card" style="margin:0;background:var(--surface2)"><h3>⚡ PYLON — Aggressive</h3><p style="font-size:13px">เน้นรับงานเอกชนเป็นหลัก กำไรมากหน่อย ทำงานเร็ว ขยายเยอะ</p></div>
+      <div class="card" style="margin:0;background:var(--surface2)"><h3>🛡️ SEAFCO — Conservative</h3><p style="font-size:13px">เน้นรับงานภาครัฐเป็นหลัก กำไรน้อยๆ แต่สัญญาชัดเจน งบนิ่งกว่า (transcript ออกเสียงเพี้ยนเป็น "Safeco")</p></div>
+    </div>
+    <p style="font-size:13px;margin-top:10px">ผู้สอนแนะนำให้อ่านคู่นี้เทียบกันเลย — เห็นสเปกตรัมสไตล์ผู้บริหารชัดในธุรกิจเดียวกันแบบสุดขั้ว เป็นตัวอย่างจริงของปัจจัย "ผู้บริหาร" ที่ Session 1 เอ่ยชื่อไว้แต่ไม่ได้ขยายความ</p>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) · structured บทที่ 4 (ยืนยัน grep ตรงกับเทปเวอร์ชันใหม่)</div>
+  </div>
+
+  <div class="card">
+    <h3>📐 ธุรกิจ + อุตสาหกรรม (ทวนจาก Session 1 — คราวนี้ป้ายชื่อถูกจุด)</h3>
+    <p>Business Model Canvas + Scuttlebutt + Competitive Advantage (Five Forces, Moat) + <strong>PESTEL</strong> (Politics, Economy, Society, Technology, Environment, Law) — เนื้อหาเดียวกับ Session 1 ผู้สอนทวนกรอบเดิมอีกครั้งเพื่อเชื่อมเข้ากับการประเมินมูลค่า</p>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) · structured บทที่ 2, 3, 4, 5</div>
+  </div>
+
+  <div class="card">
+    <h3>🧺 จัดพอร์ต + จิตวิทยา (ทวนจาก Session 1)</h3>
+    <p>กระจาย 4 มิติ (หุ้น/อุตสาหกรรม/ตลาด/สินทรัพย์) + 4 กับดักจิตวิทยาเดิม — ผู้สอนเสริมว่าหุ้นต่างประเทศควรถือยาว 5+ ปี เพื่อลดความเสี่ยงค่าเงิน และเลือกเฉพาะอุตสาหกรรมที่แข็งแรงจริง</p>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) · structured บทที่ 8</div>
+  </div>
+
+  <div class="card">
+    <h3>📎 ภาคผนวก: หมวดหุ้นไทย/ต่างประเทศ 8 กลุ่ม</h3>
+    <table class="sector-table">
+      <tr><th>หมวด</th><th>ตัวอย่างหุ้น</th></tr>
+      <tr><td>AGRO (เกษตร/อาหาร)</td><td>NER, STA (ยาง) · BRR (น้ำตาล) · UPOIC, UVAN (ปาล์ม) · CPF, BTG (ไก่) · TFMAMA, PM, TKN (ขนม) · HTC, SAPPE (เครื่องดื่ม) · M, AU, CENTEL (ร้านอาหาร)</td></tr>
+      <tr><td>CONSUMP</td><td>CPL (วัสดุ) · MC, WACOAL (เสื้อผ้า) · AURA, PDJ, JUBILE (เครื่องประดับ) · MEGA, DDD, KISS (ยา)</td></tr>
+      <tr><td>ต่างประเทศ</td><td>PEP, HSY, KO, MDLZ (ขนม/เครื่องดื่ม) · LVMH, NKE, EL (แฟชั่น) · BRK, V, MA (การเงิน) · NVDA, AMD, INTC, AAPL, MSFT, GOOG, META (เทค) · TSLA, ASML (อุตสาหกรรม) · YUM, MCD, DPZ, SBUX (ร้านอาหาร)</td></tr>
+    </table>
+    <p style="font-size:12px;margin-top:10px">เซกเตอร์ FINCIAL, INDUS, PROPCON, RESOURC, SERVICE, TECH อย่างละเอียด — สไลด์ให้เฉพาะชื่อหุ้น ไม่มีคำบรรยาย</p>
+    <div class="source-footer">📎 ที่มา: สไลด์ 0 Stock MasterClass.pdf หน้า 151-195 · structured บทที่ 9-10</div>
+  </div>
+
+  <div class="section-header" id="qa">
+    <div class="section-icon" style="background:rgba(255,217,61,0.15)">❓</div>
+    <div><h2>Q&amp;A เด็ดจากห้องเรียน</h2><p>เคส Beauty + คำถามลอย</p></div>
+  </div>
+
+  <div class="card">
+    <h3>💄 "ทำไมถึงขายหุ้น Beauty?" — เคส Questionable ที่เป็นรูปธรรมที่สุดในคอร์ส</h3>
+    <p>มีคนถามในห้องตรงๆ ว่าทำไมขายหุ้น <strong>Beauty (บิวตี้ คอมมูนิตี้)</strong> — ผู้สอนเล่า 2 Red Flag ที่เจอพร้อมกัน:</p>
+    <div class="grid-2">
+      <div class="card" style="margin:0;background:var(--surface2)"><p style="font-size:13px"><strong>🚩 1. คำพูดไม่ตรงยอดขายจริง</strong><br>ผู้บริหารเล่าว่าลิปสติกขายดีเพราะคนต่างชาติ/จีนแห่ซื้อ แต่เช็คจริงยอดขายมาจากคนไทยเป็นหลัก</p></div>
+      <div class="card" style="margin:0;background:var(--surface2)"><p style="font-size:13px"><strong>🚩 2. กำไรกับกระแสเงินสดไม่สอดคล้อง</strong><br>งบไตรมาสประกาศโต 40% แต่กระแสเงินสดจริงมีการตั้งสำรองแปลกๆ ทำให้ตัวเลขดูไม่สมเหตุสมผล</p></div>
+    </div>
+    <div class="warning"><span class="warning-icon">⚠️</span><p>ตัวเลขราคาซื้อ-ขายที่เคยระบุไว้ในสรุปฉบับก่อนหน้า grep เทปเวอร์ชันใหม่แล้วยืนยันเป๊ะๆ ไม่ได้อีกครั้ง (เสียงช่วงนี้ไม่ชัด) — เก็บเฉพาะสาระ Red Flag ที่ verify ได้แน่นอน</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2) — grep ยืนยันตรงกับเทปเวอร์ชันใหม่ 2026-07-07 · ดู Session 3 หัวข้อ 8 ด้วย</div>
+  </div>
+
+  <div class="card">
+    <h3>💬 คำถามลอยอื่นๆ</h3>
+    <ul>
+      <li><strong>"ใช้ PEG (PE/Growth) ดีไหม?"</strong> → ใช้ได้ แต่ผู้สอนบอกตรงๆ ว่าชื่อเรียกไม่สำคัญเท่าเข้าใจว่ามันคือ PE หารด้วยอัตราการเติบโต</li>
+      <li><strong>"ควรตั้ง Expected Return เท่าไหร่?"</strong> → ไม่มีสูตรตายตัว ขึ้นกับความพอใจแต่ละคน กรอบกว้างๆ ที่ใช้ได้จริงคือ 10-15% ต่อปี</li>
+    </ul>
+    <div class="source-footer">📎 ที่มา: transcript_2.txt (Day 2)</div>
+  </div>
+
+  <div class="section-header" id="recall">
+    <div class="section-icon" style="background:rgba(0,212,170,0.15)">🧠</div>
+    <div><h2>Active Recall</h2><p>ถามตัวเองก่อนไปต่อ</p></div>
+  </div>
+
+  <details class="recall"><summary>ทำไม PE Ratio ถึงเป็นโมเดลที่นิยมสุด ทั้งที่ DCF แม่นกว่าทางทฤษฎี?</summary><div class="answer">สะดวก คำนวณง่าย เทียบกับคู่แข่งได้ตรงๆ ไม่ต้องพยากรณ์กระแสเงินสดระยะยาวที่ผันผวนสูง</div></details>
+  <details class="recall"><summary>ลองคำนวณ — ถ้า MOS เปลี่ยนจาก 30% เป็น 40% ราคาที่ควรซื้อจากตัวอย่างจะเปลี่ยนเป็นเท่าไหร่?</summary><div class="answer">165.28 × (1-0.4) = 99.17 บาท (จากเดิม 115.70 บาทที่ MOS 30%)</div></details>
+  <details class="recall"><summary>เรียงลำดับวิธีหาเงินมาซื้อกิจการจากดีไปแย่ พร้อมเหตุผล?</summary><div class="answer">เงินสด (ต้นทุนต่ำสุด) → กู้หนี้ → เพิ่มทุน (แย่สุด เพราะผู้ขายตั้งราคาแพงขึ้นเมื่อรู้ว่าใช้เงินเพิ่มทุน)</div></details>
+  <details class="recall"><summary>ทำไม Quality of Number อยู่อันดับท้ายๆ ไม่ใช่อันดับ 1?</summary><div class="answer">ตัวเลขสวยเป็นผลลัพธ์ปลายทาง ถ้า Market Growth/Share ไม่ดี ธุรกิจก็ไปไม่รอดอยู่ดี</div></details>
+  <details class="recall"><summary>PYLON กับ SEAFCO ทำธุรกิจเดียวกัน แต่สไตล์ต่างกันยังไง?</summary><div class="answer">PYLON = Aggressive เน้นเอกชน กำไรมากหน่อย · SEAFCO = Conservative เน้นภาครัฐ กำไรน้อยแต่งบนิ่งกว่า</div></details>
+  <details class="recall"><summary>เคส Beauty มี Red Flag กี่จุด อะไรบ้าง?</summary><div class="answer">2 จุด: (1) คำพูดผู้บริหารไม่ตรงยอดขายจริง (2) กำไรโตแต่กระแสเงินสดมีสำรองแปลกๆ ไม่สอดคล้องกัน</div></details>
+
+  <div class="apply-card" style="margin-top:24px">
+    <h3 style="margin-bottom:14px">🎯 โจทย์ประยุกต์</h3>
+    <ul>
+      <li>เลือกหุ้นที่มี EPS ปัจจุบันชัดเจน 1 ตัว ประมาณ EPS 2 ปีข้างหน้าเอง แล้วคำนวณมูลค่าเป้าหมายตามสูตรทีละขั้น</li>
+      <li>ถ้าหุ้นตัวนั้นเคยมีประวัติ M&amp;A ลองหาว่าใช้เงินสด หนี้ หรือเพิ่มทุนซื้อ — เข้าเกณฑ์ "ดี" หรือ "แย่"?</li>
+      <li>เช็คงบไตรมาสล่าสุดของหุ้นที่ถือ — กำไรที่โตมา สอดคล้องกับกระแสเงินสดจริงไหม หรือมีสัญญาณแบบเคส Beauty?</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p>Session 2 — "การประเมินมูลค่าและการเติบโตแบบมีตัวเลข" · สรุปจากคอร์ส Masterclass ลงทุนศาสตร์</p>
+  <p style="margin-top:8px;color:rgba(139,146,184,0.5);font-size:12px">ผ่านกระบวนการ Minnie → Fact-checker (raw transcript, VAD rebuild) · 2026-07-07</p>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

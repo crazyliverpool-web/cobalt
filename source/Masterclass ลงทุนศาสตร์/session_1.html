@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หุ้น 101: จากความเสี่ยงพื้นฐาน ถึงแผนที่ทั้งคอร์ส | Masterclass ลงทุนศาสตร์</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3250;
+    --accent: #6c63ff; --accent2: #00d4aa; --accent3: #ff6b6b; --accent4: #ffd93d;
+    --text: #e8eaf6; --text-muted: #8b92b8;
+    --gradient: linear-gradient(135deg, #6c63ff 0%, #00d4aa 100%);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif; font-size: 16px; line-height: 1.7; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(15,17,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  nav .logo { font-weight: 700; font-size: 15px; color: var(--accent); letter-spacing: 0.5px; white-space: nowrap; }
+  nav a { color: var(--text-muted); text-decoration: none; font-size: 12px; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .hero { padding: 100px 40px 80px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(108,99,255,0.15) 0%, transparent 70%); border-bottom: 1px solid var(--border); }
+  .hero .tag { display: inline-block; background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.4); color: #a78bfa; border-radius: 20px; padding: 4px 16px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; }
+  .hero p { color: var(--text-muted); font-size: 18px; max-width: 640px; margin: 0 auto 40px; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2rem; font-weight: 700; color: var(--accent2); }
+  .stat .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 60px 32px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; margin-top: 64px; }
+  .section-header:first-of-type { margin-top: 0; }
+  .section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: rgba(108,99,255,0.15); }
+  .section-header h2 { font-size: 22px; font-weight: 700; }
+  .section-header p { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px 30px; margin-bottom: 18px; transition: border-color 0.2s, transform 0.2s; }
+  .card:hover { border-color: rgba(108,99,255,0.4); transform: translateY(-2px); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .quote { border-left: 3px solid var(--accent); background: rgba(108,99,255,0.07); border-radius: 0 12px 12px 0; padding: 18px 24px; margin: 20px 0; font-style: italic; font-size: 16px; color: #c4b5fd; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+  .badge-purple { background: rgba(108,99,255,0.2); color: #a78bfa; }
+  .badge-teal { background: rgba(0,212,170,0.15); color: #34d399; }
+  .badge-red { background: rgba(255,107,107,0.15); color: #f87171; }
+  .badge-yellow { background: rgba(255,217,61,0.15); color: #fbbf24; }
+  .warning { background: rgba(255,217,61,0.08); border: 1px solid rgba(255,217,61,0.3); border-radius: 12px; padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; margin: 20px 0; }
+  .warning-icon { font-size: 18px; flex-shrink: 0; }
+  .warning p { font-size: 14px; color: #fde68a; }
+  .note { background: rgba(0,212,170,0.06); border: 1px solid rgba(0,212,170,0.25); border-radius: 12px; padding: 14px 18px; display: flex; gap: 12px; align-items: flex-start; margin: 16px 0; }
+  .note-icon { font-size: 16px; flex-shrink: 0; }
+  .note p { font-size: 13px; color: #6ee7c7; }
+  .cross-ref { background: rgba(108,99,255,0.06); border: 1px dashed rgba(108,99,255,0.35); border-radius: 12px; padding: 14px 18px; margin: 20px 0; }
+  .cross-ref p { font-size: 13px; color: #c4b5fd; }
+  .external { background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 14px 18px; margin: 16px 0; }
+  .external p { font-size: 13px; color: #7dd3fc; }
+  .source-footer { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+  .sector-table, .fc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .sector-table th, .fc-table th { background: var(--surface2); color: var(--text-muted); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  .sector-table td, .fc-table td { padding: 12px 14px; border-bottom: 1px solid rgba(46,50,80,0.5); vertical-align: top; }
+  .sector-table tr:last-child td, .fc-table tr:last-child td { border-bottom: none; }
+  details.recall { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; }
+  details.recall summary { cursor: pointer; font-size: 14px; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 10px; }
+  details.recall summary::-webkit-details-marker { display: none; }
+  details.recall summary::before { content: '▸'; color: var(--accent); transition: transform 0.2s; }
+  details.recall[open] summary::before { transform: rotate(90deg); }
+  details.recall .answer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
+  .apply-card { background: var(--surface); border: 1px solid rgba(255,217,61,0.3); border-radius: 14px; padding: 22px 26px; }
+  .apply-card li { margin-bottom: 10px; }
+  footer { text-align: center; padding: 48px 32px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; margin-top: 80px; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; font-size: 14px; color: var(--text-muted); }
+  li strong { color: var(--text); }
+  @media (max-width: 600px) { .hero { padding: 60px 20px 48px; } main { padding: 40px 20px; } nav { padding: 12px 16px; gap: 10px; } .hero-stats { gap: 24px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">📘 Session 1 — Day 1</span>
+  <a href="#basics">พื้นฐาน</a>
+  <a href="#macro">มหภาค</a>
+  <a href="#industry">อุตสาหกรรม</a>
+  <a href="#financials">งบการเงิน</a>
+  <a href="#growth">การเติบโต</a>
+  <a href="#valuation">มูลค่า</a>
+  <a href="#recall">ทบทวน</a>
+  <a href="synthesis.html">← ภาพรวมคอร์ส</a>
+</nav>
+
+<section class="hero">
+  <div class="tag">Session 1 · Day 1</div>
+  <h1>หุ้น 101: จากความเสี่ยงพื้นฐาน ถึงแผนที่ทั้งคอร์ส</h1>
+  <p>หุ้นเสี่ยงกว่าหนี้ยังไง เคสจริง GameStop วิธีลงทุน 4 สาย ไปจนถึงงบการเงิน การเติบโต และการประเมินมูลค่า — แผนที่ทั้งคอร์สอยู่ในนี้ (rebuild 2026-07-07 จาก transcript ที่ถอดใหม่ด้วย VAD)</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">17</div><div class="label">บทเรียน</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">สายการลงทุน</div></div>
+    <div class="stat"><div class="num">5</div><div class="label">องค์ประกอบมูลค่า</div></div>
+  </div>
+</section>
+
+<main>
+  <div class="section-header" id="basics">
+    <div class="section-icon">💡</div>
+    <div><h2>หุ้นคืออะไร แล้วเลือกวิธีลงทุนยังไง</h2><p>บทที่ 1-5</p></div>
+  </div>
+
+  <div class="card">
+    <h3>🎲 หุ้น vs หนี้ — ใครได้เงินคืนก่อนเวลาบริษัทเจ๊ง</h3>
+    <p>ให้เพื่อนยืมเงินเปิดร้าน มี 2 แบบ: <strong>ให้ยืมแบบมีสัญญา (หนี้/debt)</strong> — ดอกเบี้ยคงที่ 3-4%/ปีไม่ว่าร้านจะขายดีหรือไม่ กับ <strong>ร่วมหุ้นเป็นเจ้าของ (equity)</strong> — ร้านดีได้ปันผลเยอะ ร้านเจ๊งอาจไม่ได้อะไรเลย ผู้สอนยกตัวอย่างเจาะจงว่าถ้าบริษัทประกาศล้มละลายวันนี้ คนได้เงินคืนก่อนคือ <strong>เจ้าหนี้ → ธนาคาร → กรมสรรพากร</strong> ส่วน<strong>ผู้ถือหุ้นได้คืนเป็นคนสุดท้าย</strong> (อาจไม่ได้เลย) — นี่คือเหตุผลที่หนี้ปลอดภัยกว่าหุ้นเสมอ</p>
+    <div class="external"><p>🌐 <strong>ความรู้เสริม (WebSearch 2026-07-07):</strong> กฎหมายล้มละลายจริงมีคิวเพิ่มระหว่างเจ้าหนี้กับผู้ถือหุ้น เช่น หุ้นกู้ด้อยสิทธิ/หุ้นบุริมสิทธิ — แต่หลักใหญ่ที่ผู้สอนพูดถูกต้อง: เจ้าหนี้มาก่อนผู้ถือหุ้นสามัญเสมอ (Investopedia "Absolute Priority Rule") ผู้สอนไม่ได้ลงรายละเอียดคิวย่อยนี้ในคลาส</p></div>
+    <div class="note"><span class="note-icon">⚠️</span><p><strong>เคส MC (Mc Jeans)</strong> ยืนยันโดยผู้ใช้ 2026-07-05 จากสไลด์หน้า 7 — โชว์กราฟราคาเทียบ SET Index 5 ปี สอนว่า "มีแต่ทฤษฎีไม่พอ ต้องรู้จักตัวบริษัทจริงๆ ด้วย" ยัง verify กับ raw transcript ไม่ได้แม้ในเวอร์ชัน VAD ใหม่ (ช่วงเสียงนี้ไม่ถูกจับ) — มาจากความจำผู้ใช้ + สไลด์เท่านั้น</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 1 · สไลด์หน้า 3–4, 7</div>
+  </div>
+
+  <div class="card">
+    <h3>💹 กำไร ราคา ปันผล — ทำไม "10% ต่อปี" คือมาตรฐาน ไม่ใช่ 30%</h3>
+    <p>ราคาหุ้นวิ่งตาม <strong>กำไรที่โต</strong> และ <strong>เงินปันผล</strong> แต่ไม่ได้วิ่งตามกำไรวันนี้เป๊ะๆ — มันสะท้อน "ความคาดหวังของนักลงทุนต่ออนาคต" (ตัวอย่างที่ยกในคลาส: หุ้น <strong>คาราบาว/CBG</strong>)</p>
+    <div class="quote">"หลายคนบอกพี่ผมจะลงหุ้นปีละ 20-30% ได้ไหม ได้ครับ แต่ผมไม่รู้วิธีหรอก ผมรู้แค่ปีละ 10%"</div>
+    <p style="font-size:13px">ยิ่งคาดหวังผลตอบแทนสูงกว่าค่าเฉลี่ยตลาดมาก ยิ่งต้องมีความรู้/เทคนิคพิเศษกว่าคนทั่วไป ไม่ใช่แค่ "อยากได้"</p>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 2</div>
+  </div>
+
+  <div class="card">
+    <h3>🎮 เคสจริง — GameStop: เมื่อความรู้สึกตลาดเอาชนะตัวเลขกำไรชั่วคราว</h3>
+    <p>ผู้สอนถือหุ้น <strong>GameStop</strong> (ร้านขายเกมจริงในอเมริกา ขาย Nintendo/PlayStation) ตั้งแต่ก่อนเป็นกระแส "หุ้นในตำนาน" — ธุรกิจแย่ลงจริงเพราะยุคเกมออนไลน์มาแทน แต่ราคาถูกปั่นขึ้นแรงจากแรงหนุนนักลงทุนรายย่อย ผู้สอนเล่าประสบการณ์ตรง:</p>
+    <div class="quote">ซื้อตอนราคาประมาณ 50 เหรียญ ออกไม่ทัน กลับมาเหลือ 10 เหรียญ — ขาดทุนไป 80%</div>
+    <div class="warning"><span class="warning-icon">⚠️</span><p><strong>แก้ไขจากสรุปฉบับก่อนหน้า:</strong> เดิมเคยเขียนรวม "ได้ 30 เท่า เสีย 80%" เป็นประโยคเดียวในหัวข้อหุ้น-กับ-หนี้ ทำให้ดูเหมือนเป็นตัวอย่างเดียวกัน — grep raw transcript แล้วพบว่าเป็น 2 เคสคนละบริบท: "เสีย 80%" คือ GameStop นี้ ส่วน "30 เท่า/30 เด้ง" เป็นเคสถือหุ้นระยะยาว (ดูหัวข้อ "กลยุทธ์ระยะยาว" ด้านล่าง) — แยกให้ถูกจุดแล้ว</p></div>
+    <p style="font-size:13px"><strong>บทเรียน:</strong> "ลด Factor ความเป็นมนุษย์ออก แล้วมอง Factor ของกำไรเยอะๆ" — เวลาราคาวิ่งเพราะกระแส ให้กลับไปเช็คตัวเลขกำไรจริงเสมอ</p>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 3</div>
+  </div>
+
+  <div class="card">
+    <h3>🧭 เลือกวิธีลงทุนให้เหมาะกับ "ตัวคุณ"</h3>
+    <table class="sector-table">
+      <tr><th>วิธี</th><th>หลักคิด</th><th>เหมาะกับใคร</th></tr>
+      <tr><td><strong>Value Investing</strong></td><td>ประเมินมูลค่าแท้จริง รอราคาตกมาถึงจุดคุ้ม</td><td>ผู้สอนแนะนำเป็นหลัก คนมีเวลาศึกษาลึก</td></tr>
+      <tr><td><strong>DCA</strong></td><td>ประเมินมูลค่าไม่เป็น แต่มั่นใจอนาคตจะดี จึงทยอยซื้อ</td><td>ไม่ถนัดประเมินมูลค่า ลดความเสี่ยงจุดเข้าผิด</td></tr>
+      <tr><td><strong>Passive</strong></td><td>ยอมรับว่าเอาชนะตลาดไม่ได้ ซื้อ index ทั้งตลาด</td><td>ไม่มีเวลาศึกษาเลย</td></tr>
+      <tr><td><strong>Technical</strong></td><td>ดูกราฟ/อัตราการเปลี่ยนแปลง</td><td>ผู้สอนไม่ค่อยแนะนำ ต้องอ่าน Fundamental ประกอบเสมอ</td></tr>
+    </table>
+    <p style="margin-top:14px"><strong>หัวใจของ Value Investing คือ "ประเมินมูลค่าให้ถูกต้อง"</strong> — ทุกหัวข้อที่เหลือของคอร์ส (Macro → Valuation) จริงๆ คือฝึกทักษะนี้ทีละชิ้น</p>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 4</div>
+  </div>
+
+  <div class="card">
+    <h3>💰 สินทรัพย์ 6 ประเภท — ทำไมผู้สอนเลือกหุ้นเกือบทั้งหมด</h3>
+    <p>ตลาดเงิน, ตราสารหนี้, <strong>ตราสารทุน (หุ้น)</strong>, อนุพันธ์, สินทรัพย์อื่น, กองทุนรวม — ผู้สอนเลือกตราสารทุนเพราะคล่องตัวสูง ลงทุนง่าย ผลตอบแทนดี แต่ย้ำว่า<strong>ควรเลือกตามความรู้ที่มี</strong> — "อย่าเข้าไปลงทุนในตราสารที่ไม่เข้าใจ"</p>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 5</div>
+  </div>
+
+  <div class="section-header" id="macro">
+    <div class="section-icon" style="background:rgba(0,212,170,0.15)">🌍</div>
+    <div><h2>มหภาค: เศรษฐกิจพัฒนาเป็นขั้นๆ</h2><p>บทที่ 6</p></div>
+  </div>
+
+  <div class="card">
+    <h3>🌏 ไทยอยู่เฟสไหน วัดได้จากตัวเลขอะไร</h3>
+    <p>เศรษฐกิจของประเทศไล่ผ่านหลายเฟส จากพึ่งพาการผลิต/อุตสาหกรรม ไปสู่ <strong>เฟส Consumption</strong> (บริโภคในประเทศเป็นสัดส่วนใหญ่ของ GDP เกิน 50%) แล้วสุดท้ายไปสู่ <strong>"ส่งออกคุณค่า" (อุตสาหกรรม 4.0)</strong></p>
+    <div class="quote">"ประเทศไทยในวันนี้เราพึ่งพา Consumption เป็นหลัก... การเปลี่ยนจาก 3 เป็น 4 ไม่ง่าย เพราะทุกประเทศก็อยากทำแบบนี้เหมือนกัน"</div>
+    <p style="font-size:13px">ผู้สอนยกจีนเป็นตัวอย่างประเทศที่ยัง "Long Runway" ในเฟส Consumption ได้ไกลมาก</p>
+    <div class="warning"><span class="warning-icon">⚠️</span><p>ชื่อเฟส 1-2 แบบเป๊ะๆ ("เกษตร/อุตสาหกรรม") ยืนยันคำต่อคำไม่ได้ 100% เพราะช่วงนี้ transcript มีจุดขาดหาย — สาระหลัก (ไทยอยู่เฟส Consumption เกิน 50% ของ GDP เฟสถัดไปคือ Value Export) ตรงกับที่พูดจริง</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 6</div>
+  </div>
+
+  <div class="section-header" id="industry">
+    <div class="section-icon" style="background:rgba(255,107,107,0.15)">⚔️</div>
+    <div><h2>อุตสาหกรรม: Five Forces</h2><p>บทที่ 7</p></div>
+  </div>
+
+  <div class="card">
+    <h3>5 คำถามเช็คสมรภูมิธุรกิจ</h3>
+    <ul>
+      <li><strong>การแข่งขันในกลุ่มเดียวกัน</strong> — คู่แข่งกี่ราย แข่งราคากันไหม</li>
+      <li><strong>คู่แข่งหน้าใหม่เข้าง่ายไหม</strong> — มีกฎหมาย/ต้นทุนกันไว้ไหม</li>
+      <li><strong>อำนาจต่อรองของผู้ขายวัตถุดิบ</strong> — ถ้าสูง บริษัทต่อรองยาก (สังเกตจาก GPM ต่ำ)</li>
+      <li><strong>อำนาจต่อรองของลูกค้า</strong></li>
+      <li><strong>สินค้าทดแทน</strong> — เปลี่ยนไปใช้อย่างอื่นง่ายแค่ไหน</li>
+    </ul>
+    <div class="cross-ref"><p>🔗 structured doc ที่ generate อัตโนมัติติดป้ายหัวข้อนี้ว่า "ปัจจัยมหภาค" แต่เนื้อหาจริงคือ Five Forces ระดับอุตสาหกรรม — แก้ป้ายให้ถูกจุดแล้วในสรุปนี้</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 7</div>
+  </div>
+
+  <div class="card">
+    <h3>🏗️ พื้นฐานกิจการ: คุณภาพ vs ปริมาณ</h3>
+    <p><strong>ปริมาณ</strong> = ตัวเลขในงบ (รายได้/กำไรโตเท่าไหร่) ส่วน <strong>คุณภาพ</strong> = ธุรกิจที่ลูกค้า "รักและกลับมาซื้อซ้ำ" จริง — ต้องดู 2 อย่างประกอบกันเสมอ เครื่องมือสำรวจให้ครบคือ <strong>Business Model Canvas</strong> (Value Proposition, Customer, Channel, Key Partners, Revenue ฯลฯ)</p>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 8</div>
+  </div>
+
+  <div class="card">
+    <h3>🕵️ วิจัยแบบลงพื้นที่จริง (Scuttlebutt) — เคส Jubilee กับ After You</h3>
+    <p><strong>Jubilee</strong> (ร้านเครื่องประดับ): เดินผ่านเห็นคนต่อคิวเยอะ มีแอปทัก มีสาขาใหม่เปิดเพิ่ม "น่าจะดี" — แต่ผู้สอนเตือนว่า<strong>ต้องระวังไม่ให้แค่ "ปริมาณคนต่อคิว" หลอกตา</strong> คุณภาพต้อง cross-check กับตัวเลขในงบเสมอ ส่วน <strong>After You</strong> จุดแข็งคือ<strong>ไม่พึ่งการตลาดออนไลน์เลย</strong> — ตัวอย่างว่าแต่ละแบรนด์เลือกจุดแข็งคนละแบบได้</p>
+    <div class="grid-3">
+      <div><span class="badge badge-purple">Intangible Asset</span><p style="font-size:12px;margin-top:6px">แบรนด์/สิทธิบัตร</p></div>
+      <div><span class="badge badge-teal">Cost Advantage</span><p style="font-size:12px;margin-top:6px">ต้นทุนต่ำเชิงโครงสร้าง</p></div>
+      <div><span class="badge badge-red">Switching Cost</span><p style="font-size:12px;margin-top:6px">เปลี่ยนเจ้าอื่นลำบาก</p></div>
+      <div><span class="badge badge-yellow">Network Effect</span><p style="font-size:12px;margin-top:6px">ยิ่งคนใช้เยอะยิ่งมีค่า</p></div>
+      <div><span class="badge badge-purple">Efficient Scale</span><p style="font-size:12px;margin-top:6px">ใหญ่จนต้นทุนต่อหน่วยต่ำกว่าคู่แข่ง</p></div>
+    </div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 9</div>
+  </div>
+
+  <div class="section-header" id="financials">
+    <div class="section-icon" style="background:rgba(255,217,61,0.15)">📊</div>
+    <div><h2>งบการเงิน</h2><p>บทที่ 10</p></div>
+  </div>
+
+  <div class="card">
+    <table class="sector-table">
+      <tr><th>งบ</th><th>บอกอะไร</th></tr>
+      <tr><td>งบแสดงฐานะการเงิน (Balance Sheet)</td><td>สินทรัพย์ = หนี้สิน + ส่วนของผู้ถือหุ้น</td></tr>
+      <tr><td>งบกำไรขาดทุน (P&amp;L)</td><td>ทำเงินได้เท่าไหร่ใน 1 ปี</td></tr>
+      <tr><td>งบกระแสเงินสด (Cash Flow)</td><td>เงินสดไหลเข้า-ออกจริงจากไหน</td></tr>
+      <tr><td>งบเปลี่ยนแปลงส่วนของเจ้าของ</td><td>ทุนผู้ถือหุ้นเปลี่ยนไปยังไง</td></tr>
+    </table>
+    <p style="margin-top:14px"><strong>จุดเพ่งพิเศษ:</strong> ผู้สอบบัญชี (Auditor) ให้ความเห็นแบบไหน — Clean (ปกติ) / Qualified / Adverse / Disclaimer (มีปัญหา) และดู Quality of Profit ว่ากำไรเป็นเงินสดจริงแค่ไหน</p>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 10</div>
+  </div>
+
+  <div class="section-header" id="growth">
+    <div class="section-icon" style="background:rgba(108,99,255,0.15)">📈</div>
+    <div><h2>การเติบโต 7 วิธี + เช็คคุณภาพ</h2><p>บทที่ 11-12</p></div>
+  </div>
+
+  <div class="card">
+    <h3>7 วิธีที่กำไรจะโตได้</h3>
+    <ul>
+      <li>ขึ้นราคา/ปริมาณขาย</li>
+      <li>สินค้าใหม่ + ตลาดใหม่</li>
+      <li>ขยายไปธุรกิจใหม่</li>
+      <li><strong>Merger/Acquisition</strong> — ต้องเทียบ ROI (ผลตอบแทนจากธุรกิจที่ซื้อ) กับ CoC (ต้นทุนเงินทุน) ROI &gt; CoC ถึงคุ้ม</li>
+      <li><strong>ลดต้นทุนขาย (DM/DL/OH)</strong> — ผู้สอนบอกว่าผลกระทบต่อกำไรมาจากข้อนี้มากที่สุดสำหรับหลายธุรกิจ</li>
+      <li>ลดค่าใช้จ่ายอื่น (SG&amp;A/ดอกเบี้ย)</li>
+      <li>กิจกรรมทางการเงิน เช่น ซื้อหุ้นคืน (EPS ดูดีขึ้นแต่ไม่ใช่ธุรกิจโตจริง)</li>
+    </ul>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 11</div>
+  </div>
+
+  <div class="card">
+    <h3>🔍 เช็คคุณภาพการเติบโต</h3>
+    <p>โต 7 วิธีไม่ได้แปลว่า "โตดี" เสมอ ต้องเช็คต่อ: ตลาดรวมยังโตอยู่ไหม (<strong>Market Growth</strong> — 5-10% ถือปกติ), แย่งส่วนแบ่งตลาดเพิ่มได้ไหม (<strong>Market Share</strong>), มี Moat ป้องกันคู่แข่งไหม, การเติบโตนี้ยั่งยืนไหม, และตัวเลขที่โชว์เป็นเงินสดจริงหรือแค่บัญชี (<strong>Quality of Number</strong>)</p>
+    <div class="external"><p>🌐 <strong>ความรู้เสริม (WebSearch 2026-07-07):</strong> สรุปฉบับก่อนหน้าเคยตั้งชื่อกรอบนี้ว่า "2M2S2Q" — ตรวจกับ raw transcript แล้วพบว่าเป็นชื่อที่คนสรุป (AI) ตั้งขึ้นเองเพื่อช่วยจำ ไม่ใช่คำที่ผู้สอนพูดในคลาส เนื้อหาแต่ละข้อเป็นของจริง แต่ชื่อย่อไม่ใช่ศัพท์ทางการ</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 12</div>
+  </div>
+
+  <div class="section-header" id="valuation">
+    <div class="section-icon" style="background:rgba(0,212,170,0.15)">🧮</div>
+    <div><h2>การประเมินมูลค่า: 5 องค์ประกอบ</h2><p>บทที่ 13</p></div>
+  </div>
+
+  <div class="card">
+    <ol>
+      <li><strong>Indicator</strong> — วัดจากอะไร (กำไรนิยมสุด เพราะสะดวก/เทียบง่าย)</li>
+      <li><strong>Assumption</strong> — สมมติฐานอนาคต (กำไรโตกี่%)</li>
+      <li><strong>Model</strong> — เช่น PE, Dividend Discount, DCF, Price/Book — <strong>PE นิยมสุด</strong></li>
+      <li><strong>Expected Return</strong> — คิดลดมูลค่าอนาคตกลับมาปัจจุบัน (PV)</li>
+      <li><strong>Margin of Safety</strong> — ยิ่งสมมติฐานไม่แน่นอนสูง ยิ่งต้องเผื่อมาก (ระดับ 20-40% แต่ไม่ตายตัว)</li>
+    </ol>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 13</div>
+  </div>
+
+  <div class="card">
+    <h3>🧠 จัดพอร์ต + จิตวิทยา</h3>
+    <p>กระจาย <strong>หุ้น → อุตสาหกรรม → ตลาดหุ้น → สินทรัพย์</strong> และระวัง 4 กับดักจิตวิทยา: <strong>Overconfidence</strong> · <strong>Sunk Cost Fallacy</strong> · <strong>Confirmation Bias</strong> · <strong>Cognitive Dissonance</strong></p>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 14</div>
+  </div>
+
+  <div class="card">
+    <h3>🛣️ กลยุทธ์ระยะยาว: ทำไมไม่ชอบหุ้น "Runway สั้น"</h3>
+    <div class="quote">"ผมเป็นคนที่ไม่ค่อยลงทุนในหุ้นที่มี runway สั้นๆ... ผลตอบแทนมหาศาลของผมมาจากการถือยาวๆ ไม่ใช่ซื้อวันนี้ขายปีหน้า"</div>
+    <p>ผู้สอนยกตัวอย่างผลตอบแทนของตัวเอง: <strong>"หุ้น 30 เด้ง, 5 เด้ง, 10 เด้ง, 7 เด้ง, 8 เด้ง, 5 เด้ง"</strong> — ย้ำว่ามาจากการถือยาวๆ ที่มี Runway ยาว (5-10 ปี) ไม่ใช่เทรดสลับบ่อยๆ</p>
+    <div class="note"><span class="note-icon">🔗</span><p>นี่คือที่มาจริงของตัวเลข "30 เท่า" ที่แยกออกจากเคส GameStop (เสีย 80%) ด้านบนอย่างชัดเจน — คนละบริบทกัน</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_1.txt (Day 1) · structured บทที่ 15</div>
+  </div>
+
+  <div class="card">
+    <h3>📎 ภาคผนวก: แผนที่หุ้นไทย/ต่างประเทศ (จากสไลด์ล้วนๆ)</h3>
+    <table class="sector-table">
+      <tr><th>หมวด (ไทย)</th><th>ตัวอย่างหุ้น</th><th>หมวด (เทศ)</th><th>ตัวอย่างหุ้น</th></tr>
+      <tr><td>AGRI</td><td>CPF, NER, XO, CBG, M</td><td>FOOD</td><td>PEP, KO, YUM, MCD</td></tr>
+      <tr><td>CONSUMP</td><td>MC, TNR, MEGA, KISS</td><td>FASHION</td><td>LVMH, NKE, EL</td></tr>
+      <tr><td>FINCIAL</td><td>KBANK, KTC, BKIH</td><td>FINCIAL</td><td>BRK, V, MA</td></tr>
+      <tr><td>INDUS</td><td>SAT, IVL, STP</td><td>PHARMA</td><td>LLY, NVO, JNJ</td></tr>
+      <tr><td>PROPCON</td><td>SCC, PSH, PYLON</td><td>INDUS</td><td>TSLA, ASML</td></tr>
+      <tr><td>RESOURC</td><td>PTT, BCP, BGRIM</td><td>SERVICE</td><td>AMZN, WMT, MAR, UBER</td></tr>
+      <tr><td>SERVICE</td><td>CPALL, BH, BEC, AOT</td><td>TECH</td><td>NVDA, AAPL, MSFT, META</td></tr>
+      <tr><td>TECH</td><td>DELTA, ADVANC</td><td></td><td></td></tr>
+    </table>
+    <div class="source-footer">📎 ที่มา: สไลด์ 0 Stock MasterClass.pdf หน้า 151-195 · ไม่มีคำบรรยายในคลาส ตรวจสอบกับเสียงไม่ได้เพราะเป็นลิสต์ text-only</div>
+  </div>
+
+  <div class="section-header" id="recall">
+    <div class="section-icon" style="background:rgba(255,107,107,0.15)">🧠</div>
+    <div><h2>Active Recall</h2><p>ถามตัวเองก่อนไปต่อ</p></div>
+  </div>
+
+  <details class="recall"><summary>ทำไมหุ้นถึงเสี่ยงกว่าหนี้ ในแง่ "ใครได้เงินคืนก่อน"?</summary><div class="answer">เจ้าหนี้/ธนาคาร/สรรพากรได้คืนก่อนเสมอ ผู้ถือหุ้นได้คืนเป็นคนสุดท้าย (อาจไม่ได้เลย)</div></details>
+  <details class="recall"><summary>ถ้ามีคนบอกจะทำผลตอบแทน 20-30%/ปี ผู้สอนตอบว่ายังไง?</summary><div class="answer">"ได้ครับ แต่ผมไม่รู้วิธีหรอก ผมรู้แค่ปีละ 10%" — ยิ่งคาดหวังสูงกว่าค่าเฉลี่ยตลาด ยิ่งต้องมีความรู้พิเศษ</div></details>
+  <details class="recall"><summary>เคส GameStop สอนอะไรเรื่องราคาหุ้นกับกำไรจริง?</summary><div class="answer">ราคาถูกปั่นด้วยแรงหนุนรายย่อยได้ทั้งที่กำไรจริงไม่ได้ดีขึ้น — ต้องลด Factor ความเป็นมนุษย์ มองที่กำไรจริง</div></details>
+  <details class="recall"><summary>ทำไม DCA เหมาะกับคน "ประเมินมูลค่าไม่เป็น" มากกว่า Value Investing?</summary><div class="answer">DCA ไม่ต้องเดาจุดต่ำสุด แค่มั่นใจว่าอนาคตหุ้นนี้จะดี ต่างจาก Value ที่ต้องคำนวณมูลค่าแท้จริงก่อน</div></details>
+  <details class="recall"><summary>ไทยอยู่เฟสเศรษฐกิจไหน วัดจากตัวเลขอะไร?</summary><div class="answer">เฟส Consumption — ดูสัดส่วนการบริโภคในประเทศต่อ GDP (เกิน 50%)</div></details>
+  <details class="recall"><summary>คู่แข่งน้อยราย ทำไมไปได้ทั้งดีและแย่ต่อกำไร?</summary><div class="answer">อาจฮั้วราคากัน (ดี) หรือแข่งกันหนักเพราะรู้ว่าใครแพ้ชนะมีผลมาก (แย่)</div></details>
+  <details class="recall"><summary>ทำไมเคส Jubilee สอนว่า "คนต่อคิวเยอะ" อย่างเดียวไม่พอ?</summary><div class="answer">ปริมาณ (คนต่อคิว) ต้อง cross-check กับคุณภาพ (ตัวเลขในงบ) เสมอ อาจดูดีแต่กำไรจริงไม่ตาม</div></details>
+  <details class="recall"><summary>ทำไมซื้อหุ้นคืนไม่ใช่การเติบโตจริง?</summary><div class="answer">EPS ดูดีขึ้นเพราะจำนวนหุ้นลด ไม่ใช่เพราะกำไรจริงของธุรกิจเพิ่ม</div></details>
+  <details class="recall"><summary>Margin of Safety ควรสูงหรือต่ำถ้าไม่มั่นใจสมมติฐาน?</summary><div class="answer">ควรสูง — ยิ่งไม่แน่นอน ยิ่งต้องเผื่อส่วนลดปกป้องตัวเองมาก</div></details>
+  <details class="recall"><summary>ทำไมผลตอบแทนมหาศาลของผู้สอนมาจาก "ถือยาว" ไม่ใช่ "เทรดบ่อย"?</summary><div class="answer">หุ้น 30/10/8/7/5 เด้งมาจากถือ Runway ยาว 5-10 ปี ไม่ใช่ซื้อวันนี้ขายปีหน้า</div></details>
+
+  <div class="apply-card" style="margin-top:24px">
+    <h3 style="margin-bottom:14px">🎯 โจทย์ประยุกต์</h3>
+    <ul>
+      <li>เลือกหุ้น 1 ตัวที่ถือ/ติดตาม ทำ Five Forces ให้มัน — คู่แข่งกี่ราย อำนาจต่อรองอยู่ฝั่งไหน?</li>
+      <li>เปิดงบล่าสุด เช็คว่า Auditor ให้ความเห็นแบบไหน (Clean/Qualified/Adverse/Disclaimer)?</li>
+      <li>ประเมินว่าหุ้นนั้นโตด้วยวิธีไหนใน 7 วิธี แล้ว Market Growth/Share ของมันยังโตอยู่ไหม?</li>
+      <li>ถามตัวเองแบบผู้สอน: หุ้นตัวนี้มี Runway ยาว 5-10 ปีไหม หรือปีหน้าดีแต่หลังจากนั้นไม่รู้เลย?</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p>Session 1 — "หุ้น 101: จากความเสี่ยงพื้นฐาน ถึงแผนที่ทั้งคอร์ส" · สรุปจากคอร์ส Masterclass ลงทุนศาสตร์</p>
+  <p style="margin-top:8px;color:rgba(139,146,184,0.5);font-size:12px">ผ่านกระบวนการ Minnie → Fact-checker (raw transcript, VAD rebuild) · 2026-07-07</p>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

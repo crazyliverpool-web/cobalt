@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masterclass ลงทุนศาสตร์ — ภาพรวมคอร์ส</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3250;
+    --accent: #ffd93d; --accent2: #6c63ff; --accent3: #00d4aa; --accent4: #ff6b6b;
+    --text: #e8eaf6; --text-muted: #8b92b8;
+    --gradient: linear-gradient(135deg, #ffd93d 0%, #6c63ff 100%);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif; font-size: 16px; line-height: 1.7; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(15,17,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  nav .logo { font-weight: 700; font-size: 15px; color: var(--accent); letter-spacing: 0.5px; white-space: nowrap; }
+  nav a { color: var(--text-muted); text-decoration: none; font-size: 12px; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .hero { padding: 100px 40px 80px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(255,217,61,0.15) 0%, transparent 70%); border-bottom: 1px solid var(--border); }
+  .hero .tag { display: inline-block; background: rgba(255,217,61,0.15); border: 1px solid rgba(255,217,61,0.4); color: #fbbf24; border-radius: 20px; padding: 4px 16px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; }
+  .hero p { color: var(--text-muted); font-size: 18px; max-width: 640px; margin: 0 auto 40px; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2rem; font-weight: 700; color: var(--accent2); }
+  .stat .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 60px 32px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; margin-top: 64px; }
+  .section-header:first-of-type { margin-top: 0; }
+  .section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: rgba(255,217,61,0.15); }
+  .section-header h2 { font-size: 22px; font-weight: 700; }
+  .section-header p { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px 30px; margin-bottom: 18px; transition: border-color 0.2s, transform 0.2s; }
+  .card:hover { border-color: rgba(255,217,61,0.4); transform: translateY(-2px); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .session-link { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px 30px; text-decoration: none; color: var(--text); transition: border-color 0.2s, transform 0.2s; }
+  .session-link:hover { border-color: rgba(255,217,61,0.5); transform: translateY(-3px); }
+  .session-link .snum { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .session-link h3 { font-size: 17px; margin-bottom: 8px; }
+  .session-link p { font-size: 13px; color: var(--text-muted); }
+  .quote { border-left: 3px solid var(--accent); background: rgba(255,217,61,0.07); border-radius: 0 12px 12px 0; padding: 18px 24px; margin: 20px 0; font-style: italic; font-size: 16px; color: #fde68a; }
+  .warning { background: rgba(255,217,61,0.08); border: 1px solid rgba(255,217,61,0.3); border-radius: 12px; padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; margin: 20px 0; }
+  .warning-icon { font-size: 18px; flex-shrink: 0; }
+  .warning p { font-size: 14px; color: #fde68a; }
+  .note { background: rgba(0,212,170,0.06); border: 1px solid rgba(0,212,170,0.25); border-radius: 12px; padding: 14px 18px; display: flex; gap: 12px; align-items: flex-start; margin: 16px 0; }
+  .note-icon { font-size: 16px; flex-shrink: 0; }
+  .note p { font-size: 13px; color: #6ee7c7; }
+  .source-footer { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+  .sector-table, .fc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .sector-table th, .fc-table th { background: var(--surface2); color: var(--text-muted); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  .sector-table td, .fc-table td { padding: 12px 14px; border-bottom: 1px solid rgba(46,50,80,0.5); vertical-align: top; }
+  .sector-table tr:last-child td, .fc-table tr:last-child td { border-bottom: none; }
+  details.recall { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; }
+  details.recall summary { cursor: pointer; font-size: 14px; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 10px; }
+  details.recall summary::-webkit-details-marker { display: none; }
+  details.recall summary::before { content: '▸'; color: var(--accent); transition: transform 0.2s; }
+  details.recall[open] summary::before { transform: rotate(90deg); }
+  details.recall .answer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
+  details.recall .tag { display: inline-block; font-size: 10px; color: var(--accent); border: 1px solid rgba(255,217,61,0.35); border-radius: 10px; padding: 1px 8px; margin-left: 8px; }
+  footer { text-align: center; padding: 48px 32px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; margin-top: 80px; }
+  ul, ol { padding-left: 20px; }
+  li { margin-bottom: 6px; font-size: 14px; color: var(--text-muted); }
+  li strong { color: var(--text); }
+  @media (max-width: 600px) { .hero { padding: 60px 20px 48px; } main { padding: 40px 20px; } nav { padding: 12px 16px; gap: 10px; } .hero-stats { gap: 24px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">🎓 Masterclass ลงทุนศาสตร์</span>
+  <a href="#sessions">Sessions</a>
+  <a href="#frameworks">4 กรอบหลัก</a>
+  <a href="#tickers">Ticker Table</a>
+  <a href="#factcheck">Fact-Check Log</a>
+  <a href="#recall">Active Recall ทั้งคอร์ส</a>
+</nav>
+
+<section class="hero">
+  <div class="tag">ภาพรวมคอร์ส · rebuild 2026-07-07</div>
+  <h1>Masterclass ลงทุนศาสตร์</h1>
+  <p>คอร์สหุ้น 101 ครบวงจร — จากหุ้นคืออะไร ไปจนถึงการประเมินมูลค่าและวิเคราะห์การเติบโตแบบมีตัวเลข ผ่านกระบวนการ Minnie → Fact-checker ที่ grep ทุกชื่อเฉพาะ/ตัวเลขกับ raw transcript โดยตรง</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">3</div><div class="label">Sessions</div></div>
+    <div class="stat"><div class="num">35</div><div class="label">บทเรียนรวม</div></div>
+    <div class="stat"><div class="num">15+</div><div class="label">เคสหุ้นจริงที่ verify แล้ว</div></div>
+  </div>
+</section>
+
+<main>
+  <div class="section-header" id="sessions">
+    <div class="section-icon">📚</div>
+    <div><h2>3 Sessions ของคอร์ส</h2><p>คลิกเข้าไปดูรายละเอียดแต่ละวัน</p></div>
+  </div>
+
+  <div class="grid-3">
+    <a class="session-link" href="session_1.html" style="border-left:3px solid #6c63ff">
+      <div class="snum" style="color:#a78bfa">Session 1 · Day 1</div>
+      <h3>หุ้น 101: จากความเสี่ยงพื้นฐาน ถึงแผนที่ทั้งคอร์ส</h3>
+      <p>หุ้น vs หนี้ · เคส GameStop · 4 สายการลงทุน · PESTEL · Five Forces · งบการเงิน · การเติบโต 7 วิธี · มูลค่า 5 องค์ประกอบ (17 บท)</p>
+    </a>
+    <a class="session-link" href="session_2.html" style="border-left:3px solid #00d4aa">
+      <div class="snum" style="color:#34d399">Session 2 · Day 2</div>
+      <h3>การประเมินมูลค่าและการเติบโตแบบมีตัวเลข</h3>
+      <p>ตัวอย่างคำนวณมูลค่าเต็มรูปแบบ (200→165.28→115.70 บาท) · สูตร Expected Return · PYLON vs SEAFCO · เคส Beauty (10 บท)</p>
+    </a>
+    <a class="session-link" href="session_3.html" style="border-left:3px solid #ff6b6b">
+      <div class="snum" style="color:#f87171">Session 3 · Rachathewi</div>
+      <h3>การเติบโต ภาคเจาะเคสจริง</h3>
+      <p>ASAP, Jubilee, STGT, BYD · Economy of Scale · Growth Runway ข้ามประเทศด้วย GDP ต่อหัว (8 บท)</p>
+    </a>
+  </div>
+
+  <div class="section-header" id="frameworks">
+    <div class="section-icon" style="background:rgba(108,99,255,0.15)">🧭</div>
+    <div><h2>ถ้าจำอะไรไม่ได้เลย ให้จำ 4 กรอบนี้</h2><p>ปรากฏซ้ำทั้ง 3 sessions</p></div>
+  </div>
+
+  <div class="card">
+    <h3>1️⃣ 10 ปัจจัยก่อนซื้อหุ้นทุกตัว (Session 1)</h3>
+    <p style="font-size:14px">Macro → Industry → Fundamentals → Financial Statements → Management → Growth → Valuation → Strategy → Portfolio → Psychology</p>
+  </div>
+
+  <div class="card">
+    <h3>2️⃣ เช็คคุณภาพการเติบโต 6 ข้อ (Session 1 แนะนำ → 2 สอนเต็ม → 3 เจาะเคส)</h3>
+    <p style="font-size:14px">เรียงความสำคัญ: <strong>Market Growth → Market Share</strong> → มาจากธุรกิจหลักจริงไหม → ยั่งยืนแค่ไหน → <strong>Quality of Number</strong> → Questionable</p>
+    <div class="warning"><span class="warning-icon">⚠️</span><p>ชื่อย่อ <strong>"2M2S2Q"</strong> เป็นป้ายที่คนสรุป (AI) ตั้งขึ้นเพื่อช่วยจำเท่านั้น — grep ทั้ง 3 transcripts แล้วไม่พบผู้สอนพูดคำนี้เลย พูดจริงแค่ "Market Growth" กับ "Market Share"</p></div>
+  </div>
+
+  <div class="card">
+    <h3>3️⃣ 5 องค์ประกอบการประเมินมูลค่า (Session 1 แนะนำ → 2 สอนเต็ม+ตัวอย่างคำนวณ → 3 สูตร Expected Return)</h3>
+    <p style="font-size:14px">Indicator → Assumption → Model → Expected Return → Margin of Safety</p>
+  </div>
+
+  <div class="card">
+    <h3>4️⃣ M&amp;A: ROI vs CoC (Session 1 แนะนำ → 2 เรียงลำดับวิธีหาเงิน → 3 ยืนยันตัวเลข 12-15%)</h3>
+    <p style="font-size:14px">ธุรกิจที่ซื้อกิจการอื่นมา ต้องดูว่าผลตอบแทนที่ได้ (ROI) มากกว่าต้นทุนเงินที่ใช้ซื้อ (CoC) ไหม — เพิ่มทุนแพงสุด (12-15%) เงินสดถูกสุด</p>
+  </div>
+
+  <div class="section-header" id="tickers">
+    <div class="section-icon" style="background:rgba(0,212,170,0.15)">📌</div>
+    <div><h2>Master Ticker Table</h2><p>ทุกเคสหุ้นที่ grep ยืนยันจริงกับ raw transcript</p></div>
+  </div>
+
+  <div class="card">
+    <table class="fc-table">
+      <tr><th>หุ้น/บริษัท</th><th>สอนเรื่องอะไร</th><th>Session</th></tr>
+      <tr><td>GameStop</td><td>ราคาถูกปั่นด้วยแรงหนุนรายย่อยทั้งที่กำไรไม่ดีขึ้น — เสีย 80% จากประสบการณ์ตรง</td><td>1</td></tr>
+      <tr><td>Nvidia</td><td>ราคาร่วงจากสงครามภาษีการค้า ≠ ธุรกิจพัง</td><td>1</td></tr>
+      <tr><td>AOT</td><td>Cost Advantage จากที่ดินราชพัสดุราคาถูก</td><td>1</td></tr>
+      <tr><td>Visa / Mastercard</td><td>Gross Margin ~90%+ จากอำนาจต่อรอง</td><td>1</td></tr>
+      <tr><td>Jubilee</td><td>Scuttlebutt (1) + มวยรอง ส่วนแบ่งจริง 5-10% เหลือให้โตอีกเยอะ (3)</td><td>1, 3</td></tr>
+      <tr><td>After You</td><td>จุดแข็ง = ไม่พึ่งการตลาดออนไลน์เลย</td><td>1</td></tr>
+      <tr><td>CBG (คาราบาว)</td><td>ราคาหุ้นสะท้อนความคาดหวัง ไม่ใช่แค่ตัวเลขวันนี้</td><td>1</td></tr>
+      <tr><td>PYLON / SEAFCO</td><td>สไตล์ผู้บริหาร Aggressive vs Conservative</td><td>2</td></tr>
+      <tr><td>Beauty</td><td>Questionable ตัวจริง — คำพูดผู้บริหารไม่ตรงยอดขาย + กำไร/กระแสเงินสดไม่สอดคล้อง</td><td>2, 3</td></tr>
+      <tr><td>BYD</td><td>Market Growth แข็งแรง แต่ Sustainability ต้องติดตามต่อ</td><td>2, 3</td></tr>
+      <tr><td>ASAP</td><td>ได้ประโยชน์ภาษี ~100 ล้านบาท → กำไรกระโดด (ไม่ใช่ Specialty แท้)</td><td>3</td></tr>
+      <tr><td>STGT</td><td>Sustainability ต่ำ — ดีมานด์ COVID ชั่วคราว 1-2 ปี</td><td>3</td></tr>
+      <tr><td>CP All / Central Pattana</td><td>มวยหลัก หวังแค่ Market Share ไม่ลด</td><td>3</td></tr>
+      <tr><td>Zillow Hospital (อินโดนีเซีย)</td><td>เทียบ Growth Runway ข้ามประเทศด้วย GDP ต่อหัว</td><td>3</td></tr>
+      <tr><td>MC (Mc Jeans)</td><td>"ทฤษฎีไม่พอ ต้องรู้จักบริษัทจริง" ⚠️ ยืนยันจากผู้ใช้+สไลด์เท่านั้น</td><td>1</td></tr>
+    </table>
+  </div>
+
+  <div class="section-header" id="factcheck">
+    <div class="section-icon" style="background:rgba(255,107,107,0.15)">🔍</div>
+    <div><h2>Fact-Check Log — สิ่งที่แก้ไข/ตัดออกในการ rebuild นี้</h2><p>2026-07-07</p></div>
+  </div>
+
+  <div class="card">
+    <table class="fc-table">
+      <tr><th>Session</th><th>จุดที่พบ</th><th>วิธีจัดการ</th></tr>
+      <tr><td>1</td><td>"ได้ 30 เท่า เสีย 80%" รวมเป็นประโยคเดียว</td><td>แยกให้ถูกจุด: 80% = GameStop, 30 เท่า = ถือหุ้นระยะยาว</td></tr>
+      <tr><td>1</td><td>หัวข้อติดป้าย "มหภาค" ผิด</td><td>เนื้อหาจริงคือ Five Forces ระดับอุตสาหกรรม แก้ป้ายแล้ว</td></tr>
+      <tr><td>1</td><td>ชื่อเฟสเศรษฐกิจ 1-2 แบบเป๊ะๆ</td><td>เก็บสาระที่ verify ได้ ระบุ ⚠️ สำหรับชื่อเฟสต้นๆ</td></tr>
+      <tr><td>1, 2, 3</td><td>ชื่อกรอบ "2M2S2Q"</td><td>grep ไม่พบผู้สอนพูดคำนี้เลย — ใส่ caveat ทุกจุด</td></tr>
+      <tr><td>2</td><td>เคส Beauty — ราคาซื้อ-ขายที่เคยระบุ</td><td>ตัวเลขราคา verify เป๊ะๆ ไม่ได้อีกครั้ง — ตัดออก เก็บสาระ Red Flag</td></tr>
+      <tr><td>2</td><td>Q&amp;A เดิม: MWG, โรงพยาบาล Break Even 8 ปี</td><td>grep เทปใหม่ไม่พบบริบทชัดเจน — ตัดออก</td></tr>
+      <tr><td>3</td><td>เคสเดิม: CBG ฟุตบอล, KTC, AWC, BDMS/RevPAR</td><td>transcript ใหม่สั้นกว่าเดิมมาก ไม่พบบริบท — ตัดออกทั้งหมด แทนที่ด้วย Zillow Hospital + GDP ต่อหัว</td></tr>
+      <tr><td>1</td><td>เคส MC (Mc Jeans)</td><td>ยังคง ⚠️ ยืนยันจากผู้ใช้+สไลด์เท่านั้น เหมือนเดิม</td></tr>
+    </table>
+    <div class="note"><span class="note-icon">💡</span><p><strong>บทเรียน:</strong> grep ต่อ raw transcript โดยตรงเชื่อถือได้มากกว่าเนื้อหาที่มาจาก NotebookLM follow-up queries รอบก่อน (ซึ่งอาจดึงข้ามจากคนละ session โดยไม่รู้ตัว) — โดยเฉพาะหัวข้อที่สอนซ้ำหลายรอบในคอร์สเดียวกัน</p></div>
+  </div>
+
+  <div class="section-header" id="recall">
+    <div class="section-icon" style="background:rgba(255,217,61,0.15)">🧠</div>
+    <div><h2>Active Recall — ทั้งคอร์ส</h2><p>รวมคำถามจากทั้ง 3 sessions</p></div>
+  </div>
+
+  <details class="recall"><summary>ทำไมหุ้นถึงเสี่ยงกว่าหนี้ ในแง่ "ใครได้เงินคืนก่อน"?<span class="tag">S1</span></summary><div class="answer">เจ้าหนี้/ธนาคาร/สรรพากรได้คืนก่อนเสมอ ผู้ถือหุ้นได้คืนเป็นคนสุดท้าย</div></details>
+  <details class="recall"><summary>เคส GameStop สอนอะไรเรื่องราคาหุ้นกับกำไรจริง?<span class="tag">S1</span></summary><div class="answer">ราคาถูกปั่นด้วยแรงหนุนรายย่อยได้ทั้งที่กำไรจริงไม่ได้ดีขึ้น — ต้องมองที่กำไรจริงเสมอ</div></details>
+  <details class="recall"><summary>ไทยอยู่เฟสเศรษฐกิจไหน วัดจากตัวเลขอะไร?<span class="tag">S1</span></summary><div class="answer">เฟส Consumption — ดูสัดส่วนการบริโภคในประเทศต่อ GDP (เกิน 50%)</div></details>
+  <details class="recall"><summary>ทำไม Quality of Number อยู่อันดับท้ายๆ ไม่ใช่อันดับ 1?<span class="tag">S1, S2, S3</span></summary><div class="answer">ตัวเลขสวยเป็นผลลัพธ์ปลายทาง ถ้า Market Growth/Share ไม่ดี ธุรกิจก็ไปไม่รอดอยู่ดี</div></details>
+  <details class="recall"><summary>ลองคำนวณ — ถ้า MOS เปลี่ยนจาก 30% เป็น 40% ราคาที่ควรซื้อจะเปลี่ยนเป็นเท่าไหร่?<span class="tag">S2</span></summary><div class="answer">165.28 × (1-0.4) = 99.17 บาท (จากเดิม 115.70 บาทที่ MOS 30%)</div></details>
+  <details class="recall"><summary>PYLON กับ SEAFCO ทำธุรกิจเดียวกัน แต่สไตล์ต่างกันยังไง?<span class="tag">S2</span></summary><div class="answer">PYLON = Aggressive เน้นเอกชน กำไรมากหน่อย · SEAFCO = Conservative เน้นภาครัฐ กำไรน้อยแต่งบนิ่งกว่า</div></details>
+  <details class="recall"><summary>เคส Beauty มี Red Flag กี่จุด อะไรบ้าง?<span class="tag">S2, S3</span></summary><div class="answer">2 จุด: (1) คำพูดผู้บริหารไม่ตรงยอดขายจริง (2) กำไรโตแต่กระแสเงินสดมีสำรองแปลกๆ ไม่สอดคล้องกัน</div></details>
+  <details class="recall"><summary>CP All กับ Jubilee ต้องดู Market Share คนละมุมกันยังไง?<span class="tag">S3</span></summary><div class="answer">CP All (มวยหลัก) หวังแค่ไม่ลด — Jubilee (มวยรอง) มีที่ให้โตอีกเยอะเพราะส่วนแบ่งจริงแค่ 5-10%</div></details>
+  <details class="recall"><summary>STGT กับ BYD ต่างกันยังไงในแง่ Sustainability?<span class="tag">S3</span></summary><div class="answer">STGT ดีมานด์ชั่วคราวจาก COVID (1-2 ปี) ส่วน BYD ตลาดดีจริงวันนี้แต่ต้องติดตามการแข่งขัน/นโยบายรัฐต่อเนื่อง</div></details>
+  <details class="recall"><summary>วิธีเทียบ Growth Runway ข้ามประเทศด้วย GDP ต่อหัวทำงานยังไง?<span class="tag">S3</span></summary><div class="answer">มองประเทศพัฒนาแล้วเป็นจุดหมายปลายทาง แล้วดูว่าประเทศที่สนใจยังมีรายได้ต่อหัวห่างจากจุดนั้นแค่ไหน</div></details>
+
+</main>
+
+<footer>
+  <p>Masterclass ลงทุนศาสตร์ — สรุปครบ 3 Sessions + Synthesis</p>
+  <p style="margin-top:8px;color:rgba(139,146,184,0.5);font-size:12px">ผ่านกระบวนการ Minnie → Fact-checker (raw transcript, VAD rebuild) · 2026-07-07</p>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

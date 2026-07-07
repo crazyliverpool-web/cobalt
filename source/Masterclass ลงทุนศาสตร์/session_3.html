@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>การเติบโต ภาคเจาะเคสจริง | Masterclass ลงทุนศาสตร์</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a; --border: #2e3250;
+    --accent: #ff6b6b; --accent2: #ffd93d; --accent3: #6c63ff; --accent4: #00d4aa;
+    --text: #e8eaf6; --text-muted: #8b92b8;
+    --gradient: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif; font-size: 16px; line-height: 1.7; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(15,17,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  nav .logo { font-weight: 700; font-size: 15px; color: var(--accent); letter-spacing: 0.5px; white-space: nowrap; }
+  nav a { color: var(--text-muted); text-decoration: none; font-size: 12px; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--text); }
+  .hero { padding: 100px 40px 80px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(255,107,107,0.15) 0%, transparent 70%); border-bottom: 1px solid var(--border); }
+  .hero .tag { display: inline-block; background: rgba(255,107,107,0.15); border: 1px solid rgba(255,107,107,0.4); color: #f87171; border-radius: 20px; padding: 4px 16px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.2; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; }
+  .hero p { color: var(--text-muted); font-size: 18px; max-width: 640px; margin: 0 auto 40px; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2rem; font-weight: 700; color: var(--accent2); }
+  .stat .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 60px 32px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; margin-top: 64px; }
+  .section-header:first-of-type { margin-top: 0; }
+  .section-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: rgba(255,107,107,0.15); }
+  .section-header h2 { font-size: 22px; font-weight: 700; }
+  .section-header p { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px 30px; margin-bottom: 18px; transition: border-color 0.2s, transform 0.2s; }
+  .card:hover { border-color: rgba(255,107,107,0.4); transform: translateY(-2px); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .quote { border-left: 3px solid var(--accent); background: rgba(255,107,107,0.07); border-radius: 0 12px 12px 0; padding: 18px 24px; margin: 20px 0; font-style: italic; font-size: 16px; color: #fca5a5; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+  .badge-purple { background: rgba(108,99,255,0.2); color: #a78bfa; }
+  .badge-teal { background: rgba(0,212,170,0.15); color: #34d399; }
+  .badge-red { background: rgba(255,107,107,0.15); color: #f87171; }
+  .badge-yellow { background: rgba(255,217,61,0.15); color: #fbbf24; }
+  .warning { background: rgba(255,217,61,0.08); border: 1px solid rgba(255,217,61,0.3); border-radius: 12px; padding: 16px 20px; display: flex; gap: 12px; align-items: flex-start; margin: 20px 0; }
+  .warning-icon { font-size: 18px; flex-shrink: 0; }
+  .warning p { font-size: 14px; color: #fde68a; }
+  .note { background: rgba(0,212,170,0.06); border: 1px solid rgba(0,212,170,0.25); border-radius: 12px; padding: 14px 18px; display: flex; gap: 12px; align-items: flex-start; margin: 16px 0; }
+  .note-icon { font-size: 16px; flex-shrink: 0; }
+  .note p { font-size: 13px; color: #6ee7c7; }
+  .cross-ref { background: rgba(108,99,255,0.06); border: 1px dashed rgba(108,99,255,0.35); border-radius: 12px; padding: 14px 18px; margin: 20px 0; }
+  .cross-ref p { font-size: 13px; color: #c4b5fd; }
+  .external { background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 14px 18px; margin: 16px 0; }
+  .external p { font-size: 13px; color: #7dd3fc; }
+  .source-footer { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+  .sector-table, .fc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .sector-table th, .fc-table th { background: var(--surface2); color: var(--text-muted); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  .sector-table td, .fc-table td { padding: 12px 14px; border-bottom: 1px solid rgba(46,50,80,0.5); vertical-align: top; }
+  .sector-table tr:last-child td, .fc-table tr:last-child td { border-bottom: none; }
+  details.recall { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; }
+  details.recall summary { cursor: pointer; font-size: 14px; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 10px; }
+  details.recall summary::-webkit-details-marker { display: none; }
+  details.recall summary::before { content: '▸'; color: var(--accent); transition: transform 0.2s; }
+  details.recall[open] summary::before { transform: rotate(90deg); }
+  details.recall .answer { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
+  .apply-card { background: var(--surface); border: 1px solid rgba(255,217,61,0.3); border-radius: 14px; padding: 22px 26px; }
+  .apply-card li { margin-bottom: 10px; }
+  footer { text-align: center; padding: 48px 32px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; margin-top: 80px; }
+  ul, ol { padding-left: 20px; }
+  li { margin-bottom: 6px; font-size: 14px; color: var(--text-muted); }
+  li strong { color: var(--text); }
+  @media (max-width: 600px) { .hero { padding: 60px 20px 48px; } main { padding: 40px 20px; } nav { padding: 12px 16px; gap: 10px; } .hero-stats { gap: 24px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">📕 Session 3 — Rachathewi</span>
+  <a href="#growth">การเติบโต</a>
+  <a href="#quality">คุณภาพ</a>
+  <a href="#runway">Runway ข้ามประเทศ</a>
+  <a href="#recall">ทบทวน</a>
+  <a href="session_2.html">← Session 2</a>
+  <a href="synthesis.html">← ภาพรวมคอร์ส</a>
+</nav>
+
+<section class="hero">
+  <div class="tag">Session 3 · Rachathewi</div>
+  <h1>การเติบโต ภาคเจาะเคสจริง</h1>
+  <p>สอนกรอบการเติบโตซ้ำอีกรอบด้วยเคสหุ้นไทย/เทศชุดใหม่ทั้งหมด — ASAP, Jubilee, STGT, BYD, และวิธีเทียบ Growth Runway ข้ามประเทศด้วย GDP ต่อหัว (rebuild 2026-07-07)</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">12-15%</div><div class="label">ต้นทุนเพิ่มทุน</div></div>
+    <div class="stat"><div class="num">5-10%</div><div class="label">Market Share Jubilee</div></div>
+    <div class="stat"><div class="num">10×</div><div class="label">รายได้ต่อหัว US vs ไทย</div></div>
+  </div>
+</section>
+
+<main>
+  <div class="section-header" id="growth">
+    <div class="section-icon">📈</div>
+    <div><h2>M&amp;A, Economy of Scale, ลดค่าใช้จ่าย</h2><p>บทที่ 1-3</p></div>
+  </div>
+
+  <div class="card">
+    <h3>💵 M&amp;A มือใหม่: แค่ดูว่าซื้อด้วยเงินจากไหน</h3>
+    <div class="quote">"ไม่ว่าจะเพิ่มทุนยังไง ก็ไม่มีวันไปซื้อธุรกิจได้คุ้มหรอก เพราะคนขายก็รู้อยู่แล้วว่าธุรกิจมีมูลค่าเท่าไหร่ เขาไม่มีทางขายให้ ROI ต่ำ"</div>
+    <p style="font-size:13px">การเพิ่มทุนจากผู้ถือหุ้นมีต้นทุนสูงมาก <strong>ประมาณ 12-15%</strong> — ทางลัดมือใหม่: ซื้อด้วย<strong>เงินสด</strong>มักไม่มีปัญหา เพราะต้นทุนเกือบ 0% อยู่แล้ว</p>
+    <div class="source-footer">📎 ที่มา: transcript_3.txt (Rachathewi) · structured บทที่ 1</div>
+  </div>
+
+  <div class="card">
+    <h3>🏭 Economy of Scale → MES → Dis-Economy of Scale</h3>
+    <p>ยิ่งผลิตเยอะ ต้นทุนคงที่ต่อชิ้นยิ่งถูกลง จนถึงจุด <strong>Minimum Efficient Scale (MES)</strong> ที่ต้นทุนต่อชิ้นต่ำสุด — แต่ถ้าฝืนผลิตเกินจุดนั้น (ต้องเปิดโรงงานใหม่) ต้นทุนจะกลับมาแพงขึ้นอีกครั้ง เรียก <strong>Dis-Economy of Scale</strong></p>
+    <div class="source-footer">📎 ที่มา: transcript_3.txt (Rachathewi) · structured บทที่ 2</div>
+  </div>
+
+  <div class="card">
+    <h3>💸 เคสจริง: ASAP ได้ประโยชน์ภาษี 100 ล้านบาทในปีเดียว</h3>
+    <p>รัฐบาลลดภาษี 2 เท่าให้ธุรกิจที่ซื้อสินทรัพย์ระยะยาวมาลงทุน — <strong>ASAP (ให้เช่ารถ)</strong> เข้าเกณฑ์พอดี (ซื้อรถมาปล่อยเช่า) ได้ประโยชน์ภาษีย้อนกลับมาราว 100 ล้านบาท กำไรกระโดดในปีนั้น หุ้นขึ้นแรงตาม</p>
+    <div class="note"><span class="note-icon">⚠️</span><p>ผู้สอนย้ำเองว่านี่ <strong>ไม่ใช่ Specialty แท้</strong> เพราะโตจากภาษี ไม่ใช่จากธุรกิจหลัก</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_3.txt (Rachathewi) · structured บทที่ 3</div>
+  </div>
+
+  <div class="section-header" id="quality">
+    <div class="section-icon" style="background:rgba(108,99,255,0.15)">🔍</div>
+    <div><h2>เช็คคุณภาพการเติบโต: Market Share, Sustainability, Questionable</h2><p>บทที่ 6-8</p></div>
+  </div>
+
+  <div class="card">
+    <h3>🥊 มวยหลัก vs มวยรอง — CP All/Central vs Jubilee</h3>
+    <div class="grid-2">
+      <div class="card" style="margin:0;background:var(--surface2)"><h3>👑 มวยหลัก</h3><p style="font-size:13px">CP All, Central Pattana — กินตลาด Modern Trade 70-80% แล้ว "อย่าไปหวังว่า Market Share จะโตเยอะ หวังได้แค่ว่าไม่ลดลง"</p></div>
+      <div class="card" style="margin:0;background:var(--surface2)"><h3>🥈 มวยรอง</h3><p style="font-size:13px">Jubilee — อันดับ 1 ในกลุ่มเดียวกันแต่ส่วนแบ่งจริงแค่ 5-10% เหลือ 90% ให้แย่งได้อีก (ไม่ใช่คำแนะนำให้ซื้อ — งบไม่ได้ดีมาก)</p></div>
+    </div>
+    <div class="source-footer">📎 ที่มา: transcript_3.txt (Rachathewi) · structured บทที่ 6</div>
+  </div>
+
+  <div class="card">
+    <h3>⏳ Sustainability — STGT (ชั่วคราว) vs BYD (ต้องตามดูต่อ)</h3>
+    <p><strong>STGT (ถุงมือยาง):</strong> ดีมานด์พุ่งเป็นจรวดช่วง COVID แต่ Sustainability "น่าจะอยู่แค่ 1-2 ปีเต็มที่" เพราะเป็นดีมานด์ฉุกเฉิน</p>
+    <p style="margin-top:10px"><strong>BYD (EV):</strong> ตลาดดีจริงวันนี้ แต่ต้องเช็คต่อว่าแข่งขันสูงไหม มีผู้เล่นใหม่เยอะไหม ภาครัฐเกี่ยวข้องไหม — ตลาดดีวันนี้ไม่ได้แปลว่าจะดียาว</p>
+    <div class="source-footer">📎 ที่มา: transcript_3.txt (Rachathewi) · structured บทที่ 7</div>
+  </div>
+
+  <div class="card">
+    <h3>❓ Quality of Number + Questionable — ทำไมต้อง "อ่านเรียงข้อ"</h3>
+    <p>Quality of Number อยู่อันดับ 5 ไม่ใช่อันดับ 1 — ตัวเลขสวยแค่ไหนก็ช่วยไม่ได้ถ้า Market Growth/Share ไม่ดี</p>
+    <div class="cross-ref"><p>🔗 <strong>Questionable:</strong> ผู้สอนเล่าเคสบริษัทค้าปลีกที่ภายหลังธุรกิจแตก ราคาร่วง 90% แบ่งเป็น 3 เซกเมนต์ (บริบทตรงกับเคส Beauty ที่ <a href="session_2.html" style="color:#c4b5fd">Session 2</a> อธิบาย Red Flag ไว้ละเอียดกว่า) — ผู้สอนเล่าว่าตอนนั้นถือหุ้นนี้อยู่เยอะ</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_3.txt (Rachathewi) · structured บทที่ 8</div>
+  </div>
+
+  <div class="card">
+    <h3>🧮 สูตร Expected Return — ตัวอย่างตัวเลข PER 20 / PE ซื้อจริง 10</h3>
+    <div class="quote">ผลตอบแทนคาดหวังรวม = (PER ÷ PE₀ − 1) + (G + %Payout Ratio) ÷ PER</div>
+    <p style="font-size:13px">วงเล็บแรก (re-rating ครั้งเดียว) + วงเล็บสอง (ผลตอบแทนซ้ำทุกปีจากกำไรโต+ปันผล) — ผู้สอนบอกว่าสูตรนี้คิดขึ้นเอง จะสอนละเอียดอีกครั้งหลังเรียน Valuation เต็มรูปแบบใน <a href="session_2.html" style="color:#c4b5fd">Session 2</a></p>
+    <div class="source-footer">📎 ที่มา: transcript_3.txt (Rachathewi) · structured บทที่ 5</div>
+  </div>
+
+  <div class="section-header" id="runway">
+    <div class="section-icon" style="background:rgba(0,212,170,0.15)">🌏</div>
+    <div><h2>Growth Runway ข้ามประเทศ</h2><p>ส่วนขยายบทที่ 7</p></div>
+  </div>
+
+  <div class="card">
+    <h3>🏥 เคส Zillow Hospital (อินโดนีเซีย) + วิธีเทียบ GDP ต่อหัว</h3>
+    <p><strong>หลักคิด:</strong> ธุรกิจจะเคลื่อนที่จากรายได้ต่ำไปรายได้สูง — มองประเทศพัฒนาแล้วเป็น "จุดหมายปลายทาง" แล้วดูว่าประเทศที่สนใจยังห่างแค่ไหน</p>
+    <table class="sector-table">
+      <tr><th>ประเทศ</th><th>รายได้ต่อหัว/ปี (ประมาณการ)</th></tr>
+      <tr><td>ไทย</td><td>~6,000 USD</td></tr>
+      <tr><td>เวียดนาม</td><td>~3,000 USD</td></tr>
+      <tr><td>ฟิลิปปินส์</td><td>~2,000-3,000 USD</td></tr>
+      <tr><td>จีน</td><td>~10,000 USD (~2× ไทย)</td></tr>
+      <tr><td>สหรัฐฯ</td><td>~60,000 USD (~10× ไทย)</td></tr>
+    </table>
+    <p style="margin-top:14px;font-size:13px"><strong>ตัวอย่าง:</strong> เครือโรงพยาบาล <strong>Zillow Hospital</strong> ในอินโดนีเซีย มีสาขา ~40 แห่ง มูลค่าตลาดตอนสอน ~60,000 ล้านบาท — ถ้าอินโดนีเซียไล่ตามระดับรายได้แบบไทยได้ เครือนี้ก็มีโอกาสโตตามอีกมาก</p>
+    <div class="warning"><span class="warning-icon">⚠️</span><p>ตัวเลขรายได้ต่อหัวเป็นตัวเลขประมาณการที่ผู้สอนพูดปากเปล่าในคลาส ไม่ใช่ตัวเลขทางการที่อ้างอิงแหล่งชัดเจน — ใช้เป็นกรอบคิด ไม่ใช่ตัวเลขอ้างอิงแม่นยำ</p></div>
+    <div class="source-footer">📎 ที่มา: transcript_3.txt (Rachathewi) · structured บทที่ 7 (ส่วนขยาย)</div>
+  </div>
+
+  <div class="section-header" id="recall">
+    <div class="section-icon" style="background:rgba(255,217,61,0.15)">🧠</div>
+    <div><h2>Active Recall</h2><p>ถามตัวเองก่อนไปต่อ</p></div>
+  </div>
+
+  <details class="recall"><summary>ทำไมมือใหม่ไม่จำเป็นต้องคำนวณ ROI vs CoC ละเอียดถ้าซื้อด้วยเงินสด?</summary><div class="answer">ต้นทุนเงินสดเกือบเป็น 0% อยู่แล้ว มักใกล้เคียงหรือต่ำกว่า ROI เสมอ ต่างจากเพิ่มทุนที่ต้นทุนสูงถึง 12-15%</div></details>
+  <details class="recall"><summary>Economy of Scale, MES, Dis-Economy of Scale เรียงลำดับยังไง?</summary><div class="answer">ผลิตเพิ่ม → ต้นทุนต่อชิ้นลด (Economy of Scale) → ถึงจุดต่ำสุด (MES) → ฝืนผลิตเกินไปอีก ต้นทุนกลับมาแพง (Dis-Economy of Scale)</div></details>
+  <details class="recall"><summary>ทำไมเคส ASAP ไม่นับเป็น Specialty แท้?</summary><div class="answer">กำไรโตจากนโยบายภาษีของรัฐ ไม่ใช่จากธุรกิจหลัก (ให้เช่ารถ) โตขึ้นจริง</div></details>
+  <details class="recall"><summary>CP All กับ Jubilee ต้องดู Market Share คนละมุมกันยังไง?</summary><div class="answer">CP All (มวยหลัก) หวังแค่ไม่ลด — Jubilee (มวยรอง) มีที่ให้โตอีกเยอะเพราะส่วนแบ่งจริงแค่ 5-10%</div></details>
+  <details class="recall"><summary>STGT กับ BYD ต่างกันยังไงในแง่ Sustainability?</summary><div class="answer">STGT ดีมานด์ชั่วคราวจาก COVID (1-2 ปี) ส่วน BYD ตลาดดีจริงวันนี้แต่ต้องติดตามการแข่งขัน/นโยบายรัฐต่อเนื่อง</div></details>
+  <details class="recall"><summary>วิธีเทียบ Growth Runway ข้ามประเทศด้วย GDP ต่อหัวทำงานยังไง?</summary><div class="answer">มองประเทศพัฒนาแล้วเป็นจุดหมายปลายทาง แล้วดูว่าประเทศที่สนใจยังมีรายได้ต่อหัวห่างจากจุดนั้นแค่ไหน ยิ่งห่างยิ่งมี Runway ให้โตอีกไกล</div></details>
+
+  <div class="apply-card" style="margin-top:24px">
+    <h3 style="margin-bottom:14px">🎯 โจทย์ประยุกต์</h3>
+    <ul>
+      <li>หาหุ้น 1 ตัวที่สงสัยว่ากำไรโตจาก "รายการบัญชี/การเงินครั้งเดียว" ไม่ใช่ยอดขายโตจริง — แยกสองส่วนนี้ในงบกำไรขาดทุน</li>
+      <li>เลือกหุ้นที่คิดว่าเป็น "มวยรอง" ประเมินว่าเหลือส่วนแบ่งตลาดให้แย่งได้อีกเยอะแค่ไหนเทียบกับเจ้าตลาด</li>
+      <li>ใช้วิธี GDP ต่อหัวประเมิน Growth Runway ของหุ้นต่างประเทศที่สนใจ</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p>Session 3 — "การเติบโต ภาคเจาะเคสจริง" · สรุปจากคอร์ส Masterclass ลงทุนศาสตร์</p>
+  <p style="margin-top:8px;color:rgba(139,146,184,0.5);font-size:12px">ผ่านกระบวนการ Minnie → Fact-checker (raw transcript, VAD rebuild) · 2026-07-07</p>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
