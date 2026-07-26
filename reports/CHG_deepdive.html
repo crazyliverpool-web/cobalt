@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHG.BK — จุฬารัตน์ ปีที่กำไรหดแต่ธุรกิจหลักยังโต | Trendlongtun Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f4f7f6;
+    --bg-raised: #ffffff;
+    --ink: #16211f;
+    --ink-soft: #46564f;
+    --ink-faint: #7c8b85;
+    --line: #d7e0dc;
+    --line-soft: #e7ede9;
+    --accent: #0f6b62;
+    --accent-ink: #ffffff;
+    --accent-soft: #e2f0ed;
+    --risk: #a8442c;
+    --risk-soft: #f7e6e0;
+    --risk-ink: #6f2c1a;
+    --good: #1c7a4f;
+    --good-soft: #e3f2e8;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --display: "Kanit", "Noto Sans Thai", sans-serif;
+    --body: "Sarabun", "Noto Sans Thai", sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: #0e1615;
+      --bg-raised: #16201e;
+      --ink: #e9f0ee;
+      --ink-soft: #aebdb7;
+      --ink-faint: #79877f;
+      --line: #2a3835;
+      --line-soft: #212d2a;
+      --accent: #52d1bf;
+      --accent-ink: #06211d;
+      --accent-soft: #14322d;
+      --risk: #ef8a6c;
+      --risk-soft: #3a221b;
+      --risk-ink: #f7cdb9;
+      --good: #6bd39b;
+      --good-soft: #143024;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0e1615; --bg-raised: #16201e; --ink: #e9f0ee; --ink-soft: #aebdb7; --ink-faint: #79877f;
+    --line: #2a3835; --line-soft: #212d2a; --accent: #52d1bf; --accent-ink: #06211d; --accent-soft: #14322d;
+    --risk: #ef8a6c; --risk-soft: #3a221b; --risk-ink: #f7cdb9; --good: #6bd39b; --good-soft: #143024;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"]{
+    --bg: #f4f7f6; --bg-raised: #ffffff; --ink: #16211f; --ink-soft: #46564f; --ink-faint: #7c8b85;
+    --line: #d7e0dc; --line-soft: #e7ede9; --accent: #0f6b62; --accent-ink: #ffffff; --accent-soft: #e2f0ed;
+    --risk: #a8442c; --risk-soft: #f7e6e0; --risk-ink: #6f2c1a; --good: #1c7a4f; --good-soft: #e3f2e8;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--body);
+    font-size:16.5px; line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  ::selection{background:var(--accent-soft); color:var(--ink);}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .grid-bg{background:var(--bg);}
+
+  header.masthead{
+    border-bottom:1px solid var(--line);
+    background:var(--bg-raised);
+    padding:44px 0 36px;
+  }
+  .masthead-inner{max-width:820px; margin:0 auto; padding:0 24px;}
+  .plate{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); border:1px solid var(--accent); border-radius:999px;
+    padding:5px 12px 5px 10px; background:var(--accent-soft);
+  }
+  .plate .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); display:inline-block;}
+  h1.title{
+    font-family:var(--display); font-weight:700; font-size:44px; line-height:1.12;
+    margin:18px 0 6px; text-wrap:balance; letter-spacing:-0.01em;
+  }
+  .ticker{
+    font-family:var(--mono); font-size:14px; color:var(--ink-faint); letter-spacing:0.02em;
+    margin-bottom:16px;
+  }
+  p.dek{font-size:18px; line-height:1.65; color:var(--ink-soft); max-width:680px; margin:0 0 26px;}
+
+  .stat-rail{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:0;
+    border:1px solid var(--line); border-radius:12px; overflow:hidden;
+    background:var(--bg-raised);
+  }
+  .stat{padding:14px 16px; border-right:1px solid var(--line-soft);}
+  .stat:last-child{border-right:none;}
+  .stat-label{font-size:11.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
+  .stat-value{font-family:var(--mono); font-size:19px; font-weight:600; font-variant-numeric:tabular-nums;}
+  .stat-value.accent{color:var(--accent);}
+  .stat-value.risk{color:var(--risk);}
+  .stat-value.good{color:var(--good);}
+  .stat-note{font-size:12.5px; color:var(--ink-faint); margin-top:14px;}
+
+  .severity{
+    max-width:820px; margin:28px auto 0; padding:0 24px;
+  }
+  .severity-box{
+    border:1.5px solid var(--risk); background:var(--risk-soft); border-radius:12px;
+    padding:20px 22px;
+  }
+  .severity-box .sev-head{
+    display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:600;
+    font-size:16px; color:var(--risk-ink); margin-bottom:10px;
+  }
+  .sev-mark{
+    width:22px; height:22px; border-radius:50%; background:var(--risk); color:var(--accent-ink);
+    display:inline-flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; flex:none;
+  }
+  .severity-box ul{margin:0; padding-left:20px;}
+  .severity-box li{margin-bottom:6px; color:var(--ink);}
+  .severity-box .sev-close{margin-top:10px; font-size:13.5px; color:var(--risk-ink); font-style:italic;}
+
+  nav.toc{max-width:820px; margin:32px auto 0; padding:0 24px;}
+  .toc-head{
+    font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--ink-faint); margin-bottom:10px;
+  }
+  .toc-list{
+    display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  }
+  .toc-list a{
+    display:block; padding:12px 16px; text-decoration:none; color:var(--ink);
+    border-bottom:1px solid var(--line-soft); font-size:14.5px;
+  }
+  .toc-list a:nth-child(odd){border-right:1px solid var(--line-soft);}
+  .toc-list a:hover{background:var(--accent-soft);}
+  .case-no{font-family:var(--mono); font-size:11.5px; color:var(--accent); margin-right:8px;}
+
+  main{max-width:820px; margin:0 auto; padding:8px 24px 80px;}
+  section.sec{padding-top:56px; scroll-margin-top:20px;}
+  section.sec:first-of-type{padding-top:44px;}
+  .sec-eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase;
+    display:flex; align-items:center; gap:8px; margin-bottom:8px;
+  }
+  .sec-eyebrow .num{
+    display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px;
+    border:1px solid var(--accent); border-radius:50%; font-size:11px;
+  }
+  h2.sec-title{font-family:var(--display); font-weight:600; font-size:27px; margin:0 0 18px; text-wrap:balance;}
+  h3.sub-title{font-family:var(--display); font-weight:600; font-size:19px; margin:28px 0 10px;}
+  p{margin:0 0 18px;}
+  strong{font-weight:600;}
+  .callout{
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:6px;
+    padding:14px 18px; margin:22px 0; font-size:15px;
+  }
+  .callout-label{display:block; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:6px;}
+
+  .card{
+    border:1px solid var(--line); background:var(--bg-raised); border-radius:12px; padding:20px 22px; margin:24px 0;
+  }
+  .card-title{font-family:var(--display); font-weight:600; font-size:15px; margin:0 0 4px;}
+  .card-sub{font-size:13px; color:var(--ink-faint); margin-bottom:14px;}
+
+  .table-scroll{overflow-x:auto; margin:22px 0; border:1px solid var(--line); border-radius:10px;}
+  table{width:100%; border-collapse:collapse; font-size:14.5px; min-width:520px;}
+  caption{text-align:left; font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--ink-faint); padding:10px 14px; background:var(--bg-raised); border-bottom:1px solid var(--line);}
+  th,td{padding:9px 14px; border-bottom:1px solid var(--line-soft); text-align:left; white-space:nowrap;}
+  th{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); background:var(--bg-raised);}
+  td.num, th.num{text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums;}
+  tr:last-child td{border-bottom:none;}
+  td.up{color:var(--good);}
+  td.down{color:var(--risk);}
+
+  .bmc{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:24px 0;}
+  .bmc-cell{background:var(--bg-raised); padding:14px 15px; min-height:110px;}
+  .bmc-cell h4{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--accent); margin:0 0 3px; line-height:1.3;}
+  .bmc-cell .en{font-size:9.5px; color:var(--ink-faint); text-transform:none; letter-spacing:0; display:block; margin-bottom:6px;}
+  .bmc-cell p{font-size:13px; margin:0; color:var(--ink-soft); line-height:1.55;}
+
+  .risk-grid{display:grid; grid-template-columns:1fr; gap:14px; margin:22px 0;}
+  .risk-card{border:1px solid var(--risk); background:var(--risk-soft); border-radius:10px; padding:16px 18px;}
+  .rc-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--risk-ink); font-weight:600;}
+  .risk-card p{margin:6px 0 0; font-size:14.5px; color:var(--ink);}
+
+  .timeline{border-left:2px solid var(--line); margin:22px 0 22px 6px; padding-left:22px;}
+  .tl-item{position:relative; padding-bottom:20px;}
+  .tl-item::before{content:""; position:absolute; left:-27.5px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--accent); border:2px solid var(--bg);}
+  .tl-date{font-family:var(--mono); font-size:12.5px; color:var(--accent); font-weight:600;}
+  .tl-body{font-size:14.5px; margin-top:2px; color:var(--ink-soft);}
+
+  .verdict{
+    border:1px solid var(--accent); background:var(--accent-soft); border-radius:10px; padding:18px 20px; margin:24px 0;
+  }
+  .verdict-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:8px; display:block;}
+
+  footer.foot{border-top:1px solid var(--line); margin-top:20px; padding:44px 0 60px;}
+  footer.foot .wrap{max-width:820px;}
+  .src-group h4{font-family:var(--display); font-size:15px; margin:22px 0 8px;}
+  .src-group ol{padding-left:20px; font-size:13.5px; color:var(--ink-soft);}
+  .src-group li{margin-bottom:6px;}
+  .unverified-note{font-size:13px; color:var(--ink-faint); font-family:var(--mono); background:var(--line-soft); padding:10px 14px; border-radius:8px; margin:20px 0;}
+  .disclaimer{font-size:12.5px; color:var(--ink-faint); border-top:1px dashed var(--line); padding-top:18px; margin-top:26px; line-height:1.6;}
+  .nb-note{font-size:12.5px; color:var(--ink-faint); font-family:var(--mono); margin-top:10px;}
+
+  @media (max-width:640px){
+    .stat-rail{grid-template-columns:repeat(2,1fr);}
+    .stat{border-right:1px solid var(--line-soft);}
+    .toc-list{grid-template-columns:1fr;}
+    .toc-list a:nth-child(odd){border-right:none;}
+    h1.title{font-size:32px;}
+    .bmc{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="plate"><span class="dot"></span>TRENDLONGTUN BRIEF · เจาะลึกธุรกิจ</span>
+    <h1 class="title">จุฬารัตน์ ปีที่กำไรหด แต่ธุรกิจหลักยังโต</h1>
+    <div class="ticker">CHG.BK · บริษัท โรงพยาบาลจุฬารัตน์ จำกัด (มหาชน) · SET</div>
+    <p class="dek">รายได้รวมและกำไรปี 2568 ลดลงเพราะหมดสัญญาบริหารโรงพยาบาลเมืองพัทยาและถูกหักรายได้ประกันสังคมย้อนหลัง — แต่ธุรกิจโรงพยาบาลแกนหลักยังโตต่อเนื่อง และไตรมาสแรกปี 2569 กำไรฟื้นตัวแรง +9.9% ท่ามกลางสนามแข่งขัน EEC ที่คู่แข่งกำลังแห่เปิดเตียงใหม่เร็วกว่าค่าเฉลี่ยประเทศ 3 เท่า</p>
+
+    <div class="stat-rail">
+      <div class="stat"><div class="stat-label">รายได้รวม FY2568</div><div class="stat-value">8,417.3 ลบ.</div></div>
+      <div class="stat"><div class="stat-label">กำไรสุทธิ FY2568</div><div class="stat-value">929.4 ลบ.</div></div>
+      <div class="stat"><div class="stat-label">Net Margin</div><div class="stat-value">11%</div></div>
+      <div class="stat"><div class="stat-label">D/E</div><div class="stat-value accent">0.25x</div></div>
+      <div class="stat"><div class="stat-label">Q1/2569 กำไร YoY</div><div class="stat-value good">+9.9%</div></div>
+      <div class="stat"><div class="stat-label">สาขาในเครือ</div><div class="stat-value">15 (938 เตียง)</div></div>
+    </div>
+    <p class="stat-note">ข้อมูลการเงินจาก MD&amp;A ที่ยื่นต่อตลาดหลักทรัพย์แห่งประเทศไทย ไตรมาส 1/2569 (ม.ค.-มี.ค. 2569) เป็นข้อมูลล่าสุด — อ้างอิงแหล่งที่มาท้ายบทความ</p>
+  </div>
+</header>
+
+<div class="severity">
+  <div class="severity-box">
+    <div class="sev-head"><span class="sev-mark">!</span>ข้อสังเกตสำคัญก่อนอ่าน</div>
+    <ul>
+      <li>ต้นปี 2567 ผู้บริหารตั้งเป้ารายได้โต 15% กลางปีปรับลดเหลือ 10-12% และปิดปีจริงรายได้โรงพยาบาลโตเพียง 6.6% — พลาดเป้าที่ประกาศเองต่อเนื่อง</li>
+      <li>ผู้บริหารเคยคาดว่าอัตราเบิกจ่ายประกันสังคมกลุ่มโรคซับซ้อน (Adj.RW&gt;2) จะคงที่ 12,000 บาทต่อหน่วยตลอดปี 2567 แต่ถูกปรับลดเหลือ 7,200-8,100 บาทในบางช่วง ทำให้ต้องบันทึกปรับลดรายได้ย้อนหลัง 53 ล้านบาทใน Q2/2567</li>
+      <li>ผลรวมทั้งปี 2568: รายได้รวมลดลง -0.7% และกำไรสุทธิลดลง -3.7% เทียบปีก่อน — ทั้งที่รายได้จากธุรกิจโรงพยาบาลแกนหลัก (ไม่รวมรายได้อื่น) ยังโต +1.3%</li>
+    </ul>
+    <div class="sev-close">รายละเอียดอยู่ใน Section 2 และ Section 12</div>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="toc-head">สารบัญ — แฟ้มเวชระเบียน 12 เคส</div>
+  <div class="toc-list">
+    <a href="#sec-01"><span class="case-no">เคส 01</span>ความน่าสนใจของธุรกิจ</a>
+    <a href="#sec-02"><span class="case-no">เคส 02</span>งบการเงิน + Oppday ล่าสุด</a>
+    <a href="#sec-03"><span class="case-no">เคส 03</span>Business model — หาเงินยังไง</a>
+    <a href="#sec-04"><span class="case-no">เคส 04</span>สัดส่วนรายได้ &amp; อัตรากำไร</a>
+    <a href="#sec-05"><span class="case-no">เคส 05</span>Competitive advantage</a>
+    <a href="#sec-06"><span class="case-no">เคส 06</span>เปรียบเทียบคู่แข่ง</a>
+    <a href="#sec-07"><span class="case-no">เคส 07</span>Growth potential</a>
+    <a href="#sec-08"><span class="case-no">เคส 08</span>ผู้บริหารและปรัชญา</a>
+    <a href="#sec-09"><span class="case-no">เคส 09</span>ภาพรวมตลาด</a>
+    <a href="#sec-10"><span class="case-no">เคส 10</span>รายได้ / มาร์จิน / FCF</a>
+    <a href="#sec-11"><span class="case-no">เคส 11</span>ประวัติของธุรกิจ</a>
+    <a href="#sec-12"><span class="case-no">เคส 12</span>ความเสี่ยง + Counter-argument</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="sec" id="sec-01">
+  <div class="sec-eyebrow"><span class="num">01</span>Why it's interesting</div>
+  <h2 class="sec-title">ความน่าสนใจของธุรกิจ</h2>
+  <p>CHG คือบริษัทแม่ของเครือ<strong>โรงพยาบาลจุฬารัตน์</strong> — เครือโรงพยาบาลเอกชนที่ปักหมุดอยู่ในย่านที่ไม่มีใครนึกถึงเป็นอันดับแรกเวลาพูดถึงหุ้นโรงพยาบาล นั่นคือฝั่งตะวันออกของกรุงเทพฯ ต่อเนื่องไปสมุทรปราการ ฉะเชิงเทรา ปราจีนบุรี ชลบุรี และระยอง ซึ่งเป็นเขตพื้นที่อุตสาหกรรม EEC (Eastern Economic Corridor — ระเบียงเศรษฐกิจพิเศษภาคตะวันออก) ที่มีโรงงานและแรงงานในระบบประกันสังคมหนาแน่นที่สุดของประเทศ ปัจจุบัน (2569) มีสถานพยาบาลในเครือ 15 แห่ง (โรงพยาบาล 10 แห่ง คลินิก 5 แห่ง) รวม 938 เตียง ครอบคลุม 7 จังหวัด และล่าสุดขยับขึ้นเหนือไปเปิดสาขาแรกนอกพื้นที่เดิมที่แม่สอด จังหวัดตาก</p>
+  <p>เรื่องที่ทำให้ CHG น่าสนใจคือกลยุทธ์ "แข่งกับตัวเอง" ผ่านศูนย์ความเป็นเลิศ (Excellence Centers) เช่น ศูนย์หัวใจและศูนย์สมอง — พื้นที่ฝั่งตะวันออกของกรุงเทพฯ และจังหวัดใกล้เคียงยังขาดแคลนโรงพยาบาลรัฐขนาดใหญ่ที่รักษาโรคซับซ้อนได้ครบวงจร ทำให้ CHG กลายเป็นปลายทางการส่งต่อ (referral) ของโรคยากในย่านนั้นโดยธรรมชาติ ซึ่งเป็นกลุ่มโรคที่ให้อัตรากำไรดีกว่าเคสทั่วไปมาก และเป็นสาเหตุหลักที่ไตรมาส 1/2569 กำไรสุทธิพลิกกลับมาโต +9.9% ทั้งที่รายได้โตเพียง 4.5% เพราะบริษัทควบคุมต้นทุนดำเนินงานให้โตช้ากว่ารายได้ (+3.1% เทียบ +4.5%) ได้สำเร็จ</p>
+  <p>แต่ก่อนจะไปถึงเรื่องบวก ต้องเข้าใจก่อนว่าปี 2568 ที่ผ่านมาไม่ใช่ปีที่ดีนัก — รายได้รวมและกำไรสุทธิทั้งปีลดลงจากปีก่อนหน้า (-0.7% และ -3.7% ตามลำดับ) สาเหตุหลักไม่ได้มาจากธุรกิจโรงพยาบาลอ่อนแอ แต่มาจากการหมดสัญญาบริหารโรงพยาบาลเมืองพัทยาที่บริษัทเลือกไม่ต่อเอง และการถูกสำนักงานประกันสังคมปรับลดอัตราเบิกจ่ายกลุ่มโรคเรื้อรังย้อนหลัง — เป็นปัจจัยที่ควบคุมได้บางส่วนและควบคุมไม่ได้บางส่วน รายละเอียดทั้งหมดอยู่ใน Section 2 และ 12</p>
+</section>
+
+<section class="sec" id="sec-02">
+  <div class="sec-eyebrow"><span class="num">02</span>Latest quarter</div>
+  <h2 class="sec-title">สรุปงบการเงิน + Oppday ล่าสุด</h2>
+  <p>ไตรมาส 1/2569 (ม.ค.-มี.ค. 2569) CHG รายงานรายได้รวม 2,108.6 ล้านบาท เพิ่มขึ้น 4.5% จาก 2,017.8 ล้านบาทใน Q1/2568 ส่วนกำไรสุทธิอยู่ที่ 247.6 ล้านบาท เพิ่มขึ้น 9.9% จาก 225.3 ล้านบาท ทำให้ Net Margin ขยับขึ้นจาก 11% เป็น 12% เทียบไตรมาสก่อนหน้า (QoQ) รายได้ลดลง 5.0% (ตามฤดูกาล ไตรมาส 4 มักมีรายได้สูงสุดของปี) แต่กำไรกลับเพิ่มขึ้น 10.4% QoQ สะท้อนการบริหารต้นทุนที่มีประสิทธิภาพขึ้น</p>
+  <p>ผู้บริหารระบุใน MD&amp;A ว่าไตรมาสนี้เผชิญความท้าทายจากปัจจัยภายนอก — ความตึงเครียดระหว่างสหรัฐฯ กับอิหร่านดันราคาน้ำมันดิบพุ่งถึง 110 ดอลลาร์ต่อบาร์เรล กระทบต้นทุนค่าไฟ (Ft) และเวชภัณฑ์นำเข้ามากกว่าที่เคยประเมินไว้ ขณะที่ค่าครองชีพสูงทำให้ผู้ป่วยเงินสดบางส่วนชะลอการรักษาโรคที่ไม่เร่งด่วน แต่บริษัทชดเชยได้ด้วยรายได้จากกลุ่มโรคซับซ้อน (ศูนย์หัวใจ/มะเร็ง) ที่ยังมีดีมานด์สูงและมาร์จิ้นดี บวกกับรายได้จากโครงการภาครัฐอื่นๆ (UCEP และการรักษาเฉพาะทาง) ที่โตถึง 35% YoY</p>
+
+  <div class="callout">
+    <span class="callout-label">เป้าที่ผู้บริหารให้ไว้ เทียบผลจริง</span>
+    ต้นปี 2567 ผู้บริหารตั้งเป้ารายได้เติบโต <strong>15%</strong> ก่อนจะปรับเป้าลงเหลือ <strong>10-12%</strong> ในช่วง Q3/2567 และสุดท้ายปิดปีที่รายได้ธุรกิจโรงพยาบาลโตจริงเพียง <strong>6.6%</strong> — พลาดเป้าเดิมเกินครึ่ง อีกกรณีคือช่วงต้นปี 2567 ผู้บริหารคาดว่าอัตราเบิกจ่ายประกันสังคมกลุ่มโรคซับซ้อน (Adj.RW&gt;2) จะคงที่ที่ 12,000 บาทต่อหน่วยตลอดทั้งปี แต่สำนักงานประกันสังคมปรับลดจริงเหลือ 7,200-8,100 บาทในบางช่วง ทำให้บริษัทต้องบันทึกปรับลดรายได้ย้อนหลัง 53 ล้านบาทใน Q2/2567 — เป็นความเสี่ยงเชิงโครงสร้างที่บริษัทควบคุมราคาเองไม่ได้ (รายละเอียดเพิ่มเติมใน Section 12)
+  </div>
+
+  <p>งบดุล ณ 31 มีนาคม 2569 อัตราส่วนหนี้สินต่อส่วนผู้ถือหุ้น (D/E) อยู่ที่ 0.25 เท่า สะท้อนฐานะการเงินที่ยังแข็งแรงและมีช่องว่างกู้ยืมเพิ่มรองรับแผนขยายสาขา กระแสเงินสดจากการดำเนินงานไตรมาสนี้ 244 ล้านบาท ใช้ลงทุน 153 ล้านบาท คิดเป็นกระแสเงินสดอิสระ (FCF) ราว 91 ล้านบาท</p>
+
+  <div class="callout">
+    <span class="callout-label">ทำไมกำไรทั้งปี 2568 ถึงลดลง ทั้งที่ธุรกิจหลักยังโต</span>
+    รายได้รวมปี 2568 อยู่ที่ 8,417.3 ล้านบาท (-0.7% YoY) กำไรสุทธิ 929.4 ล้านบาท (-3.7% YoY) แต่ถ้าดูเฉพาะรายได้จากการดำเนินงานโรงพยาบาล (Hospital Operations) ตัวเลขจริงอยู่ที่ 8,346.9 ล้านบาท ซึ่ง<strong>ยังโตขึ้น 1.3%</strong> สาเหตุที่รายได้รวมและกำไรลดลงมาจากสองปัจจัยนอกธุรกิจหลัก: (1) รายได้อื่นลดลง 71% (จาก 243.5 ล้านบาท เหลือ 70.5 ล้านบาท) จากการสิ้นสุดสัญญาบริหารโรงพยาบาลเมืองพัทยาที่บริษัทเลือกไม่ต่อสัญญาเอง เพื่อไปโฟกัสงานบริหารศูนย์หัวใจที่มาร์จิ้นดีกว่า และ (2) รายได้ประกันสังคมลดลง 6% จากการปรับลดรายได้กลุ่มโรคเรื้อรัง (26 โรค) ย้อนหลัง — ส่วนที่พยุงไว้ได้คือรายได้ผู้ป่วยทั่วไปที่โต 4% นำโดยผู้ป่วยนอก (OPD) ที่โต 8%
+  </div>
+</section>
+
+<section class="sec" id="sec-03">
+  <div class="sec-eyebrow"><span class="num">03</span>How it makes money</div>
+  <h2 class="sec-title">Business model — หาเงินยังไง</h2>
+  <p>CHG หาเงินจากฐานลูกค้าหลักสามกลุ่มเช่นเดียวกับโรงพยาบาลเอกชนไทยทั่วไป แต่มีสัดส่วนที่เอียงไปทางกลุ่มผู้ป่วยทั่วไป (General Patients) มากกว่าคู่แข่งบางราย</p>
+  <p><strong>กลุ่มผู้ป่วยทั่วไป (General/A-Class)</strong> ครอบคลุมผู้ป่วยเงินสด (Self-pay), ประกันเอกชน และคู่สัญญาบริษัท เป็นกลุ่มใหญ่สุดที่ 67.1% ของรายได้โรงพยาบาล (แบ่งเป็น OPD 32.6% และ IPD 34.4%) — มาร์จิ้นสูงสุดเพราะไม่มีเพดานราคาจากรัฐ และเป็นกลุ่มที่บริษัทมีนโยบายมุ่งเน้นเพิ่มสัดส่วนอย่างชัดเจนเพื่อยกระดับกำไรโดยรวม</p>
+  <p><strong>กลุ่มสวัสดิการภาครัฐ (Government Welfare)</strong> คิดเป็น 32.9% ของรายได้โรงพยาบาล แบ่งเป็นประกันสังคม (SSO) 27.9% และโครงการภาครัฐอื่นๆ (NHSO, ข้าราชการ, UCEP) 5.0% — ประกันสังคมทำงานแบบเหมาจ่ายรายหัว (Capitation) บวกค่าชดเชยเพิ่มตามความซับซ้อนของโรค (Adj.RW) ที่รัฐกำหนดราคาตายตัว ทำให้ปริมาณคาดการณ์ได้แต่ราคาต่อหน่วยควบคุมไม่ได้ — จำนวนผู้ประกันตนในระบบของ CHG เฉลี่ยปี 2568 อยู่ที่ 564,836 คน จากโควตารวมที่รับได้สูงสุดถึง 634,000-698,050 คน หมายความว่ายังมีช่องว่างให้ขยายฐานได้อีกโดยไม่ต้องลงทุนสาขาใหม่</p>
+  <p><strong>ผู้ป่วยต่างชาติ</strong> เป็นสัดส่วนเล็กที่สุดในสามฐาน (ราว 3-4% ของกลุ่มผู้ป่วยทั่วไป) ส่วนใหญ่เป็นกลุ่มตะวันออกกลางและประเทศเพื่อนบ้าน (CLMV) — มาร์จิ้นดีกว่าค่าเฉลี่ยแต่ฐานยังเล็กมากเทียบกับ BDMS หรือ BH ทำให้ CHG พึ่งพารายได้ในประเทศเป็นหลัก ต่างจากโรงพยาบาลพรีเมียมที่เจาะตลาดต่างชาติเป็นเส้นทางหลัก</p>
+
+  <div class="card">
+    <div class="card-title">Business Model Canvas — CHG.BK</div>
+    <div class="card-sub">สรุปโมเดลธุรกิจเป็น 9 บล็อก (อ้างอิงรายละเอียดเต็มในเนื้อความข้างต้นและ Section 4, 6, 8)</div>
+    <div class="bmc">
+      <div class="bmc-cell"><h4>พันธมิตรหลัก<span class="en">Key Partners</span></h4><p>สำนักงานประกันสังคม/สปสช. (ผู้จ่ายเงินก้อนใหญ่สุด), บริษัทประกันเอกชน, โรงพยาบาลรัฐในพื้นที่ (รับส่งต่อเคสยาก), ศูนย์ฝึกอบรมบุคลากรของตัวเอง (CIH)</p></div>
+      <div class="bmc-cell"><h4>กิจกรรมหลัก<span class="en">Key Activities</span></h4><p>รักษาพยาบาลผู้ป่วยนอก/ใน, บริหารศูนย์ความเป็นเลิศ (หัวใจ/มะเร็ง/สมอง), ขยายสาขาตามพื้นที่อุตสาหกรรม EEC, เจรจาอัตราเบิกจ่ายกับกองทุนภาครัฐ</p></div>
+      <div class="bmc-cell"><h4>ทรัพยากรหลัก<span class="en">Key Resources</span></h4><p>ใบอนุญาตโรงพยาบาล 10 แห่ง 938 เตียง, ฐานผู้ประกันตนกว่า 5.6 แสนคน, ทำเลผูกขาดเชิงภูมิศาสตร์ในพื้นที่ EEC, งบดุลหนี้ต่ำ (D/E 0.25x)</p></div>
+      <div class="bmc-cell"><h4>คุณค่าที่ส่งมอบ<span class="en">Value Propositions</span></h4><p>โรงพยาบาลระดับกลาง (Mid-tier) ที่ราคาเข้าถึงได้ แต่มีศูนย์เฉพาะทางระดับตติยภูมิรักษาโรคซับซ้อนที่โรงพยาบาลรัฐในพื้นที่ยังไม่มี</p></div>
+      <div class="bmc-cell"><h4>ความสัมพันธ์ลูกค้า<span class="en">Customer Relationships</span></h4><p>ผูกผู้ประกันตนไว้ระยะยาวผ่านสิทธิ์เบิกจ่ายรายเดือน, เครือข่ายส่งต่อเคสยากระหว่างสาขาในกลุ่ม, ชื่อเสียงสะสมในพื้นที่มากว่า 38 ปี</p></div>
+      <div class="bmc-cell"><h4>ช่องทาง<span class="en">Channels</span></h4><p>เครือข่ายโรงพยาบาลจุฬารัตน์ 10 แห่ง + คลินิก 5 แห่งใน 7 จังหวัด, ศูนย์ความเป็นเลิศเฉพาะทาง — เทียบคู่แข่งดู Section 6</p></div>
+      <div class="bmc-cell"><h4>กลุ่มลูกค้า<span class="en">Customer Segments</span></h4><p>ผู้ป่วยทั่วไป/เงินสด (ใหญ่สุด 67.1%), ผู้ประกันตนประกันสังคม (27.9%), โครงการภาครัฐอื่นๆ และผู้ป่วยต่างชาติสัดส่วนเล็ก — ตัวเลขเต็มดู Section 4</p></div>
+      <div class="bmc-cell"><h4>โครงสร้างต้นทุน<span class="en">Cost Structure</span></h4><p>ค่าตอบแทนบุคลากรทางการแพทย์ (แรงกดดันจากภาวะขาดแคลน), CAPEX ขยายเตียง/สาขาใหม่ (เป้า 700-800 เตียงใน 5 ปี), ต้นทุนพลังงาน/เวชภัณฑ์นำเข้าที่ผันผวนตามราคาน้ำมันโลก</p></div>
+      <div class="bmc-cell"><h4>กระแสรายได้<span class="en">Revenue Streams</span></h4><p>ค่ารักษา OPD/IPD เงินสด, ค่าเหมาจ่ายรายหัว+Adj.RW จากประกันสังคม, รายได้โครงการภาครัฐอื่นๆ (UCEP) ที่กำลังโตแรง +35% YoY</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sec-04">
+  <div class="sec-eyebrow"><span class="num">04</span>Revenue mix &amp; margins</div>
+  <h2 class="sec-title">สัดส่วนรายได้แต่ละส่วน (%) และอัตรากำไร</h2>
+  <p>ปี 2568 CHG มีรายได้จากการดำเนินงานโรงพยาบาลรวม 8,346.9 ล้านบาท แบ่งตามกลุ่มผู้ป่วยได้ดังนี้:</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption>โครงสร้างรายได้ตามกลุ่มผู้ป่วย ปี 2568 (MD&amp;A ประจำปี 2568)</caption>
+    <thead><tr><th>กลุ่มผู้ป่วย</th><th class="num">สัดส่วน</th><th class="num">มูลค่า (ลบ.)</th><th>ลักษณะมาร์จิ้น</th></tr></thead>
+    <tbody>
+      <tr><td>ผู้ป่วยทั่วไป (General/A-Class)</td><td class="num">67.1%</td><td class="num">5,597.5</td><td class="up">สูงสุด — ไม่มีเพดานราคารัฐ</td></tr>
+      <tr><td>&nbsp;&nbsp;└ ผู้ป่วยนอก (OPD)</td><td class="num">32.6%</td><td class="num">-</td><td>โต 8% ในปี 2568</td></tr>
+      <tr><td>&nbsp;&nbsp;└ ผู้ป่วยใน (IPD)</td><td class="num">34.4%</td><td class="num">-</td><td>-</td></tr>
+      <tr><td>ประกันสังคม (SSO)</td><td class="num">27.9%</td><td class="num">2,332.3</td><td class="down">ถูกกดด้วยราคาที่รัฐกำหนด</td></tr>
+      <tr><td>โครงการภาครัฐอื่นๆ (NHSO/UCEP)</td><td class="num">5.0%</td><td class="num">417.1</td><td class="up">โต 35% YoY ใน Q1/2569</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>มาร์จิ้นที่ดีที่สุดต่อหน่วยมาจาก<strong>กลุ่มผู้ป่วยทั่วไปและศูนย์ความเป็นเลิศ</strong> (หัวใจ, มะเร็ง, สมอง) เพราะไม่มีเพดานราคาควบคุมจากรัฐและเป็นกลุ่มโรคที่ต้องใช้ความเชี่ยวชาญเฉพาะทางสูง ขณะที่กลุ่มประกันสังคมแม้ปริมาณใหญ่และแน่นอนที่สุด แต่มาร์จิ้นต่อเคสถูกกดด้วยอัตราเหมาจ่ายและ Adj.RW ที่รัฐเป็นผู้กำหนด — จุดที่ CHG ใช้เพิ่มมาร์จิ้นได้คือการผลักดันเคสซับซ้อนของผู้ประกันตนเข้าศูนย์เฉพาะทางที่ได้อัตราชดเชยสูงกว่าเคสทั่วไป</p>
+  <p>รายได้จากโครงการภาครัฐอื่นๆ (Other Governmental Schemes) เป็นจุดที่น่าสนใจที่สุดในบรรดาทุกกลุ่มช่วงนี้ — โตถึง 35% YoY ในไตรมาส 1/2569 นำโดยโครงการ UCEP (Universal Coverage for Emergency Patients — สิทธิรักษาฉุกเฉินวิกฤตที่ใช้ได้ทุกโรงพยาบาลไม่ว่าสิทธิเดิมคืออะไร) และการรักษาเฉพาะทางในศูนย์หัวใจ/มะเร็ง สะท้อนว่ากลยุทธ์ศูนย์ความเป็นเลิศกำลังจับดีมานด์ใหม่ที่ไม่ได้พึ่งพาแค่ฐานผู้ประกันตนเดิม</p>
+  <p>ในทางกลับกัน รายได้จากการบริหารโรงพยาบาลให้หน่วยงานอื่น (Hospital Management) หายไปอย่างมีนัยสำคัญ — ลดลง 170-300 ล้านบาทต่อปี จากการสิ้นสุดสัญญาบริหารโรงพยาบาลเมืองพัทยาที่บริษัทเลือกไม่ต่อสัญญาเอง เพื่อโฟกัสทรัพยากรไปที่งานบริหารศูนย์หัวใจซึ่งให้มาร์จิ้นดีกว่า — เป็นการตัดสินใจเชิงกลยุทธ์ที่ทำให้รายได้รวมทั้งบริษัทดูแย่ลงในระยะสั้น แต่มุ่งคุณภาพกำไรระยะยาวมากกว่า</p>
+</section>
+
+<section class="sec" id="sec-05">
+  <div class="sec-eyebrow"><span class="num">05</span>Competitive advantage</div>
+  <h2 class="sec-title">Competitive advantage</h2>
+  <p>ข้อได้เปรียบที่ยั่งยืนที่สุดของ CHG คือ<strong>ทำเลที่ตั้งแบบกึ่งผูกขาดในพื้นที่ EEC ฝั่งตะวันออก</strong> — เขตอุตสาหกรรมสมุทรปราการ ฉะเชิงเทรา ชลบุรี ระยอง มีความหนาแน่นของโรงงานและแรงงานประกันสังคมสูงมาก แต่กลับขาดแคลนโรงพยาบาลรัฐขนาดใหญ่ที่รักษาโรคซับซ้อนได้ครบวงจร CHG จึงกลายเป็นปลายทางการส่งต่อโดยธรรมชาติของโรคยากในพื้นที่นั้น ซึ่งเป็นข้อได้เปรียบที่สร้างขึ้นจากการเข้าไปก่อนคู่แข่งรายอื่นและใช้เวลาสะสมความเชื่อมั่นในพื้นที่มากว่า 38 ปี ทำให้คู่แข่งใหม่ที่จะเข้ามาแข่งต้องใช้เวลานานในการสร้างชื่อเสียงระดับเดียวกัน</p>
+  <p>ข้อได้เปรียบที่สองคือ<strong>กลยุทธ์ศูนย์ความเป็นเลิศ (Excellence Centers)</strong> ที่ทำให้บริษัท "แข่งกับตัวเอง" แทนที่จะแข่งราคากับโรงพยาบาลทั่วไป — การลงทุนในศูนย์หัวใจ ศูนย์มะเร็ง และศูนย์สมองอย่างจริงจัง ทำให้ CHG ดึงเคสซับซ้อนที่มาร์จิ้นดีเข้ามาได้แม้จะเป็นโรงพยาบาลระดับกลางในสายตาคนทั่วไป และยังช่วยพยุงมาร์จิ้นรวมได้เมื่อกลุ่มผู้ป่วยทั่วไปชะลอตัวจากปัจจัยเศรษฐกิจ อย่างที่เห็นใน Q1/2569</p>
+  <p>ข้อได้เปรียบที่สามคือ<strong>งบดุลที่แข็งแรงและฐานผู้ประกันตนที่ยังมีช่องว่างขยาย</strong> — D/E เพียง 0.25 เท่า ให้พื้นที่กู้ยืมเพิ่มรองรับแผนขยาย 700-800 เตียงใน 5 ปีข้างหน้าโดยไม่ต้องเพิ่มทุน ขณะที่จำนวนผู้ประกันตนปัจจุบัน (564,836 คน) ยังต่ำกว่าโควตาสูงสุดที่รับได้ (634,000-698,050 คน) มาก หมายความว่า CHG ยังขยายฐานลูกค้าประกันสังคมได้อีกจากสาขาเดิมโดยไม่ต้องลงทุนก่อสร้างเพิ่ม ซึ่งเป็นการเติบโตที่ต้นทุนต่ำกว่าคู่แข่งที่ต้องเปิดสาขาใหม่เพื่อหาลูกค้าเพิ่ม</p>
+  <p>ศูนย์ฝึกอบรมบุคลากรของตัวเอง (CIH) ยังเป็นเกราะกันชนต่อความเสี่ยงขาดแคลนบุคลากรทางการแพทย์ที่กระทบทั้งอุตสาหกรรม — ขณะที่คู่แข่งต้องแย่งชิงบุคลากรจากตลาดแรงงานเดียวกัน CHG มีท่อป้อนบุคลากรผู้ช่วยพยาบาลของตัวเองบางส่วน ช่วยลดแรงกดดันต้นทุนบุคลากรเมื่อเทียบกับผู้เล่นที่ไม่มีระบบนี้</p>
+</section>
+
+<section class="sec" id="sec-06">
+  <div class="sec-eyebrow"><span class="num">06</span>Competitor comparison</div>
+  <h2 class="sec-title">เปรียบเทียบกับคู่แข่ง</h2>
+  <p>จากกระทู้สรุปสัมมนาหุ้นกลุ่มการแพทย์เดือนกรกฎาคม 2569 (board.thaivi.org — ดูหมายเหตุความน่าเชื่อถือท้ายบทความ) ให้ภาพเปรียบเทียบ Q1/2569 ของหุ้นโรงพยาบาลหลักที่ชัดเจน:</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption>เปรียบเทียบ Q1/2569 และราคาเป้าหมาย — กลุ่มโรงพยาบาลไทย (สรุปจากบทวิเคราะห์/เว็บบอร์ด)</caption>
+    <thead><tr><th>บริษัท</th><th>สัดส่วนรายได้ต่างชาติ</th><th>Q1/2569 ผลงาน</th><th class="num">ราคาเป้าหมาย</th></tr></thead>
+    <tbody>
+      <tr><td>BH (บำรุงราษฎร์)</td><td class="num">68%</td><td>กำไรโต +3% ดีกว่าคาด</td><td class="num">212 บ.</td></tr>
+      <tr><td>BDMS</td><td class="num">~30%</td><td>ลูกค้าบนแข็งแรง กลางล่างชะลอ</td><td class="num">26 บ.</td></tr>
+      <tr><td>BCH (เกษมราษฎร์)</td><td class="num">~11-12%</td><td>กระทบคูเวต+ชายแดนกัมพูชา</td><td class="num">11.20 บ.</td></tr>
+      <tr><td><strong>CHG (จุฬารัตน์)</strong></td><td class="num">~3-4%</td><td>โตจากศูนย์เฉพาะทาง</td><td class="num">1.48-1.90 บ.</td></tr>
+      <tr><td>PR9 (พระรามเก้า)</td><td class="num">~10%</td><td>ลดพึ่งพากาตาร์</td><td class="num">23 บ.</td></tr>
+      <tr><td>KLINIQ (คลินิกเวชกรรม)</td><td class="num">น้อยมาก</td><td>ขยายสาขาเร็ว +10 แห่ง/ปี</td><td class="num">28 บ.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>BCH (เกษมราษฎร์)</strong> คือคู่แข่งที่โมเดลใกล้เคียง CHG มากที่สุด — ทั้งคู่พึ่งพาฐานผู้ประกันตนประกันสังคมเป็นรายได้หลักและวางตำแหน่งเป็นโรงพยาบาลระดับกลาง แต่ BCH มีฐานผู้ประกันตนใหญ่กว่า (ทะลุ 1 ล้านคน เทียบ CHG ที่ 5.6 แสนคน) และมีสาขากระจายกว้างกว่ารวมถึงข้ามไปลาว ขณะที่ CHG เลือกเจาะลึกในพื้นที่ EEC เพียงจุดเดียวแต่ครองความได้เปรียบทำเลในพื้นที่นั้นได้แน่นกว่า จุดที่น่าจับตาคือ BCH กำลังจะเปิดสาขาใหม่ที่ระยอง ซึ่งเป็นพื้นที่ที่ CHG ตั้งฐานอยู่แล้ว อาจทำให้ทั้งสองบริษัทกลายเป็นคู่แข่งโดยตรงในตลาดเดียวกันภายในไม่กี่ปี</p>
+  <p><strong>BDMS และ BH</strong> เล่นในสนามที่ต่างจาก CHG ชัดเจน — ทั้งคู่พึ่งพารายได้ต่างชาติสัดส่วนสูงมาก (30% และ 68% ตามลำดับ) และวางตำแหน่งพรีเมียม ทำให้มาร์จิ้นสูงกว่า CHG มาก แต่ก็อ่อนไหวต่อความผันผวนภูมิรัฐศาสตร์และการท่องเที่ยวเชิงการแพทย์มากกว่า CHG ที่พึ่งพารายได้ในประเทศเป็นหลักจึงมีความผันผวนน้อยกว่าในมิตินี้ — แลกมาด้วยเพดานมาร์จิ้นที่ต่ำกว่าเช่นกัน</p>
+  <p><strong>KLINIQ</strong> อยู่คนละกลุ่มธุรกิจ (คลินิกเวชกรรมความงามและทั่วไป ไม่ใช่โรงพยาบาลเต็มรูปแบบ) แต่มีอัตราการเติบโตของสาขาเร็วกว่า CHG มาก (10 สาขาใหม่ในปีเดียว เทียบกับ CHG ที่ขยายทีละโครงการใหญ่ใช้เวลาหลายปี) สะท้อนโมเดลธุรกิจที่ใช้เงินลงทุนต่อสาขาต่ำกว่าและ scale เร็วกว่า แต่ก็ไม่มีศูนย์ความเป็นเลิศรักษาโรคซับซ้อนแบบ CHG เป็นเกราะป้องกันการแข่งขันด้านราคา</p>
+</section>
+
+<section class="sec" id="sec-07">
+  <div class="sec-eyebrow"><span class="num">07</span>Growth potential</div>
+  <h2 class="sec-title">Growth potential</h2>
+  <p>แผนขยายสาขาของ CHG ในช่วง 5 ปีข้างหน้า (2569-2574) ตั้งเป้าเพิ่มเตียงในเครืออีก 700-800 เตียง ผ่านโครงการหลักหลายจุดพร้อมกัน:</p>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">แม่สอด จ.ตาก</div><div class="tl-body">เปิดให้บริการแล้วตั้งแต่มิถุนายน 2566 เฟสแรก 59 เตียง มีศูนย์หัวใจครบวงจร แผนเพิ่มอีกกว่า 59 เตียงภายในปี 2571 — เป็นสาขาแรกที่ขยายออกนอกพื้นที่ EEC เดิม</div></div>
+    <div class="tl-item"><div class="tl-date">จุฬารัตน์ 11 (ฉะเชิงเทรา)</div><div class="tl-body">อาคาร OPD ใหม่ 5 ชั้น CAPEX 50 ล้านบาท วางศิลาฤกษ์เมษายน 2568 คาดเปิดเต็มรูปแบบครึ่งปีแรก 2569</div></div>
+    <div class="tl-item"><div class="tl-date">จุฬารัตน์ ระยอง อินเตอร์ (ใหม่)</div><div class="tl-body">โรงพยาบาลใหม่ 200 เตียง เจาะกลุ่ม A-Class CAPEX 1,500 ล้านบาท ตั้งบริษัทย่อยกันยายน 2567 คาดเปิดเฟสแรก (59 เตียง) ปลายปี 2569-2570 — อยู่ห่างจากสาขาเดิมเพียง 1 กม.</div></div>
+    <div class="tl-item"><div class="tl-date">จุฬารัตน์ 3 อินเตอร์ (ขยาย)</div><div class="tl-body">ก่อสร้างอาคาร 5, 6 และอาคารจอดรถเพิ่มเตียงอีก 100 เตียง CAPEX ราว 500 ล้านบาท คาดเปิด 2569-2570</div></div>
+    <div class="tl-item"><div class="tl-date">จุฬารัตน์ แพรกษา (สมุทรปราการ)</div><div class="tl-body">โครงการโรงพยาบาลใหม่ 200 เตียง อยู่ระหว่างถือครองที่ดินรอพัฒนา — ยังไม่มีกำหนดเปิดชัดเจน</div></div>
+    <div class="tl-item"><div class="tl-date">รวมแพทย์ ฉะเชิงเทรา (ขยาย)</div><div class="tl-body">แผนเพิ่มเตียงอีกกว่า 71 เตียง</div></div>
+  </div>
+
+  <p>บริษัทระบุว่ามีกระแสเงินสดจากการดำเนินงานเพียงพอและมีความสามารถกู้ยืมเพิ่มรองรับงบลงทุนรวมกว่า 2,000 ล้านบาทสำหรับโครงการหลักเหล่านี้ โดยไม่ต้องเพิ่มทุนจากผู้ถือหุ้น — สอดคล้องกับ D/E ที่ยังต่ำเพียง 0.25 เท่า อีกช่องทางการเติบโตที่ไม่ต้องลงทุนก่อสร้างเพิ่มคือการขยายฐานผู้ประกันตนในสาขาเดิมให้เข้าใกล้โควตาสูงสุด (698,050 คน เทียบปัจจุบัน 564,836 คน) ซึ่งยังมีช่องว่างอีกราว 1.3 แสนคน</p>
+  <p>ความเสี่ยงของแผนขยายคือ ธรรมชาติของธุรกิจโรงพยาบาลที่การก่อสร้าง ขอใบอนุญาต และสร้างทีมแพทย์เฉพาะทางให้ครบใช้เวลานานหลายปี โครงการระยองที่เพิ่งตั้งบริษัทย่อยปี 2567 กว่าจะเปิดเฟสแรกก็ปี 2569-2570 และกว่าจะคุ้มทุนเต็มที่อาจใช้เวลาอีกหลายปีถัดไป เป็นการลงทุนที่ผลตอบแทนมาช้าแต่มาแน่ หากไม่มีการเปลี่ยนแปลงเชิงนโยบายที่กระทบแผนกลางทาง</p>
+</section>
+
+<section class="sec" id="sec-08">
+  <div class="sec-eyebrow"><span class="num">08</span>Founder</div>
+  <h2 class="sec-title">ผู้บริหารและปรัชญา</h2>
+  <p>CHG ก่อตั้งและควบคุมโดย<strong>ตระกูลพลักษิณ</strong> ซึ่งยังคงเป็นผู้ถือหุ้นใหญ่ที่สุดของบริษัทที่ราว 38% (ณ ปี 2568) — สะท้อนว่าผู้บริหารมีผลประโยชน์ผูกติดกับผลงานบริษัทโดยตรง บุคคลสำคัญในโครงสร้างบริหารปัจจุบันคือ นายเกรียงศักดิ์ พลักษิณ (ประธานกรรมการ), นพ.กำพล พลักษิณ (อดีต CEO และกรรมการ น้องชายนายเกรียงศักดิ์) และ นพ.เจษฎา โชคดำรงสุข (ประธานเจ้าหน้าที่บริหารคนปัจจุบัน)</p>
+  <p>ปรัชญาการบริหารสะท้อนผ่านสโลแกน "<strong>ดูแลใส่ใจ ห่วงใยดุจญาติมิตร</strong>" (You are my family, We care) และวิสัยทัศน์ที่ประกาศไว้ชัดเจนว่าต้องการเป็น "<strong>The Star of the East</strong>" — ผู้นำโรงพยาบาลเอกชนในพื้นที่ภาคตะวันออก ไม่ได้ตั้งเป้าแข่งขันระดับประเทศหรือภูมิภาคแบบ BDMS หรือ BH แต่เลือกครองความเป็นเจ้าตลาดในพื้นที่เฉพาะให้แน่นก่อน ค่านิยมหลักที่ใช้ขับเคลื่อนองค์กรคือ iCARE (Innovation, Accountability, Reform, Ethic, และ CARE ต่อลูกค้า/ชื่อเสียง/สิ่งแวดล้อม/บุคลากร)</p>
+  <p>จุดที่สะท้อนแนวคิดบริหารได้ชัดคือการตัดสินใจไม่ต่อสัญญาบริหารโรงพยาบาลเมืองพัทยาในปี 2568 แม้จะทำให้รายได้รวมทั้งบริษัทดูแย่ลงในระยะสั้น (หายไป 170-300 ล้านบาทต่อปี) เพื่อไปทุ่มทรัพยากรที่ศูนย์หัวใจซึ่งให้มาร์จิ้นดีกว่า — เป็นตัวอย่างของการบริหารที่เลือกคุณภาพกำไรระยะยาวมากกว่าตัวเลขรายได้สวยงามระยะสั้น สอดคล้องกับกลยุทธ์ศูนย์ความเป็นเลิศที่วางไว้ต่อเนื่องหลายปี</p>
+</section>
+
+<section class="sec" id="sec-09">
+  <div class="sec-eyebrow"><span class="num">09</span>Market overview</div>
+  <h2 class="sec-title">ภาพรวมตลาด</h2>
+  <p>อุตสาหกรรมโรงพยาบาลเอกชนไทยกำลังเผชิญแรงกดดันจากหลายทิศทางพร้อมกัน — การประกาศใช้เงื่อนไขประกันสุขภาพแบบ Co-payment (ผู้ป่วยร่วมจ่าย) ตั้งแต่มีนาคม 2567 ทำให้ผู้ป่วยระมัดระวังการเข้าใช้บริการมากขึ้น โดยเฉพาะกลุ่มที่มียอดเคลมสูงหรือใช้บริการบ่อย ประกอบกับรายได้จากประกันสังคมมีปัจจัยกดดันจากการปิดตัวของโรงงานบางแห่งที่ทำให้จำนวนผู้ประกันตนในระบบลดลง และภาวะเศรษฐกิจที่ยังไม่ฟื้นตัวเต็มที่ทำให้ผู้ป่วยไทยบางส่วนหันไปซื้อยาทานเองหรือลดระดับการใช้บริการจากโรงพยาบาลระดับบนลงมาเป็นระดับกลางหรือโรงพยาบาลรัฐแทนในกรณีโรคไม่รุนแรง</p>
+  <p>ในพื้นที่ EEC ที่ CHG ปักหมุดอยู่ การแข่งขันรุนแรงขึ้นชัดเจน — จำนวนเตียงโรงพยาบาลเอกชนในพื้นที่นี้เพิ่มขึ้นเฉลี่ยถึง 7% ต่อปี สูงกว่าค่าเฉลี่ยทั้งประเทศที่ 2% ต่อปีถึง 3 เท่า สะท้อนว่าผู้เล่นรายอื่น (รวมถึง BCH ที่กำลังจะเข้ามาเปิดสาขาที่ระยอง) มองเห็นโอกาสเดียวกันกับที่ CHG มองมานานแล้ว — ทำให้ทำเลที่เคยเป็นข้อได้เปรียบแบบกึ่งผูกขาดของ CHG จะถูกท้าทายมากขึ้นเรื่อยๆ ในอีกไม่กี่ปีข้างหน้า</p>
+  <p>ในทางกลับกัน ธีมสังคมสูงวัย (Aging Society) ของไทยยังเป็นแรงหนุนเชิงโครงสร้างระยะยาวให้อุตสาหกรรมทั้งหมด — ความต้องการรักษาโรคเรื้อรังและโรคซับซ้อนจะเพิ่มขึ้นตามสัดส่วนประชากรสูงอายุที่โตต่อเนื่อง เป็นแรงหนุนที่ทุกผู้เล่นในอุตสาหกรรมได้ประโยชน์ร่วมกัน ไม่ใช่แค่ CHG รายเดียว คำถามสำคัญคือใครจะแย่งส่วนแบ่งดีมานด์ที่โตขึ้นนี้ได้มากกว่ากัน ซึ่งขึ้นอยู่กับความเร็วในการขยายเตียงและคุณภาพศูนย์เฉพาะทางของแต่ละราย</p>
+</section>
+
+<section class="sec" id="sec-10">
+  <div class="sec-eyebrow"><span class="num">10</span>Revenue growth, margins &amp; FCF</div>
+  <h2 class="sec-title">การเติบโตของรายได้ / อัตรากำไร / FCF</h2>
+  <p>มองย้อนกลับไปที่ปี 2567 CHG เคยมีไตรมาสที่แข็งแกร่งมาก — Q3/2567 กำไรสุทธิ 417.4 ล้านบาท โต 28.1% YoY แต่ตัวเลขนั้นรวมรายได้พิเศษจากการรักษาโรคเรื้อรังก้อนหนึ่งที่ไม่เกิดขึ้นซ้ำ ทำให้เมื่อเทียบ Q3/2568 (คาดการณ์ 285 ล้านบาท) กลับดูเหมือนกำไรหดตัว -32% ทั้งที่จริงเป็นผลจากการไม่มีรายได้พิเศษก้อนนั้นซ้ำมากกว่าธุรกิจแย่ลง — เป็นตัวอย่างว่าเวลาดูการเติบโตของ CHG ต้องแยกรายการพิเศษ (one-off) ออกจากธุรกิจปกติเสมอ ไม่เช่นนั้นจะตีความเทรนด์ผิดได้ง่าย</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption>สรุปผลประกอบการรายปี — CHG (หน่วย: ล้านบาท)</caption>
+    <thead><tr><th>ปี</th><th class="num">รายได้รวม</th><th class="num">กำไรสุทธิ</th><th class="num">Net Margin</th></tr></thead>
+    <tbody>
+      <tr><td>FY2567 (2024)</td><td class="num">8,480.3</td><td class="num">965.2</td><td class="num">11.4%</td></tr>
+      <tr><td>FY2568 (2025)</td><td class="num">8,417.3</td><td class="num">929.4</td><td class="num">11.0%</td></tr>
+      <tr><td>Q1/2568 (1Q25)</td><td class="num">2,017.8</td><td class="num">225.3</td><td class="num">11%</td></tr>
+      <tr><td>Q4/2568 (4Q25)</td><td class="num">2,219.6</td><td class="num">224.3</td><td class="num">10%</td></tr>
+      <tr><td>Q1/2569 (1Q26)</td><td class="num">2,108.6</td><td class="num">247.6</td><td class="num">12%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>ในแง่กระแสเงินสด ปี 2568 CHG มีกระแสเงินสดจากการดำเนินงาน 1,669 ล้านบาท ใช้ในกิจกรรมลงทุน 668 ล้านบาท คิดเป็นกระแสเงินสดอิสระ (FCF) ราว 1,001 ล้านบาท เพียงพอรองรับเงินปันผลที่จ่ายไปทั้งปี 0.07 บาทต่อหุ้น (ปันผลระหว่างกาล 0.02 + ปันผลประจำปี 0.05) คิดเป็นอัตราการจ่ายปันผลสูงถึง 82.85% ของกำไรสุทธิ — อัตราการจ่ายที่สูงระดับนี้สะท้อนว่าบริษัทมองว่าธุรกิจแกนหลักไม่ต้องใช้เงินสดสะสมมากสำหรับ CAPEX ตามปกติ (สอดคล้องกับ D/E ต่ำ) แต่ก็หมายความว่าเงินสดเหลือสำหรับโครงการขยายใหญ่ (เช่น ระยอง 1,500 ล้านบาท) จะต้องพึ่งพาการกู้ยืมเพิ่มเป็นส่วนใหญ่ ไม่ใช่กำไรสะสม</p>
+  <p>สัญญาณฟื้นตัวที่ชัดที่สุดคือ Q1/2569 ที่กำไรสุทธิ (247.6 ล้านบาท) สูงกว่าทั้ง Q1/2568 และ Q4/2568 แม้รายได้จะต่ำกว่า Q4/2568 ตามฤดูกาล — สะท้อนว่าการควบคุมต้นทุนดำเนินงานให้โตช้ากว่ารายได้ (3.1% เทียบ 4.5%) เริ่มเห็นผลเป็นรูปธรรม หลังจากปี 2568 ทั้งปีเป็นปีที่มาร์จิ้นถูกกดจากปัจจัย one-off หลายตัวพร้อมกัน</p>
+</section>
+
+<section class="sec" id="sec-11">
+  <div class="sec-eyebrow"><span class="num">11</span>Company history</div>
+  <h2 class="sec-title">ประวัติของธุรกิจ</h2>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">2529 (1986)</div><div class="tl-body">ก่อตั้งกลุ่มโรงพยาบาลจุฬารัตน์ในย่านกรุงเทพฯ ฝั่งตะวันออกและสมุทรปราการ (บริเวณรอบสนามบินสุวรรณภูมิ) โดยตระกูลพลักษิณ</div></div>
+    <div class="tl-item"><div class="tl-date">2556 (2013)</div><div class="tl-body">เข้าจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย (SET) วันที่ 16 พฤษภาคม 2556</div></div>
+    <div class="tl-item"><div class="tl-date">2557 (2014)</div><div class="tl-body">โรงพยาบาลจุฬารัตน์ 3 อินเตอร์ เป็นโรงพยาบาลแห่งแรกในสมุทรปราการที่ได้รับการรับรองมาตรฐานสากล JCI</div></div>
+    <div class="tl-item"><div class="tl-date">2561 (2018)</div><div class="tl-body">เปิดโรงพยาบาลใหม่ในปราจีนบุรี (จุฬารัตน์ 304) และฉะเชิงเทรา (รวมแพทย์ ฉะเชิงเทรา) ขยายฐานออกจากสมุทรปราการเดิม</div></div>
+    <div class="tl-item"><div class="tl-date">2566 (2023)</div><div class="tl-body">เปิดโรงพยาบาลจุฬารัตน์ แม่สอด (จ.ตาก) — สาขาแรกนอกพื้นที่ EEC เดิม พร้อมศูนย์การแพทย์จุฬารัตน์ (รพ.ชีวารัตน์) รองรับผู้ป่วยมะเร็งและโรคซับซ้อน</div></div>
+    <div class="tl-item"><div class="tl-date">2567 (2024)</div><div class="tl-body">ตั้งเป้ารายได้โต 15% ปรับลดเหลือ 10-12% ระหว่างปี ปิดปีจริงที่ 6.6% — ปีที่มีการปรับลดอัตราเบิกจ่าย Adj.RW จากประกันสังคมกลางปี กระทบรายได้ย้อนหลัง 53 ล้านบาท และตั้งบริษัทย่อยเตรียมเปิดโรงพยาบาลระยอง อินเตอร์แห่งใหม่</div></div>
+    <div class="tl-item"><div class="tl-date">2568 (2025)</div><div class="tl-body">สิ้นสุดสัญญาบริหารโรงพยาบาลเมืองพัทยา (เลือกไม่ต่อเอง) รายได้รวมและกำไรทั้งปีลดลงเล็กน้อยจากปัจจัย one-off แม้ธุรกิจโรงพยาบาลแกนหลักยังโต วางศิลาฤกษ์อาคาร OPD จุฬารัตน์ 11</div></div>
+    <div class="tl-item"><div class="tl-date">2569 (2026)</div><div class="tl-body">Q1 กำไรฟื้นตัวแรง +9.9% YoY จากการควบคุมต้นทุนและรายได้ศูนย์เฉพาะทางที่แข็งแกร่ง — ปัจจุบันมีสถานพยาบาลในเครือ 15 แห่ง 938 เตียง เตรียมเปิดอาคาร OPD จุฬารัตน์ 11 และเดินหน้าโครงการระยอง อินเตอร์</div></div>
+  </div>
+</section>
+
+<section class="sec" id="sec-12">
+  <div class="sec-eyebrow"><span class="num">12</span>Risks &amp; counter-argument</div>
+  <h2 class="sec-title">ความเสี่ยง + Counter-argument</h2>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 1 — ราคาประกันสังคมควบคุมโดยรัฐ ไม่ใช่บริษัท</span>
+      <p>รายได้ราว 28% ของ CHG มาจากประกันสังคมที่รัฐเป็นผู้กำหนดราคา เหตุการณ์ปี 2567 ที่ Adj.RW ถูกปรับลดจาก 12,000 เหลือ 7,200-8,100 บาท จนต้องบันทึกปรับลดรายได้ย้อนหลัง 53 ล้านบาท เป็นตัวอย่างจริงว่าความเสี่ยงนี้ไม่ใช่แค่ทฤษฎี และอาจเกิดซ้ำได้ทุกเมื่อที่รัฐต้องการควบคุมงบประมาณ</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 2 — การแข่งขันในพื้นที่ EEC รุนแรงขึ้นเร็วกว่าค่าเฉลี่ยประเทศ</span>
+      <p>เตียงโรงพยาบาลเอกชนในพื้นที่ EEC เพิ่มขึ้น 7% ต่อปี เร็วกว่าค่าเฉลี่ยประเทศ 3 เท่า และ BCH กำลังจะเข้ามาเปิดสาขาใหม่ที่ระยองซึ่งเป็นทำเลเดียวกับ CHG — ข้อได้เปรียบทำเลแบบกึ่งผูกขาดที่เคยมีอาจถูกกัดกร่อนเร็วกว่าที่คาด</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 3 — ขาดแคลนบุคลากรทางการแพทย์กดดันต้นทุน</span>
+      <p>แพทย์เฉพาะทางและบุคลากรดูแลผู้สูงอายุเป็นที่ต้องการสูงทั้งอุตสาหกรรม ทำให้ต้นทุนพนักงานเพิ่มขึ้นต่อเนื่องจากการปรับฐานเงินเดือนแข่งกับคู่แข่ง แม้ CHG จะมีศูนย์ฝึกอบรมของตัวเอง (CIH) แต่ก็ไม่สามารถผลิตบุคลากรทุกระดับความเชี่ยวชาญได้ครบทั้งหมด</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 4 — พึ่งพาโครงการขนาดใหญ่หนึ่งเดียวมากเกินไปสำหรับการเติบโตหลัก</span>
+      <p>โครงการระยอง อินเตอร์ (CAPEX 1,500 ล้านบาท) เป็นตัวขับเคลื่อนการเติบโตหลักของ 5 ปีข้างหน้า หากล่าช้ากว่าแผน (เฟสแรกคาดเปิดปลายปี 2569-2570) หรือไม่คุ้มทุนตามที่ประเมิน จะกระทบภาพการเติบโตรวมของบริษัทอย่างมีนัยสำคัญ เพราะโครงการอื่นๆ ในไปป์ไลน์มีขนาดเล็กกว่ามาก</p>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Counter-argument</h3>
+  <p>ต่อประเด็นพึ่งพาประกันสังคม — แม้ราคาต่อหน่วยควบคุมไม่ได้ แต่ก็เป็นรายได้ที่มั่นคงที่สุดในบรรดาสามฐานลูกค้า เพราะไม่ผันผวนตามเศรษฐกิจหรือการท่องเที่ยว และผู้ประกันตนแทบไม่มีทางออกไปหาโรงพยาบาลอื่นในระยะสั้น (ต้องรอ 6 เดือนถึงเปลี่ยนได้) ยิ่งไปกว่านั้น CHG ยังมีช่องว่างขยายฐานผู้ประกันตนในสาขาเดิมได้อีกมาก (แตะโควตาสูงสุดได้อีกเกือบ 1.3 แสนคน) โดยไม่ต้องลงทุนเพิ่มเลย</p>
+  <p>ต่อประเด็นการแข่งขันในพื้นที่ EEC — ต้องยอมรับว่าตลาดกำลังโตเร็วพอที่จะรองรับผู้เล่นเพิ่มได้ในระดับหนึ่ง เพราะดีมานด์เชิงโครงสร้างจากสังคมสูงวัยและความหนาแน่นแรงงานในพื้นที่ยังเพิ่มต่อเนื่อง และ CHG มีความได้เปรียบเรื่องชื่อเสียงสะสม 38 ปีกับศูนย์ความเป็นเลิศที่ต้องใช้เวลาสร้างทีมแพทย์เฉพาะทางนานหลายปี — คู่แข่งใหม่แม้จะมีเงินทุนแต่ก็เลียนแบบความไว้วางใจของคนในพื้นที่ไม่ได้ในเวลาสั้นๆ</p>
+  <p>ต่อประเด็นปีที่กำไรหดตัว 2568 — ตัวเลขรวมที่ดูแย่ (-0.7% รายได้, -3.7% กำไร) เกิดจากการตัดสินใจเชิงกลยุทธ์ที่บริษัทเลือกเอง (ไม่ต่อสัญญาพัทยา) ไม่ใช่ธุรกิจหลักอ่อนแอ และเมื่อดูเฉพาะรายได้โรงพยาบาลแกนหลักก็ยังโต +1.3% ต่อเนื่อง ประกอบกับไตรมาสล่าสุด (Q1/2569) กำไรกลับมาโตแรง +9.9% เป็นสัญญาณว่าปี 2568 อาจเป็นเพียงปีที่มีรายการพิเศษกดดันชั่วคราว ไม่ใช่จุดเริ่มต้นของขาลงถาวร</p>
+  <p>ท้ายที่สุด งบดุลที่แข็งแรง (D/E 0.25 เท่า) และ FCF ที่ยังเป็นบวกต่อเนื่อง คือฐานที่ทำให้ CHG มีเวลาและทรัพยากรพอจะดำเนินแผนขยาย 700-800 เตียงตามกำหนดได้แม้จะเจอความท้าทายระหว่างทางบ้าง โดยไม่ต้องเร่งกู้หนี้หนักหรือเพิ่มทุนกระทบผู้ถือหุ้นเดิม</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="unverified-note">สิ่งที่ยังยืนยันไม่ได้: (1) ตัวเลขรายละเอียด Q3/2568 (กำไรคาดการณ์ 285 ลบ., -32% YoY) มาจากบทวิเคราะห์สื่อ (mitihoon.com) ไม่ใช่งบการเงินฉบับตรวจสอบ — ใช้เป็นทิศทางกว้างๆ — (2) ราคาเป้าหมายนักวิเคราะห์และตัวเลขคู่แข่ง (BH, BDMS, BCH, PR9, KLINIQ) ใน Section 6 ส่วนใหญ่มาจากกระทู้สรุปมือสองของสมาชิกเว็บบอร์ด Thai Value Investor (board.thaivi.org) ไม่ใช่บทวิเคราะห์ต้นฉบับที่ตรวจสอบโดยตรง ควรใช้เป็นทิศทางกว้างๆ ไม่ใช่ตัวเลขแม่นยำระดับทศนิยม — (3) ราคาหุ้นปัจจุบัน (1.59 บาท ณ 26 มิ.ย. 2569) เป็นราคาปิดล่าสุดที่สืบค้นได้ ไม่ใช่ราคาแบบเรียลไทม์ — (4) ตัวเลขในคลิป Oppday ที่อ้างอิงผ่าน NotebookLM เป็นการสรุปจากเสียงถอดความอัตโนมัติ อาจมีความคลาดเคลื่อนเล็กน้อยจากคำพูดต้นฉบับ</div>
+
+    <div class="src-group">
+      <h4>เอกสารทางการ (Filings)</h4>
+      <ol>
+        <li>MD&amp;A คำอธิบายและวิเคราะห์ของฝ่ายจัดการ CHG รายไตรมาส 1/2565 – 1/2569 (18 ฉบับ) — ตลาดหลักทรัพย์แห่งประเทศไทย, 2565-2569</li>
+        <li>แบบ 56-1 One Report CHG ปี 2565-2568 (4 ฉบับ) — ตลาดหลักทรัพย์แห่งประเทศไทย</li>
+        <li>CHG — ราคาหลักทรัพย์และปันผลล่าสุด — set.or.th/th/market/product/stock/quote/CHG, สืบค้น 2569-07-26</li>
+        <li>InnovestX — "CHG ตั้งเป้ารายได้เติบโตในระดับเลขตัวเดียวในปี 2569" — innovestx.co.th, 22 พ.ค. 2569</li>
+      </ol>
+    </div>
+
+    <div class="src-group">
+      <h4>ฟอรัม/บทวิเคราะห์ที่สมาชิกรวบรวม (Forum-aggregated)</h4>
+      <ol>
+        <li>กระทู้ "หุ้นเด่นกลุ่มการแพทย์ ร่วมกันฝ่าอุปสรรคปี 69 : BH BDMS BCH CHG PR9 KLINIQ" — board.thaivi.org (Thai Value Investor Webboard), สรุปผล Q1/2569 และราคาเป้าหมายเปรียบเทียบทั้งกลุ่ม, สืบค้น 2569-07-26</li>
+        <li>มิติหุ้น — "CHG โค้งหลังผลงานแรง รพ.แม่สอดใกล้คุ้มทุน" — mitihoon.com, 3 พ.ย. 2568 (ตัวเลขคาดการณ์ Q3/2568)</li>
+      </ol>
+    </div>
+
+    <div class="src-group">
+      <h4>คลิป Oppday (Media)</h4>
+      <ol>
+        <li>Oppday Q1/2567 CHG — SET Opportunity Day, มิ.ย. 2567</li>
+        <li>Oppday Q2/2567 CHG — SET Opportunity Day, ก.ย. 2567</li>
+        <li>Oppday Q3/2567 CHG — SET Opportunity Day, ธ.ค. 2567</li>
+        <li>Oppday year-end 2567 CHG — SET Opportunity Day, 14 มี.ค. 2568</li>
+        <li>Oppday Q1/2568 CHG — SET Opportunity Day, 28 พ.ค. 2568</li>
+        <li>Oppday YE/2568 CHG — SET Opportunity Day, 2569</li>
+      </ol>
+      <p style="font-size:13px;color:var(--ink-faint);margin-top:10px;">หมายเหตุความครอบคลุมของ Media: ไม่พบคลิป Oppday แยกรายไตรมาสสำหรับ Q2/2568 และ Q3/2568 ในการสืบค้น (อาจมีอยู่จริงแต่ไม่ถูกจัดทำดัชนีให้ค้นเจอ) — ตัวเลข Q3/2568 ในบทความนี้จึงอ้างอิงจากบทวิเคราะห์สื่อแทน ไม่ใช่คลิป Oppday ต้นฉบับ</p>
+    </div>
+
+    <p class="nb-note">ตรวจสอบไขว้ (red-flag cross-check) ผ่าน NotebookLM Notebook: "CHG - 56-1/MD&amp;A vs Oppday Analysis" (ID: cf58c3b2-63db-48f8-83ca-d9e57cc6050c) — เปิดต่อเพื่อถามคำถามเพิ่มเติมได้</p>
+
+    <p class="disclaimer">บทความนี้จัดทำขึ้นเพื่อการศึกษาและวิเคราะห์ธุรกิจเท่านั้น ไม่ใช่คำแนะนำการลงทุนส่วนบุคคล ตัวเลขทางการเงินอ้างอิงจากเอกสารที่เผยแพร่ต่อสาธารณะ ณ ช่วงเวลาที่ระบุ และอาจมีการปรับปรุงในภายหลัง ผู้อ่านควรศึกษาข้อมูลเพิ่มเติมจากเอกสารทางการก่อนตัดสินใจลงทุนทุกครั้ง</p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

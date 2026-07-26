@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCH.BK — เกษมราษฎร์ ในวันที่ COVID หมดฤทธิ์ | Trendlongtun Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f4f7f6;
+    --bg-raised: #ffffff;
+    --ink: #16211f;
+    --ink-soft: #46564f;
+    --ink-faint: #7c8b85;
+    --line: #d7e0dc;
+    --line-soft: #e7ede9;
+    --accent: #0f6b62;
+    --accent-ink: #ffffff;
+    --accent-soft: #e2f0ed;
+    --risk: #a8442c;
+    --risk-soft: #f7e6e0;
+    --risk-ink: #6f2c1a;
+    --good: #1c7a4f;
+    --good-soft: #e3f2e8;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --display: "Kanit", "Noto Sans Thai", sans-serif;
+    --body: "Sarabun", "Noto Sans Thai", sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: #0e1615;
+      --bg-raised: #16201e;
+      --ink: #e9f0ee;
+      --ink-soft: #aebdb7;
+      --ink-faint: #79877f;
+      --line: #2a3835;
+      --line-soft: #212d2a;
+      --accent: #52d1bf;
+      --accent-ink: #06211d;
+      --accent-soft: #14322d;
+      --risk: #ef8a6c;
+      --risk-soft: #3a221b;
+      --risk-ink: #f7cdb9;
+      --good: #6bd39b;
+      --good-soft: #143024;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0e1615; --bg-raised: #16201e; --ink: #e9f0ee; --ink-soft: #aebdb7; --ink-faint: #79877f;
+    --line: #2a3835; --line-soft: #212d2a; --accent: #52d1bf; --accent-ink: #06211d; --accent-soft: #14322d;
+    --risk: #ef8a6c; --risk-soft: #3a221b; --risk-ink: #f7cdb9; --good: #6bd39b; --good-soft: #143024;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"]{
+    --bg: #f4f7f6; --bg-raised: #ffffff; --ink: #16211f; --ink-soft: #46564f; --ink-faint: #7c8b85;
+    --line: #d7e0dc; --line-soft: #e7ede9; --accent: #0f6b62; --accent-ink: #ffffff; --accent-soft: #e2f0ed;
+    --risk: #a8442c; --risk-soft: #f7e6e0; --risk-ink: #6f2c1a; --good: #1c7a4f; --good-soft: #e3f2e8;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--body);
+    font-size:16.5px; line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  ::selection{background:var(--accent-soft); color:var(--ink);}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .grid-bg{background:var(--bg);}
+
+  header.masthead{
+    border-bottom:1px solid var(--line);
+    background:var(--bg-raised);
+    padding:44px 0 36px;
+  }
+  .masthead-inner{max-width:820px; margin:0 auto; padding:0 24px;}
+  .plate{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); border:1px solid var(--accent); border-radius:999px;
+    padding:5px 12px 5px 10px; background:var(--accent-soft);
+  }
+  .plate .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); display:inline-block;}
+  h1.title{
+    font-family:var(--display); font-weight:700; font-size:44px; line-height:1.12;
+    margin:18px 0 6px; text-wrap:balance; letter-spacing:-0.01em;
+  }
+  .ticker{
+    font-family:var(--mono); font-size:14px; color:var(--ink-faint); letter-spacing:0.02em;
+    margin-bottom:16px;
+  }
+  p.dek{font-size:18px; line-height:1.65; color:var(--ink-soft); max-width:680px; margin:0 0 26px;}
+
+  .stat-rail{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:0;
+    border:1px solid var(--line); border-radius:12px; overflow:hidden;
+    background:var(--bg-raised);
+  }
+  .stat{padding:14px 16px; border-right:1px solid var(--line-soft);}
+  .stat:last-child{border-right:none;}
+  .stat-label{font-size:11.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
+  .stat-value{font-family:var(--mono); font-size:19px; font-weight:600; font-variant-numeric:tabular-nums;}
+  .stat-value.accent{color:var(--accent);}
+  .stat-value.risk{color:var(--risk);}
+  .stat-note{font-size:12.5px; color:var(--ink-faint); margin-top:14px;}
+
+  .severity{
+    max-width:820px; margin:28px auto 0; padding:0 24px;
+  }
+  .severity-box{
+    border:1.5px solid var(--risk); background:var(--risk-soft); border-radius:12px;
+    padding:20px 22px;
+  }
+  .severity-box .sev-head{
+    display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:600;
+    font-size:16px; color:var(--risk-ink); margin-bottom:10px;
+  }
+  .sev-mark{
+    width:22px; height:22px; border-radius:50%; background:var(--risk); color:var(--accent-ink);
+    display:inline-flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; flex:none;
+  }
+  .severity-box ul{margin:0; padding-left:20px;}
+  .severity-box li{margin-bottom:6px; color:var(--ink);}
+  .severity-box .sev-close{margin-top:10px; font-size:13.5px; color:var(--risk-ink); font-style:italic;}
+
+  nav.toc{max-width:820px; margin:32px auto 0; padding:0 24px;}
+  .toc-head{
+    font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--ink-faint); margin-bottom:10px;
+  }
+  .toc-list{
+    display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  }
+  .toc-list a{
+    display:block; padding:12px 16px; text-decoration:none; color:var(--ink);
+    border-bottom:1px solid var(--line-soft); font-size:14.5px;
+  }
+  .toc-list a:nth-child(odd){border-right:1px solid var(--line-soft);}
+  .toc-list a:hover{background:var(--accent-soft);}
+  .case-no{font-family:var(--mono); font-size:11.5px; color:var(--accent); margin-right:8px;}
+
+  main{max-width:820px; margin:0 auto; padding:8px 24px 80px;}
+  section.sec{padding-top:56px; scroll-margin-top:20px;}
+  section.sec:first-of-type{padding-top:44px;}
+  .sec-eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase;
+    display:flex; align-items:center; gap:8px; margin-bottom:8px;
+  }
+  .sec-eyebrow .num{
+    display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px;
+    border:1px solid var(--accent); border-radius:50%; font-size:11px;
+  }
+  h2.sec-title{font-family:var(--display); font-weight:600; font-size:27px; margin:0 0 18px; text-wrap:balance;}
+  h3.sub-title{font-family:var(--display); font-weight:600; font-size:19px; margin:28px 0 10px;}
+  p{margin:0 0 18px;}
+  strong{font-weight:600;}
+  .callout{
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:6px;
+    padding:14px 18px; margin:22px 0; font-size:15px;
+  }
+  .callout-label{display:block; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:6px;}
+
+  .card{
+    border:1px solid var(--line); background:var(--bg-raised); border-radius:12px; padding:20px 22px; margin:24px 0;
+  }
+  .card-title{font-family:var(--display); font-weight:600; font-size:15px; margin:0 0 4px;}
+  .card-sub{font-size:13px; color:var(--ink-faint); margin-bottom:14px;}
+
+  .table-scroll{overflow-x:auto; margin:22px 0; border:1px solid var(--line); border-radius:10px;}
+  table{width:100%; border-collapse:collapse; font-size:14.5px; min-width:520px;}
+  caption{text-align:left; font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--ink-faint); padding:10px 14px; background:var(--bg-raised); border-bottom:1px solid var(--line);}
+  th,td{padding:9px 14px; border-bottom:1px solid var(--line-soft); text-align:left; white-space:nowrap;}
+  th{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); background:var(--bg-raised);}
+  td.num, th.num{text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums;}
+  tr:last-child td{border-bottom:none;}
+  td.up{color:var(--good);}
+  td.down{color:var(--risk);}
+
+  .bmc{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:24px 0;}
+  .bmc-cell{background:var(--bg-raised); padding:14px 15px; min-height:110px;}
+  .bmc-cell h4{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--accent); margin:0 0 3px; line-height:1.3;}
+  .bmc-cell .en{font-size:9.5px; color:var(--ink-faint); text-transform:none; letter-spacing:0; display:block; margin-bottom:6px;}
+  .bmc-cell p{font-size:13px; margin:0; color:var(--ink-soft); line-height:1.55;}
+
+  .risk-grid{display:grid; grid-template-columns:1fr; gap:14px; margin:22px 0;}
+  .risk-card{border:1px solid var(--risk); background:var(--risk-soft); border-radius:10px; padding:16px 18px;}
+  .rc-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--risk-ink); font-weight:600;}
+  .risk-card p{margin:6px 0 0; font-size:14.5px; color:var(--ink);}
+
+  .timeline{border-left:2px solid var(--line); margin:22px 0 22px 6px; padding-left:22px;}
+  .tl-item{position:relative; padding-bottom:20px;}
+  .tl-item::before{content:""; position:absolute; left:-27.5px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--accent); border:2px solid var(--bg);}
+  .tl-date{font-family:var(--mono); font-size:12.5px; color:var(--accent); font-weight:600;}
+  .tl-body{font-size:14.5px; margin-top:2px; color:var(--ink-soft);}
+
+  .verdict{
+    border:1px solid var(--accent); background:var(--accent-soft); border-radius:10px; padding:18px 20px; margin:24px 0;
+  }
+  .verdict-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:8px; display:block;}
+
+  footer.foot{border-top:1px solid var(--line); margin-top:20px; padding:44px 0 60px;}
+  footer.foot .wrap{max-width:820px;}
+  .src-group h4{font-family:var(--display); font-size:15px; margin:22px 0 8px;}
+  .src-group ol{padding-left:20px; font-size:13.5px; color:var(--ink-soft);}
+  .src-group li{margin-bottom:6px;}
+  .unverified-note{font-size:13px; color:var(--ink-faint); font-family:var(--mono); background:var(--line-soft); padding:10px 14px; border-radius:8px; margin:20px 0;}
+  .disclaimer{font-size:12.5px; color:var(--ink-faint); border-top:1px dashed var(--line); padding-top:18px; margin-top:26px; line-height:1.6;}
+  .nb-note{font-size:12.5px; color:var(--ink-faint); font-family:var(--mono); margin-top:10px;}
+
+  @media (max-width:640px){
+    .stat-rail{grid-template-columns:repeat(2,1fr);}
+    .stat{border-right:1px solid var(--line-soft);}
+    .toc-list{grid-template-columns:1fr;}
+    .toc-list a:nth-child(odd){border-right:none;}
+    h1.title{font-size:32px;}
+    .bmc{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="plate"><span class="dot"></span>TRENDLONGTUN BRIEF · เจาะลึกธุรกิจ</span>
+    <h1 class="title">เกษมราษฎร์ ในวันที่ COVID หมดฤทธิ์แล้ว</h1>
+    <div class="ticker">BCH.BK · บริษัท บางกอก เชน ฮอสปิทอล จำกัด (มหาชน) · SET</div>
+    <p class="dek">เครือโรงพยาบาลที่เคยโตเป็นเท่าตัวจากรายได้ตรวจโควิด วันนี้กำลังพิสูจน์ว่าโตต่อได้จริงด้วยธุรกิจปกติหรือไม่ — และทำไมเป้าหมายที่ผู้บริหารเคยประกาศไว้เอง ถึงพลาดติดกันสองปีซ้อน</p>
+
+    <div class="stat-rail">
+      <div class="stat"><div class="stat-label">รายได้รวม FY2568</div><div class="stat-value">12,025 ลบ.</div></div>
+      <div class="stat"><div class="stat-label">กำไรสุทธิ FY2568</div><div class="stat-value">1,316 ลบ.</div></div>
+      <div class="stat"><div class="stat-label">Net Margin</div><div class="stat-value">10.9%</div></div>
+      <div class="stat"><div class="stat-label">D/E</div><div class="stat-value accent">0.2x</div></div>
+      <div class="stat"><div class="stat-label">Q1/2569 กำไร YoY</div><div class="stat-value risk">-16.7%</div></div>
+      <div class="stat"><div class="stat-label">สาขาในเครือ</div><div class="stat-value">15+</div></div>
+    </div>
+    <p class="stat-note">ข้อมูลการเงินจาก F45/MD&amp;A ที่ยื่นต่อตลาดหลักทรัพย์แห่งประเทศไทย ไตรมาส 1/2569 (ม.ค.-มี.ค. 2569) เป็นข้อมูลล่าสุด — อ้างอิงแหล่งที่มาท้ายบทความ</p>
+  </div>
+</header>
+
+<div class="severity">
+  <div class="severity-box">
+    <div class="sev-head"><span class="sev-mark">!</span>ข้อสังเกตสำคัญก่อนอ่าน</div>
+    <ul>
+      <li>ผู้บริหารตั้งเป้ารายได้ปี 2566 ไว้ที่ 13,000 ล้านบาท แต่ทำได้จริง 11,829.9 ล้านบาท (พลาดเป้า ~9%) และปี 2567 ตั้งเป้าโต "สองหลัก" แต่ปิดปีที่ 11,832.4 ล้านบาท — เติบโตแทบ 0% จากปีก่อนหน้า</li>
+      <li>แผนขยาย "20 โรงพยาบาลใน 5 ปี" ที่ประกาศไว้ตั้งแต่ปี 2566 ล่าช้ากว่ากำหนดมาก — ปัจจุบัน (2569) ยังมีราว 15 สาขา และสาขาใหม่ที่วางแผนไว้ (ระยอง, สุวรรณภูมิ) เลื่อนไปเปิดจริงปี 2570-2571</li>
+      <li>แผนขยายเชิงลึกเข้ากัมพูชา/เมียนมาร์ที่เคยพูดถึงหลายครั้งถูกชะลอต่อเนื่องจากสถานการณ์ชายแดน/การเมืองประเทศเพื่อนบ้านที่ควบคุมไม่ได้</li>
+    </ul>
+    <div class="sev-close">รายละเอียดอยู่ใน Section 2 และ Section 12</div>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="toc-head">สารบัญ — แฟ้มเวชระเบียน 12 เคส</div>
+  <div class="toc-list">
+    <a href="#sec-01"><span class="case-no">เคส 01</span>ความน่าสนใจของธุรกิจ</a>
+    <a href="#sec-02"><span class="case-no">เคส 02</span>งบการเงิน + สัมภาษณ์ล่าสุด</a>
+    <a href="#sec-03"><span class="case-no">เคส 03</span>Business model — หาเงินยังไง</a>
+    <a href="#sec-04"><span class="case-no">เคส 04</span>สัดส่วนรายได้ &amp; อัตรากำไร</a>
+    <a href="#sec-05"><span class="case-no">เคส 05</span>Competitive advantage</a>
+    <a href="#sec-06"><span class="case-no">เคส 06</span>เปรียบเทียบคู่แข่ง</a>
+    <a href="#sec-07"><span class="case-no">เคส 07</span>Growth potential</a>
+    <a href="#sec-08"><span class="case-no">เคส 08</span>ผู้บริหารและคุณภาพบริหาร</a>
+    <a href="#sec-09"><span class="case-no">เคส 09</span>ภาพรวมตลาด</a>
+    <a href="#sec-10"><span class="case-no">เคส 10</span>รายได้ / มาร์จิน / FCF</a>
+    <a href="#sec-11"><span class="case-no">เคส 11</span>ประวัติของธุรกิจ</a>
+    <a href="#sec-12"><span class="case-no">เคส 12</span>ความเสี่ยง + Counter-argument</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="sec" id="sec-01">
+  <div class="sec-eyebrow"><span class="num">01</span>Why it's interesting</div>
+  <h2 class="sec-title">ความน่าสนใจของธุรกิจ</h2>
+  <p>ก่อนอื่นต้องอธิบายให้ชัดว่า BCH คืออะไร — ถ้าไม่เคยได้ยินชื่อนี้มาก่อนก็ไม่แปลก เพราะบริษัทไม่ได้ใช้ชื่อ "BCH" เป็นชื่อโรงพยาบาลที่คนไข้เห็น แต่ใช้แบรนด์ <strong>"เกษมราษฎร์" (Kasemrad)</strong> ซึ่งเป็นเครือโรงพยาบาลเอกชนที่มีสาขากระจายอยู่ทั้งในกรุงเทพฯ ปริมณฑล ต่างจังหวัด และข้ามไปถึงเวียงจันทน์ ประเทศลาว รวมกันกว่า 15 สาขา บวกอีกแบรนด์หนึ่งชื่อ <strong>World Medical Center</strong> ที่นนทบุรี ซึ่งตั้งขึ้นมาเจาะกลุ่มคนไข้ต่างชาติและกลุ่มพรีเมียมโดยเฉพาะ พูดง่ายๆ BCH คือบริษัทแม่ที่ถือหุ้นโรงพยาบาลทั้งเครือนี้ และเป็นตัวที่ซื้อขายในตลาดหลักทรัพย์แห่งประเทศไทย</p>
+  <p>เรื่องที่ทำให้ตลาดสนใจ BCH มาตลอดคือ นี่คือหนึ่งในหุ้นโรงพยาบาลที่ "ได้ประโยชน์มากที่สุด" จากวิกฤต COVID-19 — ปี 2564 บริษัทปิดรายได้ 21,529 ล้านบาท กำไรสุทธิ 6,846 ล้านบาท ซึ่งผู้บริหารเองเคยบอกในรายการสัมภาษณ์ว่า "เหมือนทำงาน 5 ปีในปีเดียว" เหตุผลคือ BCH เป็นเครือที่รับดูแลคนไข้โควิดมากที่สุดเครือหนึ่งของประเทศ ทั้งตรวจ PCR จำนวนมหาศาล, เปิดฮอสปิเทล (Hospitel — โรงแรมที่ดัดแปลงเป็นหอผู้ป่วยชั่วคราวสำหรับผู้ป่วยโควิดอาการไม่หนัก) และขายวัคซีนทางเลือก Moderna เป็นกอบเป็นกำ</p>
+  <p>เรื่องเล่าที่ตลาดปั้นขึ้นมาต่อจากนั้นคือ: แม้รายได้พิเศษจากโควิดจะหายไปหลังปี 2565 แต่ธุรกิจ "แกนหลัก" (คนไข้เงินสด + คนไข้ประกันสังคม + คนไข้ต่างชาติ) ก็ยังโตต่อเนื่องอยู่ดี เพราะ BCH มีจุดขายที่ต่างจากโรงพยาบาลใหญ่รายอื่นชัดเจน — เป็นเบอร์หนึ่งของประเทศด้านจำนวนผู้ประกันตนในเครือ (ทะลุ 1 ล้านคนตั้งแต่ปี 2565) ซึ่งเป็นฐานลูกค้าที่จ่ายเงินแน่นอนทุกเดือนไม่ว่าเศรษฐกิจจะดีหรือแย่ และยังมีขาลูกค้าต่างชาติจากตะวันออกกลางกับกลุ่มประเทศเพื่อนบ้าน (CLMV) เสริมมาร์จิ้นอีกชั้น บวกกับโมเดลการโตที่ไม่หวือหวา ค่อยๆ เปิดสาขาใหม่ตามดีมานด์จริง ไม่ก่อหนี้เกินตัว (D/E ต่ำเพียง 0.2 เท่า) — เป็นภาพของหุ้น "Defensive" (หุ้นที่ผลประกอบการไม่ผันผวนตามเศรษฐกิจมากนัก) ในธีม Aging Society (สังคมสูงวัย) ที่นักลงทุนหลายคนมองว่าเป็นเมกะเทรนด์ระยะยาวของประเทศไทย</p>
+  <p>แต่ตัวเลขล่าสุดใน Q1/2569 กลับสวนทางกับภาพนั้น — กำไรสุทธิหดตัว 16.7% เมื่อเทียบปีก่อนหน้า และเป้าหมายที่ผู้บริหารเคยประกาศไว้เองก็พลาดติดกันสองปี ซึ่งเป็นรายละเอียดที่ต้องดูให้ลึกใน Section 2 ก่อนจะเชื่อเรื่องเล่าฝั่งบวกทั้งหมด</p>
+</section>
+
+<section class="sec" id="sec-02">
+  <div class="sec-eyebrow"><span class="num">02</span>Latest quarter</div>
+  <h2 class="sec-title">สรุปงบการเงิน + สัมภาษณ์ผู้บริหารล่าสุด</h2>
+  <p>ไตรมาส 1/2569 (ม.ค.-มี.ค. 2569) BCH รายงานรายได้รวม 2,928.8 ล้านบาท แทบทรงตัว (+0.03%) เทียบกับ Q1/2568 ที่ทำได้ 2,929.0 ล้านบาท แต่กำไรสุทธิส่วนที่เป็นของผู้ถือหุ้นบริษัทลดลงจาก 321.3 ล้านบาท เหลือ 267.6 ล้านบาท คิดเป็น -16.7% — สาเหตุหลักคือ EBITDA margin (กำไรก่อนหักดอกเบี้ย ภาษี ค่าเสื่อมและค่าตัดจำหน่าย หารด้วยรายได้ ใช้วัด "กำไรจากการดำเนินงานล้วนๆ" ก่อนปัจจัยบัญชี) ลดจาก 24.7% เหลือ 22.1% เพราะต้นทุนปรับปรุงอาคารโรงพยาบาลเพื่อรองรับการขยายตัวเพิ่มขึ้น ขณะที่รายได้จากคนไข้ต่างชาติ โดยเฉพาะกัมพูชา หดตัวแรงจากการปิดด่านชายแดนไทย-กัมพูชาที่ยืดเยื้อมาตั้งแต่กลางปี 2568</p>
+  <p>MD&amp;A ของบริษัทเองระบุตรงๆ ว่ารายได้จากผู้ป่วยนอกชาวต่างชาติลดลง 5.1% เพราะ "การปิดด่านชายแดนไทย-กัมพูชา" และ "การลดลงของผู้ป่วยโรคทางเดินหายใจในภาพรวมของประเทศ" ที่ลดลงถึง 39.5% เมื่อเทียบกับช่วงเดียวกันของปีก่อน (อ้างอิงกรมควบคุมโรค) — ส่วนรายได้ที่ยังพยุงไว้ได้คือกลุ่มผู้ป่วยประกันสังคม ซึ่งโตขึ้น 13.2% จากฐานผู้ประกันตนที่ยังขยายตัวต่อเนื่อง</p>
+
+  <div class="callout">
+    <span class="callout-label">Spin ที่พบจากการเทียบสัมภาษณ์กับงบจริง</span>
+    ผู้บริหารมักเลี่ยงเทียบกำไรกับปี 2564-2565 (ยุคทองจากโควิด) โดยตรง แล้วหันไปเทียบกับปี 2562 (ก่อนโควิด) แทนเพื่อโชว์การเติบโต — เช่นในบทสัมภาษณ์และ MD&A บางช่วงระบุว่ารายได้โต "29.4% เทียบกับปี 2562" ซึ่งเป็นข้อความจริง แต่ในเวลาเดียวกันตัวเลขจริงกลับลดลงจากปีก่อนหน้าทันที (Year-on-Year) — เป็นการเลือกฐานเปรียบเทียบที่ทำให้ภาพดูดีกว่าที่มันควรจะเป็นถ้าดูรายปีต่อเนื่อง
+  </div>
+
+  <div class="callout">
+    <span class="callout-label">Inconsistency ที่พบ</span>
+    ในบทสัมภาษณ์เดือนสิงหาคม 2567 ผู้บริหารพูดถึงการที่ภาครัฐปรับลดอัตราเบิกจ่ายกลุ่มโรคซับซ้อน (RW≥2 — Relative Weight น้ำหนักสัมพัทธ์ของกลุ่มโรค ยิ่งซับซ้อนยิ่งมีค่าเบิกจ่ายสูง) จาก 12,000 บาทต่อ RW เหลือ 7,200 บาท ว่า "ไม่ยุติธรรม" และกำลังเจรจาอยู่ — แต่ในงบการเงินจริงไตรมาสเดียวกัน (Q2/2567) บริษัท<strong>บันทึกรับรู้ผลกระทบนี้ไปเรียบร้อยแล้ว</strong> ทำให้รายได้หายไปทันที 81 ล้านบาท กำไรลดลง 60 ล้านบาท และมีการปรับลดอีกครั้งใน Q4/2567 อีก 163.8 ล้านบาท — คือขณะที่พูดว่า "กำลังเจรจา" ผลกระทบทางบัญชีได้เกิดขึ้นแล้วจริงๆ
+  </div>
+
+  <p>งบดุล ณ 31 มีนาคม 2569 มีสินทรัพย์รวม 17,575.6 ล้านบาท หนี้สินรวม 3,073.7 ล้านบาท ลดลง 6.3% จากสิ้นปีก่อนหน้าเพราะคืนเงินกู้ระยะสั้น — อัตราส่วนหนี้สินต่อส่วนผู้ถือหุ้นยังอยู่ในระดับต่ำมากที่ 0.2 เท่า และกระแสเงินสดจากการดำเนินงานยังเป็นบวก 392.9 ล้านบาทในไตรมาสนี้ แม้จะลดลงจาก 634.5 ล้านบาทในไตรมาสเดียวกันของปีก่อน</p>
+
+  <div class="callout">
+    <span class="callout-label">เป้าที่ผู้บริหารให้ไว้ เทียบผลจริงถึง Q1/2569</span>
+    ในช่วงหลังประกาศงบ Q1/2569 ผู้บริหารให้แนวทางปีนี้ (2569) ว่ารายได้จะโตระดับ <strong>Mid-single digit ราว 5%</strong> และคาดว่าครึ่งปีหลังจะดีกว่าครึ่งปีแรกทั้งรายได้และมาร์จิ้น โดยระบุว่า Q1 คือ "จุดต่ำสุดของมาร์จิ้น" ของปี — แต่ตัวเลขจริงที่ทำได้ใน Q1 คือรายได้โตเพียง +0.03% (แทบทรงตัว) และกำไรสุทธิหดตัว -16.7% ซึ่งตามหลังเป้าทั้งปีอยู่มาก ต้องรอดูว่าช่วงครึ่งปีหลังจะฟื้นได้จริงตามที่ผู้บริหารอ้างหรือไม่ — เมื่อดูประกอบกับ track record พลาดเป้าติดกัน 2 ปีก่อนหน้า (รายละเอียดเต็มใน Section 8) ควรระมัดระวังไม่รับเป้าใหม่นี้แบบเต็มร้อยเปอร์เซ็นต์ นอกจากนี้บทวิเคราะห์นักลงทุนบางฉบับ (มี.ค. 2569) ปรับราคาเป้าหมายลงเหลือ 11.00 บาท จากเดิม 11.70 บาท พร้อมวาง Worst Case ไว้ที่ 9.80 บาท (สมมติฐานไม่มีคนไข้ตะวันออกกลางเลยตั้งแต่ปี 2570) และ Upside Case ที่ 11.80 บาท (หากมีการปรับเพิ่มค่าหัวประกันสังคม) — ราคาหุ้นที่ซื้อขายอยู่ใกล้เคียง Worst Case แล้ว สะท้อนว่าตลาดกังวลสถานการณ์ตะวันออกกลางไปมากพอสมควร
+  </div>
+</section>
+
+<section class="sec" id="sec-03">
+  <div class="sec-eyebrow"><span class="num">03</span>How it makes money</div>
+  <h2 class="sec-title">Business model — หาเงินยังไง</h2>
+  <p>ธุรกิจโรงพยาบาลเอกชนของไทยมีลักษณะเฉพาะที่ต่างจากธุรกิจทั่วไปตรงที่ "ลูกค้า" ไม่ได้จ่ายเงินตรงๆ เสมอไป BCH หาเงินจาก 3 ฐานลูกค้าหลักที่มีพฤติกรรมการจ่ายเงินต่างกันโดยสิ้นเชิง</p>
+  <p><strong>ฐานที่หนึ่ง — ผู้ป่วยเงินสด (Self-pay)</strong> คือคนไข้ทั่วไปที่เดินเข้ามารักษาแล้วจ่ายเองหรือผ่านประกันสุขภาพเอกชน กลุ่มนี้แบ่งเป็นผู้ป่วยนอก (OPD — Out-Patient Department คือมารักษาแล้วกลับบ้านวันเดียวกัน) และผู้ป่วยใน (IPD — In-Patient Department คือต้องนอนโรงพยาบาล) รายได้กลุ่มนี้รับรู้ทันทีเมื่อให้บริการ เป็นกลุ่มที่มาร์จิ้นสูงสุดเพราะไม่มีเพดานราคาจากภาครัฐมาคุม</p>
+  <p><strong>ฐานที่สอง — ผู้ป่วยประกันสังคม</strong> เป็นฐานที่ใหญ่ที่สุดของ BCH และเป็นตัวที่ทำให้ธุรกิจนี้มีลักษณะกึ่ง "สัญญาระยะยาว" มากกว่าธุรกิจโรงพยาบาลทั่วไป — คนทำงานในระบบประกันสังคมจะเลือกโรงพยาบาลคู่สัญญาไว้ 1 แห่ง แล้วโรงพยาบาลนั้นจะได้รับ "ค่าเหมาจ่ายรายหัว" เป็นรายเดือนจากสำนักงานประกันสังคมไม่ว่าคนคนนั้นจะป่วยหรือไม่ป่วยในเดือนนั้น (คล้ายค่าสมาชิกรายเดือน) บวกกับกรณีที่ป่วยหนักซับซ้อน (DRG มากกว่า 2 — Diagnosis Related Group ระบบจัดกลุ่มโรคตามความซับซ้อนของการรักษา) จะได้ค่าชดเชยเพิ่มตามน้ำหนักโรค (RW) ที่รัฐกำหนดราคาไว้ตายตัว จุดสำคัญคือ<strong>ราคาต่อหน่วยของกลุ่มนี้ไม่ได้กำหนดโดยบริษัท แต่กำหนดโดยรัฐ</strong> — เป็นทั้งข้อดี (ปริมาณแน่นอน คาดการณ์ได้) และความเสี่ยง (ถ้ารัฐปรับราคาลง บริษัทก็ทำอะไรไม่ได้)</p>
+  <p><strong>ฐานที่สาม — ผู้ป่วยต่างชาติ</strong> แบ่งเป็นสองกลุ่มย่อยที่พฤติกรรมต่างกันมาก: กลุ่มตะวันออกกลาง (โดยเฉพาะคูเวต, สหรัฐอาหรับเอมิเรตส์, กาตาร์) ส่วนใหญ่มาจ่ายเงินสดหรือผ่านระบบที่สถานทูตเป็นตัวกลางจ่ายเงินให้ (GOP — Guarantee of Payment) เพื่อรักษาโรคเฉพาะทางที่ประเทศเขายังไม่มีความเชี่ยวชาญเทียบเท่า เช่น ศูนย์แผลเบาหวาน ส่วนกลุ่ม CLMV (กัมพูชา ลาว เมียนมาร์ เวียดนาม) ส่วนใหญ่เป็นคนไข้ที่ข้ามพรมแดนมารักษาที่สาขาชายแดนโดยตรง เป็นเงินสดหรือประกันของประเทศเขาเอง กลุ่มนี้มาร์จิ้นดีเพราะไม่ผูกกับราคาควบคุมของรัฐไทย แต่เปราะบางต่อปัจจัยที่บริษัทควบคุมไม่ได้เลย เช่น นโยบายรัฐบาลต่างประเทศ หรือสถานการณ์ชายแดน</p>
+  <p>สิ่งที่ต่างจากโรงพยาบาลคู่แข่งชัดเจนคือ BCH เลือกใช้ "แบรนด์แยก" จับแต่ละฐานลูกค้า — เกษมราษฎร์ (ราคาเข้าถึงง่าย เจาะประกันสังคม+เงินสดทั่วไป) กับ World Medical Center (พรีเมียม เจาะต่างชาติ+ประกันวงเงินสูง) ไม่ปนกันในแบรนด์เดียวเหมือนบางเครือ ทำให้จัดวางบุคลากรและการตลาดได้ตรงจุดกว่า</p>
+
+  <div class="card">
+    <div class="card-title">Business Model Canvas — BCH.BK</div>
+    <div class="card-sub">สรุปโมเดลธุรกิจเป็น 9 บล็อก (อ้างอิงรายละเอียดเต็มในเนื้อความข้างต้นและ Section 4, 6, 8)</div>
+    <div class="bmc">
+      <div class="bmc-cell"><h4>พันธมิตรหลัก<span class="en">Key Partners</span></h4><p>สำนักงานประกันสังคม/สปสช. (ผู้จ่ายเงินก้อนใหญ่สุด), สถานทูตตะวันออกกลาง (ระบบ GOP), สมาคมศัลยกรรมความงามเกาหลี (ร่วมมือ exclusive), หมอฟันอิสระ 70 คน (ร่วมทุนคลินิกทันตกรรมเคลื่อนที่), บริษัทประกันเอกชน</p></div>
+      <div class="bmc-cell"><h4>กิจกรรมหลัก<span class="en">Key Activities</span></h4><p>รักษาพยาบาลผู้ป่วยนอก/ใน, บริหารเครือข่ายหลายสาขา, เจรจาต่อรองอัตราเบิกจ่ายกับกองทุนภาครัฐ, เปิดสาขาใหม่ตามดีมานด์จริงในพื้นที่</p></div>
+      <div class="bmc-cell"><h4>ทรัพยากรหลัก<span class="en">Key Resources</span></h4><p>ใบอนุญาตโรงพยาบาล+แพทย์เฉพาะทางครบทุกสาขา, ฐานผู้ประกันตนกว่า 1 ล้านคน, เครือข่าย CLMV (เวียงจันทน์มาตรฐาน JCI), เงินสดในมือ+หนี้ต่ำ</p></div>
+      <div class="bmc-cell"><h4>คุณค่าที่ส่งมอบ<span class="en">Value Propositions</span></h4><p>เข้าถึงได้ทุก segment (เงินสด/ประกันสังคม/ต่างชาติ) ในราคาที่จับต้องได้กว่าโรงพยาบาลพรีเมียม แต่ยังมีศูนย์เฉพาะทางระดับตติยภูมิ (tertiary care) ครบทุกสาขา</p></div>
+      <div class="bmc-cell"><h4>ความสัมพันธ์ลูกค้า<span class="en">Customer Relationships</span></h4><p>ผูกผู้ประกันตนไว้ระยะยาวผ่านสิทธิ์เบิกจ่ายรายเดือน, บริการเชิงรุกถึงโรงงาน/ออฟฟิศ (รถทันตกรรม/ตรวจสุขภาพเคลื่อนที่), แอปนัดหมาย Kasemrad</p></div>
+      <div class="bmc-cell"><h4>ช่องทาง<span class="en">Channels</span></h4><p>เครือข่ายโรงพยาบาลเกษมราษฎร์ 15+ สาขา, World Medical Center (ต่างชาติ), ศูนย์เฉพาะทาง (มะเร็ง/หัวใจ/ศัลยกรรม) — เทียบคู่แข่งดู Section 6</p></div>
+      <div class="bmc-cell"><h4>กลุ่มลูกค้า<span class="en">Customer Segments</span></h4><p>ผู้ประกันตนประกันสังคม (ใหญ่สุด ~35% ของรายได้), ผู้ป่วยเงินสด, คนไข้ต่างชาติตะวันออกกลาง+CLMV — สัดส่วนเต็มดู Section 4</p></div>
+      <div class="bmc-cell"><h4>โครงสร้างต้นทุน<span class="en">Cost Structure</span></h4><p>ค่าตอบแทนบุคลากรทางการแพทย์/ค่าธรรมเนียมแพทย์ (สัดส่วนใหญ่สุดของต้นทุน), CAPEX ก่อสร้าง+อุปกรณ์การแพทย์สาขาใหม่, ค่าใช้จ่ายขาย+บริหาร (SG&amp;A)</p></div>
+      <div class="bmc-cell"><h4>กระแสรายได้<span class="en">Revenue Streams</span></h4><p>ค่ารักษา OPD/IPD เงินสด, ค่าเหมาจ่ายรายหัว+RW จากประกันสังคม, รายได้ Wellness/ศัลยกรรมความงาม/ทันตกรรม — ตัวเลขเต็มดู Section 4</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sec-04">
+  <div class="sec-eyebrow"><span class="num">04</span>Revenue mix &amp; margins</div>
+  <h2 class="sec-title">สัดส่วนรายได้แต่ละส่วน (%) และอัตรากำไร</h2>
+  <p>ปี 2568 BCH มีรายได้กิจการโรงพยาบาลรวม 11,913.0 ล้านบาท แบ่งตามประเภทคนไข้ได้ดังนี้: ผู้ป่วยนอก 36.7%, ผู้ป่วยใน 28.5%, ผู้ป่วยประกันสังคม 34.8% — เห็นได้ว่าประกันสังคมและผู้ป่วยนอกมีสัดส่วนใกล้เคียงกันเป็นสองขาหลัก ขณะที่รายได้จากรัฐบาลด้านโควิด (Gov.COVID) หายไปเกือบเป็นศูนย์แล้ว หลังจากที่เคยเป็นสัดส่วนใหญ่ที่สุดของรายได้ทั้งบริษัทในปี 2564</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption>โครงสร้างรายได้ตามประเภทผู้ป่วย เทียบ FY2567 vs FY2568 (MD&amp;A ประจำปี 2568)</caption>
+    <thead><tr><th>ประเภทรายได้</th><th class="num">FY2567 (2024)</th><th class="num">FY2568 (2025)</th><th>ทิศทาง</th></tr></thead>
+    <tbody>
+      <tr><td>ผู้ป่วยนอก (OPD)</td><td class="num">37.8%</td><td class="num">36.7%</td><td class="down">↓ เล็กน้อย</td></tr>
+      <tr><td>ผู้ป่วยใน (IPD)</td><td class="num">29.9%</td><td class="num">28.5%</td><td class="down">↓ กระทบจากต่างชาติหด</td></tr>
+      <tr><td>ผู้ป่วยประกันสังคม</td><td class="num">33.1%</td><td class="num">34.8%</td><td class="up">↑ +6.7% YoY</td></tr>
+      <tr><td>Gov.COVID</td><td class="num">-0.8%</td><td class="num">~0.0%</td><td>ตัดออกจากระบบแล้ว</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>ในแง่มาร์จิ้น กลุ่มที่ทำกำไรได้ดีสุดต่อหน่วยคือ<strong>ผู้ป่วยเงินสดและผู้ป่วยต่างชาติ</strong> เพราะไม่มีเพดานราคาจากรัฐ โรงพยาบาลในเครือที่ไม่รับผู้ป่วยประกันสังคมเลย เช่น World Medical Center มักมีมาร์จิ้นสูงกว่าค่าเฉลี่ยทั้งกลุ่มอย่างชัดเจน ขณะที่กลุ่มประกันสังคมแม้ปริมาณใหญ่และแน่นอน แต่มาร์จิ้นต่อเคสถูกกดไว้ด้วยราคาที่รัฐกำหนด — จุดที่ทำให้ BCH หนีไปเพิ่มมาร์จิ้นได้คือกลุ่มโรคซับซ้อนที่ได้ราคาพิเศษกว่าเคสทั่วไป (เช่น ศูนย์โรคหัวใจที่ได้รับอนุมัติราคาพิเศษจาก 12,000 เป็น 15,000 บาทต่อ RW ในบางสาขา) และการรับส่งต่อเคสจากโรงพยาบาลอื่นที่ไม่มีศูนย์เฉพาะทางของตัวเอง</p>
+  <p>สัดส่วนรายได้จากต่างชาติผันผวนมากที่สุดในบรรดาทั้งสามฐาน — ปี 2568 อยู่ราว 11-12% ของรายได้รวม ลดลงจากที่เคยตั้งเป้าไว้ที่ 18-20% เพราะฐานลูกค้าคูเวตซึ่งเคยเป็นก้อนใหญ่สุดของกลุ่มตะวันออกกลางลดบทบาทลงจากการเปลี่ยนนโยบายส่งคนไข้ไปรักษาต่างประเทศ ส่วนที่มาทดแทนคือกลุ่ม CLMV ที่โตเร็ว แต่ฐานยังเล็กกว่ามาก และมาพร้อมความเสี่ยงด้านภูมิรัฐศาสตร์ที่ควบคุมไม่ได้เหมือนกัน — รายละเอียดอยู่ใน Section 12</p>
+
+  <p>รายละเอียด Oppday ปิดปี 2568 (สรุปจากการประชุมนักวิเคราะห์ ไม่ใช่เอกสารทางการที่ตรวจสอบซ้ำโดยตรง — ดูหมายเหตุความน่าเชื่อถือท้ายบทความ) ให้ภาพรายได้แบ่งย่อยที่ละเอียดกว่า MD&amp;A ทั่วไป: แบ่งตามแบรนด์ เกษมราษฎร์ (แบรนด์หลัก) 70.3%, เกษมราษฎร์อินเตอร์เนชั่นแนล 19.0%, World Medical Center 10.3%, การุญเวช 0.4% — แบ่งตามสัญชาติ ไทย 87.3% ต่างชาติ 12.7% — แบ่งตามประเภทการจ่ายเงิน ทั่วไป (เงินสด) 44.8%, ประกัน 39.5%, คู่สัญญา (ประกันสังคม) 8.8%, อื่นๆ 6.9% ในส่วนรายได้ต่างชาติ กลุ่ม CLMV เป็นก้อนใหญ่สุดที่ 45.5% รองลงมาคือตะวันออกกลาง 21.8%, จีน 7.8%, EU 3.5%, อื่นๆ 21.4% — ที่น่าสังเกตคือปี 2568 รายได้ผู้ป่วยต่างชาติโดยรวมลดลง -11.9% ทั้งที่จำนวนผู้ป่วยเพิ่มขึ้น +6.9% (รายได้ต่อหัวลดลง) ส่วนกลุ่มตะวันออกกลางเฉพาะ จำนวนคนไข้เพิ่ม +16.5% แต่รายได้กลับลดลง -29.7% — สะท้อนว่าเคสที่เข้ามาใหม่มีมูลค่าต่อเคสต่ำกว่าฐานลูกค้าเดิม (เช่น คูเวตที่เคยเป็นเคสมูลค่าสูงหดตัวไป)</p>
+
+  <p>ภาพนี้กลับตัวชัดเจนใน Q1/2569 — รายได้ตะวันออกกลางเติบโตแรงในกลุ่มประเทศใหม่ที่ยังฐานเล็ก: UAE +437.8%, กาตาร์ +285%, ซาอุดีอาระเบีย +90% เทียบปีก่อน (ฐานเทียบยังต่ำมากจึงเห็นเปอร์เซ็นต์สูงผิดปกติ ต้องระวังไม่ตีความเป็นแนวโน้มถาวร) ขณะที่รายได้จากกัมพูชาหายไปคงที่ราว 70 ล้านบาทต่อไตรมาสจากการปิดด่านชายแดนที่ยังไม่คลี่คลาย — ถ้าด่านเปิดกลับมาปกติ ผู้บริหารระบุว่าเป็น Upside ที่ชัดเจนที่สุดของฝั่งต่างชาติ</p>
+</section>
+
+<section class="sec" id="sec-05">
+  <div class="sec-eyebrow"><span class="num">05</span>Competitive advantage</div>
+  <h2 class="sec-title">Competitive advantage</h2>
+  <p>จุดแข็งของ BCH ที่ยั่งยืนที่สุดไม่ใช่เทคโนโลยีหรือแบรนด์หรู แต่คือ<strong>ขนาดฐานผู้ประกันตน</strong> — เพราะระบบประกันสังคมของไทยทำงานแบบ "เลือกโรงพยาบาลคู่สัญญา 1 แห่ง แล้วต้องรออีก 6 เดือนถึงจะเปลี่ยนได้" การมีฐานผู้ประกันตนขนาดใหญ่ที่สุดของประเทศไม่ใช่แค่ตัวเลขสวยงาม แต่คือ "รายได้ล็อกไว้ล่วงหน้า" ระดับหนึ่งในทุกเดือนไม่ว่าเศรษฐกิจจะเป็นอย่างไร ยิ่งฐานใหญ่ ยิ่งมีอำนาจต่อรองกับสำนักงานประกันสังคมในการขอราคาพิเศษสำหรับกลุ่มโรคเฉพาะทาง (ตามที่เห็นตัวอย่างในศูนย์โรคหัวใจ) — เป็นข้อได้เปรียบที่คู่แข่งรายเล็กเลียนแบบไม่ได้ในระยะสั้น เพราะการสร้างฐานผู้ประกันตนต้องใช้เวลาสะสมชื่อเสียงและความไว้วางใจนานหลายปี</p>
+  <p>จุดแข็งที่สองคือ<strong>งบดุลที่แข็งแรงมาก</strong> — D/E ต่ำเพียง 0.2 เท่ามาต่อเนื่องหลายปี ต่างจากธุรกิจโรงพยาบาลทั่วไปที่มักก่อหนี้หนักเพื่อสร้างตึกใหม่ ผู้บริหาร BCH เลือกใช้กำไรสะสม+กระแสเงินสดจากการดำเนินงานเป็นหลักในการขยายสาขา ทำให้ต้นทุนทางการเงินต่ำ ทนต่อดอกเบี้ยขาขึ้นได้ดีกว่าคู่แข่งที่มีหนี้สูง และมีเงินสดพร้อมฉวยโอกาส M&amp;A เมื่อมีจังหวะเหมาะสม</p>
+  <p>จุดแข็งที่สามคือ<strong>โมเดล "แตกสาขาตามดีมานด์จริง"</strong> แทนที่จะสร้างโรงพยาบาลใหญ่ทีเดียวจบ BCH เลือกดูพื้นที่ที่มีความต้องการจริงก่อน (เช่น พื้นที่นิคมอุตสาหกรรมที่มีแรงงานประกันสังคมหนาแน่น หรือด่านชายแดนที่มีคนไข้ต่างชาติข้ามมาจริง) แล้วค่อยลงทุน วิธีนี้ทำให้สาขาใหม่ส่วนใหญ่ผ่านจุดคุ้มทุนเร็วกว่าคู่แข่งที่สร้างโรงพยาบาลใหญ่แล้วรอคนไข้ตามมาทีหลัง — และยิ่งเครือข่ายใหญ่ขึ้น ระบบส่งต่อคนไข้ระหว่างสาขา (referral) ก็ยิ่งมีประสิทธิภาพขึ้นตาม เพราะสาขาเล็กที่ไม่มีศูนย์เฉพาะทางสามารถส่งเคสยากมาที่สาขาใหญ่ในเครือได้โดยไม่เสียลูกค้าออกนอกระบบ ซึ่งเป็นเหตุผลที่ข้อได้เปรียบนี้ "ยิ่งโตยิ่งแข็งแรง" ไม่ใช่แค่โตแล้วจบ</p>
+</section>
+
+<section class="sec" id="sec-06">
+  <div class="sec-eyebrow"><span class="num">06</span>Competitor comparison</div>
+  <h2 class="sec-title">เปรียบเทียบกับคู่แข่ง</h2>
+  <p>ตลาดโรงพยาบาลเอกชนไทยที่จดทะเบียนในตลาดหลักทรัพย์มีผู้เล่นหลักที่วางตำแหน่งต่างกันชัดเจน BCH ไม่ได้แข่งตรงๆ กับทุกเจ้าในสนามเดียวกัน แต่เลือกยืนคนละมุมของตลาด</p>
+  <p><strong>BDMS (บางกอก ดุสิต เมดิคอล เซอร์วิส)</strong> คือเบอร์หนึ่งของประเทศในแง่ขนาด มี 58 โรงพยาบาลใน 6 แบรนด์ (กรุงเทพ, สมิติเวช, BNH, พญาไท, เปาโล, รอยัล) วางตำแหน่งเป็นพรีเมียม/เจาะคนไข้ต่างชาติเป็นหลัก — รายได้ 72% มาจากคนไข้ไทย 28% จากต่างชาติ (นำโดยกลุ่ม GCC และจีน) มี net margin ราว 14-15% สูงกว่า BCH ค่อนข้างมาก เพราะแทบไม่พึ่งพารายได้ประกันสังคมที่ถูกกดราคาโดยรัฐ ต่างจาก BCH ที่พึ่งพาประกันสังคมเกือบ 35% ของรายได้ นี่คือความต่างเชิงโครงสร้างที่สำคัญที่สุด — BDMS เลือกมาร์จิ้นสูงแต่ฐานลูกค้าแคบกว่า ส่วน BCH เลือกฐานลูกค้ากว้างกว่าแต่มาร์จิ้นถูกกดจากราคาควบคุม</p>
+  <p><strong>CHG (โรงพยาบาลจุฬารัตน์)</strong> เป็นคู่แข่งที่โมเดลใกล้เคียง BCH มากที่สุดในบรรดาทุกเจ้า — ฐานหลักอยู่แถบชลบุรี/ระยอง ซึ่งเป็นพื้นที่อุตสาหกรรม EEC เช่นเดียวกับที่ BCH กำลังจะเข้าไปเปิดสาขาใหม่ที่ระยอง ทำให้สองบริษัทนี้อาจกลายเป็นคู่แข่งโดยตรงในพื้นที่เดียวกันภายในไม่กี่ปีข้างหน้า (หมายเหตุตรงไปตรงมา: บทความนี้ยังไม่มีข้อมูลงบการเงินของ CHG ที่ผ่านการตรวจสอบยืนยันในระดับเดียวกับ BCH จึงเปรียบเทียบได้แค่เชิงโครงสร้างธุรกิจ ไม่ใช่ตัวเลขจริง)</p>
+  <p><strong>VIH (โรงพยาบาลวิภาวดี)</strong> และ <strong>WPH (โรงพยาบาลวัฒนแพทย์)</strong> เป็นผู้เล่นขนาดเล็กกว่ามาก VIH เน้นโรงพยาบาลเดียวในกรุงเทพฯ กลุ่มเงินสด/พรีเมียมระดับกลาง ไม่มีเครือข่ายหลายสาขาแบบ BCH ส่วน WPH กระจุกตัวอยู่ภาคใต้ (ตรัง) เจาะกลุ่มนักท่องเที่ยว/คนไข้มาเลเซียข้ามแดนเป็นหลัก ทั้งสองรายนี้ไม่มีขนาดฐานประกันสังคมและเครือข่ายส่งต่อคนไข้ที่ใหญ่พอจะแข่งกับ BCH ในเกมที่ BCH ถนัด — เช่นเดียวกับ CHG ตัวเลขทางการเงินของทั้งสองรายนี้ยังไม่ได้ผ่านการตรวจสอบยืนยันในบทความนี้</p>
+  <p>สรุปคือ BCH ไม่ได้แข่งกับ BDMS ในสนามพรีเมียม และไม่ได้เล็กจนไม่มีข้อได้เปรียบเหมือน VIH/WPH — จุดยืนของ BCH คือ "เครือข่ายขนาดกลาง-ใหญ่ที่ครองตลาดประกันสังคมและกระจายความเสี่ยงข้ามฐานลูกค้าได้กว้างที่สุด" ซึ่งเป็นจุดยืนที่มีคู่แข่งโดยตรงน้อยราย</p>
+</section>
+
+<section class="sec" id="sec-07">
+  <div class="sec-eyebrow"><span class="num">07</span>Growth potential</div>
+  <h2 class="sec-title">Growth potential</h2>
+  <p>การเติบโตในอดีตของ BCH มาจาก 2 ทางหลักตามที่ผู้บริหารเคยอธิบายไว้: หนึ่งคือเพิ่ม "สินค้าใหม่" ในโรงพยาบาลเดิม (เช่น เพิ่มศูนย์ศัลยกรรมความงาม ศูนย์เวชศาสตร์ฟื้นฟู ศูนย์มะเร็ง) และสองคือขยายฐานลูกค้าใหม่ผ่านการเปิดสาขาในพื้นที่ที่ยังไม่มีคู่แข่งหนาแน่น</p>
+  <p>สำหรับอนาคต ตัวขับเคลื่อนการเติบโตที่ชัดเจนที่สุดคือแผนขยายสาขาใหม่ในพื้นที่ EEC (เขตพัฒนาพิเศษภาคตะวันออก) — โรงพยาบาลเกษมราษฎร์ ระยอง (270 เตียง งบลงทุน 1,480 ล้านบาท) ที่เจาะกลุ่มแรงงานประกันสังคมในนิคมอุตสาหกรรมโดยตรง และเกษมราษฎร์ สุวรรณภูมิ สมุทรปราการ (270 เตียง งบลงทุน 1,650 ล้านบาท) เจาะกลุ่มนิคมอุตสาหกรรมบางพลี ทั้งสองแห่งกำหนดเปิดปี 2570-2571 นอกจากนี้ยังมีเกษมราษฎร์ แม่สาย ที่ใกล้เปิดที่สุด (Q2/2569) รองรับคนไข้เมียนมาร์ข้ามด่าน</p>
+  <p>อีกขาการเติบโตที่น่าสนใจคือธุรกิจเสริมที่ไม่ผูกกับราคาควบคุมของรัฐ — ศูนย์ศัลยกรรมความงามที่ร่วมมือ exclusive กับสมาคมศัลยกรรมความงามเกาหลี ทำรายได้ต่อสาขาที่เปิดเต็มปีแล้วราว 150-200 ล้านบาท และมีแผนขยายทุกสาขาก่อนจะแยกเป็นบริษัทลูกในอนาคต, ธุรกิจทันตกรรมเคลื่อนที่ที่ร่วมทุนกับหมอฟันอิสระ 70 คน ให้บริการถึงโรงงานของผู้ประกันตนโดยตรง และศูนย์มะเร็งที่เปิดปี 2567 ซึ่งนอกจากรับคนไข้ในเครือแล้วยังตั้งใจรับส่งต่อจากโรงพยาบาลอื่นผ่านนโยบาย "Cancer Anywhere" ของรัฐ (บัตรอะไรก็เบิกได้ถ้าไปรักษาที่ศูนย์ที่ได้มาตรฐาน) ซึ่งขยายฐานตลาดที่เข้าถึงได้จากผู้ประกันตนในเครือ 1 ล้านคน เป็นสิทธิพื้นฐานทั้งประเทศกว่า 60 ล้านคน</p>
+  <p>ความท้าทายของการเติบโตสายนี้คือความเร็ว — ตามที่ระบุไว้ใน Severity callout ด้านบน แผนขยายที่เคยประกาศไว้ (20 โรงพยาบาลใน 5 ปี, ขยายลึกเข้ากัมพูชา/เมียนมาร์) ล่าช้ากว่ากำหนดชัดเจน ผู้อ่านที่เชื่อ storyline การเติบโตนี้ควรตั้งคำถามว่าอัตราการดำเนินการจริงจะตามทันแผนที่วาดไว้หรือไม่</p>
+
+  <p>ผู้บริหารให้แผนเพิ่มจำนวนเตียงเป็นตัวเลขที่ชัดเจนกว่าเดิม — จากปัจจุบันราว 2,300 เตียง ตั้งเป้าเพิ่มเป็น <strong>3,441 เตียงภายในปี 2572</strong> หรือโตราว 40% แบ่งเป็น ปี 2570: ระยอง 270 เตียง + รามคำแหง (อาคารใหม่) 120 เตียง, ปี 2571: สุวรรณภูมิ 270 เตียง, ปี 2572: World Medical Center พัทยา 150 เตียง + รัตนาธิเบศร์ (รื้อสร้างใหม่ 14 ชั้น) 250 เตียง — เป็นไทม์ไลน์ที่ละเอียดกว่าที่เคยสื่อสารไว้ก่อนหน้านี้ แต่ก็ควรเทียบกับ track record การส่งมอบล่าช้าใน Section 8 ก่อนเชื่อทั้งหมด</p>
+
+  <p>โอกาสใหม่ที่เพิ่งถูกพูดถึง (มี.ค. 2569) คือความเป็นไปได้ที่ภาครัฐจะปรับสวัสดิการรักษาพยาบาลข้าราชการจากระบบเบิกจ่ายตรงมาเป็นรูปแบบประกันสุขภาพ ซึ่งจะเปิดทางให้ข้าราชการใช้บริการโรงพยาบาลเอกชนได้สะดวกขึ้น — ถ้าคำนวณแบบหยาบจากงบประมาณค่ารักษาข้าราชการทั้งระบบที่ประเมินไว้ราว 60,000 ล้านบาทต่อปี แม้จะมีเพียง 10% ที่ไหลมาสู่โรงพยาบาลเอกชน ก็เท่ากับเม็ดเงินใหม่ราว 6,000 ล้านบาทต่อปีเข้าสู่อุตสาหกรรม โดย BCH ถูกมองเป็นหนึ่งในผู้เล่นหลักที่จะได้อานิสงส์ <strong>ข้อควรระวัง: นี่เป็นแค่แนวโน้มนโยบายที่ยังไม่มีมติ/กฎหมายรองรับ ณ เวลาที่เขียนบทความนี้ ตัวเลข 60,000 ล้านบาทและสัดส่วน 10% เป็นการประมาณจากบทวิเคราะห์ ไม่ใช่ตัวเลขที่ภาครัฐยืนยันเป็นทางการ</strong></p>
+</section>
+
+<section class="sec" id="sec-08">
+  <div class="sec-eyebrow"><span class="num">08</span>Management</div>
+  <h2 class="sec-title">ผู้บริหารและคุณภาพการบริหาร</h2>
+  <p>BCH ก่อตั้งและบริหารโดย <strong>นพ.เฉลิม หาญพาณิชย์</strong> ซึ่งเป็นทั้งประธานกรรมการบริหารของบริษัท และนายกสมาคมธุรกิจโรงพยาบาลเอกชนของประเทศไทยไปพร้อมกัน ทำให้มีมุมมองภาพรวมอุตสาหกรรมกว้างกว่าผู้บริหารทั่วไป ปรัชญาการบริหารที่เห็นชัดจากบทสัมภาษณ์หลายปีคือ "ไม่ก่อหนี้เกินตัว" และ "ขยายตามดีมานด์จริง ไม่รีบ" ปัจจุบันธุรกิจอยู่ระหว่างส่งต่อให้ทายาทรุ่นที่ 2 — ลูกสามคนแบ่งบทบาทตามความถนัด (แพทย์หญิงดูมาตรฐานการแพทย์, อีกคนดูการเงิน/IT ในตำแหน่ง CFO, อีกคนดูการตลาด) ผ่านการเทรนงานจริงในองค์กรมา 8-9 ปีก่อนขึ้นบริหารเต็มตัว ควบคู่กับทีมผู้บริหารมืออาชีพนอกตระกูลอีกราว 80-90 คน</p>
+
+  <h3 class="sub-title">1. พูดแล้วทำได้ไหม (Track record หลายปี)</h3>
+  <div class="table-scroll">
+  <table>
+    <caption>เป้ารายได้ที่ประกาศในบทสัมภาษณ์ เทียบตัวเลขจริงตามงบการเงิน</caption>
+    <thead><tr><th>ปี</th><th class="num">เป้าที่ประกาศ</th><th class="num">ทำได้จริง</th><th>ผล</th></tr></thead>
+    <tbody>
+      <tr><td>2565 (2022)</td><td class="num">17,000 ลบ.</td><td class="num">18,910.3 ลบ.</td><td class="up">ทะลุเป้า</td></tr>
+      <tr><td>2566 (2023)</td><td class="num">13,000 ลบ.</td><td class="num">11,829.9 ลบ.</td><td class="down">พลาดเป้า ~9%</td></tr>
+      <tr><td>2567 (2024)</td><td class="num">โตสองหลัก (~13,000 ลบ.)</td><td class="num">11,832.4 ลบ.</td><td class="down">พลาดเป้า เติบโต ~0%</td></tr>
+      <tr><td>2569 (2026, กำลังดำเนินอยู่)</td><td class="num">Mid-single digit ~5%</td><td class="num">+0.03% (Q1 เท่านั้น)</td><td class="down">ตามหลังเป้ามาก — รอผล H2 ตามที่ผู้บริหารอ้างว่าจะฟื้น</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>แถวปี 2569 ยังไม่จบปี จึงยังสรุปว่า "พลาดเป้า" เต็มปีไม่ได้ — แต่ใส่ไว้เพื่อให้เห็นรูปแบบต่อเนื่อง: ทุกครั้งที่ผู้บริหารประกาศเป้าการเติบโตแบบมีตัวเลขชัดเจน ไตรมาสแรกของปีนั้นมักออกมาต่ำกว่าที่คุยไว้มาก แล้วค่อยอธิบายว่าครึ่งปีหลังจะดีขึ้น — เป็นแพทเทิร์นที่ควรจับตาดูว่าปีนี้จะซ้ำรอยปี 2566-2567 หรือไม่</p>
+  <p>ในแง่กลยุทธ์ที่เคยประกาศ — แผน "20 โรงพยาบาลใน 5 ปี" (ประกาศราวปี 2566) เทียบกับปัจจุบันที่ยังมีราว 15 สาขา และสาขาที่อยู่ระหว่างก่อสร้างเลื่อนเปิดไปปี 2570-2571 ถือว่าล่าช้ากว่าที่พูดไว้ชัดเจน ส่วนแผนขยายลึกเข้ากัมพูชาและเมียนมาร์ก็ถูกชะลอต่อเนื่องจากปัจจัยภายนอก (สถานการณ์ชายแดน/การเมือง) ซึ่งเป็นปัจจัยที่อยู่นอกเหนือการควบคุมของผู้บริหารจริง แต่ก็สะท้อนว่าการวางแผนช่วงแรกอาจมองข้ามความเสี่ยงภูมิรัฐศาสตร์ไปบ้าง</p>
+
+  <h3 class="sub-title">2. Skin in the game + รูปแบบการซื้อขายหุ้นตัวเอง</h3>
+  <p>ตระกูลหาญพาณิชย์ถือหุ้นรวมกันในระดับที่มีนัยสำคัญมาก — นพ.เฉลิม หาญพาณิชย์ (ผู้ก่อตั้ง) ถือ 32.63%, นางสมพร หาญพาณิชย์ (คู่สมรส) ถือ 6.58%, และบุตรอีก 3 คน (กันตพร, พรสุดา, พรลัคน์ หาญพาณิชย์) ถือคนละ 3.60-3.66% รวมตระกูลแล้วอยู่ที่ราว <strong>50% ของหุ้นทั้งหมด</strong> — เป็นสัดส่วน skin in the game (สัดส่วนความเสี่ยงที่ผู้บริหารแบกรับร่วมกับผู้ถือหุ้นรายอื่น) ที่สูงมากเมื่อเทียบกับบริษัทมหาชนทั่วไป หมายความว่าผลประโยชน์ของครอบครัวผูกติดกับราคาหุ้นและผลประกอบการโดยตรง</p>
+  <p>ด้านรูปแบบการซื้อขาย จากข่าวที่สืบค้นได้ พบว่าสมาชิกตระกูล (กันตพร, พรสุดา, พรลัคน์) มีการ<strong>ซื้อสะสมหุ้นเพิ่ม</strong>ในตลาดต่อเนื่องหลายวันในช่วงราคาราว 9.4-9.85 บาท/หุ้น ไม่พบรายงานข่าวการขายหุ้นก้อนใหญ่ของตระกูลในช่วงเวลาที่สืบค้นได้ — อ่านได้ว่าเป็นสัญญาณของผู้ถือระยะยาวที่ทยอยสะสม (alignment ที่ดี) มากกว่านักเล่นรอบที่เข้าออกถี่ <strong>อย่างไรก็ตาม ข้อมูลนี้มาจากการค้นข่าวเท่านั้น ไม่ใช่การอ่านประวัติธุรกรรมแบบ 59/246-2 ของ ก.ล.ต. แบบครบทุกรายการตลอด 4 ปี จึงไม่ใช่ข้อสรุปที่ครอบคลุมสมบูรณ์</strong></p>
+
+  <h3 class="sub-title">3. ประวัติการจัดสรรทุน</h3>
+  <p>BCH ขยายสาขาด้วยกำไรสะสม+กระแสเงินสดเป็นหลัก ไม่ก่อหนี้หนัก (D/E 0.2 เท่าต่อเนื่องหลายปี) สาขาที่เปิดในช่วงวิกฤตโควิด (อรัญประเทศ, ปราจีนบุรี, เวียงจันทน์) ผู้บริหารเองยอมรับว่าได้ประโยชน์จากจังหวะบังเอิญที่โควิดระบาดพอดี ทำให้คืนทุนเร็วกว่าปกติ ซึ่งเป็นการตัดสินใจที่ผลตอบแทนดีในภายหลัง แต่ก็ต้องแยกให้ออกว่าส่วนหนึ่งเป็นโชคของจังหวะเวลา ไม่ใช่ฝีมือล้วนๆ ด้านการจ่ายปันผล บริษัทมีนโยบายจ่ายไม่ต่ำกว่า 40% ของกำไรสุทธิ แต่จ่ายจริงเฉลี่ยสูงกว่านั้นมากที่ราว 60% พร้อมตั้งเป้า Dividend Yield ให้มากกว่า 5% ต่อเนื่อง และจากการตรวจสอบไม่พบหลักฐานว่ามีการจ่ายปันผลจากการลดทุนหรือกู้เงินมาจ่ายแทนกำไรจริง — เป็นจุดที่ไม่พบธงแดง บริษัทยังมีกำไรสะสมมากกว่า 8,000 ล้านบาท ซึ่งเป็นสาเหตุที่มีการพูดถึงความเป็นไปได้ของเงินปันผลพิเศษในช่วงครึ่งปีแรกของปี 2569 แม้จะยังไม่มีการยืนยันตัวเลขที่ชัดเจนจากบริษัทเอง</p>
+
+  <h3 class="sub-title">4. โครงสร้างค่าตอบแทนผู้บริหาร</h3>
+  <p>บทความนี้ไม่พบรายละเอียดโครงสร้างค่าตอบแทนผู้บริหารระดับ pay-for-performance (เช่น สัดส่วนโบนัสที่ผูกกับ KPI เฉพาะ) ในแหล่งข้อมูลที่เข้าถึงได้ในการค้นครั้งนี้ — <strong>ไม่เปิดเผยในระดับที่ตรวจสอบได้</strong> จึงไม่สามารถประเมินได้ว่าโครงสร้างค่าตอบแทนจูงใจให้ผู้บริหารทำสิ่งที่ถูกต้องกับผู้ถือหุ้นหรือไม่ ผู้อ่านที่ต้องการรายละเอียดนี้ควรไปดู 56-1 One Report ฉบับล่าสุดโดยตรง</p>
+
+  <div class="verdict">
+    <span class="verdict-label">คำตัดสิน</span>
+    ฝ่ายจัดการ BCH มี skin in the game สูงมากและมีประวัติการจัดสรรทุนที่รักษาวินัยทางการเงินได้ดี (หนี้ต่ำ ไม่มีธงแดงเรื่องปันผล) — เป็นจุดที่ให้ความเชื่อมั่นได้ระดับหนึ่ง แต่จุดที่ต้องระวังคือ<strong>ความสามารถในการคาดการณ์และส่งมอบตามเป้าที่ประกาศเอง</strong> พลาดเป้ารายได้ติดกัน 2 ปี (2566-2567) และไตรมาสแรกของเป้าปี 2569 ที่เพิ่งประกาศใหม่ก็ตามหลังไปมากแล้วเช่นกัน (ดู Q1/2569 ใน Section 2) — นักลงทุนที่เชื่อ storyline การเติบโตในอนาคต (Section 7) ควรหักส่วนลดความเชื่อมั่นจากคำมั่นของฝ่ายบริหารเองไว้บ้าง ไม่ใช่รับตัวเลขเป้าหมายที่ประกาศใหม่แบบเต็มร้อยเปอร์เซ็นต์
+  </div>
+</section>
+
+<section class="sec" id="sec-09">
+  <div class="sec-eyebrow"><span class="num">09</span>Market overview</div>
+  <h2 class="sec-title">ภาพรวมตลาด</h2>
+  <p>ตลาดโรงพยาบาลเอกชนไทยเป็นหนึ่งในไม่กี่อุตสาหกรรมที่นักวิเคราะห์มองว่าเติบโตได้สม่ำเสมอแทบทุกปี บทวิเคราะห์ของสถาบันการเงินหลายแห่งประเมิน Compound Rate (อัตราการเติบโตสะสม) ของอุตสาหกรรมนี้ไว้ราว 9-10% ต่อปีในช่วง 2567-2569 ขับเคลื่อนจากปัจจัยโครงสร้างประชากรที่เปลี่ยนไปอย่างชัดเจน — สัดส่วนคนไทยอายุ 60 ปีขึ้นไปอยู่ที่ 20.2% ในปี 2566 และจะขยับเป็น 22.4% ในปี 2569 ซึ่งใกล้เกณฑ์ "สังคมสูงวัยระดับสุดยอด" (Super Aging Society ที่สัดส่วนผู้สูงอายุเกิน 25%) และคนกลุ่มนี้มักป่วยด้วยโรคซับซ้อนหลายโรคพร้อมกัน ทำให้ค่าใช้จ่ายต่อหัวสูงกว่าคนไข้ทั่วไป</p>
+  <p>ปัจจัยหนุนอีกตัวคือโรค NCD (Non-Communicable Diseases — โรคไม่ติดต่อเรื้อรัง เช่น เบาหวาน ความดัน) ที่คร่าชีวิตคนไทยถึง 75% ของการเสียชีวิตทั้งหมด ทำให้ความต้องการดูแลรักษาต่อเนื่องระยะยาวสูงขึ้นเรื่อยๆ ประกอบกับนักท่องเที่ยวต่างชาติที่กำลังฟื้นตัวใกล้ระดับก่อนโควิด (คาดการณ์ 35-37 ล้านคนต่อปี) ซึ่งราว 8% ของนักท่องเที่ยวกลุ่มนี้มักมีค่าใช้จ่ายด้านการแพทย์ระหว่างทริปด้วย</p>
+  <p>ด้านการแข่งขัน จำนวนโรงพยาบาลเอกชนทั่วประเทศอยู่ที่ราว 440 แห่ง และมีแนวโน้มทะลุ 500 แห่งภายใน 3 ปีข้างหน้าตามการประเมินของผู้บริหารในอุตสาหกรรม — ตลาดยังไม่อิ่มตัว เพราะอัตราส่วนเตียงต่อประชากรของไทยยังต่ำกว่ามาตรฐานสากล แต่การแข่งขันก็เข้มข้นขึ้นเรื่อยๆ โดยเฉพาะในพื้นที่ที่มีดีมานด์ชัดอย่าง EEC ซึ่งทั้ง BCH และคู่แข่งอย่าง CHG ต่างวางแผนขยายเข้าไปพร้อมกัน</p>
+</section>
+
+<section class="sec" id="sec-10">
+  <div class="sec-eyebrow"><span class="num">10</span>Revenue / margin / FCF</div>
+  <h2 class="sec-title">การเติบโตของรายได้ / อัตรากำไร / FCF</h2>
+  <p>กราฟการเงินของ BCH ในช่วง 5-6 ปีที่ผ่านมาเป็นเคสตำราของ "ฟองสบู่รายได้พิเศษที่แตกแล้วกลับสู่ปกติ" — ต้องเข้าใจก่อนว่าปี 2564-2565 เป็นช่วงที่รายได้และกำไรพุ่งขึ้นเพราะเงินจากภาครัฐที่จ่ายให้ดูแลผู้ป่วยโควิดจำนวนมหาศาล ไม่ใช่การเติบโตของธุรกิจแกนหลัก ตารางด้านล่างแสดงให้เห็นภาพนี้ชัดเจน</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption>รายได้รวม / กำไรสุทธิ / Net Margin รายปี 2564-2569 (F45, MD&amp;A)</caption>
+    <thead><tr><th>งวด</th><th class="num">รายได้รวม (ลบ.)</th><th class="num">กำไรสุทธิ (ลบ.)</th><th class="num">Net Margin</th><th>หมายเหตุ</th></tr></thead>
+    <tbody>
+      <tr><td>2564 (2021)</td><td class="num">21,529.0</td><td class="num">6,846.0</td><td class="num">31.8%</td><td>พีค COVID</td></tr>
+      <tr><td>2565 (2022)</td><td class="num">18,910.3</td><td class="num">3,038.9</td><td class="num">16.1%</td><td>COVID ลดบทบาท</td></tr>
+      <tr><td>2566 (2023)</td><td class="num">11,829.9</td><td class="num">1,406.4</td><td class="num">11.9%</td><td>กลับสู่ธุรกิจปกติ -53.7% YoY กำไร</td></tr>
+      <tr><td>2567 (2024)</td><td class="num">11,832.4</td><td class="num">1,282.4</td><td class="num">10.8%</td><td>รายได้ทรงตัว กำไร -8.8%</td></tr>
+      <tr><td>2568 (2025)</td><td class="num">12,025.4</td><td class="num">1,316.4</td><td class="num">10.9%</td><td>+2.7% YoY เริ่มฟื้นเล็กน้อย</td></tr>
+      <tr><td>Q1/2569</td><td class="num">2,928.8</td><td class="num">267.6</td><td class="num">9.1%</td><td>-16.7% YoY จากปัจจัยชายแดน+ต้นทุนขยายสาขา</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>สิ่งที่ต้องอ่านให้ถูกคือ<strong>อย่าเทียบปี 2566-2568 กับปี 2564-2565</strong> เพราะเป็นการเทียบธุรกิจคนละแบบกัน — ถ้าจะประเมินการเติบโตของธุรกิจแกนหลักจริงๆ ควรเทียบกับปี 2562-2563 (ก่อนโควิด) ซึ่งรายได้เคยอยู่ราว 8,900-9,100 ล้านบาท เมื่อเทียบกับปี 2568 ที่ 12,025 ล้านบาท คิดเป็นการเติบโตสะสมราว 32-35% ในรอบ 5-6 ปี หรือเฉลี่ยราว 5-6% ต่อปี — เป็นระดับที่สมเหตุสมผลสำหรับธุรกิจโรงพยาบาลที่โตตามธรรมชาติ ไม่ใช่ตัวเลขน่าตื่นเต้นแบบที่เคยเห็นตอนพีคโควิด แต่ก็ไม่ใช่ธุรกิจที่กำลังถดถอยเหมือนที่กำไรที่ลดลงต่อเนื่อง 3 ปีอาจทำให้เข้าใจผิด</p>
+  <p>ด้าน EBITDA margin (กำไรก่อนหักดอกเบี้ย ภาษี ค่าเสื่อมและค่าตัดจำหน่าย) ปี 2567 อยู่ที่ 22.9% ขยับขึ้นเป็น 24.0% ในปี 2568 — สะท้อนว่าแม้กำไรสุทธิจะยังโตช้า แต่ความสามารถทำกำไรจากการดำเนินงานล้วนๆ กำลังฟื้นตัว ส่วนที่ฉุดกำไรสุทธิให้โตช้ากว่า EBITDA คือค่าใช้จ่ายภาษีเงินได้ที่เพิ่มขึ้น (+16.4% ในปี 2568) จากการที่บริษัทไม่มีผลขาดทุนสะสมทางบัญชีของบริษัทลูกมาช่วยลดหย่อนแล้ว</p>
+  <p>ด้านกระแสเงินสด บริษัทยังคงสร้างกระแสเงินสดจากการดำเนินงานเป็นบวกทุกไตรมาส แม้จะลดลงจากปีก่อนหน้า (Q1/2569 อยู่ที่ 392.9 ล้านบาท เทียบ 634.5 ล้านบาทใน Q1/2568) เพียงพอสำหรับการลงทุนขยายสาขาต่อเนื่องโดยไม่ต้องพึ่งหนี้ก้อนใหญ่ — เป็นจุดที่ยืนยันว่าธุรกิจยังมี "เงินสดจริง" หนุนหลังการเติบโต ไม่ใช่แค่ตัวเลขบัญชี</p>
+</section>
+
+<section class="sec" id="sec-11">
+  <div class="sec-eyebrow"><span class="num">11</span>Company history</div>
+  <h2 class="sec-title">ประวัติของธุรกิจ</h2>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">~2530 (1987)</div><div class="tl-body">นพ.เฉลิม หาญพาณิชย์ ก่อตั้งโรงพยาบาลแห่งแรกในเครือเกษมราษฎร์ เริ่มต้นจากโรงพยาบาลขนาดเล็กในกรุงเทพฯ</div></div>
+    <div class="tl-item"><div class="tl-date">ก่อน 2562 (Pre-2019)</div><div class="tl-body">ขยายสาขาอย่างค่อยเป็นค่อยไปทั่วกรุงเทพฯ-ปริมณฑล รายได้รวมทั้งเครือราวปีละ 8,000-9,100 ล้านบาท เป็นช่วง "ธุรกิจปกติ" ก่อนวิกฤต</div></div>
+    <div class="tl-item"><div class="tl-date">2563 (2020)</div><div class="tl-body">COVID-19 ระบาด BCH เริ่มเปิดบริการตรวจ PCR และดูแลผู้ป่วยโควิดเข้มข้น เริ่มเปิดสาขาใหม่ที่อรัญประเทศและปราจีนบุรีท่ามกลางวิกฤต</div></div>
+    <div class="tl-item"><div class="tl-date">2564 (2021)</div><div class="tl-body">ปีทองจากโควิด รายได้พุ่งเป็น 21,529 ล้านบาท กำไรสุทธิ 6,846 ล้านบาท — All-Time High ของบริษัท ขายวัคซีน Moderna ทางเลือกจำนวนมาก และเปิดโรงพยาบาลเกษมราษฎร์ อินเตอร์เนชั่นแนล เวียงจันทน์ ที่ประเทศลาว</div></div>
+    <div class="tl-item"><div class="tl-date">2565 (2022)</div><div class="tl-body">รายได้ยังสูงจากผลพวงโควิดต่อเนื่อง (18,910 ล้านบาท) แต่เริ่มเห็นสัญญาณลดบทบาทลงในช่วงปลายปี ฐานผู้ประกันตนในเครือทะลุ 1 ล้านคนเป็นครั้งแรก</div></div>
+    <div class="tl-item"><div class="tl-date">2566 (2023)</div><div class="tl-body">รายได้กลับสู่ธุรกิจปกติเต็มรูปแบบ (11,829.9 ล้านบาท) กำไรลดลง 53.7% จากปีก่อน เผชิญแรงกดดันจากการปรับลดอัตราเบิกจ่ายประกันสังคม ทายาทรุ่นที่ 2 เริ่มมีบทบาทบริหารชัดเจนขึ้น</div></div>
+    <div class="tl-item"><div class="tl-date">2567 (2024)</div><div class="tl-body">เปิดศูนย์มะเร็งเกษมราษฎร์ รับนโยบาย Cancer Anywhere ของรัฐ เริ่มร่วมมือ exclusive กับสมาคมศัลยกรรมความงามเกาหลี ฐานลูกค้าคูเวตเริ่มหดตัวจากการเปลี่ยนนโยบายรัฐบาลคูเวต</div></div>
+    <div class="tl-item"><div class="tl-date">2568 (2025)</div><div class="tl-body">ปิดชายแดนไทย-กัมพูชาตั้งแต่กลางปี กระทบสาขาอรัญประเทศและรามคำแหงหนัก EBITDA สาขาอรัญประเทศติดลบในบางไตรมาส กำไรทั้งปีฟื้นตัวเล็กน้อย +2.7% เริ่มก่อสร้างโรงพยาบาลใหม่ที่ระยองและสุวรรณภูมิ</div></div>
+    <div class="tl-item"><div class="tl-date">Q1/2569</div><div class="tl-body">ชายแดนไทย-กัมพูชายังปิดต่อเนื่อง กำไรสุทธิลดลง 16.7% เทียบปีก่อนหน้า ปรับเพดานค่าจ้างขั้นสูงประกันสังคม (มาตรา 33) จาก 15,000 เป็น 17,500 บาท มีผลตั้งแต่ 1 พฤษภาคม 2569</div></div>
+  </div>
+</section>
+
+<section class="sec" id="sec-12">
+  <div class="sec-eyebrow"><span class="num">12</span>Risk + Counter-argument</div>
+  <h2 class="sec-title">ความเสี่ยง + Counter-argument</h2>
+  <p>เริ่มจากสิ่งที่การตรวจสอบข้าม NotebookLM ระหว่างงบการเงินกับบทสัมภาษณ์พบไว้ในเบื้องต้น (Step 4 cross-check) ก่อนจะเป็นความเสี่ยงอื่นเพิ่มเติม:</p>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 1 — พลาดเป้าที่ตัวเองประกาศต่อเนื่อง</span>
+      <p>เป้ารายได้ปี 2566 และ 2567 พลาดทั้งคู่ (รายละเอียด Section 8) รวมถึงแผนขยายสาขา/ภูมิภาคที่ล่าช้ากว่ากำหนด — สัญญาณว่าฝ่ายบริหารอาจ optimistic เกินไปเวลาสื่อสารกับนักลงทุน ควรลดน้ำหนักความเชื่อมั่นต่อเป้าหมายใหม่ๆ ที่จะประกาศต่อจากนี้</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 2 — พึ่งพารายได้ประกันสังคมที่รัฐคุมราคาได้ฝ่ายเดียว</span>
+      <p>ราว 35% ของรายได้มาจากประกันสังคม ซึ่งราคาต่อหน่วย (ค่าเหมาจ่ายรายหัว, RW) กำหนดโดยรัฐทั้งหมด เคยเจอเหตุการณ์ปรับลดกะทันหันจาก 12,000 เหลือ 7,200 บาทต่อ RW กระทบกำไรทันที และมีการปรับลดซ้ำอีกครั้งในปีเดียวกัน — เป็นความเสี่ยงเชิงนโยบายที่บริษัทควบคุมไม่ได้เลย</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 3 — ฐานลูกค้าต่างชาติเปราะบางต่อภูมิรัฐศาสตร์</span>
+      <p>คูเวตซึ่งเคยเป็นฐานลูกค้าตะวันออกกลางใหญ่สุดหดตัวจากนโยบายรัฐบาลที่เปลี่ยน ส่วนกัมพูชาที่กำลังโตเร็วก็โดนกระทบหนักจากการปิดชายแดนที่ยังไม่คลี่คลาย ณ ต้นปี 2569 — ทั้งสองกรณีเป็นปัจจัยที่ผู้บริหารยอมรับตรงๆ ว่าควบคุมไม่ได้ และยังไม่มีสัญญาณชัดว่าจะกลับมาเมื่อไหร่</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 4 — Forex Loss จากสาขาต่างประเทศ</span>
+      <p>โรงพยาบาลเวียงจันทน์เคยขาดทุนจากอัตราแลกเปลี่ยนเงินกีบลาวต่อเนื่องหลายไตรมาส (เช่น Q2/2566 ขาดทุน 63.4 ล้านบาท) แม้จะมีการปรับโครงสร้างหนี้บางส่วนแล้ว แต่ความผันผวนของสกุลเงินประเทศเพื่อนบ้านยังเป็นตัวแปรที่ต้องติดตามทุกไตรมาสที่ขยายธุรกิจข้ามพรมแดน</p>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Counter-argument</h3>
+  <p>ต่อประเด็นเรื่องพลาดเป้า — ต้องยอมรับว่าปี 2566-2567 เป็นช่วงที่อุตสาหกรรมทั้งอุตสาหกรรมกำลังปรับตัวหลังโควิด ไม่ใช่แค่ BCH รายเดียวที่ over-promise การพลาดเป้า 9% ก็ไม่ใช่ตัวเลขที่รุนแรงเทียบเท่าการ "หลอกลวง" นักลงทุน และกำไรก็เริ่มกลับมาโต +2.7% ในปี 2568 แล้ว ส่วนแผนขยายสาขาที่ล่าช้า ก็ต้องเข้าใจธรรมชาติของธุรกิจโรงพยาบาลที่การก่อสร้างและขอใบอนุญาตใช้เวลานานหลายปีเป็นเรื่องปกติในอุตสาหกรรมนี้ทั่วโลก ไม่ใช่เอกลักษณ์ของ BCH เพียงรายเดียว</p>
+  <p>ต่อประเด็นพึ่งพาประกันสังคม — ในมุมกลับกัน นี่คือรายได้ที่มั่นคงที่สุดในบรรดาสามฐานลูกค้า เพราะไม่ผันผวนตามเศรษฐกิจหรือการท่องเที่ยวเหมือนฐานอื่น และแม้ราคาต่อหน่วยจะถูกกด แต่ปริมาณยังโตต่อเนื่องทุกปี (+6.7% ในปี 2568) เป็นรายได้ฐานที่ผู้ประกันตนแทบไม่มีทางออกไปหาโรงพยาบาลอื่นได้ง่ายๆ ในระยะสั้น</p>
+  <p>ต่อประเด็นลูกค้าต่างชาติ — สัดส่วนรายได้จากต่างชาติของ BCH (~11-12%) เล็กกว่า BDMS มาก (28%) ทำให้ผลกระทบต่อภาพรวมบริษัทจำกัดกว่าเทียบเป็นสัดส่วน และบริษัทกำลังกระจายความเสี่ยงไปยังตลาดใหม่ (ลิเบีย, ซาอุดีอาระเบีย, UAE, กาตาร์) แทนการพึ่งพาคูเวตเจ้าเดียวเหมือนในอดีต ซึ่งเป็นบทเรียนที่นำมาปรับใช้แล้วจริง</p>
+  <p>ท้ายที่สุด งบดุลที่แข็งแรงมาก (D/E 0.2 เท่า) และกระแสเงินสดจากการดำเนินงานที่ยังเป็นบวกต่อเนื่องทุกไตรมาส คือ "เกราะกันชน" ที่ทำให้แม้ธุรกิจจะเติบโตช้ากว่าที่คุยไว้ บริษัทก็ยังมีเสถียรภาพทางการเงินพอที่จะรอให้ปัจจัยลบ (ชายแดน, คูเวต) คลี่คลายได้โดยไม่ต้องกู้หนี้เพิ่มหรือลดการลงทุนขยายสาขาที่วางแผนไว้</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="unverified-note">สิ่งที่ยังยืนยันไม่ได้: (1) ตัวเลขรายได้ปี 2566 (11,829.9 ลบ.) และกำไรปี 2564 (6,846 ลบ.) อ้างอิงจากคำตอบ NotebookLM ที่อ้างอิงเอกสารในโน้ตบุ๊ก ไม่ได้อ่านต้นฉบับ MD&amp;A ปีนั้นโดยตรงด้วยตัวเอง — (2) ตัวเลขคู่แข่ง CHG, VIH, WPH ใน Section 6 เป็นเชิงโครงสร้างธุรกิจจากความรู้ทั่วไป ไม่ใช่ตัวเลขงบการเงินที่ผ่านการตรวจสอบ — (3) รูปแบบการซื้อขายหุ้นของตระกูลผู้บริหารใน Section 8 มาจากข่าวที่สืบค้นได้เท่านั้น ไม่ใช่ประวัติธุรกรรมครบทุกรายการจาก ก.ล.ต. — (4) ข้อมูล Oppday ปิดปี 2568, สรุป Q1/2569, เป้าราคานักวิเคราะห์ และตัวเลขโอกาสสวัสดิการข้าราชการใน Section 2, 4, 7 มาจากกระทู้สรุปข้อมูลของสมาชิกเว็บบอร์ด Thai Value Investor (board.thaivi.org) ซึ่งเป็นการสรุปมือสองโดยนักลงทุนรายย่อย ไม่ใช่เอกสาร Oppday/บทวิเคราะห์ต้นฉบับที่ตรวจสอบโดยตรง — ตัวเลขเปอร์เซ็นต์การเติบโตเฉพาะประเทศ (เช่น UAE +437.8%) และราคาเป้าหมายนักวิเคราะห์จึงควรใช้เป็นทิศทางกว้างๆ ไม่ใช่ตัวเลขที่ยืนยันความแม่นยำระดับทศนิยม</div>
+
+    <div class="src-group">
+      <h4>เอกสารทางการ (Filings)</h4>
+      <ol>
+        <li>F45 สรุปผลการดำเนินงาน BCH รายไตรมาส 1/2566 – 1/2569 (13 ฉบับ) — ตลาดหลักทรัพย์แห่งประเทศไทย, 2566-2569</li>
+        <li>MD&amp;A คำอธิบายและวิเคราะห์ของฝ่ายจัดการ BCH รายไตรมาส 1/2566 – 1/2569 (13 ฉบับ) — ตลาดหลักทรัพย์แห่งประเทศไทย, 2566-2569</li>
+        <li>BCH — โครงสร้างผู้ถือหุ้นรายใหญ่ (Major Shareholders) — bangkokchainhospital.com/en/investor-relations/shareholder-information/major-shareholders, สืบค้น 2569-07</li>
+        <li>BCH — นโยบายการจ่ายเงินปันผล — bangkokchainhospital.com/th/investor-relations/shareholder-information/dividend-policy-and-payment, สืบค้น 2569-07</li>
+      </ol>
+    </div>
+
+    <div class="src-group">
+      <h4>ฟอรัม/บทวิเคราะห์ที่สมาชิกรวบรวม (Forum-aggregated)</h4>
+      <ol>
+        <li>กระทู้ "BCH" หน้า 100 — board.thaivi.org (Thai Value Investor Webboard), สรุป Oppday ปิดปี 2568, ผลดำเนินงาน Q1/2569, บทวิเคราะห์เป้าราคา และประเด็นสวัสดิการข้าราชการ โพสต์โดยสมาชิกเว็บบอร์ด, สืบค้น 2569-07-15</li>
+      </ol>
+    </div>
+
+    <div class="src-group">
+      <h4>คลิป/บทสัมภาษณ์ (Media)</h4>
+      <ol>
+        <li>MoneyChat — "หุ้นเด็ดรอบวัน BCH", 1 พ.ย. 2562</li>
+        <li>MoneyChat — "เจาะหุ้นงบสวย Q4-64", 27 ม.ค. 2565</li>
+        <li>MoneyChat — "แกะรอยหุ้น BCH ปรับฐานกำไรใหม่", 2 มี.ค. 2565</li>
+        <li>MoneyChat — "เจาะหุ้นงบสวย Q1-2565", 21 เม.ย. 2565</li>
+        <li>MoneyChat — "เจาะหุ้นงบสวย Q2", 2 ก.ค. 2565</li>
+        <li>MoneyChat — "BCH เพิ่มสาขารับรายได้ต่างชาติ", 24 ต.ค. 2565</li>
+        <li>MoneyChat — "ทัวร์จีนลงไทย", 9 ม.ค. 2566</li>
+        <li>MoneyChat — "BCH มุ่งโตโมเดลสาขา", 1 เม.ย. 2566</li>
+        <li>MoneyChat — "ทายาทรุ่นสอง", 27 พ.ค. 2566</li>
+        <li>MoneyChat — "Highlight อนาคต BCH", 17 มี.ค. 2567</li>
+        <li>MoneyChat — "BCH ผุดโมเดลแตกเพื่อโต", 23 มิ.ย. 2567</li>
+        <li>MoneyChat — "ศัลยกรรมความงามโตแรง", 29 ส.ค. 2567</li>
+        <li>MoneyChat — "BCH ฝ่าพายุสงคราม", 10 มี.ค. 2569</li>
+      </ol>
+      <p style="font-size:13px;color:var(--ink-faint);margin-top:10px;">หมายเหตุความครอบคลุมของ Media: ไม่มีคลิป Oppday (Opportunity Day) อย่างเป็นทางการของ BCH ในชุดข้อมูลนี้ — ใช้บทสัมภาษณ์ผู้บริหารทาง MoneyChat แทน ซึ่งครอบคลุมช่วงปี 2562-2569 แต่มีช่วงว่างระหว่างปี 2562-2565 (2 ปี) และ 2567-2569 (ราว 1.5 ปี) ที่ไม่มีสัมภาษณ์คั่นกลาง เนื้อหา Oppday ปิดปี 2568 ที่ปรากฏใน Section 2, 4 และ 7 มาจากกระทู้สรุปมือสองในเว็บบอร์ด thaivi.org (ดูกลุ่มแหล่งข้อมูล "Forum-aggregated" ด้านล่าง) ไม่ใช่คลิป/เอกสาร Oppday ต้นฉบับ</p>
+    </div>
+
+    <p class="nb-note">ตรวจสอบไขว้ (red-flag cross-check) ผ่าน NotebookLM Notebook: "BCH - F45/MD&amp;A vs MoneyChat Interview Analysis" (ID: 62efa399-bd87-4d82-9ce6-4cded406f491) — เปิดต่อเพื่อถามคำถามเพิ่มเติมได้</p>
+
+    <p class="disclaimer">บทความนี้จัดทำขึ้นเพื่อการศึกษาและวิเคราะห์ธุรกิจเท่านั้น ไม่ใช่คำแนะนำการลงทุนส่วนบุคคล ตัวเลขทางการเงินอ้างอิงจากเอกสารที่เผยแพร่ต่อสาธารณะ ณ ช่วงเวลาที่ระบุ และอาจมีการปรับปรุงในภายหลัง ผู้อ่านควรศึกษาข้อมูลเพิ่มเติมจากเอกสารทางการก่อนตัดสินใจลงทุนทุกครั้ง</p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIH.BK — วิชัยเวชฯ หุ้นโรงพยาบาลจิ๋วที่กำไรโตเร็วกว่ารายได้ 4 เท่า | Trendlongtun Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f4f7f6;
+    --bg-raised: #ffffff;
+    --ink: #16211f;
+    --ink-soft: #46564f;
+    --ink-faint: #7c8b85;
+    --line: #d7e0dc;
+    --line-soft: #e7ede9;
+    --accent: #0f6b62;
+    --accent-ink: #ffffff;
+    --accent-soft: #e2f0ed;
+    --risk: #a8442c;
+    --risk-soft: #f7e6e0;
+    --risk-ink: #6f2c1a;
+    --good: #1c7a4f;
+    --good-soft: #e3f2e8;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --display: "Kanit", "Noto Sans Thai", sans-serif;
+    --body: "Sarabun", "Noto Sans Thai", sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: #0e1615; --bg-raised: #16201e; --ink: #e9f0ee; --ink-soft: #aebdb7; --ink-faint: #79877f;
+      --line: #2a3835; --line-soft: #212d2a; --accent: #52d1bf; --accent-ink: #06211d; --accent-soft: #14322d;
+      --risk: #ef8a6c; --risk-soft: #3a221b; --risk-ink: #f7cdb9; --good: #6bd39b; --good-soft: #143024;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0e1615; --bg-raised: #16201e; --ink: #e9f0ee; --ink-soft: #aebdb7; --ink-faint: #79877f;
+    --line: #2a3835; --line-soft: #212d2a; --accent: #52d1bf; --accent-ink: #06211d; --accent-soft: #14322d;
+    --risk: #ef8a6c; --risk-soft: #3a221b; --risk-ink: #f7cdb9; --good: #6bd39b; --good-soft: #143024;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"]{
+    --bg: #f4f7f6; --bg-raised: #ffffff; --ink: #16211f; --ink-soft: #46564f; --ink-faint: #7c8b85;
+    --line: #d7e0dc; --line-soft: #e7ede9; --accent: #0f6b62; --accent-ink: #ffffff; --accent-soft: #e2f0ed;
+    --risk: #a8442c; --risk-soft: #f7e6e0; --risk-ink: #6f2c1a; --good: #1c7a4f; --good-soft: #e3f2e8;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--body);
+    font-size:16.5px; line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  ::selection{background:var(--accent-soft); color:var(--ink);}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .grid-bg{background:var(--bg);}
+
+  header.masthead{
+    border-bottom:1px solid var(--line);
+    background:var(--bg-raised);
+    padding:44px 0 36px;
+  }
+  .masthead-inner{max-width:820px; margin:0 auto; padding:0 24px;}
+  .plate{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); border:1px solid var(--accent); border-radius:999px;
+    padding:5px 12px 5px 10px; background:var(--accent-soft);
+  }
+  .plate .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); display:inline-block;}
+  h1.title{
+    font-family:var(--display); font-weight:700; font-size:44px; line-height:1.12;
+    margin:18px 0 6px; text-wrap:balance; letter-spacing:-0.01em;
+  }
+  .ticker{
+    font-family:var(--mono); font-size:14px; color:var(--ink-faint); letter-spacing:0.02em;
+    margin-bottom:16px;
+  }
+  p.dek{font-size:18px; line-height:1.65; color:var(--ink-soft); max-width:680px; margin:0 0 26px;}
+
+  .stat-rail{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:0;
+    border:1px solid var(--line); border-radius:12px; overflow:hidden;
+    background:var(--bg-raised);
+  }
+  .stat{padding:14px 16px; border-right:1px solid var(--line-soft);}
+  .stat:last-child{border-right:none;}
+  .stat-label{font-size:11.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
+  .stat-value{font-family:var(--mono); font-size:19px; font-weight:600; font-variant-numeric:tabular-nums;}
+  .stat-value.accent{color:var(--accent);}
+  .stat-value.risk{color:var(--risk);}
+  .stat-note{font-size:12.5px; color:var(--ink-faint); margin-top:14px;}
+
+  .severity{
+    max-width:820px; margin:28px auto 0; padding:0 24px;
+  }
+  .severity-box{
+    border:1.5px solid var(--risk); background:var(--risk-soft); border-radius:12px;
+    padding:20px 22px;
+  }
+  .severity-box .sev-head{
+    display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:600;
+    font-size:16px; color:var(--risk-ink); margin-bottom:10px;
+  }
+  .sev-mark{
+    width:22px; height:22px; border-radius:50%; background:var(--risk); color:var(--accent-ink);
+    display:inline-flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; flex:none;
+  }
+  .severity-box ul{margin:0; padding-left:20px;}
+  .severity-box li{margin-bottom:6px; color:var(--ink);}
+  .severity-box .sev-close{margin-top:10px; font-size:13.5px; color:var(--risk-ink); font-style:italic;}
+
+  nav.toc{max-width:820px; margin:32px auto 0; padding:0 24px;}
+  .toc-head{
+    font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--ink-faint); margin-bottom:10px;
+  }
+  .toc-list{
+    display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  }
+  .toc-list a{
+    display:block; padding:12px 16px; text-decoration:none; color:var(--ink);
+    border-bottom:1px solid var(--line-soft); font-size:14.5px;
+  }
+  .toc-list a:nth-child(odd){border-right:1px solid var(--line-soft);}
+  .toc-list a:hover{background:var(--accent-soft);}
+  .case-no{font-family:var(--mono); font-size:11.5px; color:var(--accent); margin-right:8px;}
+
+  main{max-width:820px; margin:0 auto; padding:8px 24px 80px;}
+  section.sec{padding-top:56px; scroll-margin-top:20px;}
+  section.sec:first-of-type{padding-top:44px;}
+  .sec-eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase;
+    display:flex; align-items:center; gap:8px; margin-bottom:8px;
+  }
+  .sec-eyebrow .num{
+    display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px;
+    border:1px solid var(--accent); border-radius:50%; font-size:11px;
+  }
+  h2.sec-title{font-family:var(--display); font-weight:600; font-size:27px; margin:0 0 18px; text-wrap:balance;}
+  h3.sub-title{font-family:var(--display); font-weight:600; font-size:19px; margin:28px 0 10px;}
+  p{margin:0 0 18px;}
+  strong{font-weight:600;}
+  .callout{
+    background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:6px;
+    padding:14px 18px; margin:22px 0; font-size:15px;
+  }
+  .callout-label{display:block; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:6px;}
+
+  .card{
+    border:1px solid var(--line); background:var(--bg-raised); border-radius:12px; padding:20px 22px; margin:24px 0;
+  }
+  .card-title{font-family:var(--display); font-weight:600; font-size:15px; margin:0 0 4px;}
+  .card-sub{font-size:13px; color:var(--ink-faint); margin-bottom:14px;}
+
+  .table-scroll{overflow-x:auto; margin:22px 0; border:1px solid var(--line); border-radius:10px;}
+  table{width:100%; border-collapse:collapse; font-size:14.5px; min-width:520px;}
+  caption{text-align:left; font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--ink-faint); padding:10px 14px; background:var(--bg-raised); border-bottom:1px solid var(--line);}
+  th,td{padding:9px 14px; border-bottom:1px solid var(--line-soft); text-align:left; white-space:nowrap;}
+  th{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); background:var(--bg-raised);}
+  td.num, th.num{text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums;}
+  tr:last-child td{border-bottom:none;}
+  td.up{color:var(--good);}
+  td.down{color:var(--risk);}
+
+  .bmc{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:24px 0;}
+  .bmc-cell{background:var(--bg-raised); padding:14px 15px; min-height:110px;}
+  .bmc-cell h4{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--accent); margin:0 0 3px; line-height:1.3;}
+  .bmc-cell .en{font-size:9.5px; color:var(--ink-faint); text-transform:none; letter-spacing:0; display:block; margin-bottom:6px;}
+  .bmc-cell p{font-size:13px; margin:0; color:var(--ink-soft); line-height:1.55;}
+
+  .risk-grid{display:grid; grid-template-columns:1fr; gap:14px; margin:22px 0;}
+  .risk-card{border:1px solid var(--risk); background:var(--risk-soft); border-radius:10px; padding:16px 18px;}
+  .rc-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--risk-ink); font-weight:600;}
+  .risk-card p{margin:6px 0 0; font-size:14.5px; color:var(--ink);}
+
+  .timeline{border-left:2px solid var(--line); margin:22px 0 22px 6px; padding-left:22px;}
+  .tl-item{position:relative; padding-bottom:20px;}
+  .tl-item::before{content:""; position:absolute; left:-27.5px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--accent); border:2px solid var(--bg);}
+  .tl-date{font-family:var(--mono); font-size:12.5px; color:var(--accent); font-weight:600;}
+  .tl-body{font-size:14.5px; margin-top:2px; color:var(--ink-soft);}
+
+  .verdict{
+    border:1px solid var(--accent); background:var(--accent-soft); border-radius:10px; padding:18px 20px; margin:24px 0;
+  }
+  .verdict-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:8px; display:block;}
+
+  footer.foot{border-top:1px solid var(--line); margin-top:20px; padding:44px 0 60px;}
+  footer.foot .wrap{max-width:820px;}
+  .src-group h4{font-family:var(--display); font-size:15px; margin:22px 0 8px;}
+  .src-group ol{padding-left:20px; font-size:13.5px; color:var(--ink-soft);}
+  .src-group li{margin-bottom:6px;}
+  .unverified-note{font-size:13px; color:var(--ink-faint); font-family:var(--mono); background:var(--line-soft); padding:10px 14px; border-radius:8px; margin:20px 0;}
+  .disclaimer{font-size:12.5px; color:var(--ink-faint); border-top:1px dashed var(--line); padding-top:18px; margin-top:26px; line-height:1.6;}
+  .nb-note{font-size:12.5px; color:var(--ink-faint); font-family:var(--mono); margin-top:10px;}
+
+  @media (max-width:640px){
+    .stat-rail{grid-template-columns:repeat(2,1fr);}
+    .stat{border-right:1px solid var(--line-soft);}
+    .toc-list{grid-template-columns:1fr;}
+    .toc-list a:nth-child(odd){border-right:none;}
+    h1.title{font-size:32px;}
+    .bmc{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="plate"><span class="dot"></span>TRENDLONGTUN BRIEF · เจาะลึกธุรกิจ</span>
+    <h1 class="title">วิชัยเวชฯ หุ้นโรงพยาบาลจิ๋วที่กำไรโตเร็วกว่ารายได้ 4 เท่า</h1>
+    <div class="ticker">VIH.BK · บริษัท ศรีวิชัยเวชวิวัฒน์ จำกัด (มหาชน) · SET</div>
+    <p class="dek">เครือโรงพยาบาลทุติยภูมิ 4 แห่งฝั่งตะวันตกของกรุงเทพฯ กับสมุทรสาคร ที่แทบไม่มีใครพูดถึง แต่ปี 2568 ทำกำไรโต 38.65% ทั้งที่รายได้โตแค่ 8.86% — และกำลังเดิมพันครั้งใหญ่ที่สุดในประวัติศาสตร์บริษัทกับโรงพยาบาลตติยภูมิแห่งใหม่มูลค่าเกือบเท่าทุนจดทะเบียนทั้งบริษัท</p>
+
+    <div class="stat-rail">
+      <div class="stat"><div class="stat-label">รายได้รวม FY2568</div><div class="stat-value">3,107 ลบ.</div></div>
+      <div class="stat"><div class="stat-label">กำไรสุทธิ FY2568</div><div class="stat-value accent">437 ลบ.</div></div>
+      <div class="stat"><div class="stat-label">Net Margin</div><div class="stat-value accent">14.08%</div></div>
+      <div class="stat"><div class="stat-label">กำไรโต YoY</div><div class="stat-value accent">+38.65%</div></div>
+      <div class="stat"><div class="stat-label">P/E (ก.ค. 2569)</div><div class="stat-value">~12.3x</div></div>
+      <div class="stat"><div class="stat-label">โรงพยาบาลในเครือ</div><div class="stat-value">4 แห่ง</div></div>
+    </div>
+    <p class="stat-note">ข้อมูลการเงินจาก MD&amp;A และงบการเงินที่ยื่นต่อตลาดหลักทรัพย์แห่งประเทศไทย ประจำปี 2568 (สิ้นสุด 31 ธ.ค. 2568) เป็นข้อมูลล่าสุดที่มีการยื่นงบเต็มไตรมาส — อ้างอิงแหล่งที่มาท้ายบทความ</p>
+  </div>
+</header>
+
+<div class="severity">
+  <div class="severity-box">
+    <div class="sev-head"><span class="sev-mark">!</span>ข้อสังเกตสำคัญก่อนอ่าน</div>
+    <ul>
+      <li>VIH เป็นหุ้นขนาดเล็กมาก (มาร์เก็ตแคปราว 5,200 ล้านบาท) มีบทวิเคราะห์จากโบรกเกอร์และการพูดถึงในกระทู้นักลงทุนน้อยมากเมื่อเทียบกับ BCH/BDMS/WPH ที่ทำในซีรีส์เดียวกัน — ไม่พบกระทู้เฉพาะของหุ้นนี้ใน board.thaivi.org ที่มีการอัปเดตต่อเนื่อง ทำให้ต้องพึ่งพาเอกสารทางการ (56-1/MD&amp;A/งบการเงิน) และ Oppday เป็นหลัก ซึ่งมีจุดดีคือเชื่อถือได้สูง แต่จุดที่ต้องระวังคือมุมมองจากภายนอก (นักวิเคราะห์อิสระ) มีน้อยกว่าหุ้นตัวอื่นในกลุ่ม</li>
+      <li>โครงการโรงพยาบาลใหม่ถนนบรมราชชนนี (ผ่านบริษัทย่อย วัฒนาเวชวิวัฒน์) มูลค่าราว 2,735-3,000 ล้านบาท — เทียบเท่าเกือบ 60% ของรายได้ทั้งบริษัทในปีเดียว — ล่าช้ากว่าแผนเดิมเพราะกระบวนการทำ EIA ใช้เวลานานกว่าคาด เลื่อนเปิดบริการไปเป็นปี 2570 เป็นความเสี่ยงด้าน execution ที่ต้องติดตามใกล้ชิด</li>
+      <li>เว็บไซต์รวมข้อมูลหุ้นบางแห่งแสดงตัวเลข "กำไร Q2/2569 ลดลง 65% YoY" แต่ ณ วันที่ค้นข้อมูล (26 ก.ค. 2569) ยังไม่มีงบการเงินไตรมาส 2/2569 ยื่นอย่างเป็นทางการต่อตลาดหลักทรัพย์ฯ เลย (งบล่าสุดที่ยื่นจริงคือ Q1/2569) — ตัวเลขดังกล่าวขัดแย้งกับข้อเท็จจริงนี้ จึง<strong>ไม่นำมาใช้ในบทความ</strong>และควรถือเป็น [UNVERIFIED/น่าสงสัยว่าคลาดเคลื่อน] จนกว่าจะมีงบทางการยืนยัน</li>
+    </ul>
+    <div class="sev-close">รายละเอียดอยู่ใน Section 2, 7 และ 12</div>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="toc-head">สารบัญ — แฟ้มเวชระเบียน 12 เคส</div>
+  <div class="toc-list">
+    <a href="#sec-01"><span class="case-no">เคส 01</span>ความน่าสนใจของธุรกิจ</a>
+    <a href="#sec-02"><span class="case-no">เคส 02</span>งบการเงิน + Oppday ล่าสุด</a>
+    <a href="#sec-03"><span class="case-no">เคส 03</span>Business model — หาเงินยังไง</a>
+    <a href="#sec-04"><span class="case-no">เคส 04</span>สัดส่วนรายได้ &amp; อัตรากำไร</a>
+    <a href="#sec-05"><span class="case-no">เคส 05</span>Competitive advantage</a>
+    <a href="#sec-06"><span class="case-no">เคส 06</span>เปรียบเทียบคู่แข่ง</a>
+    <a href="#sec-07"><span class="case-no">เคส 07</span>Growth potential</a>
+    <a href="#sec-08"><span class="case-no">เคส 08</span>ผู้ก่อตั้ง &amp; ผู้บริหาร</a>
+    <a href="#sec-09"><span class="case-no">เคส 09</span>ภาพรวมตลาด</a>
+    <a href="#sec-10"><span class="case-no">เคส 10</span>รายได้ / มาร์จิน / FCF</a>
+    <a href="#sec-11"><span class="case-no">เคส 11</span>ประวัติของธุรกิจ</a>
+    <a href="#sec-12"><span class="case-no">เคส 12</span>ความเสี่ยง + Counter-argument</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="sec" id="sec-01">
+  <div class="sec-eyebrow"><span class="num">01</span>Why it's interesting</div>
+  <h2 class="sec-title">ความน่าสนใจของธุรกิจ</h2>
+  <p>VIH คือหุ้นโรงพยาบาลที่แทบไม่มีใครพูดถึงในวงนักลงทุน เพราะไม่ได้อยู่ในกลุ่ม Big Cap อย่าง BDMS หรือ BCH — บริษัทเบื้องหลังคือ <strong>บริษัท ศรีวิชัยเวชวิวัฒน์ จำกัด (มหาชน)</strong> ผู้บริหารเครือโรงพยาบาล <strong>"วิชัยเวช อินเตอร์เนชั่นแนล"</strong> ซึ่งมีโรงพยาบาลในเครือ 4 แห่ง กระจายอยู่แถบกรุงเทพฯ ฝั่งตะวันตกและจังหวัดสมุทรสาคร คือ อ้อมน้อย (กระทุ่มแบน), หนองแขม, สมุทรสาคร (อำเภอเมือง) และแยกไฟฉาย (บางกอกน้อย) มาร์เก็ตแคปทั้งบริษัทอยู่ที่ราว 5,200 ล้านบาทเท่านั้น เทียบกับ BDMS ที่มีมาร์เก็ตแคปหลักแสนล้าน — เป็นหุ้นขนาดเล็กที่หลุดเรดาร์ของนักวิเคราะห์ส่วนใหญ่</p>
+  <p>สิ่งที่ทำให้ VIH น่าสนใจคือตัวเลขปี 2568 (FY2025) ที่เพิ่งปิดไป — รายได้รวมโต 8.86% เป็น 3,107.48 ล้านบาท แต่<strong>กำไรสุทธิโตถึง 38.65%</strong> เป็น 437.44 ล้านบาท คือกำไรโตเร็วกว่ารายได้ราว 4 เท่าตัว ปรากฏการณ์นี้ไม่ได้เกิดจากรายการพิเศษทางบัญชี แต่มาจากการบริหารต้นทุนที่มีวินัยสูงมาก — ต้นทุนกิจการโรงพยาบาลโตเพียง 5.05% ขณะที่รายได้โต 8.95% (เกิด operating leverage ชัดเจน) ค่าใช้จ่ายขายและบริหาร (SG&amp;A) กลับ<strong>ลดลง</strong> 0.56% ทั้งที่รายได้กำลังโต และต้นทุนทางการเงินลดลงถึง 20.92% จากวินัยการบริหารหนี้ที่ดี ผลคือ Net Profit Margin ไต่จาก 11.05% ในปี 2567 ขึ้นมาแตะ 14.08% ในปี 2568 ซึ่งเป็นระดับสูงสุดในรอบหลายปี</p>
+  <p>เรื่องเล่าเบื้องหลังตัวเลขนี้คือกลยุทธ์ "Center of Excellence" — แทนที่จะแข่งเป็นโรงพยาบาลทั่วไปเจ้าใหญ่ VIH เลือกปั้นแต่ละสาขาให้มีจุดขายเฉพาะทางที่แข่งกับใครไม่ได้ในพื้นที่ตัวเอง เช่น ศูนย์หัวใจที่หนองแขมซึ่งปี 2568 ทำสถิติ<strong>จำนวนเคสผ่าตัดเปิดหัวใจมากที่สุดในกลุ่มโรงพยาบาลเอกชนของประเทศไทย</strong> และอัตราการเสียชีวิตจากการผ่าตัด bypass ต่ำกว่าเกณฑ์มาตรฐานสากล — เป็นจุดขายที่ทำให้คนไข้จากทั่วกรุงเทพฯ ฝั่งตะวันตกไม่ต้องเดินทางเข้าเมืองไปหาโรงพยาบาลใหญ่ ตอกย้ำด้วยสโลแกน "จบทุกโรคยาก ไม่ต้องลำบากเข้ากรุง"</p>
+  <p>แต่สิ่งที่ทำให้เรื่องนี้มีความเสี่ยงสูงพอๆ กับที่น่าสนใจคือ บริษัทกำลังเดิมพันครั้งใหญ่ที่สุดในประวัติศาสตร์ 33 ปีของตัวเอง — โครงการโรงพยาบาลตติยภูมิแห่งใหม่บนถนนบรมราชชนนี มูลค่าลงทุนเกือบเท่ารายได้ทั้งปีของบริษัท ซึ่งกำลังล่าช้ากว่าแผนเดิมเพราะกระบวนการอนุมัติด้านสิ่งแวดล้อม (EIA) รายละเอียดทั้งขาขึ้นและความเสี่ยงของโครงการนี้อยู่ใน Section 7 และ 12</p>
+</section>
+
+<section class="sec" id="sec-02">
+  <div class="sec-eyebrow"><span class="num">02</span>Latest quarter</div>
+  <h2 class="sec-title">สรุปงบการเงิน + Oppday ล่าสุด</h2>
+  <p>ปี 2568 (FY2025) VIH ปิดปีด้วยรายได้รวม 3,107.48 ล้านบาท เพิ่มขึ้น 8.86% จากปี 2567 ที่ทำได้ 2,854.63 ล้านบาท โดยรายได้จากกิจการโรงพยาบาลล้วนๆ (ไม่รวมรายได้อื่น) อยู่ที่ 3,061.82 ล้านบาท โต 8.95% กำไรสุทธิปิดที่ 437.44 ล้านบาท เพิ่มขึ้น 38.65% จาก 315.51 ล้านบาทในปีก่อน อัตรากำไรขั้นต้นขยับจาก 24.77% เป็น 27.47% และอัตรากำไรสุทธิขยับจาก 11.05% เป็น 14.08% — ทุกตัวชี้วัดหลักดีขึ้นพร้อมกันทั้งหมดในปีเดียว</p>
+  <p>ถ้าเทียบกับปี 2567 ต้องเข้าใจบริบทก่อนว่าปีนั้นเป็นปีที่มีปัจจัยกดดันพิเศษ — MD&amp;A ของบริษัทระบุตรงว่าปี 2567 ได้รับผลกระทบจาก "การปรับลดค่าบริการทางการแพทย์ในกลุ่มโรคซับซ้อน (Adj RW&gt;2)" ซึ่งเป็นปัจจัยที่กระทบทั้งอุตสาหกรรม บวกกับการตั้งประมาณการค่าเสียหายจากคดีความ (one-time event) หากตัดสองรายการนี้ออก ผลประกอบการปี 2567 ที่แท้จริงจะเป็นรายได้โต 4.86% เป็น 2,897.44 ล้านบาท และกำไรโต 27.38% เป็น 362.82 ล้านบาท — หมายความว่าฐานเทียบปี 2568 จริงๆ สูงกว่าตัวเลขที่รายงานไว้ ทำให้การโต 38.65% ในปี 2568 มีคุณภาพมากกว่าที่ตัวเลขเปล่าๆ บอกไว้เสียอีก เพราะไม่ได้โตจากฐานต่ำเทียมที่มาจากปัญหาชั่วคราว</p>
+
+  <div class="callout">
+    <span class="callout-label">เป้าที่ผู้บริหารให้ไว้ใน Oppday Q2/2568 เทียบผลจริงที่ทำได้ (Oppday YE/2025)</span>
+    ในงาน Oppday ไตรมาส 2/2568 ผู้บริหารตั้งเป้าจะดัน Net Profit Margin ขึ้นสู่ระดับ "กลางๆ ของหลักสิบ" (mid-double-digit) จากที่ครึ่งปีแรกทำได้แล้ว 13.52% — ผลจริงเมื่อปิดปี NPM อยู่ที่ 14.08% ถือว่าทำได้ตามหรือดีกว่าเป้าที่วางไว้ ด้านศูนย์หัวใจที่หนองแขมซึ่งครึ่งปีแรกรายได้ฝั่งเคสภาครัฐลดลงจากเกณฑ์เบิกจ่ายที่เข้มงวดขึ้น ผู้บริหารวางแผนปรับปรุงพื้นที่ OPD เพื่อดึงกลุ่มคนไข้เงินสด/ประกันมาทดแทน — ผลจริงคือศูนย์หัวใจกลับมาโดดเด่นในไตรมาส 4 จนทำสถิติเคสผ่าตัดเปิดหัวใจสูงสุดในกลุ่มโรงพยาบาลเอกชนไทยทั้งปี ถือว่าทำได้ตามแผนที่วางไว้ ส่วนที่ยังไม่เป็นไปตามเป้าคือศูนย์ไตเทียมที่แยกไฟฉาย ซึ่งต้องปิดปรับปรุงพื้นที่ทำให้รายได้ต่ำกว่าเป้า ปัจจุบัน (ต้นปี 2569) ปรับปรุงเสร็จแล้วและอยู่ระหว่างขอใบอนุญาตเปิดดำเนินการใหม่
+  </div>
+
+  <p>กระแสเงินสดจากการดำเนินงาน (CFO) ปี 2568 อยู่ที่ 513.70 ล้านบาท เพิ่มขึ้นจาก 501.35 ล้านบาทในปีก่อน สะท้อนว่ากำไรที่รายงานเป็น "กำไรที่มีคุณภาพ" คือแปลงเป็นเงินสดได้จริง ไม่ใช่กำไรทางบัญชีล้วนๆ ด้านกิจกรรมลงทุนมีการใช้เงินสดสุทธิ 657.55 ล้านบาท ส่วนใหญ่เป็นการกันเงินฝากสถาบันการเงินไว้รองรับโครงการโรงพยาบาลใหม่ที่กำลังจะเริ่มก่อสร้าง บวกกับซื้อเครื่องมือแพทย์ขยายศักยภาพสาขาเดิม</p>
+
+  <div class="callout">
+    <span class="callout-label">คณะกรรมการอนุมัติปันผลปี 2568</span>
+    ที่ประชุมคณะกรรมการเมื่อ 27 กุมภาพันธ์ 2569 มีมติเสนอจ่ายเงินปันผลจากผลการดำเนินงานปี 2568 ในอัตรา 0.40 บาทต่อหุ้น รวมเป็นเงินประมาณ 247.30 ล้านบาท เพิ่มขึ้นจากปี 2567 ที่จ่าย 0.25 บาทต่อหุ้น (152.19 ล้านบาท) — สอดคล้องกับนโยบายจ่ายไม่น้อยกว่า 50% ของกำไรสุทธิงบเฉพาะกิจการ (payout ratio ที่แท้จริงราว 56% ของกำไรสุทธิงบรวมปี 2568)
+  </div>
+
+  <p>ไตรมาส 1/2569 (ม.ค.-มี.ค. 2569) เป็นงบไตรมาสล่าสุดที่มีการยื่นอย่างเป็นทางการ (ยื่นเมื่อ 20 พ.ค. 2569) แต่ ณ ตอนที่ค้นข้อมูลบทความนี้ยังไม่ได้อ่านตัวเลขละเอียดจากงบฉบับนี้โดยตรง — ข้อมูลรอง (Oppday summary จากเว็บไซต์รวมข้อมูลหุ้น) ระบุว่ารายได้ Q1/2569 โต 5.4% YoY และกำไรสุทธิปรับปรุงแล้วโต 19% YoY อัตรากำไรขั้นต้น 17.6% (จาก 17.3%) — ตัวเลขมาร์จินนี้ต่ำกว่าค่าเฉลี่ยทั้งปี 2568 ค่อนข้างมาก ซึ่งอาจเป็นความผันผวนตามฤดูกาลปกติหรือสัญญาณที่ต้องติดตาม แต่เนื่องจากเป็นข้อมูลจากแหล่งรอง (secondary aggregator) ไม่ใช่การอ่านงบต้นฉบับโดยตรง จึงมาร์กเป็น <strong>[UNVERIFIED]</strong> — ผู้บริหารระบุในสรุปเดียวกันว่าศูนย์ไตเทียมและศูนย์มะเร็งมีรายได้ลดลงจากการปรับปรุงพื้นที่และการย้ายฐานคนไข้ชั่วคราว ซึ่งสอดคล้องกับสิ่งที่พูดไว้ใน Oppday YE/2025 เรื่องศูนย์ไตเทียมที่แยกไฟฉาย</p>
+</section>
+
+<section class="sec" id="sec-03">
+  <div class="sec-eyebrow"><span class="num">03</span>How it makes money</div>
+  <h2 class="sec-title">Business model — หาเงินยังไง</h2>
+  <p>เหมือนโรงพยาบาลเอกชนไทยรายอื่น VIH หาเงินจากลูกค้า 2 ฐานหลักที่มีพฤติกรรมจ่ายเงินต่างกัน คือ กลุ่มผู้ป่วยทั่วไป (Non-Capitation) และกลุ่มโครงการภาครัฐ/ประกันสังคม (Capitation) แต่สิ่งที่ต่างจากเครือใหญ่อย่าง BCH หรือ BDMS คือ VIH ไม่ได้ใช้แบรนด์เดียวครอบทุกสาขา แล้วก็ไม่ได้พยายามทำทุกสาขาให้เหมือนกันหมด — แต่ละสาขาถูกวางให้มี "จุดขายเฉพาะทาง" ของตัวเองที่ต่างกันชัดเจน ทำให้รายได้แต่ละสาขามาจากคนละกลุ่มลูกค้าเป็นหลัก</p>
+  <p><strong>กลุ่มผู้ป่วยทั่วไป (Non-Capitation)</strong> คือฐานรายได้ใหญ่สุดของบริษัท ปี 2568 มีรายได้ 2,398.72 ล้านบาท คิดเป็น 77.2% ของรายได้จากการให้บริการรวม กลุ่มนี้ประกอบด้วยคนไข้จ่ายเงินเอง (self-pay) ลูกค้าประกันชีวิต ลูกค้าคู่สัญญาบริษัทเอกชน และคนไข้ต่างชาติ — เป็นกลุ่มที่มาร์จิ้นสูงสุดเพราะราคาไม่ถูกควบคุมโดยรัฐ</p>
+  <p><strong>โครงการภาครัฐ/ประกันสังคม (Capitation)</strong> ปี 2568 มีรายได้ 708.59 ล้านบาท คิดเป็น 22.8% ของรายได้รวม — โรงพยาบาลอ้อมน้อยและสมุทรสาครเป็นสถานพยาบาลคู่สัญญาหลักของกลุ่มนี้ ระบบทำงานคล้ายกับที่อธิบายในบทวิเคราะห์ BCH คือได้รับ "ค่าเหมาจ่ายรายหัว" รายเดือนไม่ว่าผู้ประกันตนจะป่วยหรือไม่ป่วย บวกค่าชดเชยเพิ่มตามความซับซ้อนของโรค (DRG/RW) หากรักษาโรคซับซ้อน — จุดที่น่าสนใจคือรายได้กลุ่มนี้ปี 2568 โตเร็วกว่ากลุ่มผู้ป่วยทั่วไปด้วยซ้ำ (+14.40% เทียบ +6.85%) เพราะบริษัทบริหารจัดการการเบิกจ่ายส่วนที่เกินค่าเหมาจ่าย (โรคซับซ้อน) ได้ดีขึ้น</p>
+  <p>สิ่งที่ทำให้โมเดลนี้ต่างจากเครือใหญ่ชัดเจนคือ "การแบ่งงานตามสาขา" แทนที่จะให้ทุกสาขาแข่งกันเป็นโรงพยาบาลทั่วไปครบวงจร — อ้อมน้อยเน้นศูนย์อุบัติเหตุฉุกเฉินและกระดูกข้อ หนองแขมเน้นศูนย์หัวใจ สมุทรสาครเน้นหน่วยแพทย์เคลื่อนที่ (MMU) ตรวจสุขภาพโรงงาน และแยกไฟฉายเน้นเป็นโรงพยาบาลเฉพาะทางล้วนๆ (รักษาผู้มีบุตรยาก + จักษุ) โมเดลนี้ทำให้แต่ละสาขาไม่ต้องแข่งขันกันเองแย่งลูกค้าในเครือ และสร้างจุดขายที่แข็งแรงพอจะดึงคนไข้จากนอกพื้นที่ได้ (รายละเอียด Section 5)</p>
+
+  <div class="card">
+    <div class="card-title">Business Model Canvas — VIH.BK</div>
+    <div class="card-sub">สรุปโมเดลธุรกิจเป็น 9 บล็อก (อ้างอิงรายละเอียดเต็มในเนื้อความข้างต้นและ Section 4, 5, 7)</div>
+    <div class="bmc">
+      <div class="bmc-cell"><h4>พันธมิตรหลัก<span class="en">Key Partners</span></h4><p>สำนักงานประกันสังคม (ผู้จ่ายเงินก้อนใหญ่), โรงพยาบาลพหลพลพยุหเสนา กาญจนบุรี (พันธมิตรศูนย์หัวใจภาครัฐ), บริษัทประกันเอกชน, สถานประกอบการ/โรงงาน (ลูกค้า MMU)</p></div>
+      <div class="bmc-cell"><h4>กิจกรรมหลัก<span class="en">Key Activities</span></h4><p>รักษาพยาบาลผู้ป่วยนอก/ใน, พัฒนาศูนย์ความเป็นเลิศเฉพาะทางรายสาขา, บริหารหน่วยแพทย์เคลื่อนที่ (MMU), ก่อสร้างโรงพยาบาลใหม่บรมราชชนนี</p></div>
+      <div class="bmc-cell"><h4>ทรัพยากรหลัก<span class="en">Key Resources</span></h4><p>ใบอนุญาตโรงพยาบาล 4 แห่ง, ศูนย์หัวใจอันดับ 1 ด้านจำนวนเคส (private hospital), ทีมแพทย์เฉพาะทาง, เงินสด/เงินฝากที่กันไว้สำหรับโครงการใหม่</p></div>
+      <div class="bmc-cell"><h4>คุณค่าที่ส่งมอบ<span class="en">Value Propositions</span></h4><p>"จบทุกโรคยาก ไม่ต้องลำบากเข้ากรุง" — รักษาโรคซับซ้อนได้ในพื้นที่ชานเมือง/ปริมณฑล ไม่ต้องเดินทางเข้าโรงพยาบาลใหญ่ในเมือง</p></div>
+      <div class="bmc-cell"><h4>ความสัมพันธ์ลูกค้า<span class="en">Customer Relationships</span></h4><p>ผูกผู้ประกันตนระยะยาวผ่านสิทธิ์เบิกจ่ายรายเดือน, บริการเชิงรุกถึงโรงงาน/สถานประกอบการผ่าน MMU, ชื่อเสียงเฉพาะทางแบบปากต่อปาก</p></div>
+      <div class="bmc-cell"><h4>ช่องทาง<span class="en">Channels</span></h4><p>โรงพยาบาลในเครือ 4 แห่ง (อ้อมน้อย/หนองแขม/สมุทรสาคร/แยกไฟฉาย), หน่วยแพทย์เคลื่อนที่ (MMU) นอกสถานที่ทั่วประเทศ</p></div>
+      <div class="bmc-cell"><h4>กลุ่มลูกค้า<span class="en">Customer Segments</span></h4><p>ผู้ป่วยทั่วไป/ประกัน/ต่างชาติ (77.2% ของรายได้), ผู้ประกันตนประกันสังคม (22.8%) — รายละเอียดเต็มดู Section 4</p></div>
+      <div class="bmc-cell"><h4>โครงสร้างต้นทุน<span class="en">Cost Structure</span></h4><p>ค่าตอบแทนบุคลากรทางการแพทย์ (สัดส่วนใหญ่สุด), CAPEX โครงการโรงพยาบาลใหม่บรมราชชนนี ~2,735-3,000 ลบ., SG&amp;A</p></div>
+      <div class="bmc-cell"><h4>กระแสรายได้<span class="en">Revenue Streams</span></h4><p>ค่ารักษา OPD/IPD เงินสด/ประกัน, ค่าเหมาจ่ายรายหัว+DRG จากประกันสังคม, รายได้ MMU ตรวจสุขภาพเคลื่อนที่ — ตัวเลขเต็มดู Section 4</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sec-04">
+  <div class="sec-eyebrow"><span class="num">04</span>Revenue mix &amp; margins</div>
+  <h2 class="sec-title">สัดส่วนรายได้แต่ละส่วน (%) และอัตรากำไร</h2>
+  <p>โครงสร้างรายได้ของ VIH เรียบง่ายกว่าเครือใหญ่เพราะมีเพียง 2 กลุ่มลูกค้าหลัก (ไม่มีขารายได้ต่างชาติที่แยกสัดส่วนชัดเจนแบบ BDMS/BCH) — ปี 2568 กลุ่มผู้ป่วยทั่วไปยังเป็นสัดส่วนหลักที่ 77.2% ขณะที่กลุ่มประกันสังคมอยู่ที่ 22.8% แต่จุดที่น่าสนใจคือทิศทางการเติบโต 2 กลุ่มนี้สวนทางกับสัดส่วน — กลุ่มประกันสังคมซึ่งเป็นสัดส่วนเล็กกว่ากลับโตเร็วกว่า (+14.40% เทียบ +6.85%) สะท้อนว่าบริษัทกำลังดึงมูลค่าเพิ่มจากฐานผู้ประกันตนเดิมได้ดีขึ้น ผ่านการรักษาโรคซับซ้อนที่เบิกจ่ายได้สูงกว่าค่าเหมาจ่ายพื้นฐาน มากกว่าจะพึ่งพาการเพิ่มจำนวนผู้ประกันตนใหม่อย่างเดียว</p>
+
+  <div class="table-scroll">
+  <table>
+    <caption>สรุปผลประกอบการ FY2566–FY2568 (MD&amp;A ประจำปี)</caption>
+    <thead><tr><th>รายการ</th><th class="num">FY2566</th><th class="num">FY2567</th><th class="num">FY2568</th></tr></thead>
+    <tbody>
+      <tr><td>รายได้รวม (ลบ.)</td><td class="num">n/a</td><td class="num">2,854.63</td><td class="num">3,107.48</td></tr>
+      <tr><td>กำไรสุทธิ (ลบ.)</td><td class="num">n/a</td><td class="num">315.51</td><td class="num">437.44</td></tr>
+      <tr><td>อัตรากำไรขั้นต้น</td><td class="num">n/a</td><td class="num">24.77%</td><td class="num up">27.47%</td></tr>
+      <tr><td>อัตรากำไรสุทธิ</td><td class="num">10.31%</td><td class="num">11.05%</td><td class="num up">14.08%</td></tr>
+      <tr><td>SG&amp;A / รายได้</td><td class="num">n/a</td><td class="num">11.94%</td><td class="num up">10.91%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="stat-note">หมายเหตุ: ตัวเลข FY2566 บางรายการไม่ปรากฏชัดในเอกสารที่ใช้ตรวจสอบไขว้ผ่าน NotebookLM มาร์กเป็น n/a แทนการเดา — Net Margin ปี 2566 (10.31%) ดึงมาจากคำตอบที่อ้างอิง MD&amp;A ปี 2568 ซึ่งเทียบย้อนหลัง 3 ปีไว้ในตาราง trend</p>
+
+  <p>ตัวขับเคลื่อนมาร์จินที่ดีขึ้นทั้งสองปีติดกันไม่ได้มาจากราคาขายที่ปรับขึ้น แต่มาจากวินัยด้านต้นทุนเป็นหลัก — ต้นทุนกิจการโรงพยาบาลปี 2568 โตเพียง 5.05% ต่ำกว่าการเติบโตของรายได้ที่ 8.95% เกิดจากการประหยัดต่อขนาด (Economies of Scale) และการควบคุมต้นทุนผันแปรอย่างค่าธรรมเนียมแพทย์กับค่ายาเวชภัณฑ์ให้อยู่ในระดับที่เหมาะสม ขณะที่ SG&amp;A ลดลงทั้งจำนวนเงินสัมบูรณ์ (-0.56%) และสัดส่วนต่อรายได้ (จาก 11.94% เหลือ 10.91%) เป็นสัญญาณของบริษัทที่มีขนาดเล็กพอจะบริหารต้นทุนได้ใกล้ชิด ไม่มีชั้นการจัดการที่ซับซ้อนเทอะทะแบบเครือใหญ่</p>
+</section>
+
+<section class="sec" id="sec-05">
+  <div class="sec-eyebrow"><span class="num">05</span>Competitive advantage</div>
+  <h2 class="sec-title">Competitive advantage</h2>
+  <p>ข้อได้เปรียบหลักของ VIH ไม่ใช่ขนาด (ซึ่งเล็กกว่าคู่แข่งทุกรายในกลุ่มโรงพยาบาลจดทะเบียน) แต่เป็นการปั้น "ศูนย์ความเป็นเลิศ" (Center of Excellence) เฉพาะทางในแต่ละสาขาจนแข่งกับใครไม่ได้ในระดับพื้นที่ ตัวอย่างที่ชัดที่สุดคือ<strong>ศูนย์หัวใจวิชัยเวชที่หนองแขม</strong> ซึ่งปี 2568 มีจำนวนเคสผ่าตัดเปิดหัวใจมากที่สุดในกลุ่มโรงพยาบาลเอกชนของประเทศไทย และมีอัตราการเสียชีวิตจากการผ่าตัด bypass ต่ำกว่าเกณฑ์มาตรฐานสากล — ตัวเลขนี้สำคัญเพราะการผ่าตัดหัวใจเป็นหนึ่งในบริการที่ใช้ทั้งเงินลงทุนอุปกรณ์และความเชี่ยวชาญแพทย์สูงมาก คู่แข่งรายเล็กจะสร้างศูนย์แบบนี้แข่งได้ยาก ขณะที่คู่แข่งรายใหญ่ก็ไม่ได้โฟกัสพื้นที่หนองแขมเป็นการเฉพาะเหมือน VIH</p>
+  <p>จุดแข็งรายพื้นที่อื่นๆ ก็ใช้ตรรกะเดียวกัน — อ้อมน้อยมีศูนย์อุบัติเหตุฉุกเฉินและกระดูกข้อที่แข็งแรง บวกศักยภาพศูนย์โรคหลอดเลือดสมอง (Stroke) และรังสีร่วมรักษา (Interventional Radiology) ทำให้คนไข้ในพื้นที่กระทุ่มแบน/สมุทรสาครไม่ต้องเดินทางเข้ากรุงเทพฯ ชั้นในเพื่อรักษาโรคซับซ้อน สมุทรสาครมีความเชี่ยวชาญเฉพาะด้านหน่วยแพทย์เคลื่อนที่ (MMU) และศูนย์อาชีวเวชศาสตร์ที่ให้บริการตรวจสุขภาพนอกสถานที่แก่โรงงานทั่วประเทศ ส่วนแยกไฟฉายวางตัวเป็นโรงพยาบาลเฉพาะทางล้วนๆ ด้วยศูนย์รักษาผู้มีบุตรยาก "อัครบุตร" ที่มีอัตราสำเร็จสูงถึง 85% และศูนย์จักษุ Elite Vision ที่ได้รับการยอมรับระดับประเทศ</p>
+  <p>ข้อได้เปรียบเชิงโครงสร้างอีกจุดคือความสัมพันธ์กับภาครัฐที่ลึกกว่าการเป็นแค่คู่สัญญาประกันสังคม — ตั้งแต่ปี 2566 บริษัทขยายความร่วมมือไปเปิดศูนย์รักษาหัตถการผู้ป่วยโรคหัวใจและหลอดเลือดที่โรงพยาบาลพหลพลพยุหเสนา จังหวัดกาญจนบุรี ซึ่งเป็นโรงพยาบาลรัฐ — โมเดลนี้ทำให้ VIH ขยายฐานความเชี่ยวชาญเฉพาะทางออกไปนอกพื้นที่เดิมได้โดยไม่ต้องลงทุนสร้างโรงพยาบาลใหม่เอง เป็นรูปแบบการเติบโตที่ประหยัดทุนกว่าการขยายสาขาแบบเดิม และหากขยายโมเดลนี้ไปจังหวัดอื่นได้อีกก็จะเป็นช่องทางเติบโตที่ไม่ต้องพึ่งเงินลงทุนก้อนใหญ่แบบโครงการบรมราชชนนี</p>
+  <p>อย่างไรก็ตาม ข้อได้เปรียบเหล่านี้เป็นข้อได้เปรียบระดับ "พื้นที่" (regional) ไม่ใช่ข้อได้เปรียบระดับประเทศแบบเครือใหญ่ — ถ้าคู่แข่งรายใหญ่ตัดสินใจทุ่มทุนสร้างศูนย์เฉพาะทางแข่งในพื้นที่เดียวกันโดยตรง VIH จะป้องกันตัวเองได้ยากกว่าเพราะเงินทุนและอำนาจต่อรองซัพพลายเชนน้อยกว่ามาก เป็นประเด็นที่ขยายความต่อใน Section 6 และ 12</p>
+</section>
+
+<section class="sec" id="sec-06">
+  <div class="sec-eyebrow"><span class="num">06</span>Compare to peers</div>
+  <h2 class="sec-title">เปรียบเทียบกับคู่แข่ง</h2>
+  <p>เทียบกับหุ้นโรงพยาบาลอื่นในกลุ่มเดียวกัน (BCH, WPH, BDMS) VIH มีขนาดเล็กที่สุดในทุกมิติ — มาร์เก็ตแคปราว 5,200 ล้านบาท เทียบกับ BCH ที่มีสาขากว่า 15 แห่งรวมข้ามประเทศ (ลาว) หรือ BDMS ที่มีโรงพยาบาลในเครือ 58 แห่งทั่วประเทศ VIH ยังเป็นโรงพยาบาลระดับทุติยภูมิ (Secondary Care) ที่กำลังยกระดับสู่ตติยภูมิ (Tertiary Care) ผ่านโครงการบรมราชชนนี ขณะที่ BDMS และเครือใหญ่อื่นๆ มีศูนย์การแพทย์ระดับตติยภูมิอยู่แล้วในหลายสาขา</p>
+  <p>ด้านกลุ่มลูกค้า VIH มีสัดส่วนที่สมดุลกว่าเมื่อเทียบสัดส่วนผู้ป่วยทั่วไปต่อประกันสังคม (77:23) — BDMS เน้นกลุ่มลูกค้าพรีเมียมและต่างชาติเป็นหลัก (ผู้ป่วยไทย 72% ต่างชาติ 28% ตามข้อมูลจาก 56-1 ล่าสุด) ทำให้มาร์จินสูงกว่าแต่ผันผวนตามปัจจัยภูมิรัฐศาสตร์มากกว่า ส่วน BCH มีฐานผู้ประกันตนขนาดใหญ่ระดับประเทศ (ทะลุ 1 ล้านคน) ซึ่งใหญ่กว่าฐานของ VIH มาก แต่ก็รับความเสี่ยงนโยบายรัฐเรื่องอัตราเบิกจ่ายมากกว่าตามสัดส่วนเช่นกัน VIH ไม่มีขารายได้ต่างชาติที่มีนัยสำคัญเหมือน BDMS/BCH จึงมีความเสี่ยงภูมิรัฐศาสตร์ต่ำกว่า แต่ก็เสียโอกาสมาร์จินสูงจากกลุ่มลูกค้าต่างชาติไปด้วยเช่นกัน</p>
+  <p>ด้านพื้นที่ให้บริการ VIH ไม่ได้แข่งโดยตรงกับ WPH ซึ่งกระจุกอยู่ภาคใต้ (ตรัง กระบี่ เกาะสมุย และกำลังขยายภูเก็ต) หรือ BDMS/BCH ที่กระจายทั่วประเทศ — VIH เลือกครองพื้นที่กรุงเทพฯ ฝั่งตะวันตกและสมุทรสาครอย่างเข้มข้นแทนที่จะขยายกว้างแต่บาง กลยุทธ์นี้ทำให้ VIH ไม่ต้องแข่งขันตรงกับหุ้นอีก 3 ตัวในซีรีส์นี้เลยในเชิงภูมิศาสตร์ แต่ก็หมายความว่าการเติบโตของ VIH ผูกกับเศรษฐกิจและประชากรของพื้นที่เดียวมากกว่า ไม่ได้กระจายความเสี่ยงเชิงภูมิศาสตร์เหมือนเครือใหญ่</p>
+  <p>ในแง่คุณภาพกำไร VIH เพิ่งพิสูจน์ตัวเองว่าบริหารต้นทุนได้ดีกว่าค่าเฉลี่ยกลุ่ม — Net Margin 14.08% ในปี 2568 สูงกว่า BDMS ที่อยู่ราว 14-15% (ใกล้เคียงกัน) และสูงกว่า BCH ที่ราว 10-11% แม้จะเป็นบริษัทขนาดเล็กกว่ามาก สะท้อนว่าขนาดเล็กไม่ได้แปลว่ามาร์จินแย่กว่าเสมอไป ถ้าบริหารต้นทุนได้มีวินัย — แต่ก็ต้องระวังว่าฐานเปรียบเทียบยังเล็กเกินกว่าจะสรุปเป็น structural advantage ระยะยาวได้ ต้องดูต่ออีกหลายปีว่ามาร์จินระดับนี้รักษาไว้ได้หรือไม่โดยเฉพาะหลังโครงการบรมราชชนนีเริ่มมีค่าเสื่อมราคาเข้ามากดดันงบกำไรขาดทุน</p>
+</section>
+
+<section class="sec" id="sec-07">
+  <div class="sec-eyebrow"><span class="num">07</span>Growth potential</div>
+  <h2 class="sec-title">Growth potential</h2>
+  <p>เครื่องยนต์การเติบโตหลักของ VIH ในช่วง 2-3 ปีข้างหน้าคือโครงการเดียว: <strong>โรงพยาบาลใหม่บนถนนบรมราชชนนี</strong> ดำเนินการผ่านบริษัทย่อยที่จัดตั้งขึ้นเฉพาะกิจในปี 2567 ชื่อ "บริษัท วัฒนาเวชวิวัฒน์ จำกัด" ด้วยทุนจดทะเบียน 1,241 ล้านบาท (ณ ปลายปี 2568 เรียกชำระค่าหุ้นแล้ว 57.4% ของทุนจดทะเบียน) โครงการนี้เป็นโรงพยาบาลทั่วไป 200 เตียง บนที่ดินประมาณ 19 ไร่ มูลค่าลงทุนรวมประมาณ 2,735-3,000 ล้านบาท เป้าหมายคือยกระดับกลุ่ม VIH จากโรงพยาบาลทุติยภูมิสู่ศูนย์การแพทย์ระดับตติยภูมิ (Tertiary Care) เป็นครั้งแรก ซึ่งจะเปิดบริการรักษาโรคซับซ้อนระดับสูงที่ 4 สาขาเดิมทำไม่ได้ — ผู้บริหารเรียกโครงการนี้ว่าเป็น "New S-Curve" ของกลุ่ม</p>
+  <p>เดิมทีโครงการนี้มีกำหนดเปิดเร็วกว่านี้ แต่กระบวนการทำรายงานผลกระทบสิ่งแวดล้อม (EIA — Environmental Impact Assessment รายงานบังคับสำหรับโครงการก่อสร้างขนาดใหญ่ในประเทศไทย ที่มักใช้เวลานานและคาดการณ์ระยะเวลาได้ยาก) ใช้เวลานานกว่าที่ประเมินไว้ ทำให้แผนเปิดบริการเลื่อนไปเป็นปี 2570 — เป็นความเสี่ยงด้าน execution ที่ต้องติดตามใกล้ชิดเพราะเป็นโครงการที่ใหญ่กว่าอะไรก็ตามที่บริษัทเคยทำมาก่อน (รายละเอียดความเสี่ยงเพิ่มเติมใน Section 12)</p>
+  <p>นอกจากโครงการใหญ่นี้ VIH ยังมีเครื่องยนต์เติบโตเสริมที่ใช้เงินลงทุนน้อยกว่ามาก — การเปิดศูนย์เฉพาะทางใหม่ในสาขาเดิม เช่น ศูนย์สมองและระบบประสาทวิชัยเวช (Neurology Center) ที่เปิดตัวอย่างเป็นทางการเมื่อ 13 มีนาคม 2569 เพื่อรักษาโรคซับซ้อนโดยไม่ต้องผ่าตัดใหญ่ (Interventional Radiology) ต่อยอดจากความสำเร็จของศูนย์หัวใจ และรูปแบบการขยายผ่านความร่วมมือกับโรงพยาบาลรัฐ (แบบที่ทำกับโรงพยาบาลพหลพลพยุหเสนา กาญจนบุรี) ซึ่งใช้เงินลงทุนต่ำกว่าการสร้างสาขาใหม่มาก และอาจขยายโมเดลนี้ไปพื้นที่อื่นได้อีกถ้าประสบความสำเร็จต่อเนื่อง</p>
+  <p>ด้านการเติบโตในอดีต ตัวเลข 3 ปีย้อนหลังแสดงให้เห็นว่า VIH โตทั้งด้านรายได้และกำไรต่อเนื่อง แม้จะโดนปัจจัยลบเรื่องการปรับลดค่าบริการโรคซับซ้อนกระทบในปี 2567 ก็ยังฟื้นตัวและโตต่อได้ในปี 2568 — เป็นสัญญาณว่าฐานลูกค้าและโมเดลธุรกิจมีความยืดหยุ่นพอสมควร แต่ต้องยอมรับว่าฐานเริ่มต้นเล็ก (รายได้หลักพันล้านบาทต้นๆ) ทำให้เปอร์เซ็นต์การเติบโตดูสวยได้ง่ายกว่าบริษัทขนาดใหญ่ที่ต้องหาการเติบโตจากฐานที่ใหญ่กว่ามาก</p>
+</section>
+
+<section class="sec" id="sec-08">
+  <div class="sec-eyebrow"><span class="num">08</span>Founder</div>
+  <h2 class="sec-title">ผู้ก่อตั้ง &amp; ผู้บริหาร</h2>
+  <p>VIH เป็นธุรกิจครอบครัวที่ก่อตั้งและบริหารโดยคู่สามีภรรยา — <strong>รศ.ดร.นพ.วิชัย วนดุรงค์วรรณ</strong> ดำรงตำแหน่งประธานกรรมการ และ <strong>ผศ.พญ.สายสุณี วนดุรงค์วรรณ</strong> ดำรงตำแหน่งประธานเจ้าหน้าที่บริหารและรองประธานกรรมการ — ทั้งคู่เป็นแพทย์โดยอาชีพ (ทั้งคู่มีคำนำหน้าตำแหน่งวิชาการ "รศ." และ "ผศ." สะท้อนภูมิหลังด้านวิชาการแพทย์) ซึ่งต่างจากผู้บริหารเครือโรงพยาบาลบางรายที่มาจากสายธุรกิจ/การเงินล้วนๆ</p>
+  <p>ปรัชญาการบริหารของบริษัทสรุปไว้ในสโลแกน <strong>"ดูแลชีวิต...ด้วยจิตใจ" (V care V cure V can)</strong> เน้นผู้รับบริการเป็นศูนย์กลาง และในปี 2567 บริษัทประกาศค่านิยมองค์กรใหม่ชื่อ "HEART" ซึ่งย่อมาจาก Happy Customers (ความพึงพอใจสูงสุดของลูกค้า), Excellence (มุ่งสู่ความเป็นเลิศและนวัตกรรม), Agility (ความยืดหยุ่นปรับตัวไว), Respect (เคารพทุกคน) และ Teamwork (ทำงานร่วมกันเป็นทีม) — การประกาศค่านิยมใหม่ในปีเดียวกับที่เริ่มโครงการโรงพยาบาลใหม่ขนาดใหญ่ อาจสะท้อนความพยายามเตรียมองค์กรให้พร้อมสำหรับการขยายตัวครั้งใหญ่ที่กำลังจะมาถึง</p>
+  <p>ด้านโครงสร้างผู้ถือหุ้น ณ 31 ธันวาคม 2568 ผู้ถือหุ้นรายใหญ่อันดับหนึ่งคือบริษัท บีบีทีวี เอ็คควิตี้ จำกัด ถือ 20.02% (เข้ามาเป็นผู้ถือหุ้นใหญ่ตั้งแต่ปี 2557 ตอนบริษัทเพิ่มทุน) ส่วนผู้ถือหุ้นรายใหญ่อันดับ 2-5 ล้วนใช้นามสกุล "วนดุรงค์วรรณ" หรือมีความเกี่ยวข้องกับตระกูลผู้ก่อตั้ง — นายบวรรัฐ วนดุรงค์วรรณ 16.15%, นางพัฏ โรจน์มหามงคล 14.10%, นางรังสิมา วณิชภักดีเดชา 14.10% และน.ส. พัชรพรรณ วนดุรงค์วรรณ 4.91% รวมแล้วกลุ่มตระกูลวนดุรงค์วรรณถือหุ้นโดยตรงรวมกัน 52.23% ของทุนที่ชำระแล้ว — เป็นโครงสร้างที่ตระกูลผู้ก่อตั้งยังคุมเสียงข้างมากเบ็ดเสร็จ ซึ่งมีทั้งข้อดี (ตัดสินใจเร็ว วิสัยทัศน์ระยะยาวไม่ถูกกดดันจากผลประกอบการรายไตรมาส) และข้อควรระวัง (Governance risk แบบธุรกิจครอบครัวทั่วไป ที่ผลประโยชน์ผู้ถือหุ้นรายย่อยอาจไม่ใช่ลำดับความสำคัญแรกเสมอไป)</p>
+</section>
+
+<section class="sec" id="sec-09">
+  <div class="sec-eyebrow"><span class="num">09</span>Market overview</div>
+  <h2 class="sec-title">ภาพรวมตลาด</h2>
+  <p>ตลาดโรงพยาบาลเอกชนในพื้นที่ที่ VIH ให้บริการ (กรุงเทพฯ ฝั่งตะวันตกและสมุทรสาคร) มีแนวโน้มเติบโตต่อเนื่องในระยะยาวจากปัจจัยเชิงโครงสร้างเดียวกับที่ขับเคลื่อนหุ้นโรงพยาบาลทั้งกลุ่ม — จำนวนประชากรผู้สูงอายุที่เพิ่มขึ้น รายได้ต่อหัวที่สูงขึ้น และพฤติกรรมผู้บริโภคที่ให้ความสำคัญกับการดูแลสุขภาพเพื่อคุณภาพชีวิตมากขึ้น รวมถึงความต้องการรักษาโรคซับซ้อนที่เพิ่มสูงขึ้นตามอายุประชากรที่มากขึ้น</p>
+  <p>แต่การแข่งขันในพื้นที่นี้รุนแรงและเปลี่ยนแปลงเร็ว โดยมาจาก 4 ทิศทางพร้อมกัน — หนึ่ง โรงพยาบาลเอกชนขนาดใหญ่ที่มีศักยภาพเงินทุนสูงกว่าเข้ามาแย่งส่วนแบ่งตลาดในพื้นที่เดียวกัน สอง โรงพยาบาลรัฐที่ขยายเตียงและพัฒนาคุณภาพบริการต่อเนื่อง ทำให้ทางเลือกของคนไข้ประกันสังคมกว้างขึ้น สาม ตลาดตรวจสุขภาพเคลื่อนที่ (MMU) ซึ่งเป็นหนึ่งในธุรกิจเสริมของ VIH ที่สมุทรสาคร มีการแข่งขันด้านราคารุนแรงมากเพราะมีคู่แข่งเพิ่มขึ้นเรื่อยๆ และลูกค้า (ฝ่ายบุคคลของโรงงาน/บริษัท) มีความอ่อนไหวต่อราคาสูง และสี่ คลินิกเฉพาะทางที่ดึงดูดผู้ป่วยด้วยบริการเจาะจงเฉพาะกลุ่ม ซึ่งแข่งกับศูนย์ความเป็นเลิศบางศูนย์ของ VIH โดยตรง เช่น คลินิกรักษาผู้มีบุตรยากอิสระ</p>
+  <p>สิ่งที่ทำให้ VIH ยังพอยืนหยัดในตลาดที่แข่งขันสูงนี้ได้คือกลยุทธ์เจาะจงพื้นที่และเฉพาะทางที่อธิบายไว้ใน Section 5 — แทนที่จะแข่งแบบตรงๆ กับทุกคู่แข่งในทุกบริการ VIH เลือกสร้างจุดแข็งเฉพาะที่ทำให้คนไข้ในพื้นที่ไม่มีทางเลือกอื่นที่ดีเท่า (เช่นศูนย์หัวใจที่หนองแขม) มากกว่าจะแข่งขันด้านราคาหรือขนาดเครือข่ายซึ่งเป็นจุดที่เครือใหญ่ได้เปรียบกว่ามาก</p>
+</section>
+
+<section class="sec" id="sec-10">
+  <div class="sec-eyebrow"><span class="num">10</span>Revenue growth / margin / FCF</div>
+  <h2 class="sec-title">การเติบโตของรายได้ / อัตรากำไร / FCF</h2>
+  <p>ภาพรวม 3 ปีล่าสุดของ VIH เป็นเส้นทางฟื้นตัวและเร่งขึ้นต่อเนื่อง — ปี 2566 อัตรากำไรสุทธิอยู่ที่ 10.31% ปี 2567 ขยับเป็น 11.05% (แม้จะโดนปัจจัยลบพิเศษเรื่องการปรับลดค่าบริการโรคซับซ้อนและตั้งสำรองคดีความ) และปี 2568 กระโดดขึ้นมาที่ 14.08% — เป็นเทรนด์มาร์จินขาขึ้นที่ชัดเจนต่อเนื่อง 3 ปี ซึ่งถ้าตัดปัจจัยพิเศษปี 2567 ออก (คำนวณจากฐานที่ปรับปรุงแล้ว) เส้นทางการฟื้นตัวจะยิ่งดูราบรื่นกว่าตัวเลขที่รายงานไว้เสียอีก</p>
+  <p>กระแสเงินสดจากการดำเนินงาน (CFO — Cash Flow from Operations เงินสดที่ธุรกิจหลักสร้างได้จริง ก่อนหักเงินลงทุนและเงินกู้) ปี 2568 อยู่ที่ 513.70 ล้านบาท เพิ่มขึ้นจาก 501.35 ล้านบาทในปี 2567 — อัตราส่วน CFO ต่อกำไรสุทธิอยู่ที่ราว 1.17 เท่า (513.70/437.44) หมายความว่ากำไรที่รายงานไว้แปลงเป็นเงินสดได้มากกว่าตัวเลขกำไรทางบัญชีเสียอีก เป็นสัญญาณบวกด้านคุณภาพกำไรที่ไม่มีการยืดบัญชีลูกหนี้หรือสต็อกยาไว้นานผิดปกติ</p>
+  <p>ด้าน Free Cash Flow (FCF — กระแสเงินสดอิสระ คำนวณคร่าวๆ จาก CFO หักด้วยเงินลงทุนในสินทรัพย์ถาวร) ปี 2568 ต้องดูอย่างระมัดระวัง เพราะเงินสดสุทธิที่ใช้ในกิจกรรมลงทุนทั้งหมด 657.55 ล้านบาท ส่วนใหญ่ไม่ใช่ CAPEX ก่อสร้างจริง แต่เป็นการกันเงินฝากสถาบันการเงินไว้รองรับโครงการโรงพยาบาลใหม่ที่ยังไม่เริ่มก่อสร้างเต็มรูปแบบ — ถ้านับตามนี้ FCF ปี 2568 จะติดลบ (513.70 - 657.55 = -143.85 ล้านบาท) แต่ตัวเลขนี้บิดเบือนภาพจริงเพราะเป็นการ "พักเงิน" ไม่ใช่การใช้จ่ายจริงที่ไม่สามารถเรียกคืนได้ นักลงทุนควรตีความ FCF ปีนี้เป็นกรณีพิเศษ ไม่ใช่ตัวแทนความสามารถสร้างเงินสดของธุรกิจหลักตามปกติ ซึ่งยังแข็งแรงตามที่ CFO สะท้อนไว้</p>
+  <p>สิ่งที่ต้องติดตามในอีก 2-3 ปีข้างหน้าคือ เมื่อโครงการบรมราชชนนีเข้าสู่ช่วงก่อสร้างจริงและเริ่มมีค่าเสื่อมราคา (Depreciation) กับดอกเบี้ยจ่ายเข้ามาในงบกำไรขาดทุนก่อนที่โรงพยาบาลใหม่จะเปิดสร้างรายได้ (คาดปี 2570) มาร์จินโดยรวมของบริษัทอาจถูกกดดันชั่วคราวในช่วงเปลี่ยนผ่าน เป็นรูปแบบเดียวกับที่ BDMS เจอตอนลงทุนโรงพยาบาลใหม่พร้อมกัน 2 แห่งเมื่อไม่กี่ปีก่อน — ผู้ถือหุ้น VIH ควรเตรียมใจว่ามาร์จินระดับ 14% ที่ทำได้ปี 2568 อาจไม่ใช่จุดที่รักษาได้ง่ายๆ ทุกปีในช่วงก่อสร้างโครงการใหญ่นี้</p>
+</section>
+
+<section class="sec" id="sec-11">
+  <div class="sec-eyebrow"><span class="num">11</span>Company history</div>
+  <h2 class="sec-title">ประวัติของธุรกิจ</h2>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">2536 (1993)</div><div class="tl-body">จดทะเบียนก่อตั้งบริษัทด้วยทุนจดทะเบียนเริ่มแรก 200 ล้านบาท เพื่อดำเนินธุรกิจโรงพยาบาลเอกชนแห่งแรกคือโรงพยาบาลวิชัยเวช อินเตอร์เนชั่นแนล อ้อมน้อย</div></div>
+    <div class="tl-item"><div class="tl-date">2551 (2008)</div><div class="tl-body">ปรับโครงสร้างกลุ่มบริษัท เข้าซื้อหุ้นสามัญของบจก. สายวิชัยพัฒนา (ดำเนินงานโรงพยาบาลหนองแขม) และบจก. ศรีสาครเวชวิวัฒน์ (ดำเนินงานโรงพยาบาลสมุทรสาคร) เพื่อรวมเป็นกลุ่มโรงพยาบาล</div></div>
+    <div class="tl-item"><div class="tl-date">9 พ.ค. 2555 (2012)</div><div class="tl-body">เข้าจดทะเบียนในตลาดหลักทรัพย์แห่งประเทศไทย (SET) ด้วยชื่อย่อ VIH</div></div>
+    <div class="tl-item"><div class="tl-date">2557 (2014)</div><div class="tl-body">เพิ่มทุนจดทะเบียนเป็น 570.67 ล้านบาท บริษัท บีบีทีวี เอ็คควิตี้ จำกัด เข้ามาเป็นผู้ถือหุ้นใหญ่สัดส่วน 20% เพื่อสนับสนุนการขยายธุรกิจ</div></div>
+    <div class="tl-item"><div class="tl-date">2559 (2016)</div><div class="tl-body">เข้าซื้อหุ้นบจก. สามแยกไฟฉายโพลีคลีนิค (ดำเนินงานโรงพยาบาลแยกไฟฉาย) สัดส่วน 99.99% ครบ 4 โรงพยาบาลในเครือตามโครงสร้างปัจจุบัน</div></div>
+    <div class="tl-item"><div class="tl-date">2566 (2023)</div><div class="tl-body">ขยายความร่วมมือกับภาครัฐ เปิดศูนย์รักษาหัตถการผู้ป่วยโรคหัวใจและหลอดเลือด ณ โรงพยาบาลพหลพลพยุหเสนา จังหวัดกาญจนบุรี</div></div>
+    <div class="tl-item"><div class="tl-date">2567 (2024)</div><div class="tl-body">จัดตั้งบริษัทย่อยใหม่ "บริษัท วัฒนาเวชวิวัฒน์ จำกัด" ทุนจดทะเบียน 1,241 ล้านบาท เพื่อดำเนินโครงการโรงพยาบาลใหม่บนถนนบรมราชชนนี มูลค่าราว 3,000 ล้านบาท มุ่งสู่ Tertiary Care — ประกาศค่านิยมองค์กรใหม่ "HEART"</div></div>
+    <div class="tl-item"><div class="tl-date">2568 (2025)</div><div class="tl-body">ได้รับการยกระดับผล SET ESG Ratings สู่ระดับ "AA" และรางวัล "องค์กรต้นแบบด้านสิทธิมนุษยชน" — ปิดปีด้วยกำไรสุทธิโต 38.65% สูงสุดในรอบหลายปี — เรียกชำระค่าหุ้นบริษัทย่อยวัฒนาเวชวิวัฒน์ครบ 57.4% ของทุนจดทะเบียนช่วงปลายปี เตรียมพร้อมก่อสร้าง</div></div>
+    <div class="tl-item"><div class="tl-date">13 มี.ค. 2569 (2026)</div><div class="tl-body">เปิดตัว "ศูนย์สมองและระบบประสาทวิชัยเวช" อย่างเป็นทางการ ต่อยอดความสำเร็จจากศูนย์หัวใจ ด้วยเทคนิครังสีร่วมรักษาที่ไม่ต้องผ่าตัดใหญ่</div></div>
+  </div>
+  <p>กลุ่มโรงพยาบาลวิชัยเวช อินเตอร์เนชั่นแนลดำเนินธุรกิจมาแล้วกว่า 40 ปี (นับตั้งแต่ก่อนจดทะเบียนบริษัทอย่างเป็นทางการ) เส้นทางการเติบโตของบริษัทมีจังหวะที่ชัดเจน — ช่วงแรก (2536-2559) เป็นการควบรวมโรงพยาบาลแยกกันหลายแห่งให้เป็นเครือเดียว ทั้งหมด 4 แห่งภายในเวลาราว 23 ปี ตามด้วยช่วงยาวนานกว่า 7 ปี (2559-2566) ที่ไม่มีการขยายสาขาใหม่ แต่เน้นพัฒนาความเชี่ยวชาญเฉพาะทางในสาขาเดิมแทน ก่อนจะเข้าสู่ช่วงเดิมพันขยายตัวครั้งใหญ่ที่สุดตั้งแต่ปี 2567 เป็นต้นมา — เป็นรูปแบบการเติบโตแบบ "สะสมความเชี่ยวชาญก่อน แล้วค่อยขยายขนาด" ซึ่งต่างจากเครือใหญ่ที่มักขยายสาขาก่อนแล้วค่อยพัฒนาความเชี่ยวชาญตามทีหลัง</p>
+</section>
+
+<section class="sec" id="sec-12">
+  <div class="sec-eyebrow"><span class="num">12</span>Risk + Counter-argument</div>
+  <h2 class="sec-title">ความเสี่ยง + Counter-argument</h2>
+  <p>ความเสี่ยงที่ระบุไว้ใน 56-1 One Report ฉบับล่าสุดและจากการตรวจสอบไขว้ผ่าน NotebookLM มีดังนี้:</p>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 1 — โครงการโรงพยาบาลใหม่ล่าช้ากว่าแผน</span>
+      <p>โครงการบรมราชชนนีมูลค่าเกือบ 3,000 ล้านบาท (เกือบเท่ารายได้ทั้งปีของบริษัท) เลื่อนกำหนดเปิดจากแผนเดิมไปเป็นปี 2570 เพราะกระบวนการ EIA — เป็นความเสี่ยงด้าน execution ที่ใหญ่ที่สุดของบริษัทในรอบ 33 ปี เพราะเป็นครั้งแรกที่ VIH ลงทุนขนาดใหญ่ระดับนี้ในโครงการเดียว หากล่าช้าต่อไปอีกหรือต้นทุนก่อสร้างบานปลาย จะกระทบทั้งงบดุลและกำไรในช่วงเปลี่ยนผ่านตามที่อธิบายใน Section 10</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 2 — การแข่งขันรุนแรงจากทุกทิศทาง</span>
+      <p>ทั้งโรงพยาบาลเอกชนใหญ่ที่อาจเข้ามาแย่งส่วนแบ่งในพื้นที่เดิม โรงพยาบาลรัฐที่ขยายเตียงต่อเนื่อง และตลาด MMU ที่แข่งขันด้านราคารุนแรง — VIH ไม่มีอำนาจต่อรองซัพพลายเชนหรือเงินทุนเทียบเท่าคู่แข่งรายใหญ่ หากคู่แข่งตัดสินใจทุ่มทุนแข่งในพื้นที่ที่ VIH แข็งแรง (เช่น สร้างศูนย์หัวใจแข่งที่ฝั่งตะวันตกกรุงเทพฯ) ข้อได้เปรียบเชิงพื้นที่ที่มีอยู่อาจถูกกัดกร่อนได้</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 3 — นโยบายภาครัฐเรื่องอัตราเบิกจ่าย</span>
+      <p>22.8% ของรายได้พึ่งพาประกันสังคมที่รัฐเป็นผู้กำหนดราคา — บทเรียนปี 2567 ที่ถูกปรับลดค่าบริการกลุ่มโรคซับซ้อนกระทบกำไรโดยตรงเป็นตัวอย่างที่เกิดขึ้นจริงแล้ว ไม่ใช่ความเสี่ยงเชิงทฤษฎี และเป็นความเสี่ยงที่บริษัทควบคุมไม่ได้เลยเช่นเดียวกับที่ BCH เจอ</p>
+    </div>
+    <div class="risk-card">
+      <span class="rc-label">ความเสี่ยง 4 — โครงสร้างธุรกิจครอบครัวและหุ้นสภาพคล่องต่ำ</span>
+      <p>ตระกูลวนดุรงค์วรรณถือหุ้นรวมกัน 52.23% ทำให้การตัดสินใจเชิงกลยุทธ์ (เช่นทุ่มเงินก้อนใหญ่กับโครงการเดียว) ไม่จำเป็นต้องผ่านการถ่วงดุลจากผู้ถือหุ้นรายย่อยมากนัก บวกกับมูลค่าซื้อขายรายวันที่ค่อนข้างต่ำ (หลักล้านบาทต่อวันตามข้อมูลราคาล่าสุด) ทำให้หุ้นตัวนี้มีสภาพคล่องต่ำกว่าหุ้นโรงพยาบาลตัวใหญ่ในกลุ่มเดียวกันมาก อาจเข้า-ออกสถานะได้ยากกว่าในช่วงตลาดผันผวน</p>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Counter-argument</h3>
+  <p>ต่อประเด็นความล่าช้าของโครงการบรมราชชนนี — ต้องเข้าใจว่ากระบวนการ EIA เป็นเรื่องที่ควบคุมไม่ได้ทั้งอุตสาหกรรมก่อสร้างโรงพยาบาลในไทย ไม่ใช่ปัญหาเฉพาะของ VIH รายเดียว และบริษัทเลือกใช้วิธีตั้งบริษัทย่อยเฉพาะกิจ (วัฒนาเวชวิวัฒน์) แยกความเสี่ยงทางการเงินออกจากบริษัทแม่บางส่วน บวกกับการทยอยเรียกชำระทุนแทนที่จะกู้เงินก้อนใหญ่ทันที เป็นแนวทางบริหารความเสี่ยงทางการเงินที่ระมัดระวังกว่าการก่อหนี้ล่วงหน้าทั้งก้อน</p>
+  <p>ต่อประเด็นการแข่งขัน — จุดแข็งของ VIH ไม่ใช่ขนาดแต่เป็นความเชี่ยวชาญเฉพาะทางที่สั่งสมมาเกือบ 10 ปีในแต่ละศูนย์ (ศูนย์หัวใจ, ศูนย์บุตรยาก) ซึ่งไม่ใช่สิ่งที่คู่แข่งจะสร้างแข่งได้ในเวลาสั้นๆ แม้จะมีเงินทุนมากกว่า เพราะต้องอาศัยทีมแพทย์เฉพาะทางและชื่อเสียงสะสมที่ใช้เวลาสร้างนาน สถิติเคสผ่าตัดเปิดหัวใจสูงสุดในกลุ่มเอกชนไทยปี 2568 เป็นหลักฐานที่จับต้องได้ว่าข้อได้เปรียบนี้มีอยู่จริง ไม่ใช่แค่การตลาด</p>
+  <p>ต่อประเด็นพึ่งพาประกันสังคม — สัดส่วน 22.8% ของ VIH ยังต่ำกว่าสัดส่วนของ BCH มาก (ราว 35%) ทำให้ผลกระทบเชิงสัดส่วนต่อภาพรวมบริษัทจำกัดกว่า และรายได้กลุ่มนี้ยังเป็นฐานที่มั่นคงที่สุดเมื่อเทียบกับกลุ่มผู้ป่วยทั่วไปที่ผันผวนตามภาวะเศรษฐกิจมากกว่า</p>
+  <p>ท้ายที่สุด กระแสเงินสดจากการดำเนินงานที่แข็งแรงต่อเนื่อง (CFO/กำไรสุทธิ &gt; 1 เท่า) และการที่ตระกูลผู้ก่อตั้งยังถือหุ้นเสียงข้างมากพร้อมเงินตัวเองลงทุนในโครงการใหม่นี้เต็มที่ (ผ่านการเรียกชำระทุนบริษัทย่อยแล้ว 57.4%) เป็นสัญญาณว่าผู้บริหารมี skin in the game สูง มีแรงจูงใจทำให้โครงการสำเร็จมากกว่าจะปล่อยให้ล้มเหลว — แต่ก็ต้องยอมรับตรงไปตรงมาว่าหุ้นตัวนี้เหมาะกับนักลงทุนที่รับความเสี่ยงสภาพคล่องต่ำและความเสี่ยง execution ของโครงการเดียวที่มีมูลค่าใหญ่กว่าที่บริษัทเคยทำมาได้ ไม่ใช่หุ้น Defensive แบบ BCH/BDMS ที่กระจายความเสี่ยงในหลายสาขาอยู่แล้ว</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="unverified-note">สิ่งที่ยังยืนยันไม่ได้: (1) ตัวเลข Oppday Q1/2569 ใน Section 2 (รายได้โต 5.4% YoY, กำไรปรับปรุงแล้วโต 19%, GPM 17.6%) มาจากเว็บไซต์รวมข้อมูลหุ้นบุคคลที่สาม (aggregator) ไม่ใช่การอ่านงบ Q1/2569 ต้นฉบับโดยตรง — มาร์กเป็น [UNVERIFIED] — (2) ตัวเลข Net Margin ปี 2566 (10.31%) มาจากตาราง trend ที่อ้างอิงใน MD&amp;A ปี 2568 ไม่ได้ตรวจสอบกับ MD&amp;A ปี 2566 ต้นฉบับโดยตรง — (3) ตัวเลขราคาหุ้น/P-E/มาร์เก็ตแคปใน Hero stats และ Section 6 มาจากเว็บไซต์รวมข้อมูลหุ้น (aio.panphol.com) และหน้าราคา SET ณ วันที่ 25-26 ก.ค. 2569 ไม่ใช่ราคาปิด ณ เวลาที่ผู้อ่านเปิดบทความนี้ — (4) ข้อความ "กำไร Q2/2569 ลดลง 65% YoY" ที่พบในเว็บไซต์รวมข้อมูลหุ้นบางแห่งขัดแย้งกับข้อเท็จจริงที่ว่ายังไม่มีงบ Q2/2569 ยื่นอย่างเป็นทางการ ณ วันที่ค้นข้อมูล — ไม่ได้นำมาใช้ในบทความและควรถือว่าคลาดเคลื่อนจนกว่าจะมีงบทางการยืนยัน — (5) การเปรียบเทียบตัวเลขคู่แข่ง (BCH, WPH, BDMS) ใน Section 6 อ้างอิงจากรายงานเจาะลึกชุดเดียวกันที่ทำไว้ก่อนหน้าในซีรีส์นี้ ไม่ได้ตรวจสอบซ้ำกับงบล่าสุดของแต่ละบริษัท ณ วันที่เขียนบทความนี้</div>
+
+    <div class="src-group">
+      <h4>เอกสารทางการ (Filings)</h4>
+      <ol>
+        <li>แบบ 56-1 One Report ประจำปี 2567 และ 2568 — บริษัท ศรีวิชัยเวชวิวัฒน์ จำกัด (มหาชน), vichaivej.com/investor, ยื่น 2568-03-21 และ 2569-03-24</li>
+        <li>MD&amp;A คำอธิบายและวิเคราะห์ของฝ่ายจัดการ ปี 2565, 2566, 2567, 2568 (4 ฉบับ) — vichaivej.com/investor</li>
+        <li>งบการเงิน (ตรวจสอบ/สอบทาน) FY2567 (ยื่นซ้ำ 2568-11-29), FY2568 (2569-03-17), Q1/2569 (2569-05-20, ฉบับร่าง) — vichaivej.com/investor</li>
+        <li>SET — ราคาหุ้น VIH ณ 25-26 ก.ค. 2569 (set.or.th/th/market/product/stock/quote/VIH/price)</li>
+      </ol>
+    </div>
+
+    <div class="src-group">
+      <h4>เว็บไซต์รวมข้อมูลหุ้น (Aggregator — มือสอง)</h4>
+      <ol>
+        <li>AiO (aio.panphol.com) — สรุป Oppday Q1/2569, ข้อมูลบริษัท VIH (มาร์เก็ตแคป, P/E, P/BV, ปันผล), สืบค้น 2569-07-26</li>
+      </ol>
+      <p style="font-size:13px;color:var(--ink-faint);margin-top:10px;">หมายเหตุ: ไม่พบกระทู้เฉพาะของ VIH ที่มีการอัปเดตต่อเนื่องใน board.thaivi.org (Thai Value Investor Webboard) ต่างจาก BCH/WPH ในซีรีส์เดียวกัน — สะท้อนว่าหุ้นตัวนี้มีความสนใจจากนักลงทุนรายย่อยน้อยกว่ามาก</p>
+    </div>
+
+    <div class="src-group">
+      <h4>คลิป Oppday (Media)</h4>
+      <ol>
+        <li>VIH: Oppday Q2/2568 บมจ. ศรีวิชัยเวชวิวัฒน์ — YouTube, ส.ค. 2568</li>
+        <li>VIH: Oppday YE/2025 บมจ. ศรีวิชัยเวชวิวัฒน์ — YouTube, มี.ค. 2569</li>
+      </ol>
+    </div>
+
+    <p class="nb-note">ตรวจสอบไขว้ (red-flag cross-check) ผ่าน NotebookLM Notebook: "VIH - 56-1/MD&amp;A vs Oppday Analysis" (ID: 481d175f-8903-4903-acd7-8bea51ed2cbc) — เปิดต่อเพื่อถามคำถามเพิ่มเติมได้</p>
+
+    <p class="disclaimer">บทความนี้จัดทำขึ้นเพื่อการศึกษาและวิเคราะห์ธุรกิจเท่านั้น ไม่ใช่คำแนะนำการลงทุนส่วนบุคคล ตัวเลขทางการเงินอ้างอิงจากเอกสารที่เผยแพร่ต่อสาธารณะ ณ ช่วงเวลาที่ระบุ และอาจมีการปรับปรุงในภายหลัง VIH เป็นหุ้นขนาดเล็กที่มีสภาพคล่องต่ำและมีบทวิเคราะห์จากภายนอกจำกัดกว่าหุ้นรายใหญ่ในกลุ่มเดียวกัน ผู้อ่านควรศึกษาข้อมูลเพิ่มเติมจากเอกสารทางการก่อนตัดสินใจลงทุนทุกครั้ง</p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

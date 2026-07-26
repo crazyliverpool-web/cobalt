@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDMS.BK — อาณาจักรโรงพยาบาลที่ใหญ่สุดในไทย ตอนที่กำไรโตช้าลง | Trendlongtun Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f4f7f6;
+    --bg-raised: #ffffff;
+    --ink: #16211f;
+    --ink-soft: #46564f;
+    --ink-faint: #7c8b85;
+    --line: #d7e0dc;
+    --line-soft: #e7ede9;
+    --accent: #0f6b62;
+    --accent-ink: #ffffff;
+    --accent-soft: #e2f0ed;
+    --risk: #a8442c;
+    --risk-soft: #f7e6e0;
+    --risk-ink: #6f2c1a;
+    --good: #1c7a4f;
+    --good-soft: #e3f2e8;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --display: "Kanit", "Noto Sans Thai", sans-serif;
+    --body: "Sarabun", "Noto Sans Thai", sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: #0e1615; --bg-raised: #16201e; --ink: #e9f0ee; --ink-soft: #aebdb7; --ink-faint: #79877f;
+      --line: #2a3835; --line-soft: #212d2a; --accent: #52d1bf; --accent-ink: #06211d; --accent-soft: #14322d;
+      --risk: #ef8a6c; --risk-soft: #3a221b; --risk-ink: #f7cdb9; --good: #6bd39b; --good-soft: #143024;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #0e1615; --bg-raised: #16201e; --ink: #e9f0ee; --ink-soft: #aebdb7; --ink-faint: #79877f;
+    --line: #2a3835; --line-soft: #212d2a; --accent: #52d1bf; --accent-ink: #06211d; --accent-soft: #14322d;
+    --risk: #ef8a6c; --risk-soft: #3a221b; --risk-ink: #f7cdb9; --good: #6bd39b; --good-soft: #143024;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"]{
+    --bg: #f4f7f6; --bg-raised: #ffffff; --ink: #16211f; --ink-soft: #46564f; --ink-faint: #7c8b85;
+    --line: #d7e0dc; --line-soft: #e7ede9; --accent: #0f6b62; --accent-ink: #ffffff; --accent-soft: #e2f0ed;
+    --risk: #a8442c; --risk-soft: #f7e6e0; --risk-ink: #6f2c1a; --good: #1c7a4f; --good-soft: #e3f2e8;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--body); font-size:16.5px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  ::selection{background:var(--accent-soft); color:var(--ink);}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .grid-bg{background:var(--bg);}
+  header.masthead{border-bottom:1px solid var(--line); background:var(--bg-raised); padding:44px 0 36px;}
+  .masthead-inner{max-width:820px; margin:0 auto; padding:0 24px;}
+  .plate{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); border:1px solid var(--accent); border-radius:999px; padding:5px 12px 5px 10px; background:var(--accent-soft);}
+  .plate .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); display:inline-block;}
+  h1.title{font-family:var(--display); font-weight:700; font-size:44px; line-height:1.12; margin:18px 0 6px; text-wrap:balance; letter-spacing:-0.01em;}
+  .ticker{font-family:var(--mono); font-size:14px; color:var(--ink-faint); letter-spacing:0.02em; margin-bottom:16px;}
+  p.dek{font-size:18px; line-height:1.65; color:var(--ink-soft); max-width:680px; margin:0 0 26px;}
+  .stat-rail{display:grid; grid-template-columns:repeat(6,1fr); gap:0; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--bg-raised);}
+  .stat{padding:14px 16px; border-right:1px solid var(--line-soft);}
+  .stat:last-child{border-right:none;}
+  .stat-label{font-size:11.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
+  .stat-value{font-family:var(--mono); font-size:19px; font-weight:600; font-variant-numeric:tabular-nums;}
+  .stat-value.accent{color:var(--accent);}
+  .stat-value.risk{color:var(--risk);}
+  .stat-note{font-size:12.5px; color:var(--ink-faint); margin-top:14px;}
+  .severity{max-width:820px; margin:28px auto 0; padding:0 24px;}
+  .severity-box{border:1.5px solid var(--risk); background:var(--risk-soft); border-radius:12px; padding:20px 22px;}
+  .severity-box .sev-head{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:600; font-size:16px; color:var(--risk-ink); margin-bottom:10px;}
+  .sev-mark{width:22px; height:22px; border-radius:50%; background:var(--risk); color:var(--accent-ink); display:inline-flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; flex:none;}
+  .severity-box ul{margin:0; padding-left:20px;}
+  .severity-box li{margin-bottom:6px; color:var(--ink);}
+  .severity-box .sev-close{margin-top:10px; font-size:13.5px; color:var(--risk-ink); font-style:italic;}
+  nav.toc{max-width:820px; margin:32px auto 0; padding:0 24px;}
+  .toc-head{font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-faint); margin-bottom:10px;}
+  .toc-list{display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .toc-list a{display:block; padding:12px 16px; text-decoration:none; color:var(--ink); border-bottom:1px solid var(--line-soft); font-size:14.5px;}
+  .toc-list a:nth-child(odd){border-right:1px solid var(--line-soft);}
+  .toc-list a:hover{background:var(--accent-soft);}
+  .case-no{font-family:var(--mono); font-size:11.5px; color:var(--accent); margin-right:8px;}
+  main{max-width:820px; margin:0 auto; padding:8px 24px 80px;}
+  section.sec{padding-top:56px; scroll-margin-top:20px;}
+  section.sec:first-of-type{padding-top:44px;}
+  .sec-eyebrow{font-family:var(--mono); font-size:12.5px; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase; display:flex; align-items:center; gap:8px; margin-bottom:8px;}
+  .sec-eyebrow .num{display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border:1px solid var(--accent); border-radius:50%; font-size:11px;}
+  h2.sec-title{font-family:var(--display); font-weight:600; font-size:27px; margin:0 0 18px; text-wrap:balance;}
+  h3.sub-title{font-family:var(--display); font-weight:600; font-size:19px; margin:28px 0 10px;}
+  p{margin:0 0 18px;}
+  strong{font-weight:600;}
+  .callout{background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:6px; padding:14px 18px; margin:22px 0; font-size:15px;}
+  .callout-label{display:block; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:6px;}
+  .card{border:1px solid var(--line); background:var(--bg-raised); border-radius:12px; padding:20px 22px; margin:24px 0;}
+  .card-title{font-family:var(--display); font-weight:600; font-size:15px; margin:0 0 4px;}
+  .card-sub{font-size:13px; color:var(--ink-faint); margin-bottom:14px;}
+  .table-scroll{overflow-x:auto; margin:22px 0; border:1px solid var(--line); border-radius:10px;}
+  table{width:100%; border-collapse:collapse; font-size:14.5px; min-width:520px;}
+  caption{text-align:left; font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-faint); padding:10px 14px; background:var(--bg-raised); border-bottom:1px solid var(--line);}
+  th,td{padding:9px 14px; border-bottom:1px solid var(--line-soft); text-align:left; white-space:nowrap;}
+  th{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); background:var(--bg-raised);}
+  td.num, th.num{text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums;}
+  tr:last-child td{border-bottom:none;}
+  td.up{color:var(--good);}
+  td.down{color:var(--risk);}
+  .bmc{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:24px 0;}
+  .bmc-cell{background:var(--bg-raised); padding:14px 15px; min-height:110px;}
+  .bmc-cell h4{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--accent); margin:0 0 3px; line-height:1.3;}
+  .bmc-cell .en{font-size:9.5px; color:var(--ink-faint); text-transform:none; letter-spacing:0; display:block; margin-bottom:6px;}
+  .bmc-cell p{font-size:13px; margin:0; color:var(--ink-soft); line-height:1.55;}
+  .risk-grid{display:grid; grid-template-columns:1fr; gap:14px; margin:22px 0;}
+  .risk-card{border:1px solid var(--risk); background:var(--risk-soft); border-radius:10px; padding:16px 18px;}
+  .rc-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--risk-ink); font-weight:600;}
+  .risk-card p{margin:6px 0 0; font-size:14.5px; color:var(--ink);}
+  .timeline{border-left:2px solid var(--line); margin:22px 0 22px 6px; padding-left:22px;}
+  .tl-item{position:relative; padding-bottom:20px;}
+  .tl-item::before{content:""; position:absolute; left:-27.5px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--accent); border:2px solid var(--bg);}
+  .tl-date{font-family:var(--mono); font-size:12.5px; color:var(--accent); font-weight:600;}
+  .tl-body{font-size:14.5px; margin-top:2px; color:var(--ink-soft);}
+  .verdict{border:1px solid var(--accent); background:var(--accent-soft); border-radius:10px; padding:18px 20px; margin:24px 0;}
+  .verdict-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:8px; display:block;}
+  footer.foot{border-top:1px solid var(--line); margin-top:20px; padding:44px 0 60px;}
+  footer.foot .wrap{max-width:820px;}
+  .src-group h4{font-family:var(--display); font-size:15px; margin:22px 0 8px;}
+  .src-group ol{padding-left:20px; font-size:13.5px; color:var(--ink-soft);}
+  .src-group li{margin-bottom:6px;}
+  .unverified-note{font-size:13px; color:var(--ink-faint); font-family:var(--mono); background:var(--line-soft); padding:10px 14px; border-radius:8px; margin:20px 0;}
+  .disclaimer{font-size:12.5px; color:var(--ink-faint); border-top:1px dashed var(--line); padding-top:18px; margin-top:26px; line-height:1.6;}
+  .nb-note{font-size:12.5px; color:var(--ink-faint); font-family:var(--mono); margin-top:10px;}
+  @media (max-width:640px){
+    .stat-rail{grid-template-columns:repeat(2,1fr);}
+    .stat{border-right:1px solid var(--line-soft);}
+    .toc-list{grid-template-columns:1fr;}
+    .toc-list a:nth-child(odd){border-right:none;}
+    h1.title{font-size:32px;}
+    .bmc{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="plate"><span class="dot"></span>TRENDLONGTUN BRIEF · เจาะลึกธุรกิจ</span>
+    <h1 class="title">BDMS อาณาจักรโรงพยาบาลที่ใหญ่สุดในไทย ตอนที่ความเสี่ยงต่างประเทศเริ่มกัดกำไร</h1>
+    <div class="ticker">BDMS.BK · บริษัท กรุงเทพดุสิตเวชการ จำกัด (มหาชน) · SET</div>
+    <p class="dek">เครือโรงพยาบาลเอกชนอันดับ 1 ของไทยที่ครองส่วนแบ่งตลาดเกือบครึ่งหนึ่งของกลุ่ม แต่ไตรมาสแรกปี 2569 กำไรกลับหดตัว เพราะสงครามที่ห่างออกไปหลายพันกิโลเมตรและด่านชายแดนที่ปิดอยู่ — เรื่องเดียวกับที่กำลังกัดกินหุ้นโรงพยาบาลไทยเกือบทั้งกลุ่ม</p>
+
+    <div class="stat-rail">
+      <div class="stat"><div class="stat-label">รายได้รวม FY2568</div><div class="stat-value">113,206 ลบ.</div></div>
+      <div class="stat"><div class="stat-label">กำไรสุทธิ FY2568</div><div class="stat-value">15,848 ลบ.</div></div>
+      <div class="stat"><div class="stat-label">Net Margin</div><div class="stat-value">14.0%</div></div>
+      <div class="stat"><div class="stat-label">D/E (Q1/2569)</div><div class="stat-value accent">~0.4x</div></div>
+      <div class="stat"><div class="stat-label">Q1/2569 กำไร YoY</div><div class="stat-value risk">-7%</div></div>
+      <div class="stat"><div class="stat-label">เครือโรงพยาบาล</div><div class="stat-value">60+ แห่ง</div></div>
+    </div>
+    <p class="stat-note">ข้อมูลจากงบการเงิน/MD&amp;A ที่ยื่นต่อตลาดหลักทรัพย์แห่งประเทศไทย ปี 2568 (เต็มปี) และไตรมาส 1/2569 (ม.ค.-มี.ค. 2569) เป็นข้อมูลล่าสุด — อ้างอิงแหล่งที่มาท้ายบทความ</p>
+  </div>
+</header>
+
+<div class="severity">
+  <div class="severity-box">
+    <div class="sev-head"><span class="sev-mark">!</span>ข้อสังเกตสำคัญก่อนอ่าน</div>
+    <ul>
+      <li><strong>[CONFLICT]</strong> ตัวเลขรายได้ Q1/2569 มีความต่างกันระหว่างแหล่งข่าว — สื่อที่อ้างอิงงบเปิดเผยตรง (Kaohoon, Bangkokbiznews) ระบุรายได้รวม 28,554 ล้านบาท ขณะที่บทวิเคราะห์ InnovestX ระบุ 27.1 พันล้านบาท (น่าจะเป็นตัวเลข "รายได้จากการดำเนินงาน" ที่หักรายการพิเศษออกแล้ว) — บทความนี้ใช้ตัวเลข 28,554 ล้านบาท เป็นหลักเพราะอ้างอิงใกล้เคียงกับงบเปิดเผยที่สุด แต่ผู้อ่านควรตรวจ F45/MD&amp;A ฉบับเต็มก่อนใช้ตัวเลขนี้ในการตัดสินใจลงทุน</li>
+      <li>ผู้ก่อตั้งบริษัท นพ.ปราเสริฐ ปราสาททองโอสถ เสียชีวิตเมื่อ 21 เมษายน 2569 ด้วยวัย 93 ปี — แม้นักวิเคราะห์มองว่าผลกระทบต่อการดำเนินงานจำกัดเพราะทีมบริหารชุดปัจจุบันคุมงานมานานแล้ว แต่เป็นการเปลี่ยนผ่านเชิงสัญลักษณ์ครั้งใหญ่ที่นักลงทุนควรติดตามเรื่องโครงสร้างผู้ถือหุ้นใหญ่ต่อจากนี้</li>
+      <li>ความเสี่ยงจากปัจจัยนอกประเทศ (สงครามตะวันออกกลาง, ข้อพิพาทชายแดนไทย-กัมพูชา) เป็นสิ่งที่บริษัทควบคุมไม่ได้เลย และผู้บริหารเองก็ปรับเป้าการเติบโตปี 2569 ลงมาเหลือแค่ "เลขหลักเดียว" (2-4%) แล้ว สะท้อนว่ามุมมองระยะสั้นยังระมัดระวัง ไม่ใช่แค่สื่อที่มองลบ</li>
+    </ul>
+    <div class="sev-close">รายละเอียดอยู่ใน Section 2 และ Section 12</div>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="toc-head">สารบัญ — แฟ้มเวชระเบียน 12 เคส</div>
+  <div class="toc-list">
+    <a href="#sec-01"><span class="case-no">เคส 01</span>ความน่าสนใจของธุรกิจ</a>
+    <a href="#sec-02"><span class="case-no">เคส 02</span>งบการเงิน + Earnings call ล่าสุด</a>
+    <a href="#sec-03"><span class="case-no">เคส 03</span>Business model — หาเงินยังไง</a>
+    <a href="#sec-04"><span class="case-no">เคส 04</span>สัดส่วนรายได้ &amp; อัตรากำไร</a>
+    <a href="#sec-05"><span class="case-no">เคส 05</span>Competitive advantage</a>
+    <a href="#sec-06"><span class="case-no">เคส 06</span>เปรียบเทียบคู่แข่ง</a>
+    <a href="#sec-07"><span class="case-no">เคส 07</span>Growth potential</a>
+    <a href="#sec-08"><span class="case-no">เคส 08</span>ผู้ก่อตั้งและทีมบริหาร</a>
+    <a href="#sec-09"><span class="case-no">เคส 09</span>ภาพรวมตลาด</a>
+    <a href="#sec-10"><span class="case-no">เคส 10</span>รายได้ / มาร์จิน / FCF</a>
+    <a href="#sec-11"><span class="case-no">เคส 11</span>ประวัติของธุรกิจ</a>
+    <a href="#sec-12"><span class="case-no">เคส 12</span>ความเสี่ยง + Counter-argument</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="sec" id="sec-01">
+  <div class="sec-eyebrow"><span class="num">01</span>Why it's interesting</div>
+  <h2 class="sec-title">ความน่าสนใจของธุรกิจ</h2>
+  <p>ถ้าพูดถึงโรงพยาบาลเอกชนในไทย แบรนด์แรกที่คนส่วนใหญ่นึกถึงหนีไม่พ้น <strong>"โรงพยาบาลกรุงเทพ" (Bangkok Hospital)</strong> — และนั่นคือแค่แบรนด์เดียวใน 6 แบรนด์ที่อยู่ใต้ร่มของ <strong>BDMS (บมจ. กรุงเทพดุสิตเวชการ)</strong> ซึ่งรวมทั้ง Bangkok Hospital, Samitivej (สมิติเวช), BNH, Phyathai (พญาไท), Paolo (เปาโล) และ Royal Hospital กระจายอยู่กว่า 60 แห่งทั่วประเทศ รวมกว่า 9,300 เตียง — ทำให้ BDMS เป็นเครือโรงพยาบาลเอกชนที่ใหญ่ที่สุดในไทย และใหญ่เป็นอันดับต้นๆ ของโลกเมื่อวัดจากจำนวนเตียง</p>
+  <p>เรื่องที่ทำให้ BDMS น่าสนใจไม่ใช่แค่ขนาด แต่คือ <strong>ส่วนแบ่งตลาดที่ทิ้งห่างคู่แข่งทุกราย</strong> — ในกลุ่มโรงพยาบาลจดทะเบียนที่ใหญ่ที่สุด BDMS ครองส่วนแบ่งตลาดราว 46.5% เทียบกับอันดับสองอย่างบำรุงราษฎร์ (BH) ที่มีราว 10.4% เท่านั้น ช่องว่างขนาดนี้ทำให้ BDMS มีอำนาจต่อรองกับซัพพลายเออร์ยา/เวชภัณฑ์ และมีเงินทุนพอจะลงทุนศูนย์การแพทย์เฉพาะทางที่โรงพยาบาลขนาดเล็กทำไม่ได้ ขณะเดียวกันก็ยังครอบคลุมลูกค้าทุกระดับตั้งแต่กลุ่มพรีเมียม (Bangkok Hospital, Samitivej) ไปจนถึงกลุ่มแมส/ประกันสังคม (Paolo) ต่างจากคู่แข่งอย่าง BH ที่เล่นเฉพาะตลาดบนและพึ่งคนไข้ต่างชาติเป็นหลัก</p>
+  <p>แต่สิ่งที่ทำให้หุ้นกลุ่มนี้ รวมถึง BDMS เอง กลายเป็นข่าวไม่หยุดในช่วงครึ่งปีแรกของ 2569 คือปัจจัยที่บริษัทควบคุมไม่ได้เลยสองเรื่องพร้อมกัน — สงครามสหรัฐฯ-อิหร่านที่ทำให้เที่ยวบินและความเชื่อมั่นของคนไข้ตะวันออกกลางสะดุด และข้อพิพาทชายแดนไทย-กัมพูชาที่ทำให้รายได้จากคนไข้กัมพูชาหายไปเกือบหมด ผลคือกำไรไตรมาส 1/2569 ของ BDMS หดตัว 7% ทั้งที่รายได้รวมแทบทรงตัว — เป็นภาพที่ตรงข้ามกับปี 2568 ที่บริษัทเพิ่งทำรายได้แตะระดับสูงสุดใหม่ที่ 113,206 ล้านบาท คำถามสำคัญของหุ้นตัวนี้ตอนนี้จึงไม่ใช่ "ธุรกิจแข็งแรงหรือเปล่า" (แข็งแรงชัดเจนจากส่วนแบ่งตลาด) แต่เป็น "ปัจจัยต่างประเทศที่กัดกำไรอยู่ตอนนี้จะจบเมื่อไหร่ และธุรกิจในประเทศแข็งแรงพอจะพยุงไว้ระหว่างนั้นหรือไม่"</p>
+</section>
+
+<section class="sec" id="sec-02">
+  <div class="sec-eyebrow"><span class="num">02</span>Latest quarter</div>
+  <h2 class="sec-title">สรุปงบการเงิน + Earnings call ล่าสุด</h2>
+  <p>ปี 2568 (เต็มปี) BDMS ทำรายได้รวม 113,206 ล้านบาท เพิ่มขึ้น 4% จากปี 2567 แต่กำไรสุทธิกลับลดลงเล็กน้อย 1% เหลือ 15,848 ล้านบาท เพราะมีรายการค่าใช้จ่ายพิเศษในไตรมาส 4 กดดันตัวเลขกำไรสุทธิ — ถ้าตัดรายการพิเศษออก กำไรปกติ (core profit) จริงๆ เติบโต 2% เป็น 16,187 ล้านบาท คณะกรรมการเสนอจ่ายเงินปันผล 1 บาทต่อหุ้นสำหรับปีนี้ และหากตัดผลกระทบจากคนไข้กัมพูชาที่หายไปตั้งแต่กลางปี 2568 ออก ผู้บริหารระบุว่ารายได้จากการรักษาพยาบาลทั้งปีจะโตราว 5% และรายได้คนไข้ต่างชาติจะโตถึงราว 11% — ตัวเลขนี้ช่วยแยกให้เห็นว่าธุรกิจแกนหลักยังโตดี ปัญหาอยู่ที่ปัจจัยเฉพาะจุด (กัมพูชา) เป็นหลัก</p>
+  <p>ไตรมาส 1/2569 (ม.ค.-มี.ค. 2569) รายได้รวม 28,554 ล้านบาท ทรงตัวจากปีก่อน แต่กำไรสุทธิลดลง 7% เหลือ 4,058 ล้านบาท — EBITDA margin (กำไรก่อนหักดอกเบี้ย ภาษี ค่าเสื่อมและค่าตัดจำหน่าย หารด้วยรายได้ ใช้วัดกำไรจากการดำเนินงานล้วนๆ) อยู่ที่ 24.6% ลดลงจาก 25.5% ในไตรมาสเดียวกันปีก่อน แต่ดีขึ้นจาก 22.3% ในไตรมาส 4/2568 ที่มีรายการพิเศษกดดัน สัดส่วนรายได้แบ่งเป็นคนไข้ไทย 69% (ทรงตัว YoY แต่ลด 5% QoQ) และคนไข้ต่างชาติ 31% (โต 1% YoY, โต 10% QoQ) — จุดที่น่าสนใจคือรายได้คนไข้กัมพูชาหายไปถึง 78% เมื่อเทียบปีก่อน (เหลือสัดส่วนแค่ 0.7% ของรายได้รวม) จากข้อพิพาทชายแดน ขณะที่รายได้คนไข้ตะวันออกกลางทรงตัวทั้งไตรมาส (3.5% ของรายได้รวม) แต่เฉพาะเดือนเมษายนเดือนเดียวลดลงถึง 36% จากผลของสงครามสหรัฐฯ-อิหร่านที่กระทบเที่ยวบินและความเชื่อมั่นการเดินทาง — ส่วนที่ช่วยพยุงไว้คือคนไข้กลุ่มใหม่ที่โตแรง ทั้งเมียนมาร์ (+42%) สหรัฐฯ (+16%) และเยอรมนี (+15%)</p>
+
+  <div class="callout">
+    <span class="callout-label">Guidance vs Actual</span>
+    ก่อนหน้านี้ผู้บริหารเคยพูดถึงเป้าการเติบโตปี 2569 แบบ "high-single digit" ตามธีมฟื้นตัวหลังโควิด แต่หลังเจอผลกระทบตะวันออกกลาง-กัมพูชาในไตรมาสแรก ผู้บริหารปรับเป้าลงมาเหลือแค่ 2-4% (revenue growth) พร้อมประคอง EBITDA margin ให้ทรงตัวราว 24% — เป็นการปรับเป้าลงตั้งแต่ไตรมาสแรกของปี ซึ่งนักวิเคราะห์ InnovestX มองว่าเป็นมุมมองระมัดระวังที่สมเหตุสมผล ไม่ใช่การเซอร์ไพรส์เชิงลบ เพราะราคาหุ้นและประมาณการของตลาดปรับตามไปแล้วตั้งแต่ข่าวสงครามออกมา
+  </div>
+  <div class="callout">
+    <span class="callout-label">มุมมองสำหรับครึ่งปีหลัง</span>
+    ทั้ง BDMS และนักวิเคราะห์ส่วนใหญ่มองว่าครึ่งปีหลัง 2569 จะฟื้นตัวดีกว่าครึ่งปีแรก จาก pent-up demand (ความต้องการที่ถูกเลื่อนออกไปแล้วจะไหลกลับมา) ของคนไข้ตะวันออกกลางที่แค่ "เลื่อน" การรักษา ไม่ได้ "ยกเลิก" ไปหาที่อื่นถาวร — ความอ่อนไหวที่ผู้บริหารให้ไว้คือ ถ้าการฟื้นตัวของคนไข้ตะวันออกกลางล่าช้าออกไปอีก 1 เดือน จะกระทบกำไรราว 1% และทุกๆ รายได้ที่หายไป 1% จะกระทบกำไรราว 2% เพราะธุรกิจโรงพยาบาลมีต้นทุนคงที่สูง (operating leverage)
+  </div>
+</section>
+
+<section class="sec" id="sec-03">
+  <div class="sec-eyebrow"><span class="num">03</span>Business model</div>
+  <h2 class="sec-title">Business model — หาเงินยังไง</h2>
+  <p>BDMS หาเงินจากค่ารักษาพยาบาลเป็นหลัก แบ่งตามช่องทางจ่ายเงินได้ 3 กลุ่มใหญ่ คือคนไข้จ่ายเงินสดเอง (cash), คนไข้ที่ใช้ประกันสุขภาพเอกชน และคนไข้ที่ใช้สิทธิ์บริษัทคู่สัญญา/ประกันสังคม — จุดต่างจากโรงพยาบาลรัฐหรือโรงพยาบาลเอกชนขนาดเล็กคือ BDMS วางโครงสร้างแบรนด์ให้ครอบคลุมทุกกำลังซื้อในเครือเดียว ตั้งแต่ Bangkok Hospital/Samitivej ที่เน้นลูกค้าบนและคนไข้ต่างชาติ (มาร์จิ้นสูงสุด) ไปจนถึง Paolo ที่เน้นลูกค้าประกันสังคมและคนไข้ทั่วไปในพื้นที่ (มาร์จิ้นต่ำกว่าแต่ปริมาณสูงและกระแสเงินสดสม่ำเสมอ) — ต่างจาก BH (บำรุงราษฎร์) ที่เล่นเฉพาะตลาดบนและพึ่งคนไข้ต่างชาติเป็นสัดส่วนสูงมาก (ราว 27% ของรายได้เป็นคนไข้ตะวันออกกลางอย่างเดียว) ทำให้ BH ผันผวนตามปัจจัยภูมิรัฐศาสตร์มากกว่า BDMS ที่กระจายความเสี่ยงข้ามเซกเมนต์ได้ดีกว่า</p>
+  <p>อีกขาหนึ่งที่ช่วยหนุนมาร์จิ้นคือธุรกิจสนับสนุน (ancillary) ที่ BDMS ลงทุนต่อยอดจากฐานคนไข้เดิม เช่น เครือข่ายร้านขายยา Save Drug, คลินิกเวชกรรมนอกโรงพยาบาลกว่า 90 แห่งที่ทำหน้าที่เป็นจุดคัดกรอง/ส่งต่อคนไข้เข้าโรงพยาบาลในเครือ และบริการ preventive care/wellness ที่กำลังขยายสัดส่วนจาก ~10% เป็นเป้าหมาย 15% ของรายได้ — โมเดลนี้ทำให้ BDMS ไม่ได้หากินแค่ตอนคนไข้ "ป่วยแล้ว" แต่ดักจับลูกค้าตั้งแต่ช่วงตรวจสุขภาพเชิงป้องกัน ซึ่งเป็นเทรนด์ที่มาร์จิ้นดีและลูกค้ากลับมาใช้ซ้ำสูง</p>
+</section>
+
+<section class="sec" id="sec-04">
+  <div class="sec-eyebrow"><span class="num">04</span>Revenue mix &amp; margin</div>
+  <h2 class="sec-title">สัดส่วนรายได้แต่ละส่วน (%) และอัตรากำไร</h2>
+  <div class="table-scroll">
+    <table>
+      <caption>สัดส่วนรายได้ตามกลุ่มคนไข้ · Q1/2569</caption>
+      <thead><tr><th>กลุ่มคนไข้</th><th class="num">สัดส่วนรายได้</th><th class="num">YoY</th><th>หมายเหตุ</th></tr></thead>
+      <tbody>
+        <tr><td>คนไข้ไทย</td><td class="num">69%</td><td class="num">ทรงตัว</td><td>QoQ ลดลง 5% ตามฤดูกาล (Q1 มักเป็นโลว์ซีซั่นโรคทั่วไป)</td></tr>
+        <tr><td>คนไข้ต่างชาติ — รวม</td><td class="num">31%</td><td class="num up">+1%</td><td>QoQ โต 10% จากไฮซีซั่นท่องเที่ยวต้นปี</td></tr>
+        <tr><td>&nbsp;&nbsp;ตะวันออกกลาง</td><td class="num">3.5%</td><td class="num">ทรงตัว (ทั้งไตรมาส)</td><td>เม.ย.เดือนเดียวลด 36% จากสงครามสหรัฐฯ-อิหร่าน</td></tr>
+        <tr><td>&nbsp;&nbsp;กัมพูชา</td><td class="num">0.7%</td><td class="num down">-78%</td><td>ข้อพิพาทชายแดนไทย-กัมพูชา</td></tr>
+        <tr><td>&nbsp;&nbsp;เมียนมาร์</td><td class="num">n/a</td><td class="num up">+42%</td><td>Fly-in patients กลุ่มใหม่ที่โตเร็ว</td></tr>
+        <tr><td>&nbsp;&nbsp;สหรัฐฯ / เยอรมนี (expat)</td><td class="num">n/a</td><td class="num up">+16% / +15%</td><td>กลุ่ม expat residents ในไทย</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="unverified-note">[UNVERIFIED] ตัวเลขสัดส่วนรายได้รายประเทศ (เมียนมาร์/สหรัฐฯ/เยอรมนี) มาจากบทวิเคราะห์โบรกเกอร์ ยังไม่ตรวจสอบกับ MD&amp;A ฉบับเต็มโดยตรง — ตัวเลข % ของรายได้รวมที่แน่นอนอาจต่างจากนี้เล็กน้อย</p>
+  <p>ในมุมมาร์จิ้นตามระดับแบรนด์ (อ้างอิงโครงสร้างธุรกิจที่ผ่านมา ไม่ใช่ตัวเลขปีล่าสุด): กลุ่มพรีเมียม (Bangkok Hospital สาขาหลักอย่างเพชรบุรี, Samitivej สุขุมวิท) เป็นกลุ่มที่มาร์จิ้นสูงสุดเพราะดึงคนไข้ต่างชาติและคนไข้จ่ายเงินสดที่ยอมจ่ายแพงขึ้นเพื่อบริการเร็ว/พรีเมียม ขณะที่กลุ่ม Paolo ซึ่งพึ่งพาลูกค้าประกันสังคมเป็นหลักมีมาร์จิ้นต่ำกว่าเพราะราคาค่ารักษาถูกกำหนดเพดานไว้ระดับหนึ่งจากสำนักงานประกันสังคม แต่ชดเชยด้วยปริมาณคนไข้ที่แน่นอนสม่ำเสมอทุกเดือน ไม่ผันผวนตามเศรษฐกิจหรือปัจจัยต่างประเทศ ทำให้เป็นกลุ่มที่ช่วย "ถัวเฉลี่ยความเสี่ยง" ให้พอร์ตรายได้รวมของ BDMS ไม่ผันผวนเท่า BH ที่กระจุกอยู่ในกลุ่มพรีเมียมและคนไข้ต่างชาติเกือบทั้งหมด</p>
+</section>
+
+<section class="sec" id="sec-05">
+  <div class="sec-eyebrow"><span class="num">05</span>Competitive advantage</div>
+  <h2 class="sec-title">Competitive advantage</h2>
+  <div class="bmc">
+    <div class="bmc-cell"><h4>ขนาด<span class="en">Scale</span></h4><p>ส่วนแบ่งตลาด 46.5% ในกลุ่มโรงพยาบาลจดทะเบียน ทิ้งห่างอันดับสอง (BH 10.4%) กว่า 4 เท่า — อำนาจต่อรองกับซัพพลายเออร์ยา/เวชภัณฑ์ (23% ของต้นทุนดำเนินงาน) สูงกว่าคู่แข่งรายใดในกลุ่ม</p></div>
+    <div class="bmc-cell"><h4>ครอบคลุมทุกเซกเมนต์<span class="en">Full-tier coverage</span></h4><p>มีแบรนด์ตั้งแต่พรีเมียมถึงแมสในเครือเดียว ต่างจาก BH ที่เล่นเฉพาะตลาดบน — ทำให้พอร์ตรายได้กระจายความเสี่ยงข้ามวัฏจักรเศรษฐกิจได้ดีกว่า</p></div>
+    <div class="bmc-cell"><h4>Network effect ทางภูมิศาสตร์<span class="en">Geographic density</span></h4><p>สาขากระจายทั้งกรุงเทพฯ ปริมณฑล และต่างจังหวัด ทำให้ส่งต่อคนไข้ (referral) ข้ามสาขาในเครือได้ และลงทุนศูนย์เฉพาะทางแพงๆ แล้วให้ทุกสาขาใช้ร่วมกันได้</p></div>
+  </div>
+  <p>ข้อได้เปรียบที่แข่งขันได้ยากที่สุดของ BDMS ไม่ใช่แค่ขนาด แต่คือ "การที่ทุกโรงพยาบาลในเครือยังทำกำไรได้ทั้งหมด" ในขณะที่คู่แข่งบางรายยังมีสาขาขาดทุนอยู่ — สะท้อนวินัยการลงทุนที่ผ่านการคัดกรองทำเลและการบริหารต้นทุนส่วนกลาง (centralized procurement, shared medical equipment) มายาวนานกว่า 20 ปีตั้งแต่ยุคการควบรวมหลังวิกฤตต้มยำกุ้ง ยิ่งเครือใหญ่ขึ้น ต้นทุนต่อหน่วย (เช่น การซื้อเครื่องมือแพทย์ราคาแพงหรือการเจรจาสัญญาประกันกับบริษัทประกันรายใหญ่) ยิ่งต่ำลง เป็นข้อได้เปรียบเชิงโครงสร้างที่โรงพยาบาลเดี่ยวหรือเครือเล็กแข่งด้วยไม่ได้ — นี่คือเหตุผลที่ทำให้ BDMS แข็งแกร่งขึ้นเรื่อยๆ ตามขนาดที่โตขึ้น ไม่ใช่แค่โตแล้วเจือจางลง</p>
+</section>
+
+<section class="sec" id="sec-06">
+  <div class="sec-eyebrow"><span class="num">06</span>Peers</div>
+  <h2 class="sec-title">เปรียบเทียบกับคู่แข่ง</h2>
+  <div class="table-scroll">
+    <table>
+      <caption>เปรียบเทียบหุ้นกลุ่มโรงพยาบาลไทย · ข้อมูลอ้างอิงต้นปี-กลางปี 2569</caption>
+      <thead><tr><th>บริษัท</th><th class="num">ส่วนแบ่งตลาด</th><th class="num">โมเดลธุรกิจ</th><th>ผลกระทบต่างชาติ Q1/2569</th></tr></thead>
+      <tbody>
+        <tr><td><strong>BDMS</strong></td><td class="num">46.5%</td><td class="num">ครบทุกเซกเมนต์</td><td>คนไข้ต่างชาติ 31% ของรายได้ กระจายหลายประเทศ กระทบจำกัด</td></tr>
+        <tr><td>BH (บำรุงราษฎร์)</td><td class="num">10.4%</td><td class="num">เฉพาะพรีเมียม</td><td>คนไข้ตะวันออกกลางเดี่ยว ~27% ของรายได้ — กระทบหนักสุดในกลุ่ม แต่กำไร Q1/2569 ยังโต +3.3% YoY เพราะฐานลูกค้าเหนียวแน่น</td></tr>
+        <tr><td>BCH (เกษมราษฎร์)</td><td class="num">5.0%</td><td class="num">แมส + ประกันสังคม</td><td>พึ่งพาคนไข้กัมพูชาเป็นหลักในกลุ่มต่างชาติ — กระทบจากปิดด่านโดยตรง (ดู BCH_deepdive.html)</td></tr>
+        <tr><td>CHG (โรงพยาบาลจุฬารัตน์)</td><td class="num">n/a</td><td class="num">ตะวันออก/ชายแดน</td><td>ตั้งเป้ารายได้โตเลขหลักเดียวปี 2569 (ราว 4%) เช่นเดียวกับกลุ่ม</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>ข้อมูลที่น่าสนใจคือ แม้ BH จะเจอผลกระทบหนักที่สุดในกลุ่ม (คนไข้ตะวันออกกลางลดลง 22.4% เทียบทั้งกลุ่มธุรกิจ) แต่กำไรไตรมาส 1/2569 ของ BH กลับยังโตได้ +3.3% YoY ดีกว่าตลาดคาด เพราะฐานลูกค้าพรีเมียมของ BH เหนียวแน่นและยอมจ่ายแพงกว่าคู่แข่งในกลุ่มเดียวกัน — สะท้อนว่าปัญหาของ BDMS ในไตรมาสนี้ไม่ได้มาจาก "ธุรกิจอ่อนแอกว่า BH" แต่มาจากโครงสร้างรายได้ที่กระจายไปหลายกลุ่มคนไข้ต่างชาติมากกว่า (รวมถึงกัมพูชาที่ BH แทบไม่มีคนไข้กลุ่มนี้) ทำให้โดนผลกระทบจากทั้งสองเหตุการณ์พร้อมกัน ขณะที่ BH โดนแค่เหตุการณ์เดียวแต่รุนแรงกว่า ทั้งกลุ่มโรงพยาบาลจึงเห็นภาพเดียวกันคือกำไรปี 2568 รวมกันโตแค่ 4% เทียบเป็นค่าเฉลี่ยของอุตสาหกรรม ต่ำกว่าค่าเฉลี่ยย้อนหลังที่เคยทำได้สองหลัก</p>
+</section>
+
+<section class="sec" id="sec-07">
+  <div class="sec-eyebrow"><span class="num">07</span>Growth potential</div>
+  <h2 class="sec-title">Growth potential</h2>
+  <p>ที่ผ่านมา BDMS โตหลักๆ จาก 2 ทาง คือ (1) ควบรวมกิจการ (M&amp;A) โรงพยาบาลที่มีปัญหาทางการเงินแล้วนำมาปรับโครงสร้าง (ดูรายละเอียดใน Section 11) และ (2) เพิ่มประสิทธิภาพการใช้สินทรัพย์เดิม — ปัจจุบันบริษัทกำลังอยู่ในเฟส "harvesting" คือเก็บเกี่ยวผลจากการลงทุนที่ทำไปแล้วมากกว่าจะขยายสาขาใหญ่ต่อเนื่อง โดยเป้าหมายคือดันอัตราการใช้เตียง (bed utilization) จากราว 65% ขึ้นไปแตะ 80% ภายใน 2 ปี ซึ่งถ้าทำได้จะเพิ่มกำไรได้มากโดยแทบไม่ต้องลงทุนสินทรัพย์ใหม่เพิ่ม (operating leverage ในทิศทางบวก)</p>
+  <p>อีกขาการเติบโตที่ชัดเจนคือธุรกิจ preventive care/wellness ที่ตั้งเป้าเพิ่มสัดส่วนจาก ~10% เป็น 15% ของรายได้ ผ่านเครือข่ายคลินิกนอกโรงพยาบาล 90 แห่งที่ทำหน้าที่ดักจับลูกค้าและส่งต่อ และร้านขายยา Save Drug ที่ต่อยอดฐานลูกค้าเดิม — ทั้งสองอย่างนี้เป็นการเติบโตที่ใช้เงินลงทุนต่ำกว่าการสร้างโรงพยาบาลใหม่มาก แต่มาร์จิ้นดีเพราะลูกค้าซ้ำสูง ในขณะเดียวกัน เทรนด์สังคมสูงวัยของไทย (ผู้สูงอายุ 60 ปีขึ้นไปเป็น 20% ของประชากรตั้งแต่ปี 2564) และดีมานด์ medical tourism ในเอเชียที่โตเฉลี่ย 13% ต่อปี ยังเป็นลมส่งระยะยาวที่ไม่ขึ้นอยู่กับสงครามหรือข้อพิพาทชายแดนช่วงสั้นๆ — ความเสี่ยงคือถ้าปัจจัยต่างประเทศ (ตะวันออกกลาง/กัมพูชา) ยืดเยื้อนานกว่าที่คาด การเติบโตปี 2569 อาจต่ำกว่าเป้า 2-4% ที่ผู้บริหารวางไว้แล้วก็ได้</p>
+</section>
+
+<section class="sec" id="sec-08">
+  <div class="sec-eyebrow"><span class="num">08</span>Founder</div>
+  <h2 class="sec-title">ผู้ก่อตั้งและทีมบริหาร</h2>
+  <p><strong>นพ.ปราเสริฐ ปราสาททองโอสถ</strong> คือผู้ก่อตั้งที่ปั้น BDMS ขึ้นมาจากโรงพยาบาลกรุงเทพแห่งเดียว จนกลายเป็นเครือโรงพยาบาลเอกชนที่ใหญ่ที่สุดในไทยและติดอันดับต้นๆ ของโลก — จุดที่น่าสนใจคือท่านเป็นทั้งศัลยแพทย์และนักธุรกิจ ควบตำแหน่งผู้ก่อตั้งสายการบินบางกอกแอร์เวย์สไปพร้อมกัน สะท้อนวิธีคิดแบบ "มองหาโอกาสจากสินทรัพย์ที่มีปัญหาแล้วบริหารให้ฟื้น" — กลยุทธ์ที่เห็นชัดในการเข้าซื้อโรงพยาบาลสิคเรินทร์ (2542), เปาโล (2543) และพญาไท (2544) ซึ่งล้วนเป็นโรงพยาบาลที่บาดเจ็บหนักจากวิกฤตต้มยำกุ้ง แล้วนำมาปรับโครงสร้างจนกลับมาทำกำไรได้ ก่อนจะมาถึงดีลใหญ่ที่สุดคือการควบรวมกับกลุ่ม Health Network ของนายวิชัย ทองแตง ในปี 2553 ที่เปลี่ยน BDMS จากเครือขนาดกลางให้กลายเป็นเครือที่ใหญ่ที่สุดในประเทศภายในเวลาไม่กี่ปี (รายละเอียดเต็มใน Section 11)</p>
+  <p>นพ.ปราเสริฐเสียชีวิตเมื่อวันที่ 21 เมษายน 2569 ด้วยวัย 93 ปี หลังป่วยเรื้อรังมาระยะหนึ่ง — ประเด็นที่นักลงทุนกังวลตามธรรมชาติคือ "ธุรกิจจะสะดุดหรือไม่เมื่อผู้ก่อตั้งจากไป" แต่บทวิเคราะห์จากโบรกเกอร์ (InnovestX) ประเมินว่าผลกระทบต่อการดำเนินงานมีจำกัด เพราะทีมผู้บริหารระดับสูงชุดปัจจุบันบริหารงานจริงมานานหลายปีแล้วก่อนหน้านี้ และมีความลึกของทีมบริหาร (management depth) สูงกว่าบริษัทที่พึ่งพาผู้นำคนเดียวแบบเบ็ดเสร็จ — อย่างไรก็ตาม สิ่งที่ยังต้องติดตามต่อคือทิศทางโครงสร้างผู้ถือหุ้นใหญ่หลังจากนี้ (การถือหุ้นของทายาทตระกูลปราสาททองโอสถ) ซึ่งยังไม่มีความชัดเจนต่อสาธารณะ ณ เวลาที่เขียนบทความนี้</p>
+</section>
+
+<section class="sec" id="sec-09">
+  <div class="sec-eyebrow"><span class="num">09</span>Market overview</div>
+  <h2 class="sec-title">ภาพรวมตลาด</h2>
+  <p>ตลาดโรงพยาบาลเอกชนไทยมีผู้เล่นทั้งหมดราว 370 แห่ง รวมเตียงประมาณ 36,000 เตียง แบ่งเป็นโรงพยาบาลขนาดใหญ่ 22 แห่ง (5.8% ของจำนวนแห่ง แต่กินส่วนแบ่งรายได้สูงสุด), ขนาดกลาง 255 แห่ง (67.5%) และขนาดเล็ก 101 แห่ง (26.7%) — โครงสร้างนี้เอื้อให้เครือใหญ่อย่าง BDMS ไล่ซื้อ/ควบรวมโรงพยาบาลขนาดกลาง-เล็กที่แข่งขันลำบากได้เรื่อยๆ ซึ่งเป็นสิ่งที่เกิดขึ้นมาตลอด 20 ปีที่ผ่านมา</p>
+  <p>ปัจจัยหนุนระยะยาวของอุตสาหกรรมมี 3 เรื่องหลัก: หนึ่ง สังคมสูงวัย — ไทยเข้าสู่สังคมผู้สูงอายุตั้งแต่ปี 2564 (สัดส่วนผู้สูงอายุ 20% ของประชากร) ทำให้ดีมานด์การรักษาโรคเรื้อรัง/ซับซ้อนเพิ่มต่อเนื่อง สอง medical tourism — ไทยติดอันดับ 4 ของโลกด้านจำนวนโรงพยาบาลที่ได้มาตรฐาน JCI (62 แห่ง) และคนไข้ต่างชาติใช้จ่ายเฉลี่ย 254,202 บาทต่อทริป ขณะที่ตลาด medical tourism เอเชียโตเฉลี่ย 13% ต่อปี สาม การขยายตัวของระบบประกันสุขภาพ — ผู้ประกันตนในระบบประกันสังคมโตต่อเนื่อง 3.6% ต่อปี และระบบหลักประกันสุขภาพถ้วนหน้าครอบคลุมประชากร 99.92% แล้ว</p>
+  <p>ความท้าทายเชิงโครงสร้างที่อุตสาหกรรมเจอคือ ขาดแคลนบุคลากรการแพทย์ (ไทยมีแพทย์ 0.4 คนต่อประชากร 1,000 คน เทียบมาตรฐาน WHO ที่ 2.8 คน) ทำให้ต้นทุนบุคลากรมีแนวโน้มแพงขึ้นเรื่อยๆ, การแข่งขันแย่งซื้อกิจการที่ดุเดือดขึ้นจากทุนต่างชาติ (โดยเฉพาะทุนจีน) ที่เริ่มเข้ามาลงทุนในตลาดนี้ และการแข่งขันแย่งลูกค้า medical tourism จากฮับการแพทย์คู่แข่งในภูมิภาคอย่างสิงคโปร์ มาเลเซีย และอินเดียที่ล้วนขยายบทบาทตัวเองต่อเนื่อง — BDMS ในฐานะผู้นำตลาดได้ประโยชน์จากปัจจัยหนุนระยะยาวมากที่สุดเพราะมีทุนและเครือข่ายพร้อมสุด แต่ก็เจอแรงกดดันต้นทุนบุคลากรและการแข่งขันแย่งซื้อกิจการหนักที่สุดในกลุ่มเช่นกัน</p>
+</section>
+
+<section class="sec" id="sec-10">
+  <div class="sec-eyebrow"><span class="num">10</span>Revenue / Margin / FCF</div>
+  <h2 class="sec-title">การเติบโตของรายได้ / อัตรากำไร / FCF</h2>
+  <p>มองย้อนกลับไปที่จุดเปลี่ยนสำคัญของมาร์จิ้น BDMS คือหลังการควบรวมปี 2553 — มาร์จิ้นกำไรสุทธิไต่จาก 9.6% (2553) ขึ้นเป็น 11.9% (2554) และ 17.3% (2555) ภายในเวลาแค่ 2 ปี เพราะการรวมศูนย์จัดซื้อและใช้สินทรัพย์ทางการแพทย์ร่วมกันในเครือทำให้ต้นทุนต่อหน่วยลดฮวบ — จากนั้นมาร์จิ้นทรงตัวอยู่ในกรอบ 14-18% มาต่อเนื่องเกือบ 15 ปี ปัจจุบัน (FY2568) net margin อยู่ที่ 14.0% (15,848/113,206 ล้านบาท) ส่วน EBITDA margin ทรงตัวราว 24-25% ต่อเนื่องหลายไตรมาส สะท้อนว่าโครงสร้างต้นทุนของธุรกิจนี้ค่อนข้างนิ่ง ความผันผวนของกำไรที่เห็นในปีนี้มาจากปัจจัยรายได้ (ต่างประเทศ) มากกว่าปัจจัยต้นทุน</p>
+  <p>ด้านงบดุล ณ สิ้นไตรมาส 1/2569 BDMS มีสินทรัพย์รวม 160,692 ล้านบาท หนี้สินรวม 46,390 ล้านบาท และส่วนของผู้ถือหุ้น 114,301 ล้านบาท คิดเป็น D/E ราว 0.4 เท่า ลดลงเล็กน้อยจากที่เคยทรงตัวราว 0.5 เท่ามาหลายปี (หนี้สินลดลง 3% จากสิ้นปี 2568 ขณะที่ส่วนของผู้ถือหุ้นเพิ่มขึ้น 4%) — เป็นระดับการก่อหนี้ที่ต่ำมากเมื่อเทียบกับขนาดสินทรัพย์ ให้พื้นที่ทางการเงินเหลือเฟือสำหรับการลงทุนขยายเพิ่มเติมหรือรับมือกับช่วงที่กำไรผันผวนจากปัจจัยต่างประเทศแบบตอนนี้ได้สบายๆ โดยไม่กระทบสภาพคล่อง</p>
+  <p class="unverified-note">[UNVERIFIED] ตัวเลข Free Cash Flow (FCF) ที่ชัดเจนของปี 2568/Q1-2569 ยังไม่ได้ตรวจสอบกับงบกระแสเงินสดฉบับเต็ม — บทความนี้ใช้ D/E และโครงสร้างงบดุลเป็นตัวแทนสภาพคล่องแทน ผู้อ่านที่ต้องการตัวเลข FCF แม่นยำควรดึงจากงบการเงินฉบับเต็มโดยตรง</p>
+</section>
+
+<section class="sec" id="sec-11">
+  <div class="sec-eyebrow"><span class="num">11</span>Company history</div>
+  <h2 class="sec-title">ประวัติของธุรกิจ</h2>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">ก่อนปี 2540</div><div class="tl-body">นพ.ปราเสริฐ ปราสาททองโอสถ ก่อตั้งกลุ่มโรงพยาบาลกรุงเทพ (Bangkok Hospital) เป็นจุดเริ่มต้นของเครือ</div></div>
+    <div class="tl-item"><div class="tl-date">2542 (1999)</div><div class="tl-body">เข้าซื้อโรงพยาบาลสิคเรินทร์ ซึ่งประสบปัญหาการเงินหนักหลังวิกฤตต้มยำกุ้งปี 2540</div></div>
+    <div class="tl-item"><div class="tl-date">2543 (2000)</div><div class="tl-body">เข้าซื้อโรงพยาบาลเปาโล (Paolo) เพื่อขยายฐานลูกค้าระดับแมส</div></div>
+    <div class="tl-item"><div class="tl-date">2544 (2001)</div><div class="tl-body">เข้าซื้อโรงพยาบาลพญาไท (ผ่านบริษัทประสิทธิ์พัฒนา) เสริมเครือข่ายในกรุงเทพฯ</div></div>
+    <div class="tl-item"><div class="tl-date">2553 (2010)</div><div class="tl-body">ดีลควบรวมครั้งใหญ่ที่สุด — นายวิชัย ทองแตง เสนอรวมกลุ่ม Health Network เข้ากับกลุ่มโรงพยาบาลกรุงเทพ มูลค่าดีลรวม 11,595 ล้านบาท ผ่านการแลกหุ้นที่ราคา 37.75 บาท/หุ้น (ก่อนแตกพาร์) ทำให้ผู้ถือหุ้นเดิมโดน dilution ราว 16% แต่แลกมาด้วยเครือที่ใหญ่ที่สุดในประเทศทันที</div></div>
+    <div class="tl-item"><div class="tl-date">2554-2555 (2011-2012)</div><div class="tl-body">หลังควบรวม เครือข่ายขยายจาก 19 เป็น 27 โรงพยาบาล เตียงเพิ่มจาก 2,992 เป็น 4,639 เตียง รายได้โต 50% กำไรโต 91% ภายในปีเดียว มาร์จิ้นไต่จาก 9.6% เป็น 17.3% ภายใน 2 ปี</div></div>
+    <div class="tl-item"><div class="tl-date">2558 (2015)</div><div class="tl-body">เปลี่ยนชื่อย่อหุ้นจาก BGH เป็น BDMS อย่างเป็นทางการ</div></div>
+    <div class="tl-item"><div class="tl-date">2564-2565 (2021-2022)</div><div class="tl-body">ช่วงพีคของรายได้พิเศษจากโควิด-19 (ตรวจ PCR, วัคซีนทางเลือก, hospitel) เช่นเดียวกับหุ้นโรงพยาบาลทั้งกลุ่ม</div></div>
+    <div class="tl-item"><div class="tl-date">2568 (2025)</div><div class="tl-body">ทำรายได้สูงสุดใหม่ 113,206 ล้านบาท (+4%) แต่เจอผลกระทบรายได้คนไข้กัมพูชาหายจากข้อพิพาทชายแดนตั้งแต่กลางปี</div></div>
+    <div class="tl-item"><div class="tl-date">21 เม.ย. 2569</div><div class="tl-body">นพ.ปราเสริฐ ปราสาททองโอสถ ผู้ก่อตั้ง เสียชีวิตด้วยวัย 93 ปี</div></div>
+    <div class="tl-item"><div class="tl-date">Q1/2569</div><div class="tl-body">กำไรสุทธิหดตัว 7% YoY จากผลกระทบสงครามสหรัฐฯ-อิหร่านต่อคนไข้ตะวันออกกลาง ซ้อนทับปัญหาคนไข้กัมพูชาที่ยังไม่ฟื้น</div></div>
+  </div>
+</section>
+
+<section class="sec" id="sec-12">
+  <div class="sec-eyebrow"><span class="num">12</span>Risks</div>
+  <h2 class="sec-title">ความเสี่ยง + Counter-argument</h2>
+  <div class="risk-grid">
+    <div class="risk-card"><span class="rc-label">ความเสี่ยงภูมิรัฐศาสตร์ต่างประเทศ</span><p>ทั้งสงครามตะวันออกกลางและข้อพิพาทชายแดนไทย-กัมพูชา เป็นปัจจัยที่บริษัทควบคุมไม่ได้เลย และกระทบพร้อมกันสองทางในปีเดียว — หากสถานการณ์ยืดเยื้อเกินครึ่งปีหลัง 2569 เป้าการเติบโต 2-4% ที่ปรับลงมาแล้วก็ยังเสี่ยงหลุดเป้าได้อีก</p></div>
+    <div class="risk-card"><span class="rc-label">ความเสี่ยงด้านประชากร (Demographic)</span><p>อัตราการเกิดของไทยลดลงต่อเนื่อง กระทบแผนกสูติ-กุมารเวชซึ่งเป็นสัดส่วนรายได้ที่มีนัยสำคัญของธุรกิจโรงพยาบาลทั้งอุตสาหกรรม เป็นความเสี่ยงเชิงโครงสร้างระยะยาวที่ไม่มีทางแก้ในระดับบริษัทเดียว</p></div>
+    <div class="risk-card"><span class="rc-label">ต้นทุนบุคลากรและซัพพลาย</span><p>ไทยขาดแคลนแพทย์เรื้อรัง (0.4 คนต่อประชากรพันคน) ต้นทุนบุคลากรมีแนวโน้มแพงขึ้นเรื่อยๆ ขณะที่ยา/เวชภัณฑ์คิดเป็น 23% ของต้นทุนดำเนินงานและเสี่ยงต่อ supply chain จากปัจจัยภูมิรัฐศาสตร์เช่นกัน แม้บริษัทจะรับมือด้วยการสำรองยา 60-90 วันและหาซัพพลายเออร์เอเชียทดแทนแล้วก็ตาม</p></div>
+    <div class="risk-card"><span class="rc-label">การเปลี่ยนผ่านผู้นำ</span><p>แม้นักวิเคราะห์จะมองว่าผลกระทบจากการเสียชีวิตของผู้ก่อตั้งมีจำกัดเพราะทีมบริหารลึก แต่โครงสร้างผู้ถือหุ้นใหญ่ภายหลังยังไม่ชัดเจนต่อสาธารณะ เป็นความเสี่ยงเชิงธรรมาภิบาลที่ต้องติดตามต่อ</p></div>
+  </div>
+
+  <h3 class="sub-title">Counter-argument — โต้แย้งทุกข้อข้างต้น</h3>
+  <p>ต่อประเด็นภูมิรัฐศาสตร์ — ผู้บริหารเองยืนยันว่านี่คือการ "เลื่อน" ไม่ใช่ "เสียลูกค้าถาวร" คนไข้ตะวันออกกลางกลุ่มที่รักษาโรคซับซ้อน (เช่นมะเร็ง, โรคหัวใจ) ไม่ได้ยกเลิกแผนการรักษาแค่เปลี่ยนประเทศปลายทางไปสิงคโปร์หรืออื่นแทนได้ง่ายๆ เพราะต้องพิจารณาความต่อเนื่องของแพทย์ผู้รักษาและประวัติการรักษา และประวัติศาสตร์ที่ผ่านมาของ BDMS เองก็เคยผ่านวิกฤตหนักกว่านี้มาแล้ว (โควิด-19 ที่รายได้พิเศษหายไปทั้งหมด) แต่ธุรกิจแกนหลักก็ยังฟื้นและโตต่อได้ ต่อประเด็นประชากร — แม้อัตราการเกิดจะลดลง แต่สัดส่วนรายได้จากกลุ่มผู้สูงอายุและโรคเรื้อรังกำลังโตเร็วกว่าและมีมาร์จิ้นสูงกว่ากลุ่มสูติ-กุมารเวชอยู่แล้ว ทำให้ผลกระทบสุทธิต่อกำไรรวมน้อยกว่าที่ตัวเลขอัตราการเกิดเพียงอย่างเดียวจะสื่อ ต่อประเด็นต้นทุนบุคลากร — ขนาดที่ใหญ่ที่สุดในประเทศทำให้ BDMS มีอำนาจต่อรองค่าตอบแทนและสวัสดิการดึงดูดบุคลากรทางการแพทย์ได้ดีกว่าคู่แข่งรายเล็กที่ขาดแคลนหนักกว่า ต่อประเด็นผู้นำ — ทีมบริหารชุดปัจจุบันคุมงานจริงมานานหลายปีก่อนผู้ก่อตั้งเสียชีวิต ไม่ใช่การเปลี่ยนผ่านฉับพลันแบบไม่ทันตั้งตัว และงบการเงินหลังการเสียชีวิต (ที่ยังไม่มีข้อมูลไตรมาสใหม่ ณ เวลาที่เขียน) จะเป็นเครื่องพิสูจน์ที่ชัดเจนที่สุดว่าการดำเนินงานสะดุดจริงหรือไม่</p>
+
+  <div class="verdict">
+    <span class="verdict-label">สรุปสำหรับผู้อ่าน</span>
+    BDMS ยังเป็นผู้นำตลาดที่แข็งแกร่งที่สุดในกลุ่มโรงพยาบาลไทยด้วยส่วนแบ่งตลาดที่ทิ้งห่างคู่แข่ง มาร์จิ้นและงบดุลที่แข็งแรง แต่กำลังเผชิญปีที่ปัจจัยนอกเหนือการควบคุม (ภูมิรัฐศาสตร์) กัดกำไรพร้อมกันสองทาง — บทความนี้เป็นการวิเคราะห์เชิงธุรกิจเพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน ผู้อ่านควรประเมินความเสี่ยงด้วยตัวเองก่อนตัดสินใจ
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="src-group">
+      <h4>แหล่งข้อมูลหลัก</h4>
+      <ol>
+        <li>BDMS FY2568 full-year results — Kaohoon, mitihoon.com (25 ก.พ. 2569)</li>
+        <li>BDMS Q1/2569 earnings — Kaohoon (news/831258), Bangkokbiznews (news/finance/stock/1233863)</li>
+        <li>InnovestX Research — BDMS earnings note 1Q69 (15 พ.ค. 2569) และ company update (2 เม.ย. 2569, 23 ม.ค. 2569)</li>
+        <li>NotebookLM notebook "BDMS.BK Research" (05feefc2-2e82-4091-9c24-a6578e4d8ba0) — 56-1 One Report 2567/2568, MD&amp;A, Oppday YE/2568 &amp; Q1/2569</li>
+        <li>Longtunman — ประวัติการควบรวมกิจการ BDMS 2553 (longtunman.com/46228)</li>
+        <li>Finnomena Buffettcode — โครงสร้างรายได้และมาร์จิ้นตามแบรนด์ (ข้อมูลอ้างอิงปี 2561 บางส่วน)</li>
+        <li>Krungsri Research — แนวโน้มอุตสาหกรรมโรงพยาบาลเอกชนไทย</li>
+        <li>ข่าวการเสียชีวิตของ นพ.ปราเสริฐ ปราสาททองโอสถ — Prachachat, Sanook, Forbes Thailand (21 เม.ย. 2569)</li>
+        <li>StockRadars — จัดอันดับมูลค่าตลาดหุ้นกลุ่มโรงพยาบาล</li>
+      </ol>
+      <h4>Forum-aggregated (secondhand — ตัวเลขแม่นยำยังไม่ยืนยันกับต้นฉบับ)</h4>
+      <ol>
+        <li>board.thaivi.org — กระทู้ "หุ้นเด่นกลุ่มการแพทย์ ร่วมกันฝ่าอุปสรรคปี 69: BH BDMS BCH CHG PR9 KLINIQ"</li>
+      </ol>
+    </div>
+    <p class="unverified-note">[CONFLICT] ตัวเลขรายได้ Q1/2569 ต่างกันระหว่างแหล่งข่าว (28,554 ลบ. vs 27.1 พันลบ.) — ดูรายละเอียดในกล่องข้อสังเกตสำคัญด้านบนและ Section 2</p>
+    <p class="disclaimer">บทความนี้จัดทำขึ้นเพื่อการศึกษาและวิเคราะห์ธุรกิจเท่านั้น ไม่ใช่คำแนะนำการลงทุน ตัวเลขและข้อมูลอ้างอิงจากแหล่งข่าวสาธารณะ ณ เดือนกรกฎาคม 2569 อาจมีการเปลี่ยนแปลงหรือคลาดเคลื่อนจากงบการเงินฉบับตรวจสอบจริง ผู้อ่านควรตรวจสอบข้อมูลเพิ่มเติมก่อนตัดสินใจลงทุนด้วยตัวเอง</p>
+    <p class="nb-note">Trendlongtun Brief · BDMS.BK Deep Dive · เผยแพร่ 2569-07</p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
