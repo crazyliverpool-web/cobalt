@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command' | grep -qE 'mlx_whisper|vad_transcribe\\.py|batch_transcribe\\.py|structure_transcript\\.py|yt-dlp|notebooklm generate|notebooklm download|pnpm --prefix|whisper-cli' && afplay /System/Library/Sounds/Glass.aiff || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' | { read -r f; case \"$f\" in */studio/source/*/*_structured.md) python3 -I \"$CLAUDE_PROJECT_DIR/tools/build_knowledge_index.py\" >/dev/null;; esac; } 2>/dev/null || true",
+            "statusMessage": "Rebuilding KNOWLEDGE_INDEX.md"
+          }
+        ]
+      }
+    ]
+  }
+}

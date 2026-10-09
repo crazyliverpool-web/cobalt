@@ -52,9 +52,14 @@ Desktop has ONE folder: `studio/`. `projects/`, `courses/` (teaching, ltd-ai-101
 on `/Volumes/Acici Sanitsakul/studio-archive/media/` (see `source/README_media.md`).
 
 ## Opus ↔ Sonnet handoff
-At session start: if you are Sonnet, read `for-sonnet/tasks.md` and do `status: pending`
-items. If you are Opus, read `for-opus/questions.md` and do `status: pending` items,
-pushing any follow-up work to `for-sonnet/tasks.md`. Full protocol: `guides/opus-sonnet-handoff.md`.
+At session start read **`todos.md`** (one file, all work). Each task is a list of stages with a model
+per stage — do the first unfinished stage that matches your model; skip ⏸️ items. `for-opus/` and
+`for-sonnet/` are history/detail now — open only the section a task's `detail:` points to.
+Full protocol: `guides/opus-sonnet-handoff.md`.
+
+## "How does X work?" / bots
+Explaining any studio system, bot, pipeline or skill → `/how`. Bot problems → `bot-ops` agent,
+which reads only the matching file in `guides/bots/` (one per launchd bot).
 
 ## Photo: remove people
 `python3 -I tools/remove_people.py <image> [--extra x0,y0,x1,y1 ...]` (HEIC ok). Read its docstring;

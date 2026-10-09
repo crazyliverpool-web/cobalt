@@ -1,5 +1,7 @@
 # Questions for Opus
 
+> 📌 **2026-10-09: ไฟล์นี้เป็นประวัติ/รายละเอียดแล้ว — งานที่ต้องทำดูที่ `todos.md`** (กติกา: `guides/opus-sonnet-handoff.md`). อ่านเฉพาะหัวข้อที่ todos.md ชี้มา.
+
 > Instructions: Read this file, answer or design solutions for each question, then update the status.
 > If your answer requires Sonnet to execute something, append a task to `for-sonnet/tasks.md`.
 > Context: `/Users/alonsi/Desktop/studio/knowledge/index.md` has the NotebookLM notebook ID.
