@@ -20,14 +20,9 @@
       stages: เหลือแค่ทดลองใช้ `/how` กับงานจริง แล้ว `/reflect` ปรับ skill
       detail: `for-opus/questions.md` Q-noodle
 
-## ต้องยืนยันกับผู้ใช้ (น่าจะจบแล้ว แต่ไม่ได้ปิดเอง)
-
-- [ ] **T7 คอร์ส Master of Valuation → pipeline** — โฟลเดอร์อยู่ใน archive แล้ว (`studio-archive/Master of valuation`) → น่าจะเสร็จ
-- [ ] **T26–T28 BCH: ingest คลิป CEO / ดึง MD&A จาก SET** — `reports/BCH_deepdive.html` เสร็จตั้งแต่ 2026-07-15 → น่าจะไม่ต้องทำแล้ว
-- [ ] **T2.6 / Q (AI Leading Indicator, UNBLOCKED 2026-06-23)** — memory บอกว่าครบ 4 sessions + synthesis แล้ว → น่าจะเสร็จ
-- [ ] **T25 ตอบผู้ใช้เรื่อง spec YouTube-digest ที่ Codex เขียน** — บอท YouTube digest ทำเสร็จและรันอยู่แล้ว → น่าจะไม่ต้องทำ
-
 ## Done (ล่าสุด)
+
+- [x] 2026-10-10 ผู้ใช้ยืนยันปิด: T7 (Master of Valuation อยู่ใน archive), T26–T28 (BCH deep dive เสร็จแล้ว), T2.6 (AI Leading Indicator ครบ), T25 (YouTube digest รันอยู่แล้ว)
 
 - [x] 2026-10-09 Q-noodle ช่วง 3: `todos.md` (ไฟล์นี้), `/how`, hook rebuild `KNOWLEDGE_INDEX.md`, คู่มือบอท `guides/bots/`
 - [x] 2026-10-09 Q-noodle ช่วง 2: `trendlongtun-brief` ฉบับเต็ม + Step 5c critique, `tools/lint_deepdive.py`, global skill → symlink
