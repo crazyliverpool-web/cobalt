@@ -61,9 +61,11 @@ Full protocol: `guides/opus-sonnet-handoff.md`.
 Explaining any studio system, bot, pipeline or skill → `/how`. Bot problems → `bot-ops` agent,
 which reads only the matching file in `guides/bots/` (one per launchd bot).
 
-## Photo: remove people
+## Photo: remove people / sun flare
 `python3 -I tools/remove_people.py <image> [--extra x0,y0,x1,y1 ...]` (HEIC ok). Read its docstring;
 always inspect the `_overlay`/`_compare` previews — reflections in water need `--extra`.
+Sun streaks / light beams: `python3 -I tools/remove_flare.py <image> --line x0,y0,x1,y1 [...]` — read its
+docstring (start lines below the sun disk; `--patch-safe-below` = treeline row); zoom into ridges in `_compare`.
 
 ## Learning loop (`/reflect`, `/ruminate`, `/meditate`)
 After a long task, a user correction, or a tool workaround → `/reflect`. Monthly → `/ruminate` then `/meditate`.

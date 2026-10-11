@@ -8,6 +8,8 @@ Usage:
 
 --extra x0,y0,x1,y1   additional rectangle to remove (upright full-res pixel coords),
                       e.g. a reflection in water the detector missed. Repeatable.
+--min-size N          only remove people whose box is at least N px on its longer side
+                      ("clearly visible" people; tiny distant figures are kept). Default 0 = all.
 --protect-light       inside --extra rects, keep pale bluish pixels (white flowers in front
                       of a reflection) instead of filling over them.
 
@@ -19,6 +21,9 @@ Gotchas this tool already handles (learned 2026-10-09):
 - Clouds can score ~0.5 as "person" -> detections whose feet are in the top
   --sky-frac of the frame are dropped.
 - Only the masked crop goes through LaMa, so the rest of the photo stays bit-identical.
+- (2026-10-11) Full-res fills of people on benches/loungers came out as smudges; LaMa fills a copy
+  downscaled to --fill-res 512 and only masked pixels are upscaled back. Detector misses people
+  seen from behind in shade -> add them with --extra.
 """
 import argparse
 import hashlib
@@ -58,7 +63,7 @@ def lama_model():
     return torch.jit.load(LAMA_PATH, map_location="cpu").eval()
 
 
-def detect_people(img, thresh, sky_frac):
+def detect_people(img, thresh, sky_frac, min_size=0):
     from torchvision.models.detection import maskrcnn_resnet50_fpn_v2, MaskRCNN_ResNet50_FPN_V2_Weights
     model = maskrcnn_resnet50_fpn_v2(weights=MaskRCNN_ResNet50_FPN_V2_Weights.DEFAULT).eval()
     H, W = img.shape[:2]
@@ -73,7 +78,8 @@ def detect_people(img, thresh, sky_frac):
                 t = torch.from_numpy(img[y0:y0 + T, x0:x0 + T]).permute(2, 0, 1).float() / 255
                 r = model([t])[0]
                 for lbl, sc, m, b in zip(r["labels"], r["scores"], r["masks"], r["boxes"]):
-                    if lbl.item() == 1 and sc.item() >= thresh and b[3].item() + y0 > min_bottom:
+                    if lbl.item() == 1 and sc.item() >= thresh and b[3].item() + y0 > min_bottom \
+                            and max(b[2] - b[0], b[3] - b[1]).item() >= min_size:
                         mask[y0:y0 + T, x0:x0 + T] |= (m[0].numpy() > 0.3).astype(np.uint8)
                         n += 1
     # grow to cover hair, edges and contact shadows
@@ -93,7 +99,7 @@ def add_extra(mask, img, rects, protect_light):
     return mask
 
 
-def inpaint(img, mask, model, pad=200):
+def inpaint(img, mask, model, pad=200, max_side=512):
     H, W = mask.shape
     merged = cv2.dilate(mask, cv2.getStructuringElement(cv2.MORPH_RECT, (161, 161)))
     n, _, stats, _ = cv2.connectedComponentsWithStats((merged > 0).astype(np.uint8))
@@ -104,10 +110,16 @@ def inpaint(img, mask, model, pad=200):
         x1, y1 = min(x + w + pad, W), min(y + h + pad, H)
         x1, y1 = x0 + (x1 - x0) // 8 * 8, y0 + (y1 - y0) // 8 * 8  # LaMa needs multiples of 8
         m = (mask[y0:y1, x0:x1] > 0).astype(np.float32)
-        ti = torch.from_numpy(img[y0:y1, x0:x1]).permute(2, 0, 1)[None].float() / 255
+        crop = img[y0:y1, x0:x1]
+        # LaMa was trained ~512 px: big holes at 24 MP come out as smudges, so fill a downscaled
+        # copy and upscale (only the masked pixels are used)
+        s = min(1.0, max_side / max(crop.shape[:2]))
+        cw, ch = (int(crop.shape[1] * s) // 8 * 8, int(crop.shape[0] * s) // 8 * 8) if s < 1 else crop.shape[1::-1]
+        ci, cm = cv2.resize(crop, (cw, ch), interpolation=cv2.INTER_AREA), cv2.resize(m, (cw, ch)) > 0.01
+        ti = torch.from_numpy(ci).permute(2, 0, 1)[None].float() / 255
         with torch.no_grad():
-            o = model(ti, torch.from_numpy(m)[None, None])[0].permute(1, 2, 0).numpy()
-        o = np.clip(o * 255, 0, 255)
+            o = model(ti, torch.from_numpy(cm.astype(np.float32))[None, None])[0].permute(1, 2, 0).numpy()
+        o = cv2.resize(np.clip(o * 255, 0, 255), crop.shape[1::-1], interpolation=cv2.INTER_CUBIC)
         alpha = np.maximum(cv2.GaussianBlur(m, (0, 0), 3), m)[..., None]  # replace masked, feather edges
         out[y0:y1, x0:x1] = alpha * o + (1 - alpha) * out[y0:y1, x0:x1]
     return out.round().astype(np.uint8), n - 1
@@ -137,7 +149,9 @@ def main():
     ap.add_argument("--thresh", type=float, default=0.3, help="person score threshold")
     ap.add_argument("--sky-frac", type=float, default=0.4, help="ignore detections whose feet are in this top fraction")
     ap.add_argument("--extra", action="append", default=[], help="x0,y0,x1,y1 extra area to remove")
+    ap.add_argument("--min-size", type=int, default=0, help="skip people smaller than this (px, longer box side)")
     ap.add_argument("--protect-light", action="store_true")
+    ap.add_argument("--fill-res", type=int, default=512, help="LaMa works on crops downscaled to this many px")
     ap.add_argument("--mask-only", action="store_true")
     a = ap.parse_args()
 
@@ -145,7 +159,7 @@ def main():
     base = os.path.splitext(out)[0]
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     img = load_upright(a.image)
-    mask, n = detect_people(img, a.thresh, a.sky_frac)
+    mask, n = detect_people(img, a.thresh, a.sky_frac, a.min_size)
     rects = [tuple(int(v) for v in r.split(",")) for r in a.extra]
     mask = add_extra(mask, img, rects, a.protect_light)
     print(f"{img.shape[1]}x{img.shape[0]}  people detections: {n}  extra rects: {len(rects)}")
@@ -155,7 +169,7 @@ def main():
         save_previews(img, None, mask, base)
         print("mask preview:", base + "_overlay.jpg")
         return
-    result, regions = inpaint(img, mask, lama_model())
+    result, regions = inpaint(img, mask, lama_model(), max_side=a.fill_res)
     Image.fromarray(result).save(out, quality=95, subsampling=0)
     save_previews(img, result, mask, base)
     print(f"filled {regions} regions -> {out}\ncheck: {base}_overlay.jpg  {base}_compare.jpg")
