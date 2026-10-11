@@ -45,6 +45,7 @@ cheapest model that fits: haiku for mechanical work, sonnet for research, **opus
 | เคลียร์พื้นที่ / จัดไฟล์ / สื่อหลุดเข้าเครื่อง | `archivist` | haiku |
 | คลินิกทันตกรรม / LINE-FB chatbot (`projects/clinic-bot`, `projects/line-teacher-bot`) | `line-bot` | opus |
 | Rehab & IMC Registry (`projects/tussaneem`) | `tussaneem-dev` | opus |
+| ตรวจงานแต่งรูปก่อนส่ง (บังคับ) | `photo-reviewer` | sonnet |
 
 ## Layout
 Desktop has ONE folder: `studio/`. `projects/`, `courses/` (teaching, ltd-ai-101) and
@@ -66,6 +67,8 @@ which reads only the matching file in `guides/bots/` (one per launchd bot).
 always inspect the `_overlay`/`_compare` previews — reflections in water need `--extra`.
 Sun streaks / light beams: `python3 -I tools/remove_flare.py <image> --line x0,y0,x1,y1 [...]` — read its
 docstring (start lines below the sun disk; `--patch-safe-below` = treeline row); zoom into ridges in `_compare`.
+**Before telling the user any photo edit is done:** run `photo-reviewer` agent on the outputs; fix every FAIL and
+re-run until all PASS (user rule 2026-10-11, from poteto's verify stage). Self-check: `tools/photo_check.py`.
 
 ## Learning loop (`/reflect`, `/ruminate`, `/meditate`)
 After a long task, a user correction, or a tool workaround → `/reflect`. Monthly → `/ruminate` then `/meditate`.

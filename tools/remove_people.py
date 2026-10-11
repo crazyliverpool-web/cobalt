@@ -24,6 +24,8 @@ Gotchas this tool already handles (learned 2026-10-09):
 - (2026-10-11) Full-res fills of people on benches/loungers came out as smudges; LaMa fills a copy
   downscaled to --fill-res 512 and only masked pixels are upscaled back. Detector misses people
   seen from behind in shade -> add them with --extra.
+- Lens ghosts (soft discs/domes on rock, a red dot on a fence) also come out cleanly with --extra
+  and --min-size 99999 (no people detection; --thresh 0.999 still removed half a person); subtracting them as added light left rings (IMG_8151/8158).
 """
 import argparse
 import hashlib
