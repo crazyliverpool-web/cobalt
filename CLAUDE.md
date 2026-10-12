@@ -69,6 +69,7 @@ Sun streaks / light beams: `python3 -I tools/remove_flare.py <image> --line x0,y
 docstring (start lines below the sun disk; `--patch-safe-below` = treeline row); zoom into ridges in `_compare`.
 **Before telling the user any photo edit is done:** run `photo-reviewer` agent on the outputs; fix every FAIL and
 re-run until all PASS (user rule 2026-10-11, from poteto's verify stage). Self-check: `tools/photo_check.py`.
+Video grade / remove people (SAM2 + ProPainter, installed) → read `guides/video-edit.md` first.
 
 ## Learning loop (`/reflect`, `/ruminate`, `/meditate`)
 After a long task, a user correction, or a tool workaround → `/reflect`. Monthly → `/ruminate` then `/meditate`.
