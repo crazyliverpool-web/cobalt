@@ -20,6 +20,7 @@ Requires: stock-research/thaivi/thaivi_state.json (valid Playwright login sessio
 """
 import json
 import os
+import re
 import sys
 import time
 import traceback
@@ -65,7 +66,11 @@ TICKERS = {
 NET_HOSTS = ("board.thaivi.org", "api.line.me", "api.anthropic.com", "api.notion.com")
 
 MODEL = "claude-sonnet-5"
-CLEAN_STREAK_THRESHOLD = 5  # consecutive successful (non-expired) runs before declaring the 2026-08-04 session-persistence fix confirmed
+# Post tracking (2026-10-12): per thread we store the last seen phpBB post id (div.post id="pNNN",
+# globally increasing). Each run reads the last page and walks back through previous pages
+# until it reaches that id, so a thread rolling onto a new page no longer hides new posts
+# (BDMS 2026-10-12: page went 30 -> 1 post and the old count-based logic said "no new posts").
+MAX_PAGES_BACK = 3  # last page + up to 2 previous pages per run (30 posts/page)
 
 # Must match the UA in stock-research/thaivi/login_and_fetch.py — phpBB's browser_check
 # invalidates a session if the UA changes between the login and a later request.
@@ -150,9 +155,29 @@ def goto(page, url: str):
             time.sleep(GOTO_BACKOFF_S)
 
 
-def fetch_latest_page(page, ticker: str, topic_id: int):
-    """Return (posts: list[str], is_login_expired: bool)."""
-    resp = goto(page, f"https://board.thaivi.org/viewtopic.php?t={topic_id}&start=99999")
+def parse_posts(page) -> list[dict]:
+    """Posts on the current thread page, oldest first: {id, no, time, text}."""
+    out = []
+    for d in page.query_selector_all("div.post[id^='p']"):
+        pid = (d.get_attribute("id") or "")[1:]
+        content = d.query_selector(".postbody .content")
+        if not pid.isdigit() or content is None:
+            continue
+        no = None
+        for h in d.query_selector_all("h3.post-comment-no"):
+            # text_content, not inner_text: the site's CSS hides this h3 (inner_text -> "")
+            if m := re.search(r"Post no\.\s*(\d+)", h.text_content() or ""):
+                no = int(m.group(1))
+        t = d.query_selector("time[datetime]")
+        out.append({"id": int(pid), "no": no, "time": t.get_attribute("datetime") if t else "",
+                    "text": content.inner_text().strip()})
+    return sorted(out, key=lambda x: x["id"])
+
+
+def fetch_page(page, topic_id: int, start: int | str = 99999):
+    """Return (posts, is_login_expired, prev_start). prev_start = start offset of the previous
+    page (from the pagination 'Previous' link), or None on the first page."""
+    resp = goto(page, f"https://board.thaivi.org/viewtopic.php?t={topic_id}&start={start}")
     # Since ~2026-09-16 ThaiVI no longer redirects guests to mode=login: it serves an
     # HTTP 403 "ข้อมูลทั่วไป / เนื้อหาส่วนนี้เฉพาะสมาชิก" page at the same URL. Treat any
     # page without a logout link (i.e. not logged in) as an expired session.
@@ -163,10 +188,10 @@ def fetch_latest_page(page, ticker: str, topic_id: int):
         or (resp is not None and resp.status in (401, 403))
         or "mode=logout" not in html  # (don't match "เฉพาะสมาชิก" text — users post it)
     ):
-        return [], True
-    posts = page.query_selector_all(".postbody .content")
-    texts = [p.inner_text().strip() for p in posts]
-    return texts, False
+        return [], True, None
+    prev = page.query_selector("span.arrow.previous a[rel='prev']")
+    starts = re.findall(r"start=(\d+)", prev.get_attribute("href") or "") if prev else []
+    return parse_posts(page), False, (int(starts[-1]) if starts else None)
 
 
 def auto_login(page, username: str, password: str) -> bool:
@@ -188,32 +213,71 @@ def auto_login(page, username: str, password: str) -> bool:
 
 
 def run_ticker_loop(page, digest_state):
-    """Return (new_by_ticker, is_login_expired, parse_errors)."""
-    new_by_ticker = {}
-    parse_errors = []
+    """Return (new_by_ticker, is_login_expired, parse_errors, updates).
+    Never mutates digest_state: `updates` (ticker -> new state entry) is applied by main() only
+    at a commit point (after LINE delivery, or on a day with nothing to deliver), so an
+    expired session / crash mid-loop can't mark undelivered posts as seen."""
+    new_by_ticker, parse_errors, updates = {}, [], {}
     for ticker, topic_id in TICKERS.items():
-        posts, expired = fetch_latest_page(page, ticker, topic_id)
+        st = digest_state.get(ticker, {})
+        posts, expired, prev = fetch_page(page, topic_id)
         if expired:
             log(f"ERROR {ticker}: session expired / not logged in (login redirect or members-only 403 page).")
-            return new_by_ticker, True, parse_errors
+            return new_by_ticker, True, parse_errors, updates
         if not posts:
             # A long-running thread's last page always has >=1 post — 0 means the
-            # selector broke or we got a non-thread page. Never record it as "quiet",
-            # and don't overwrite the last good count with 0.
+            # selector broke or we got a non-thread page. Never record it as "quiet".
             log(f"ERROR {ticker}: parsed 0 posts on t={topic_id} (title={page.title()!r}) — scrape failure, not a quiet day.")
             parse_errors.append(ticker)
             continue
-        last_count = digest_state.get(ticker, {}).get("last_post_count", 0)
-        if len(posts) > last_count:
-            new_posts = posts[last_count:]
-            new_by_ticker[ticker] = new_posts
-            log(f"{ticker}: {len(new_posts)} new post(s) (total now {len(posts)}, was {last_count})")
+        last_page_n = len(posts)
+        pages = 1
+        last_id = st.get("last_seen_id")
+        if last_id is None:
+            # One-time migration from count-based state ("first k posts of the last page were
+            # seen"): resolve k to a post id so nothing already summarised is re-sent.
+            k = st.get("last_post_count", 0)
+            if k <= 0:
+                last_id = 0  # never seen anything: whole last page is new (old first-run behaviour)
+            elif k <= len(posts):
+                last_id = posts[k - 1]["id"]
+            elif prev is not None:  # thread rolled onto a new page since the count was taken
+                prev_posts, expired, prev2 = fetch_page(page, topic_id, prev)
+                if expired:
+                    return new_by_ticker, True, parse_errors, updates
+                pages += 1
+                if k <= len(prev_posts):
+                    last_id = prev_posts[k - 1]["id"]
+                    posts, prev = prev_posts + posts, prev2
+                else:
+                    last_id = posts[-1]["id"]
+                    log(f"WARN {ticker}: can't place last_post_count={k} — treating current posts as seen")
+            else:
+                last_id = posts[-1]["id"]
+            log(f"{ticker}: migrated count-based state (last_post_count={k}) -> last_seen_id=p{last_id}")
+        # walk back until the page that contains the last seen post (or the cap)
+        while last_id and posts[0]["id"] > last_id and prev is not None and pages < MAX_PAGES_BACK:
+            prev_posts, expired, prev2 = fetch_page(page, topic_id, prev)
+            if expired:
+                return new_by_ticker, True, parse_errors, updates
+            if not prev_posts:
+                log(f"WARN {ticker}: previous page start={prev} parsed 0 posts — stopping walk-back")
+                break
+            posts, prev, pages = prev_posts + posts, prev2, pages + 1
+        if last_id and posts[0]["id"] > last_id and prev is not None:
+            log(f"WARN {ticker}: more than {MAX_PAGES_BACK} pages of new posts — posts before p{posts[0]['id']} skipped")
+        new = [p for p in posts if p["id"] > last_id]
+        if new:
+            new_by_ticker[ticker] = [p["text"] for p in new]
+            log(f"{ticker}: {len(new)} new post(s) — p{new[0]['id']}..p{new[-1]['id']} "
+                f"(no. {new[0]['no']}–{new[-1]['no']}, read {pages} page(s), last page has {last_page_n})")
         else:
-            log(f"{ticker}: no new posts (total {len(posts)})")
-        digest_state.setdefault(ticker, {})["last_post_count"] = len(posts)
-        digest_state[ticker]["topic_id"] = topic_id
-        digest_state[ticker]["last_checked"] = datetime.now(timezone.utc).isoformat()
-    return new_by_ticker, False, parse_errors
+            log(f"{ticker}: no new posts (last seen p{last_id}, last page has {last_page_n})")
+        newest = posts[-1]
+        updates[ticker] = {"topic_id": topic_id, "last_seen_id": max(last_id, newest["id"]),
+                           "last_seen_no": newest["no"], "last_seen_time": newest["time"],
+                           "last_checked": datetime.now(timezone.utc).isoformat()}
+    return new_by_ticker, False, parse_errors, updates
 
 
 def main():
@@ -238,7 +302,7 @@ def main():
         context = browser.new_context(storage_state=str(STATE_PATH), user_agent=USER_AGENT)
         page = context.new_page()
 
-        new_by_ticker, login_expired, parse_errors = run_ticker_loop(page, digest_state)
+        new_by_ticker, login_expired, parse_errors, updates = run_ticker_loop(page, digest_state)
 
         if login_expired:
             thaivi_user = os.environ.get("THAIVI_USER")
@@ -251,7 +315,7 @@ def main():
                 context.clear_cookies()
                 if auto_login(page, thaivi_user, thaivi_pass):
                     log("Auto re-login succeeded — retrying ticker loop.")
-                    new_by_ticker, login_expired, parse_errors = run_ticker_loop(page, digest_state)
+                    new_by_ticker, login_expired, parse_errors, updates = run_ticker_loop(page, digest_state)
                 else:
                     log("Auto re-login failed (bad creds, captcha, or lockout).")
             else:
@@ -270,14 +334,22 @@ def main():
         browser.close()
 
     def save_digest_state():
+        # retired keys: count-based tracking + the "go fix pagination" reminder (fixed 2026-10-12)
+        for k in ("_clean_run_streak", "_pagination_fix_reminder_sent"):
+            digest_state.pop(k, None)
         if DRY_RUN:
             log("[dry-run] digest_state.json not written.")
             return
         DIGEST_STATE_PATH.write_text(json.dumps(digest_state, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    if login_expired:
-        digest_state["_clean_run_streak"] = 0
+    def commit_seen():
+        """Mark this run's posts as seen — only at a commit point."""
+        for ticker, entry in updates.items():
+            digest_state[ticker] = entry  # drops the old last_post_count
         save_digest_state()
+
+    if login_expired:
+        save_digest_state()  # flags only — pending post updates are NOT applied
         if not digest_state.get("_session_alert_sent"):
             line_push(
                 line_token, line_user,
@@ -297,7 +369,6 @@ def main():
     if parse_errors and len(parse_errors) == len(TICKERS):
         # Logged in but nothing parsed anywhere — almost certainly a markup/selector
         # change. Report loudly instead of a "quiet day".
-        digest_state["_clean_run_streak"] = 0
         save_digest_state()
         line_push(
             line_token, line_user,
@@ -307,24 +378,12 @@ def main():
         log(f"ERROR: 0 posts parsed for all tickers {parse_errors} — sent error notice instead of quiet-day. Exiting.")
         sys.exit(3)
 
-    digest_state["_clean_run_streak"] = 0 if parse_errors else digest_state.get("_clean_run_streak", 0) + 1
-    if (
-        digest_state["_clean_run_streak"] >= CLEAN_STREAK_THRESHOLD
-        and not digest_state.get("_pagination_fix_reminder_sent")
-    ):
-        line_push(
-            line_token, line_user,
-            f"✅ บอทเช็คกระทู้ ร้อยคนร้อยหุ้น ไม่หลุด session มา {digest_state['_clean_run_streak']} รอบติดแล้ว — "
-            "fix ผ่านแล้ว ถึงคิวทำ pagination bug fix ต่อ (fetch_latest_page นับจากหน้าสุดท้ายอย่างเดียว) ครับ",
-        )
-        digest_state["_pagination_fix_reminder_sent"] = True
-        log(f"Clean-run streak reached {digest_state['_clean_run_streak']} — sent pagination-fix reminder.")
 
     error_note = (
         f"\n\n⚠️ ERROR: parse โพสต์ได้ 0 ใน {', '.join(parse_errors)} (scrape พัง ไม่ใช่ไม่มีโพสต์)" if parse_errors else ""
     )
     if not new_by_ticker:
-        save_digest_state()  # nothing to deliver -> safe to commit counts now
+        commit_seen()  # nothing to deliver -> safe to commit now
         if parse_errors:
             line_push(line_token, line_user, f"📊 อัปเดตกระทู้หุ้น รพ. {today_th}\n\nตัวที่เช็คได้ไม่มีโพสต์ใหม่{error_note}")
             log(f"No new posts in tickers that parsed; ERROR for {parse_errors} — sent notice with error.")
@@ -394,7 +453,7 @@ def main():
     if not line_push(line_token, line_user, message):
         # Notion page exists; next run will create another one for the same posts (acceptable).
         fail_undelivered("ส่ง LINE ไม่ได้", can_line=False)
-    save_digest_state()  # delivered -> now mark the posts seen
+    commit_seen()  # delivered -> now mark the posts seen
     log(f"Sent digest covering {tickers_list}")
 
 

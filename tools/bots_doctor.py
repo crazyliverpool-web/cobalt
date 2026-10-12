@@ -267,7 +267,8 @@ def check_thaivi(bot, r):
     if st.get("_session_alert_sent"):
         r.add("FAIL", "ThaiVI session expired (bot already alerted) — user must run login_and_fetch.py")
     tickers = {k: v for k, v in st.items() if not k.startswith("_") and isinstance(v, dict)}
-    zero = [k for k, v in tickers.items() if not v.get("last_post_count")]
+    # post-id tracking since 2026-10-12 (last_seen_id); count-based last_post_count before that
+    zero = [k for k, v in tickers.items() if not (v.get("last_seen_id") or v.get("last_post_count"))]
     stale = []
     for k, v in tickers.items():
         try:
@@ -277,11 +278,13 @@ def check_thaivi(bot, r):
         except Exception:  # noqa: BLE001
             stale.append(k)
     if zero:
-        r.add("FAIL", f"0 posts recorded for {'/'.join(zero)} (scrape failure, not a quiet day)")
+        r.add("FAIL", f"no seen post recorded for {'/'.join(zero)} (scrape failure or reset state, not a quiet day)")
     if stale:
         r.add("FAIL", f"not parsed in >{bot.stale_hours}h: {'/'.join(stale)} (heartbeat fresh but threads failing)")
     if not zero and not stale:
-        r.add("PASS", f"{len(tickers)}/{len(tickers)} threads parsed")
+        legacy = [k for k, v in tickers.items() if "last_seen_id" not in v]
+        r.add("PASS", f"{len(tickers)}/{len(tickers)} threads parsed"
+                      + (f" (count-based state, migrates next run: {'/'.join(legacy)})" if legacy else ""))
     # session cookie (phpBB autologin key, rotated each successful run)
     sess = os.path.join(ROOT, "stock-research", "thaivi", "thaivi_state.json")
     try:
