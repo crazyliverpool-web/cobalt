@@ -10,3 +10,4 @@
 ## อะไรมักพัง / หลอกตา
 - launchd ไม่รองรับ "Year" ใน `StartCalendarInterval` อย่างเป็นทางการ — ถ้า macOS ไม่สนช่อง Year มันอาจเตือนซ้ำทุกปีวันเดียวกัน หรือไม่เตือนเลย. **อย่าพึ่งตัวนี้ตัวเดียว**: ถ้า digest ThaiVI เริ่มรายงาน "ไม่มีอะไรใหม่" ติดกันหลายวัน ให้สงสัย session หมดก่อน
 - หลัง login ใหม่ → อัปเดตวันที่ในข้อความ plist + วันที่เตือนครั้งถัดไป (อีก ~1 ปี) แล้ว `launchctl bootout` / `bootstrap` ใหม่
+- plist มี `EnvironmentVariables` PATH แล้ว (2026-10-12; ตรวจด้วย `plutil -lint` + `launchctl print` — ห้าม kickstart เพราะจะส่งเตือนจริง). ไม่ได้ใช้ `netwait` (ส่ง LINE ครั้งเดียวตอน 07:05 — ถ้าตรง DarkWake อาจส่งไม่ออก)

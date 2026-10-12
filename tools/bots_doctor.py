@@ -17,6 +17,7 @@ Per bot, where it applies:
   3. plist     python3.14 called directly (no shell), script exists, EnvironmentVariables PATH set
   4. env/bins  required .env keys present (names only), required binaries on the plist PATH
   5. stderr    a Traceback written to the job's stderr log in the last 72h = WARN
+     network   last netwait.py line in the job's stdout log: "never came up" = FAIL, "up after Ns" = note
   6. bot state "fetch failed" vs "nothing new": ThaiVI per-thread parse counts + session cookie,
                YouTube RSS failures in the last run + Google OAuth token age, PROSPECT last log line
 Why: "exit 0" and "ไม่มีอะไรใหม่" both look healthy while a bot is blind
@@ -151,11 +152,11 @@ def bot_exit_hint(bot, code):
         return {"2": "ThaiVI session expired + auto-relogin failed",
                 "3": "logged in but 0 posts parsed in every thread — selector changed",
                 "4": "new posts found but Claude/Notion/LINE failed — not marked seen, next run re-sends",
-                "5": "crashed (uncaught exception, e.g. page-load timeout after retry) — see digest_log.txt CRASH; "
+                "5": "crashed (uncaught exception, e.g. page-load timeout after retry or network never came up) — see digest_log.txt CRASH; "
                      "alerted once per error class",
                 "1": "missing .env keys, or (pre-2026-10-11 code) an uncaught crash"}.get(code)
     if bot.label == "com.alonsi.youtube-digest":
-        return {"2": "RSS fetch failed for every channel — saw nothing"}.get(code)
+        return {"2": "saw nothing — network never came up, or RSS failed for every channel"}.get(code)
     if bot.label == "com.alonsi.prospect-occupancy-watch":
         return {"1": "SET page fetch failed after retries, new-filing LINE not delivered, or missing env — see log",
                 "5": "crashed (uncaught exception) — traceback in prospect_occupancy_watch_launchd.err"}.get(code)
@@ -234,6 +235,25 @@ def check_stderr(plist, r):
         last_exc = [l for l in text.splitlines() if re.match(r"^[\w.]+(Error|Exception|Iteration)\b", l)]
         what = last_exc[-1][:80] if last_exc else "Traceback"
         r.add("WARN", f"crash {fmt_age(a)} ago in {os.path.basename(err)}: {what}")
+
+
+def check_network(plist, r):
+    """netwait.py writes one outcome line per run into the job's stdout log."""
+    out = (plist or {}).get("StandardOutPath")
+    if not out or not os.path.exists(out):
+        return
+    lines = [l for l in tail_lines(out, 300) if "network: " in l]
+    if not lines:
+        return
+    last = lines[-1][lines[-1].index("network: ") + len("network: "):]
+    if last.startswith("never came up"):
+        r.add("FAIL", f"network {last[:110]}")
+    elif last.startswith("waiting up to"):
+        r.add("WARN", "last run was still waiting for network (killed or Mac slept mid-wait?)")
+    elif m := re.match(r"up after (\d+)s", last):
+        r.add("PASS", f"waited {m.group(1)}s for network")
+    else:
+        r.add("PASS", "network ok")
 
 
 # ---------------------------------------------------------------- bot-specific checks
@@ -426,6 +446,7 @@ def doctor(bot):
     check_heartbeat(bot, r)
     check_env_and_bins(bot, plist, r)
     check_stderr(plist, r)
+    check_network(plist, r)
     hb_ok = bot.heartbeat and os.path.exists(bot.heartbeat)
     if bot.label == "com.alonsi.roikonroihoon-digest" and hb_ok:
         check_thaivi(bot, r)

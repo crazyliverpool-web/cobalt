@@ -11,7 +11,7 @@
 
 Run manually:  python3 digest.py [--dry-run]
 
-Exit codes: 0 ok (heartbeat written), 1 missing env, 2 RSS fetch failed for EVERY channel
+Exit codes: 0 ok (heartbeat written), 1 missing env, 2 network never came up (netwait) or RSS fetch failed for EVERY channel
 (error, not a quiet day — heartbeat NOT written so watchdog/bots_doctor flag it; 2026-10-10/11
 both channels 404'd and the bot used to log "No new videos" + status ok). Partial RSS failure
 proceeds and prints "WARN: partial RSS failure ..." (surfaced by tools/bots_doctor.py).
@@ -36,6 +36,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TOOLS_DIR = os.path.dirname(BASE_DIR)
 sys.path.insert(0, TOOLS_DIR)
 import notion_helper  # noqa: E402 (parent dir, path set above)
+import netwait  # noqa: E402
+
+# Hosts that must be reachable before we start (DarkWake: Mac awake, Wi-Fi not yet) — see netwait.py
+NET_HOSTS = ("www.youtube.com", "api.line.me", "api.anthropic.com", "api.notion.com", "sheets.googleapis.com")
 
 CHANNELS_PATH = os.path.join(BASE_DIR, "config", "channels.json")
 ENV_PATH = os.path.join(BASE_DIR, ".env")
@@ -82,6 +86,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Don't write to Sheet or send email")
     args = parser.parse_args()
 
+    netwait.hold_awake()
     load_env()
     spreadsheet_id = os.environ.get("GOOGLE_SPREADSHEET_ID")
     line_token = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
@@ -89,6 +94,13 @@ def main():
     if not spreadsheet_id or not line_token or not line_user:
         print("ERROR: missing GOOGLE_SPREADSHEET_ID / LINE_CHANNEL_ACCESS_TOKEN / LINE_USER_ID in .env")
         sys.exit(1)
+
+    try:
+        netwait.wait_for_network(NET_HOSTS)
+    except netwait.NetworkUnavailable as e:
+        # same outcome as "RSS failed for every channel": saw nothing -> exit 2, no heartbeat
+        print(f"ERROR: {e} — not a quiet day. Exiting 2 without heartbeat.")
+        sys.exit(2)
 
     channels = [c for c in load_channels() if c.get("enabled", True)]
     st = state.load_state()

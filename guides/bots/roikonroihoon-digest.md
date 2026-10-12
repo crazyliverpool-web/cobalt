@@ -31,5 +31,9 @@ heartbeat: `stock-research/thaivi/digest_state.json` (watchdog เตือน�
   รอบที่ไม่ crash (exit 0/1/2/3/4) ลบไฟล์นี้ทิ้ง → crash ครั้งหน้าเตือนใหม่. crash ซ้ำชนิดเดิม = เงียบแต่ exit 5 (doctor FAIL, watchdog เตือนเมื่อ heartbeat เกิน 36 ชม.)
 - **auto-relogin ได้ "การส่งค่าผิดพลาด. กรุณาลองใหม่อีกครั้ง"** = phpBB `FORM_INVALID`. `check_form_key()` ของ phpBB ปฏิเสธฟอร์มที่ส่งภายในวินาทีเดียวกับที่สร้าง token (กันบอท) — บอทเดิมโหลดหน้า login→กดส่งใน ~0.7 วิ (11 ต.ค. 2569).
   ตอนนี้รอ 2.5 วิ ก่อนกด login (`LOGIN_SUBMIT_DELAY_S`). **ยังไม่ได้ลองกับ login จริง** — ถ้ายังได้ข้อความเดิม อาจเป็นเรื่อง sid/cookie หรือ captcha แทน
+- **DarkWake ไม่มีเน็ต (2026-10-12):** เริ่มรอบด้วย `netwait` — ถือ caffeinate (`-i -s`) ตลอดรอบ แล้วรอจน board.thaivi.org, api.line.me, api.anthropic.com, api.notion.com ต่อได้ (สูงสุด 10 นาที).
+  log 1 บรรทัด: `network: ok (…)` / `network: up after Ns` / `network: never came up …` → ไปที่ crash handler: exit 5, LINE แจ้ง 1 ครั้ง (ถ้าส่งไม่ได้เพราะยังไม่มีเน็ต จะไม่ตั้ง flag → รอบหน้าเตือนใหม่), ไม่แตะ `digest_state.json`. doctor แสดง "waited Ns for network" หรือ FAIL
+- **pagination: กระทู้ขึ้นหน้าใหม่ = โพสต์หาย** (ยังไม่แก้) — บอทดูแค่หน้าสุดท้าย; 12 ต.ค. 2569 BDMS 30 → 1 (หน้าเต็ม 30 แล้วขึ้นหน้าใหม่) ถูกรายงาน "no new posts" และอย่างน้อย 1 โพสต์ไม่ถูกสรุป
+- plist มี `EnvironmentVariables` PATH แล้ว (2026-10-12)
 - กู้ batch ที่หาย: ตั้ง `last_post_count` ทุกกระทู้ = 0 แล้ว kickstart → บอทถือว่าทั้งหน้าสุดท้ายเป็นโพสต์ใหม่ (ได้ batch เดิม + ที่ใหม่กว่า). ใช้ได้เฉพาะถ้ากระทู้ยังไม่ขึ้นหน้าใหม่ (บอทดูแค่หน้าสุดท้าย)
 - รันมือใน terminal ผ่าน ≠ launchd ผ่าน (TCC) — ดู `guides/guardrails.md`

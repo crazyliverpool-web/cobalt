@@ -29,6 +29,8 @@ import requests
 from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import sync_playwright
 
+import netwait
+
 ROOT = Path(__file__).resolve().parent.parent
 STATE_PATH = ROOT / "stock-research/prospect_occupancy_watch_state.json"
 LOG_PATH = ROOT / "stock-research/prospect_occupancy_watch.log"
@@ -39,6 +41,9 @@ DEEPDIVE_PATH = "PROSPECT_deepdive.html"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
 DRY_RUN = "--dry-run" in sys.argv
+# Hosts that must be reachable before we start (DarkWake: Mac awake, Wi-Fi not yet) — see netwait.py.
+# The goto retries below stay as a second line of defence.
+NET_HOSTS = ("www.set.or.th", "api.line.me")
 
 # Page load: the news list is client-rendered (Nuxt), so we must let XHRs settle, but a
 # networkidle that never settles shouldn't kill the run. Retries cover the 2026-10-12 case:
@@ -183,6 +188,7 @@ def fetch_filings(page) -> list[tuple[tuple[int, int], str, str]]:
 
 
 def main():
+    netwait.hold_awake(log)
     load_env()
     line_token = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
     line_user = os.environ.get("LINE_USER_ID")
@@ -205,6 +211,7 @@ def main():
         context = browser.new_context(user_agent=USER_AGENT)
         page = context.new_page()
         try:
+            netwait.wait_for_network(NET_HOSTS, log=log)  # NetworkUnavailable -> fetch-failed path below
             found = fetch_filings(page)
         except Exception as e:  # noqa: BLE001
             log(f"fetch failed: {type(e).__name__}: {one_line(e)}")

@@ -28,6 +28,8 @@ plist มี `EnvironmentVariables` PATH แล้ว (เพิ่ม 12 ต.�
 - **(แก้แล้ว 2026-10-12) DarkWake ไม่มีเน็ต** — Mac หลับ 07:25 พลาดรอบ 07:30 → launchd รันชดตอน maintenance DarkWake 07:41:19 (ตื่น 45 วิ) ก่อน Wi-Fi ต่อ → `net::ERR_INTERNET_DISCONNECTED` → exit 1 เงียบ.
   ตอนนี้: goto `domcontentloaded` + networkidle แบบไม่บังคับ (30 วิ), ลอง 3 ครั้ง ห่าง 90 วิ (ข้ามไป wake ถัดไปได้); ล้มหมด = log บรรทัดเดียว + LINE "❌ บอทเช็คไฟลิ่ง PROSPECT ERROR" + exit 1;
   exception อื่น = exit 5 + LINE; เจอไฟลิ่งใหม่แต่ส่ง LINE ไม่ได้ = ไม่บันทึก state (รอบหน้าเตือนใหม่) + exit 1. `--dry-run` = ไม่ส่ง LINE ไม่เขียน state (แต่ยังเขียน log = heartbeat)
+- **DarkWake ไม่มีเน็ต (2026-10-12):** เริ่มรอบด้วย `netwait` — ถือ caffeinate (`-i -s`) ตลอดรอบ แล้วรอจน www.set.or.th, api.line.me ต่อได้ (สูงสุด 10 นาที).
+  log 1 บรรทัด: `network: ok (…)` / `network: up after Ns` / `network: never came up …` → เข้าทาง fetch failed: exit 1 + LINE ❌ (ส่งไม่ได้ก็ไม่ crash). retry goto 3×90 วิ ยังอยู่เป็นชั้นที่สอง. doctor แสดง "waited Ns for network" หรือ FAIL
 - **log ล้มเหลวยังขยับ heartbeat** (log คือ heartbeat) → watchdog มองว่าสด. ดูผลรอบจริงด้วย `bots_doctor.py` (อ่านบรรทัดผลลัพธ์สุดท้าย)
 - set.or.th อยู่หลัง Imperva/Incapsula — จาก IP บ้าน (12 ต.ค. 2569) ไม่โดน challenge, โหลด ~1–4 วิ
 - set.or.th เปลี่ยนโครงหน้าเว็บ → อาจหาไฟลิ่งไม่เจอแบบเงียบๆ. ถ้าไตรมาสใหม่ควรออกแล้ว (ราว 45 วันหลังปิดไตรมาส) แต่ไม่มีเตือน → เปิดหน้า SET เทียบเอง

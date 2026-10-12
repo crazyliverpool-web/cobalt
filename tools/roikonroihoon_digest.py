@@ -13,7 +13,7 @@ Usage: python3 roikonroihoon_digest.py [--dry-run]
 Exit codes: 0 ok, 1 missing env, 2 session expired, 3 0 posts parsed everywhere,
   4 new posts found but Claude/Notion/LINE failed — digest_state.json NOT written, so the
     posts stay "unseen" and the next run re-sends them (and the stale heartbeat trips the watchdog),
-  5 uncaught exception (e.g. page load timeout after retry) — traceback logged, one LINE alert per
+  5 uncaught exception (e.g. page load timeout after retry, or netwait.NetworkUnavailable) — traceback logged, one LINE alert per
     error class (deduped via digest_crash_alert.json), digest_state.json NOT written.
 Requires: tools/.env with ANTHROPIC_API_KEY, LINE_CHANNEL_ACCESS_TOKEN, LINE_USER_ID
 Requires: stock-research/thaivi/thaivi_state.json (valid Playwright login session)
@@ -31,6 +31,7 @@ import requests
 from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import sync_playwright
 
+import netwait
 import notion_helper
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -59,6 +60,9 @@ TICKERS = {
     "VIH":  53579,
     "RJH":  59837,
 }
+
+# Hosts that must be reachable before we start (DarkWake: Mac awake, Wi-Fi not yet) — see netwait.py
+NET_HOSTS = ("board.thaivi.org", "api.line.me", "api.anthropic.com", "api.notion.com")
 
 MODEL = "claude-sonnet-5"
 CLEAN_STREAK_THRESHOLD = 5  # consecutive successful (non-expired) runs before declaring the 2026-08-04 session-persistence fix confirmed
@@ -213,6 +217,7 @@ def run_ticker_loop(page, digest_state):
 
 
 def main():
+    netwait.hold_awake(log)
     load_env()
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     line_token = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN")
@@ -221,6 +226,10 @@ def main():
     if missing:
         log(f"Missing env vars: {missing} — aborting.")
         sys.exit(1)
+
+    # Never up within 10 min -> NetworkUnavailable -> run()'s crash handler: exit 5, one LINE
+    # alert attempt (fails quietly while offline), digest_state.json untouched.
+    netwait.wait_for_network(NET_HOSTS, log=log)
 
     digest_state = json.loads(DIGEST_STATE_PATH.read_text(encoding="utf-8")) if DIGEST_STATE_PATH.exists() else {}
 
