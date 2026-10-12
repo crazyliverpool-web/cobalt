@@ -15,15 +15,24 @@
 
 ## เช็คทุกตัวในครั้งเดียว
 ```bash
-launchctl list | grep alonsi            # คอลัมน์ 2 = last exit code (0 = ปกติ)
-for h in tools/youtube_digest/data/last_run.json stock-research/thaivi/digest_state.json \
-         stock-research/prospect_occupancy_watch.log; do stat -f "%Sm  %N" -t "%F %H:%M" "$h"; done
+python3 -I tools/bots_doctor.py     # 1 บรรทัด/บอท: PASS|WARN|FAIL <label> <เหตุผล>; exit 1 ถ้ามี FAIL
 ```
-heartbeat เก่ากว่าเกณฑ์ (รายวัน 36 ชม., PROSPECT 9 วัน) = บอทเงียบ แม้ exit code จะเป็น 0.
+read-only (ไม่ kickstart, ไม่ส่ง LINE, ไม่แก้ state). เช็คต่อบอท: launchd โหลดอยู่ + `last exit code`,
+heartbeat ความสด (รายวัน 36 ชม., PROSPECT 216 ชม. — exit 0 แต่ heartbeat เก่า = FAIL บอทเงียบ),
+plist (python3.14 ตรง, script มีจริง, มี PATH), `.env` keys, yt-dlp บน PATH ของ plist, Traceback ใน stderr 72 ชม. ล่าสุด,
+และ state ที่หลอกตา: ThaiVI parse ได้ทุกกระทู้ + cookie autologin, YouTube RSS ล้มทุกช่องแต่ log ว่า "No new videos",
+Google OAuth (Testing mode ตาย ≤7 วันหลัง consent), PROSPECT หาไฟลิ่งบนหน้า SET ไม่เจอ.
+WARN = ไปดูด้วยตา (ยังไม่ใช่พังแน่), FAIL = พัง/เงียบแน่นอน.
+**doctor ไม่ได้พิสูจน์ว่า launchd รันผ่าน** — แค่อ่านผลรอบล่าสุด; verify หลังแก้ยังต้อง `kickstart` ตาม guardrails.
+
+แบบมือ (ถ้า doctor เองพัง): `launchctl list | grep alonsi` (คอลัมน์ 2 = last exit code) + `stat` heartbeat ใน `tools/bot_registry.py`.
 
 ## เพิ่มบอทใหม่
 1. plist เรียก python3.14 ตรง + `EnvironmentVariables` PATH (ดู guardrails)
 2. บอทต้องเขียน heartbeat file ทุกรอบที่รันสำเร็จ
-3. เพิ่มเข้า `HEARTBEATS` ใน `tools/digest_watchdog.py` **และ** `JOBS` ใน `tools/digest_catchup.py`
+3. **ลงทะเบียนใน `BOTS` ของ `tools/bot_registry.py`** (label, script, heartbeat, `stale_hours`, `catchup_hours`,
+   `watched`, `env_keys`, `path_bins`) — แหล่งเดียวที่ watchdog (`HEARTBEATS`), catch-up (`JOBS`) และ `bots_doctor.py` อ่าน.
+   ไม่ลงทะเบียน = ไม่มีใครเฝ้า (doctor จะขึ้น WARN "plist not in tools/bot_registry.py"). ถ้าบอทมี state ที่บอก
+   "ดึงไม่ได้" ต่างจาก "ไม่มีอะไรใหม่" ได้ → เพิ่ม `check_<bot>` ใน `bots_doctor.py`
 4. เขียนไฟล์คู่มือในโฟลเดอร์นี้ + เพิ่มแถวในตารางข้างบน
-5. verify: `launchctl kickstart -k gui/$(id -u)/<label>` แล้วดู exit code + heartbeat
+5. verify: `launchctl kickstart -k gui/$(id -u)/<label>` แล้วรัน `python3 -I tools/bots_doctor.py` ต้องได้ PASS

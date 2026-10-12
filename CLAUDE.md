@@ -81,3 +81,6 @@ Where a lesson goes (script > skill/agent > hook > memory) and the working princ
   `guides/guardrails.md` first, and diff against the existing deliverable before overwriting.
 - Scripted/batch LLM calls in `tools/*.py`: call the Anthropic API via the `anthropic`
   SDK directly. NEVER shell out to `claude -p`. Reason: `guides/guardrails.md`.
+- Before saying any task is done: check the real output yourself (open the file/image, run the real
+  path) — never trust an agent's summary or a proxy like mtime. Say plainly what you could not verify.
+  Proof bar: `guides/principles.md` §5.

@@ -7,6 +7,7 @@ for-opus/questions.md Q29 for why this exists: youtube-digest died silently for
 32 days with nobody noticing before this watchdog existed.
 """
 import os
+import sys
 import time
 from datetime import datetime
 
@@ -15,14 +16,11 @@ import requests
 ROOT = os.path.dirname(os.path.abspath(__file__))
 ENV_PATH = os.path.join(ROOT, ".env")
 
-# name -> (heartbeat file, stale threshold in hours). The dailies alert after
-# 36h; prospect-occupancy-watch runs weekly (Mondays) and its heartbeat is its
-# append-only .log, so it only alerts after ~9 days of silence.
-HEARTBEATS = {
-    "YouTube digest": (os.path.join(ROOT, "youtube_digest", "data", "last_run.json"), 36),
-    "thaivi digest": (os.path.join(os.path.dirname(ROOT), "stock-research", "thaivi", "digest_state.json"), 36),
-    "PROSPECT occupancy watch": (os.path.join(os.path.dirname(ROOT), "stock-research", "prospect_occupancy_watch.log"), 216),
-}
+# name -> (heartbeat file, stale threshold in hours). Defined once in bot_registry.py
+# (shared with digest_catchup.py and bots_doctor.py). Dailies alert after 36h; the
+# weekly PROSPECT watch after 216h (~9 days).
+sys.path.insert(0, ROOT)
+from bot_registry import HEARTBEATS  # noqa: E402
 
 
 def load_env():

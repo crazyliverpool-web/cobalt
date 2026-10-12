@@ -9,19 +9,16 @@ the PROSPECT watch runs weekly.
 """
 import os
 import subprocess
+import sys
 import time
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# label -> (heartbeat file, stale threshold in hours)
-# Daily bots use 25h. prospect-occupancy-watch runs weekly (Mondays), so it gets
-# a wider threshold; its heartbeat is the append-only .log (the state json only
-# changes when a new filing appears, which can be months apart).
-JOBS = {
-    "com.alonsi.youtube-digest": (os.path.join(ROOT, "youtube_digest", "data", "last_run.json"), 25),
-    "com.alonsi.roikonroihoon-digest": (os.path.join(os.path.dirname(ROOT), "stock-research", "thaivi", "digest_state.json"), 25),
-    "com.alonsi.prospect-occupancy-watch": (os.path.join(os.path.dirname(ROOT), "stock-research", "prospect_occupancy_watch.log"), 100),
-}
+# label -> (heartbeat file, stale threshold in hours). Defined once in bot_registry.py
+# (shared with digest_watchdog.py and bots_doctor.py). Dailies 25h; the weekly PROSPECT
+# watch 100h (its heartbeat is the append-only .log).
+sys.path.insert(0, ROOT)
+from bot_registry import JOBS  # noqa: E402
 
 
 def main():
