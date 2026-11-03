@@ -1,0 +1,18 @@
+[
+  {
+    "enabled": true,
+    "name": "ลงทุน Diary",
+    "channel_id": "UCELVTxN2RQM-JnKs6uG_5xg",
+    "category": "หุ้น/AI",
+    "priority": 3,
+    "notes": "มี Membership tier - ใช้ cookies เข้าถึงคลิป Membership ได้ถ้า Chrome login อยู่"
+  },
+  {
+    "enabled": true,
+    "name": "The Dam Investor",
+    "channel_id": "UC5pihKBMc4yDs9WufeGS9Ng",
+    "category": "หุ้น",
+    "priority": 3,
+    "notes": ""
+  }
+]
