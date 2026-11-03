@@ -10,8 +10,15 @@
 7. Save updated state
 
 Run manually:  python3 digest.py [--dry-run]
+--dry-run never writes state.json or last_run.json, on any path, and skips Sheet/Notion/LINE.
+It still fetches RSS (with retries), runs yt-dlp and calls the Claude API for new videos.
 
-Exit codes: 0 ok (heartbeat written), 1 missing env, 2 network never came up (netwait) or RSS fetch failed for EVERY channel
+RSS: transient errors (404/408/429/5xx/network) are retried in rounds, only for the channels still
+failing, waiting RSS_RETRY_DELAYS_S between rounds. A run where every channel answers first time
+never sleeps.
+
+Exit codes: 0 ok (heartbeat written, except --dry-run), 1 missing env, 2 network never came up (netwait)
+or RSS fetch failed for EVERY channel after all retries
 (error, not a quiet day — heartbeat NOT written so watchdog/bots_doctor flag it; 2026-10-10/11
 both channels 404'd and the bot used to log "No new videos" + status ok). Partial RSS failure
 proceeds and prints "WARN: partial RSS failure ..." (surfaced by tools/bots_doctor.py).
@@ -21,6 +28,8 @@ import os
 import sys
 import json
 import argparse
+import http.client
+import ssl
 import time
 import urllib.error
 from datetime import datetime, timezone
@@ -45,26 +54,47 @@ CHANNELS_PATH = os.path.join(BASE_DIR, "config", "channels.json")
 ENV_PATH = os.path.join(BASE_DIR, ".env")
 MAX_VIDEOS_PER_RUN = 10
 MAX_VIDEOS_PER_CHANNEL_SCAN = 5
-RSS_ATTEMPTS = 2       # YouTube RSS 404s/5xx intermittently — one retry after a pause
-RSS_BACKOFF_S = 20
+# YouTube RSS answers 404/5xx in bursts (1-3 Nov 2026: every 08:00 run, both channels; cause unproven).
+# Seconds to wait before each retry round: 6 tries over 15.5 min. caffeinate (netwait.hold_awake) covers it.
+RSS_RETRY_DELAYS_S = (30, 60, 120, 240, 480)
 
 
 def _retryable(e: Exception) -> bool:
     if isinstance(e, urllib.error.HTTPError):
         return e.code in (404, 408, 429) or e.code >= 500
-    return isinstance(e, (urllib.error.URLError, TimeoutError, ConnectionError))
+    return isinstance(e, (urllib.error.URLError, TimeoutError, ConnectionError,
+                          ssl.SSLError, http.client.HTTPException))
 
 
-def fetch_with_retry(ch: dict):
-    """Return entries, or raise the last error after RSS_ATTEMPTS tries."""
-    for attempt in range(1, RSS_ATTEMPTS + 1):
-        try:
-            return rss_utils.fetch_recent_videos(ch["channel_id"], limit=MAX_VIDEOS_PER_CHANNEL_SCAN)
-        except Exception as e:  # noqa: BLE001
-            if attempt == RSS_ATTEMPTS or not _retryable(e):
-                raise
-            print(f"  retry RSS for {ch['name']} in {RSS_BACKOFF_S}s ({e})")
-            time.sleep(RSS_BACKOFF_S)
+def fetch_all_channels(channels: list[dict]) -> tuple[dict, dict]:
+    """Return (entries, errors), both keyed by channel_id. Channels that succeeded are not fetched
+    again; a non-retryable error drops the channel at once. Retry lines must not start with
+    "WARN:"/"ERROR:" — tools/bots_doctor.py counts those lines per run. Flushed because launchd's
+    stdout is a buffered file: otherwise a long wait shows nothing, and a kill loses the lines."""
+    entries, errors = {}, {}
+    pending = list(channels)
+    waited = 0
+    for delay in (*RSS_RETRY_DELAYS_S, None):
+        still_failing = []
+        for ch in pending:
+            cid = ch["channel_id"]
+            try:
+                entries[cid] = rss_utils.fetch_recent_videos(cid, limit=MAX_VIDEOS_PER_CHANNEL_SCAN)
+                errors.pop(cid, None)
+            except Exception as e:  # noqa: BLE001
+                errors[cid] = e
+                if _retryable(e):
+                    still_failing.append(ch)
+        pending = still_failing
+        if not pending or delay is None:
+            break
+        detail = "; ".join(f"{ch['name']}: {errors[ch['channel_id']]}" for ch in pending)
+        print(f"  {datetime.now():%H:%M:%S} retry RSS in {delay}s ({detail})", flush=True)
+        time.sleep(delay)
+        waited += delay
+    if waited:
+        print(f"  RSS retries done after {waited}s of waiting: {len(entries)}/{len(channels)} channels ok", flush=True)
+    return entries, errors
 
 
 def load_env():
@@ -81,11 +111,7 @@ def load_channels() -> list[dict]:
         return json.load(f)
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--dry-run", action="store_true", help="Don't write to Sheet or send email")
-    args = parser.parse_args()
-
+def main(dry_run: bool = False):
     netwait.hold_awake()
     load_env()
     spreadsheet_id = os.environ.get("GOOGLE_SPREADSHEET_ID")
@@ -105,16 +131,16 @@ def main():
     channels = [c for c in load_channels() if c.get("enabled", True)]
     st = state.load_state()
 
+    entries_by_channel, errors = fetch_all_channels(channels)
+
     new_videos = []
     failed = []
     for ch in channels:
-        try:
-            entries = fetch_with_retry(ch)
-        except Exception as e:
-            print(f"WARN: RSS fetch failed for {ch['name']}: {e}")
+        if ch["channel_id"] in errors:
+            print(f"WARN: RSS fetch failed for {ch['name']}: {errors[ch['channel_id']]}")
             failed.append(ch["name"])
             continue
-        for entry in entries:
+        for entry in entries_by_channel[ch["channel_id"]]:
             if state.is_seen(st, ch["channel_id"], entry.video_id):
                 continue
             new_videos.append((ch, entry))
@@ -135,7 +161,7 @@ def main():
 
     print(f"Found {len(new_videos)} new video(s).")
 
-    creds = None if args.dry_run else sheets_client.get_credentials()
+    creds = None if dry_run else sheets_client.get_credentials()
     processed_rows = []
 
     for ch, entry in new_videos:
@@ -170,10 +196,11 @@ def main():
 
     if not processed_rows:
         print("No videos successfully summarized this run.")
-        state.save_state(st)
+        if not dry_run:
+            state.save_state(st)
         return
 
-    if args.dry_run:
+    if dry_run:
         print(json.dumps(processed_rows, ensure_ascii=False, indent=2))
         return
 
@@ -216,5 +243,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-    state.write_heartbeat()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Don't write state, heartbeat or Sheet, and don't send Notion/LINE")
+    args = parser.parse_args()
+    main(dry_run=args.dry_run)
+    if not args.dry_run:  # a dry run proves nothing about the job; must not hide a dead bot
+        state.write_heartbeat()
