@@ -52,6 +52,21 @@ Desktop has ONE folder: `studio/`. `projects/`, `courses/` (teaching, ltd-ai-101
 `inbox/` (loose files to sort) are gitignored. **No video/audio on this Mac** — all media lives
 on `/Volumes/Acici Sanitsakul/studio-archive/media/` (see `source/README_media.md`).
 
+## Codex (ลูกน้อง: Claude เป็นหัวหน้างาน)
+Delegate via `codex-cli/run.sh [--role image|checker|extractor|reviewer] <job> "<task>" [ref.png]` — never call `codex` directly.
+Codex's rules: `codex-cli/AGENTS.md` (keep it short; job-specific rules go in `codex-cli/roles/`).
+Open every file in its FILES report before use. Send work on your own initiative, no need to ask, when checking is cheaper than doing:
+- **Always:** image generation/fill (no other generator here).
+- **Trial until 2026-11-19:** blind-check of stock numbers and red-team of the thesis for real decisions (`research/WORKFLOW.md` Phase 4),
+  course fact-check against the raw transcript + list of suspected mis-transcriptions (`learn-session` Phase B), independent answer keys
+  (compare, then resolve only the mismatches), review of Claude's code (reproduce a bug before fixing it).
+  One-session comparison only: structuring a transcript (Haiku script stays default until the user decides).
+- **If quota remains:** tables from filings → CSV, small standalone scripts/tests. Images take priority: the $20 plan shares
+  one quota, and images burn it 3-5x faster.
+- **Never to Codex:** patient data (`projects/tussaneem`, clinic), logins/cookies/tokens (so no NotebookLM), bots, deep-dive and
+  lesson writing, git commits, final sign-off, plain web research (do it yourself). Codex may argue against a thesis, but Claude
+  weighs it and the investment judgement stays with Claude and the user.
+
 ## Opus ↔ Sonnet handoff
 At session start read **`todos.md`** (one file, all work). Each task is a list of stages with a model
 per stage — do the first unfinished stage that matches your model; skip ⏸️ items. `for-opus/` and
@@ -65,11 +80,13 @@ which reads only the matching file in `guides/bots/` (one per launchd bot).
 ## Photo: remove people / sun flare
 `python3 -I tools/remove_people.py <image> [--extra x0,y0,x1,y1 ...]` (HEIC ok). Read its docstring;
 always inspect the `_overlay`/`_compare` previews — reflections in water need `--extra`.
+Big/complex holes (people behind railings, on decks, against buildings) → `tools/codex_fill.py` (LaMa for
+small holes + Codex for regions picked by `--codex-box`; only masked pixels pasted back, full-res). Docstring has usage.
 Sun streaks / light beams: `python3 -I tools/remove_flare.py <image> --line x0,y0,x1,y1 [...]` — read its
 docstring (start lines below the sun disk; `--patch-safe-below` = treeline row); zoom into ridges in `_compare`.
 **Before telling the user any photo edit is done:** run `photo-reviewer` agent on the outputs; fix every FAIL and
 re-run until all PASS (user rule 2026-10-11, from poteto's verify stage). Self-check: `tools/photo_check.py`.
-Video grade / remove people (SAM2 + ProPainter, installed) → read `guides/video-edit.md` first.
+Video grade / remove people (`tools/video_retouch.py`) → read `guides/video-edit.md` first.
 
 ## Learning loop (`/reflect`, `/ruminate`, `/meditate`)
 After a long task, a user correction, or a tool workaround → `/reflect`. Monthly → `/ruminate` then `/meditate`.
