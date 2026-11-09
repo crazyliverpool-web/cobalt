@@ -4,7 +4,7 @@
 |---|---|
 | `AGENTS.md` | คำสั่งประจำของ Codex (เทียบเท่า CLAUDE.md) — Codex อ่านเองอัตโนมัติ |
 | `run.sh` | ตัวที่ Claude ใช้สั่งงาน: สร้างโฟลเดอร์งาน → `codex exec` → พิมพ์รายงาน |
-| `roles/*.md` | บทบาทเฉพาะงาน (`image`, `checker`, `extractor`, `reviewer`) เลือกด้วย `--role` และเติมเข้าคำสั่งเฉพาะงานนั้น |
+| `roles/*.md` | บทบาทเฉพาะงาน (`image`, `checker`, `extractor`, `reviewer`, `editor`) เลือกด้วย `--role` และเติมเข้าคำสั่งเฉพาะงานนั้น |
 | `rules/network.md` | กฎใช้เน็ต เติมอัตโนมัติเมื่อใช้ `--web` หรือ `--net` |
 | `.codex/config.toml` | ตั้ง auto-compact แบบกระชับ และซ่อนการคิดระหว่างทำ |
 | `outputs/<วันเวลา>-<ชื่องาน>/` | ผลงานแต่ละงาน + `task.txt` (คำสั่ง) + `report.txt` (รายงาน) + `codex.log` |

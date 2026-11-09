@@ -1,6 +1,6 @@
 #!/bin/zsh
 # Claude → Codex job runner. Each job gets its own folder under outputs/.
-# Usage: codex-cli/run.sh [--web|--net] [--role image|checker|extractor|reviewer] <job-name> "<task>" [ref-image ...]
+# Usage: codex-cli/run.sh [--web|--net] [--role image|checker|extractor|reviewer|editor] <job-name> "<task>" [ref-image ...]
 #   (default)  offline: no web search, shell commands have no network
 #   --web      Codex's web_search tool only; shell commands still offline
 #   --net      web_search + network for shell commands (curl/downloads) — grant only when the job needs it
