@@ -12,6 +12,10 @@
       stages: design:opus ✅ → execute:sonnet → verify:script (`launchctl kickstart` + exit code) → reflect
       detail: `for-sonnet/tasks.md` T32 · `for-opus/questions.md` Q30 · คู่มือ `guides/bots/youtube-digest.md`
 
+- [ ] ⏸️ **T33 QHBREIT: อัปเดตราคาหลังประกาศผล Q3** — ผู้ใช้: "ค่อยทำ" (2026-11-10) รอสั่ง
+      stages: execute:sonnet (ดึงราคาปิดล่าสุดจาก qhpf.com หน้าแรก → รัน `reports/_drafts/QHBREIT_val_model.py` ที่ราคาใหม่: IRR, r โดยนัย, P/NAV → แก้ valuation.md §7 + atoms + deep dive ทุกจุดที่อ้าง 3.60) → verify:script (`tools/lint_deepdive.py`, grep 3.60 เหลือเฉพาะบริบท "ก่อนประกาศผล")
+      detail: `reports/_drafts/QHBREIT_valuation.md` §7 · ถ้า NAV 30 ก.ย. 69 ออกแล้ว ให้แทนเงินสดสุทธิ 1,547.9 ด้วย
+
 - [ ] ⏸️ **T29 เติม ROE / ROA / กำไรสะสม ใน deep dive เก่า 11 ตัว** — ผู้ใช้: "เดี๋ยวค่อยทำทีเดียว" รอสั่ง
       stages: design:opus ✅ → execute:sonnet (ทีละตัว, ถาม NotebookLM ของหุ้นนั้น) → lint:script (`tools/lint_deepdive.py` ต้อง PASS) → reflect
       detail: `for-sonnet/tasks.md` T29 · ผล lint 2026-10-09: ทั้ง 11 ตัว FAIL (ROE/ROA ขาด 10/11)

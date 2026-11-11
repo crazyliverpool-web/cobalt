@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>คำถาม IR QHBREIT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a call sheet. One column of ticked questions, each section ending with a tip for following up. */
+:root {
+  --paper: #f3f5f6;
+  --sheet: #ffffff;
+  --ink: #17242b;
+  --muted: #55666f;
+  --line: #d5dde1;
+  --accent: #0b5f75;
+  --accent-soft: #e2f0f3;
+  --flag: #9a4b12;
+  --flag-soft: #fbeee2;
+  --body: "IBM Plex Sans Thai", "Thonburi", "Sukhumvit Set", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #10181c;
+    --sheet: #172227;
+    --ink: #e7eef1;
+    --muted: #a0b0b8;
+    --line: #2f3e45;
+    --accent: #7cc9dc;
+    --accent-soft: #1b343c;
+    --flag: #eeb384;
+    --flag-soft: #36261b;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #10181c;
+  --sheet: #172227;
+  --ink: #e7eef1;
+  --muted: #a0b0b8;
+  --line: #2f3e45;
+  --accent: #7cc9dc;
+  --accent-soft: #1b343c;
+  --flag: #eeb384;
+  --flag-soft: #36261b;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.7;
+}
+main {
+  display: grid;
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 36px 20px 60px;
+}
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: 30px; line-height: 1.3; font-weight: 700; text-wrap: balance; }
+h2 { font-size: 19px; line-height: 1.4; font-weight: 600; text-wrap: balance; }
+header { display: grid; gap: 10px; }
+.ticker { font-family: var(--mono); font-size: 14px; color: var(--accent); letter-spacing: .04em; }
+.meta { color: var(--muted); font-size: 15px; }
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--accent-soft);
+  border-radius: 8px;
+}
+.progress { font-weight: 600; font-variant-numeric: tabular-nums; }
+button {
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+button:hover { background: var(--sheet); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.letter { color: var(--muted); }
+section {
+  display: grid;
+  gap: 4px;
+  padding: 20px;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+section > h2 { margin-bottom: 8px; }
+.q {
+  display: grid;
+  grid-template-columns: 22px 30px 1fr;
+  gap: 4px 8px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+.q input { width: 18px; height: 18px; margin: 5px 0 0; accent-color: var(--accent); cursor: pointer; }
+.num { font-family: var(--mono); font-size: 15px; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+.q input:checked ~ .text { color: var(--muted); text-decoration: line-through; }
+.chip {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+  border-radius: 4px;
+  color: var(--flag);
+  background: var(--flag-soft);
+}
+.tip {
+  margin-top: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+  background: var(--flag-soft);
+  border-left: 3px solid var(--flag);
+  border-radius: 0 6px 6px 0;
+}
+.tip strong { color: var(--flag); }
+ol.tricks { display: grid; gap: 10px; margin: 0; padding-left: 22px; }
+.source { color: var(--muted); font-size: 14px; }
+@media (max-width: 420px) {
+  h1 { font-size: 25px; }
+  section { padding: 16px; }
+}
+@media print { .actions { display: none; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="ticker">QHBREIT · LH FUND</div>
+    <h1>คำถามสำหรับถาม IR ของ QHBREIT</h1>
+    <p class="meta">ฝ่ายกองทุนรวมโครงสร้างพื้นฐานและอสังหาริมทรัพย์ บลจ. แลนด์ แอนด์ เฮ้าส์ โทร. 02-286-3484 ต่อ 420-425 (เบอร์จากหนังสือของกองลงวันที่ 11 ส.ค. 2569)</p>
+  </header>
+
+  <div class="bar">
+    <span class="progress" id="progress" aria-live="polite">ถามแล้ว 0 จาก 17 ข้อ</span>
+    <div class="actions">
+      <button type="button" id="copy">คัดลอกคำถามทั้งหมด</button>
+      <button type="button" id="reset">ล้างเครื่องหมาย</button>
+    </div>
+  </div>
+
+  <section id="letter">
+    <p class="letter" data-copy>เรียน ฝ่ายนักลงทุนสัมพันธ์ บลจ. แลนด์ แอนด์ เฮ้าส์</p>
+    <p class="letter" data-copy>ผมสนใจลงทุนใน QHBREIT และได้ศึกษาแบบ 56-REIT ปี 2568 งบการเงิน และหนังสือชี้แจงถึงไตรมาส 2/2569 แล้ว จึงขอเรียนสอบถามดังนี้</p>
+  </section>
+
+  <section>
+    <h2 data-copy>ก. เงินสดและการจ่ายคืน</h2>
+    <label class="q"><input type="checkbox" id="q1"><span class="num">1</span><span class="text"><span class="chip">ถามก่อน</span><span data-q="1">ณ 31 ธ.ค. 2568 กองมีเงินสดและหลักทรัพย์ราว 1,815 ล้านบาท เงินจำนวนนี้กันไว้สำหรับรายการใด เท่าไร และส่วนใดถือเป็นส่วนเกินที่จ่ายคืนผู้ถือหน่วยได้</span></span></label>
+    <label class="q"><input type="checkbox" id="q2"><span class="num">2</span><span class="text"><span class="chip">ถามก่อน</span><span data-q="2">มีแผนหรือกรอบเวลาทยอยคืนเงินส่วนเกินหรือไม่ และเงินลดทุนในปี 2569 มาจากกระแสเงินสดของปีนั้นหรือจากเงินสดสะสม</span></span></label>
+    <label class="q"><input type="checkbox" id="q3"><span class="num">3</span><span class="text"><span class="chip">ถามก่อน</span><span data-q="3">ขอตัวเลขประโยชน์ตอบแทนและเงินลดทุนต่อหน่วยของแต่ละงวดในปี 2569 และแนวทางการจ่ายในระยะถัดไป</span></span></label>
+    <p class="tip"><strong>Trick:</strong> ถ้าตอบว่า "บริหารตามความเหมาะสม" ให้ถามต่อว่า "ถ้าวันนี้ไม่มีรายจ่ายใหญ่ เงินขั้นต่ำที่กองต้องถือไว้คือเท่าไร" ตัวเลขนี้บอกได้ว่าเงินสดส่วนไหนน่าจะคืนได้จริง ซึ่งเป็นตัวตัดสินว่ามูลค่าจะอยู่ใกล้ 4 หรือ 6 บาทต่อหน่วย</p>
+  </section>
+
+  <section>
+    <h2 data-copy>ข. การสิ้นสุดและการต่ออายุสัญญาเช่าที่ดิน</h2>
+    <label class="q"><input type="checkbox" id="q4"><span class="num">4</span><span class="text"><span class="chip">ถามก่อน</span><span data-q="4">สัญญาเช่าที่ดินทั้ง 3 โครงการมีสิทธิต่ออายุหรือไม่ เงื่อนไขเป็นอย่างไร และมีการเจรจากับเจ้าของที่ดินแล้วหรือยัง</span></span></label>
+    <label class="q"><input type="checkbox" id="q5"><span class="num">5</span><span class="text"><span class="chip">ถามก่อน</span><span data-q="5">เมื่อสัญญาสิ้นสุด กองมีภาระรื้อถอนหรือคืนสภาพอาคารเท่าไร ได้ตั้งสำรองไว้หรือไม่ และกรณีลุมพินีที่มีค่าตอบแทนการโอนอาคาร 500,000 บาท ใครเป็นผู้เลือกว่าจะโอนอาคารหรือรื้อถอน</span></span></label>
+    <label class="q"><input type="checkbox" id="q6"><span class="num">6</span><span class="text"><span data-q="6">การแก้ไขสัญญาเช่าที่ดินลุมพินีเมื่อ 26 พ.ย. 2568 เปลี่ยนค่าเช่า วิธีชำระ เงินประกัน และสิทธิโอนอาคารอย่างไร กองได้หรือเสียประโยชน์อย่างไร และขอดูสาระสำคัญของสัญญาฉบับแก้ไขได้หรือไม่</span></span></label>
+    <label class="q"><input type="checkbox" id="q7"><span class="num">7</span><span class="text"><span data-q="7">เมื่อเวฟ เพลสหมดสัญญาในปี 2573 กองมีแผนรองรับรายได้ที่หายไปอย่างไร และมีแผนซื้อทรัพย์สินใหม่หรือไม่ หากไม่ซื้อ กองจะดำเนินการอย่างไรเมื่อทรัพย์สินหมดอายุทั้งหมด</span></span></label>
+    <p class="tip"><strong>Trick:</strong> แยก "มีสิทธิต่อตามสัญญา" ออกจาก "หวังว่าจะเจรจาได้" เพราะมีแค่แบบแรกที่นับเป็นมูลค่าได้ ถ้า IR บอกว่าต่อได้ ให้ขอดูข้อสัญญาหรือถามว่าอยู่ในเอกสารหน้าไหน</p>
+  </section>
+
+  <section>
+    <h2 data-copy>ค. ผู้เช่าและค่าเช่า</h2>
+    <label class="q"><input type="checkbox" id="q8"><span class="num">8</span><span class="text"><span data-q="8">ขออัตราการเช่าและค่าเช่าเฉลี่ยรายอาคารล่าสุด ทั้งแบบรวมและไม่รวมผู้เช่าในเครือ</span></span></label>
+    <label class="q"><input type="checkbox" id="q9"><span class="num">9</span><span class="text"><span data-q="9">ผู้เช่าในเครือ LH/QH/โฮมโปร มีสัญญาหมดอายุเมื่อใด คิดเป็นพื้นที่เท่าไรในแต่ละปี และราคาเทียบกับผู้เช่าทั่วไปในอาคารเดียวกันอย่างไร</span></span></label>
+    <label class="q"><input type="checkbox" id="q10"><span class="num">10</span><span class="text"><span data-q="10">ตารางสัญญาเช่าที่จะหมดอายุใน 3 ปีข้างหน้าเป็นอย่างไร และคาดว่าค่าเช่าเมื่อต่อสัญญาจะเพิ่มขึ้นหรือลดลง</span></span></label>
+    <p class="tip"><strong>Trick:</strong> เราคำนวณเองว่าอัตราการเช่า 81% จะเหลือราว 54–55% ถ้าตัดผู้เช่าในเครือออก ลองถามเปิดก่อนโดยยังไม่บอกตัวเลขนี้ แล้วค่อยเทียบกับคำตอบ ถ้าต่างกันมาก ให้ถามว่านับพื้นที่ผู้เช่ารายใดบ้าง</p>
+  </section>
+
+  <section>
+    <h2 data-copy>ง. ราคาประเมินและค่าใช้จ่าย</h2>
+    <label class="q"><input type="checkbox" id="q11"><span class="num">11</span><span class="text"><span data-q="11">ขอรายงานประเมินมูลค่าฉบับเต็มปี 2565–2568 เนื่องจากลิงก์บนเว็บไซต์เปิดไม่ได้ และกระแสเงินสดที่ผู้ประเมินใช้ต่างจากผลการดำเนินงานจริงเพียงใด</span></span></label>
+    <label class="q"><input type="checkbox" id="q12"><span class="num">12</span><span class="text"><span data-q="12">Expected IRR 20.37% ในแบบ 56-REIT ปี 2568 ใช้สมมติฐานเรื่องค่าเช่า อัตราการเช่า ค่าใช้จ่าย และเงินสดของกองอย่างไร</span></span></label>
+    <label class="q"><input type="checkbox" id="q13"><span class="num">13</span><span class="text"><span data-q="13">งบซ่อมแซมและปรับปรุงใหญ่รายอาคารในช่วงที่เหลือของสัญญาเป็นเท่าไร และเงินสำรองปัจจุบันเพียงพอหรือไม่</span></span></label>
+    <label class="q"><input type="checkbox" id="q14"><span class="num">14</span><span class="text"><span data-q="14">ค่าธรรมเนียมผู้บริหารอสังหาริมทรัพย์ไตรมาส 2/2569 เพิ่มขึ้น 30.24% จากการปรับอัตราค่าตอบแทนตามสัญญา การปรับนี้ใช้เงื่อนไขใด และเป็นการเพิ่มถาวรหรือไม่</span></span></label>
+    <p class="tip"><strong>Trick:</strong> ข้อ 13 มีผลกับเงินสดโดยตรง จึงควรถามคู่กับข้อ 1 และ 5 แล้วขอเป็นตัวเลขรายปี ถ้าได้แค่ตัวเลขรวม ให้ถามว่าเงินก้อนใหญ่สุดเกิดในปีไหน ส่วนข้อ 14 ค่าธรรมเนียมนี้จ่ายให้บริษัทในเครือ จึงควรถามวิธีคำนวณให้ชัด</p>
+  </section>
+
+  <section>
+    <h2 data-copy>จ. ตัวเลขและภาษี</h2>
+    <label class="q"><input type="checkbox" id="q15"><span class="num">15</span><span class="text"><span data-q="15">หนังสือชี้แจงไตรมาส 1/2569 ระบุกำไรจากการลงทุนสุทธิ 165.94 ล้านบาท และขาดทุนจากมูลค่ายุติธรรม 120.40 ล้านบาท ซึ่งหักกันได้ 45.54 ล้านบาท แต่สินทรัพย์สุทธิเพิ่มขึ้น 12.96 ล้านบาท ส่วนต่าง 32.58 ล้านบาทมาจากรายการใด</span></span></label>
+    <label class="q"><input type="checkbox" id="q16"><span class="num">16</span><span class="text"><span data-q="16">เงินลดทุนที่ผู้ถือหน่วยบุคคลธรรมดาได้รับมีภาระภาษีอย่างไร</span></span></label>
+    <label class="q"><input type="checkbox" id="q17"><span class="num">17</span><span class="text"><span data-q="17">กองมีแผนจัด Opportunity Day หรือเผยแพร่เอกสารนำเสนอผู้ลงทุนหรือไม่</span></span></label>
+    <p class="tip"><strong>Trick:</strong> ข้อ 15 เป็นคำถามที่ดีไว้ดูว่า IR เข้าใจงบแค่ไหน ถามด้วยท่าทีขอความเข้าใจ เพราะส่วนต่างอาจมาจากรายการที่หนังสือไม่ได้ระบุ ส่วนข้อ 16 ควรเช็กกับผู้เชี่ยวชาญภาษีอีกครั้งก่อนตัดสินใจ</p>
+  </section>
+
+  <section>
+    <h2>Trick ตอนคุยกับ IR</h2>
+    <ol class="tricks">
+      <li><strong>ขอเป็นตัวเลขหรือเอกสาร</strong> ข้อ 1, 5 และ 13 มีผลต่อมูลค่ามากที่สุด ถ้าได้คำตอบกว้างๆ ให้ถามกลับว่ามีตัวเลขหรือไม่</li>
+      <li><strong>เรียงตามเวลาที่มี</strong> ถ้ามีเวลาน้อย ให้ถาม 5 ข้อที่ติด "ถามก่อน" แล้วส่งข้อที่เหลือทางอีเมล</li>
+      <li><strong>จดข้อที่ตอบไม่ได้ด้วย</strong> IR อาจเปิดเผยสัญญาฉบับเต็มหรือการเจรจากับเจ้าของที่ดินไม่ได้ การที่ตอบไม่ได้ก็เป็นข้อมูล จึงควรจดว่าตอบแบบใด</li>
+      <li><strong>ขอคำตอบสำคัญเป็นลายลักษณ์อักษร</strong> คำตอบทางโทรศัพท์ใช้เป็นหลักฐานได้ยาก และตัวเลขที่ยังไม่เปิดเผยอาจพูดให้ฟังไม่ได้ จึงควรถามด้วยว่าข้อมูลนั้นอยู่ในเอกสารใด</li>
+      <li><strong>แยกข้อเท็จจริงกับความคาดหวัง</strong> เมื่อได้ยิน "น่าจะ" หรือ "คาดว่า" ให้ถามว่ามีสัญญาหรือมติรองรับหรือไม่</li>
+    </ol>
+  </section>
+
+  <p class="source">ร่างจาก deep dive ของ QHBREIT ณ 4 พ.ย. 2569 ตัวเลข 54–55% และมูลค่า 4–6 บาทต่อหน่วยเป็นการคำนวณของเราเอง ไม่ใช่ตัวเลขจากกอง และหน้านี้ไม่ใช่คำแนะนำการลงทุน</p>
+</main>
+<script>
+(function () {
+  var KEY = 'qhbreit-ir-checked';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.q input'));
+  var progress = document.getElementById('progress');
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  function update() {
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    progress.textContent = 'ถามแล้ว ' + done + ' จาก ' + boxes.length + ' ข้อ';
+  }
+  function save() {
+    var state = {};
+    boxes.forEach(function (b) { if (b.checked) state[b.id] = true; });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  boxes.forEach(function (b) {
+    b.checked = !!saved[b.id];
+    b.addEventListener('change', function () { update(); save(); });
+  });
+  update();
+  document.getElementById('reset').addEventListener('click', function () {
+    boxes.forEach(function (b) { b.checked = false; });
+    update();
+    save();
+  });
+  var copyBtn = document.getElementById('copy');
+  copyBtn.addEventListener('click', function () {
+    var parts = [];
+    document.querySelectorAll('[data-copy], [data-q]').forEach(function (el) {
+      if (el.dataset.q) { parts.push(el.dataset.q + '. ' + el.textContent.trim()); }
+      else { parts.push((parts.length ? '\n' : '') + el.textContent.trim()); }
+    });
+    parts.push('\nขอบคุณครับ');
+    function show(msg) {
+      copyBtn.textContent = msg;
+      setTimeout(function () { copyBtn.textContent = 'คัดลอกคำถามทั้งหมด'; }, 2500);
+    }
+    try {
+      navigator.clipboard.writeText(parts.join('\n')).then(function () { show('คัดลอกแล้ว'); }, function () { show('คัดลอกไม่ได้ ให้เลือกข้อความเอง'); });
+    } catch (e) { show('คัดลอกไม่ได้ ให้เลือกข้อความเอง'); }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+metric,period,property,value,unit,source_file,page
+total_income,FY2565,,1010342225,THB,QHPF_2566_Annual_Report.pdf,86
+total_expenses,FY2565,,355140464,THB,QHPF_2566_Annual_Report.pdf,86
+net_investment_income,FY2565,,655201761,THB,QHPF_2566_Annual_Report.pdf,14
+net_change_in_assets,FY2565,,267442347,THB,QHPF_2566_Annual_Report.pdf,14
+total_assets,FY2565,,9577204253,THB,QHPF_2566_Annual_Report.pdf,84
+total_debt,FY2565,,0,THB,QHPF_2566_Annual_Report.pdf,14
+net_assets,FY2565,,8644386787,THB,QHPF_2566_Annual_Report.pdf,14
+nav_per_unit,FY2565,,10.8461,THB/unit,QHPF_2565_Annual_Report.pdf,14
+units_outstanding,FY2565,,797000000,units,QHPF_2566_Annual_Report.pdf,84
+distribution_per_unit,FY2565,,0.75,THB/unit,QHPF_2566_Annual_Report.pdf,14
+capital_return_per_unit,FY2565,,0,THB/unit,QHPF_2566_Annual_Report.pdf,47
+manager_and_related_fees,FY2565,,74908906,THB,QHPF_2566_Annual_Report.pdf,86
+total_income,FY2566,,1021074184,THB,QHPF_2566_Annual_Report.pdf,86
+total_expenses,FY2566,,372816507,THB,QHPF_2566_Annual_Report.pdf,86
+net_investment_income,FY2566,,648257677,THB,QHPF_2566_Annual_Report.pdf,14
+net_change_in_assets,FY2566,,66392120,THB,QHPF_2566_Annual_Report.pdf,14
+total_assets,FY2566,,9015220570,THB,QHPF_2566_Annual_Report.pdf,84
+total_debt,FY2566,,0,THB,QHPF_2566_Annual_Report.pdf,14
+net_assets,FY2566,,8095494906,THB,QHPF_2566_Annual_Report.pdf,14
+nav_per_unit,FY2566,,10.1574,THB/unit,QHPF_2566_Annual_Report.pdf,4
+units_outstanding,FY2566,,797000000,units,QHPF_2566_Annual_Report.pdf,84
+distribution_per_unit,FY2566,,0.742,THB/unit,QHPF_2566_Annual_Report.pdf,14
+capital_return_per_unit,FY2566,,0,THB/unit,QHPF_2566_Annual_Report.pdf,47
+manager_and_related_fees,FY2566,,74083022,THB,QHPF_2566_Annual_Report.pdf,86
+total_income,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน),941381354,THB,QHPF_2567_FS_Dissolution.pdf,12
+total_expenses,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน),378684705,THB,QHPF_2567_FS_Dissolution.pdf,12
+net_investment_income,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน),562696649,THB,QHPF_2567_FS_Dissolution.pdf,12
+net_change_in_assets,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน),-293517461,THB,QHPF_2567_FS_Dissolution.pdf,12
+total_assets,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน) (หลังโอนทรัพย์สิน; ไม่ใช่ตัวเลขเทียบได้กับปีอื่น),56941185,THB,QHPF_2567_FS_Dissolution.pdf,8
+total_debt,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน),0,THB,QHPF_2567_FS_Dissolution.pdf,9
+net_assets,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน) (หลังโอนทรัพย์สินให้ทรัสต์),9947544,THB,QHPF_2567_FS_Dissolution.pdf,13
+distribution_per_unit,FY2567,"QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน) (แบ่งปันส่วนทุน/ประโยชน์ตอบแทน 270,980,000 บาท)",0.34,THB/unit,QHPF_2567_FS_Dissolution.pdf,13
+capital_return_per_unit,FY2567,"QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน) (ลดทุน 227,145,001 บาท)",0.28500000125470515,THB/unit,QHPF_2567_FS_Dissolution.pdf,13
+manager_and_related_fees,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน),79977520,THB,QHPF_2567_FS_Dissolution.pdf,12
+units_outstanding,FY2567,QHPF fund 1 Jan-6 Dec 2567 (วันเลิกกองทุน),797000000,units,QHPF_2567_FS_Dissolution.pdf,9
+total_income,FY2567,QHBREIT trust 30 Oct-31 Dec 2567,68371616,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:pl
+total_expenses,FY2567,QHBREIT trust 30 Oct-31 Dec 2567,47907361,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:pl
+net_investment_income,FY2567,QHBREIT trust 30 Oct-31 Dec 2567,20464255,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:pl
+net_change_in_assets,FY2567,QHBREIT trust 30 Oct-31 Dec 2567,-54312752,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:pl
+total_assets,FY2567,"QHBREIT trust 30 Oct-31 Dec 2567 (งบ FY2568 คอลัมน์เทียบ; หน้าแจ้งทรัพย์สิน FY2567 ระบุ 8,089,493,486.84)",8100840935,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:bs
+total_debt,FY2567,"QHBREIT trust 30 Oct-31 Dec 2567 (ไม่มีเงินกู้; หนี้สินตามสัญญาเช่า 541,941,000 ไม่นับเป็นหนี้)",0,THB,QHBREIT_2568_56REIT.pdf,14
+net_assets,FY2567,QHBREIT trust 30 Oct-31 Dec 2567,7239592148,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:bs
+nav_per_unit,FY2567,QHBREIT trust 30 Oct-31 Dec 2567,9.0835,THB/unit,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:bs
+units_outstanding,FY2567,QHBREIT trust 30 Oct-31 Dec 2567,797000000,units,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:bs
+distribution_per_unit,FY2567,QHBREIT trust 30 Oct-31 Dec 2567,0,THB/unit,QHBREIT_2567_56REIT.pdf,9
+capital_return_per_unit,FY2567,QHBREIT trust 30 Oct-31 Dec 2567 (งวด 4-31 ธ.ค. 2567 จ่าย 28 มี.ค. 2568),0.083,THB/unit,QHBREIT_2567_56REIT.pdf,9
+manager_and_related_fees,FY2567,"QHBREIT trust 30 Oct-31 Dec 2567 (4 ธ.ค.-31 ธ.ค. 2567: 1,120,918+406,195+120,427+5,039,325)",6686865,THB,QHBREIT_2568_56REIT.pdf,113
+total_income,FY2568,,1029697078,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:pl
+total_expenses,FY2568,,380072603,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:pl
+net_investment_income,FY2568,,649624475,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:pl
+net_change_in_assets,FY2568,,-86978877,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:pl
+total_assets,FY2568,,7540000673,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:bs
+total_debt,FY2568,"ไม่มีเงินกู้ (หนี้สินตามสัญญาเช่า 536,303,292 ไม่นับเป็นหนี้)",0,THB,QHBREIT_2568_56REIT.pdf,14
+net_assets,FY2568,,6648112270,THB,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:bs
+nav_per_unit,FY2568,,8.3414,THB/unit,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:bs
+units_outstanding,FY2568,,797000000,units,QHBREIT_2568_FS_FY_2_Schedules_from_xlsx.txt,sheet:bs
+distribution_per_unit,FY2568,ตามตารางงวดผลการดำเนินงาน 56-REIT; (FS: ประกาศจ่ายในปี 0.091),0.091,THB/unit,QHBREIT_2568_56REIT.pdf,10
+capital_return_per_unit,FY2568,"ตัวเลข KPI 56-REIT (=0.737-0.083); ตามตารางงวด 0.7370 รวมงวด ธ.ค.67; FS ลดทุนประกาศในปี=0.542 (431,974,000 บาท)",0.654,THB/unit,QHBREIT_2568_56REIT.pdf,14
+manager_and_related_fees,FY2568,"17,229,136+5,298,844+2,169,312+61,380,431",86077723,THB,QHBREIT_2568_56REIT.pdf,113
+total_income,H12569,6M to 30 Jun 2569 (Q1+Q2) Q1 249.86 ลบ. + Q2 252.39 ลบ. (หน่วยล้านบาท 2 ตำแหน่ง),502250000,THB,QHBREIT_2569_MDA_Q1_Change_Explanation.pdf; QHBREIT_2569_MDA_Q2.pdf,1; 1
+total_expenses,H12569,6M to 30 Jun 2569 (Q1+Q2) Q1 83.92 (คำนวณ 249.86-165.94) + Q2 94.28,178200000,THB,QHBREIT_2569_MDA_Q1_Change_Explanation.pdf; QHBREIT_2569_MDA_Q2.pdf,1; 1
+net_investment_income,H12569,6M to 30 Jun 2569 (Q1+Q2) Q1 165.94 + Q2 158.11,324050000,THB,QHBREIT_2569_MDA_Q1_Change_Explanation.pdf; QHBREIT_2569_MDA_Q2.pdf,1; 1
+net_change_in_assets,H12569,6M to 30 Jun 2569 (Q1+Q2) Q1 +12.96 + Q2 -177.51 [CONFLICT: Q1 NII 165.94 - FV loss 120.40 = 45.54 ไม่เท่ากับ 12.96],-164550000,THB,QHBREIT_2569_MDA_Q1_Change_Explanation.pdf; QHBREIT_2569_MDA_Q2.pdf,1; 1
+total_assets,H12569,30 มิ.ย. 2569,7101447287.56,THB,QHBREIT_2569_Property_Details_Q2.pdf,1
+total_debt,H12569,ไม่พบเงินกู้ในเอกสาร H1 2569 (ไม่มีงบ; อนุมานจากไม่มีรายงานการกู้) [ยังไม่ยืนยัน],0,THB,QHBREIT_2569_Property_Details_Q2.pdf,1
+net_assets,H12569,30 มิ.ย. 2569,6136865674.56,THB,QHBREIT_2569_Property_Details_Q2.pdf,1
+nav_per_unit,H12569,30 มิ.ย. 2569,7.6999,THB/unit,QHBREIT_2569_Property_Details_Q2.pdf,1
+units_outstanding,H12569,"6,136,865,674.56/7.6999 = 797.0 ล้านหน่วย",797000000,units,QHBREIT_2569_Property_Details_Q2.pdf,1
+distribution_per_unit,H12569,ประกาศ #6-#9 ปี 2569 ไม่อยู่ในชุด source,NA,THB/unit,(ไม่มีในเอกสารที่เก็บ),NA
+capital_return_per_unit,H12569,ย้อนจาก NAV ≈0.435-0.476 บาท/หน่วยจ่ายออกใน 6 เดือน (คำนวณเอง),NA,THB/unit,(ไม่มีในเอกสารที่เก็บ),NA
+manager_and_related_fees,H12569,MD&A ระบุเฉพาะค่าธรรมเนียมผู้บริหารอสังหาฯ Q1 14.04 + Q2 18.94 ลบ.,NA,THB,(ไม่มีในเอกสารที่เก็บ),NA
+occupancy_pct,FY2565,Q.House Lumpini - office,81,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2565,Q.House Lumpini - retail (Life Center),97,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2565,Wave Place - office,73,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2565,Wave Place - retail (incl. HomePro),97,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2565,Q.House Ploenchit - office,90,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2566,Q.House Lumpini - office,80,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2566,Q.House Lumpini - retail (Life Center),97,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2566,Wave Place - office,68,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2566,Wave Place - retail (incl. HomePro),98,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2566,Q.House Ploenchit - office,73,%  (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+occupancy_pct,FY2567,Q.House Lumpini - office,80,%  (ข้อมูล 4-31 ธ.ค. 2567),QHBREIT_2567_56REIT.pdf,124
+occupancy_pct,FY2567,Q.House Lumpini - retail (Life Center),97,%  (ข้อมูล 4-31 ธ.ค. 2567),QHBREIT_2567_56REIT.pdf,124
+occupancy_pct,FY2567,Wave Place - office,69,%  (ข้อมูล 4-31 ธ.ค. 2567),QHBREIT_2567_56REIT.pdf,124
+occupancy_pct,FY2567,Wave Place - retail (incl. HomePro),99,%  (ข้อมูล 4-31 ธ.ค. 2567),QHBREIT_2567_56REIT.pdf,124
+occupancy_pct,FY2567,Q.House Ploenchit - office,69,%  (ข้อมูล 4-31 ธ.ค. 2567),QHBREIT_2567_56REIT.pdf,124
+occupancy_pct,FY2568,Q.House Lumpini - office,89,%  (ณ 31 ธ.ค. 2568),QHBREIT_2568_56REIT.pdf,116
+occupancy_pct,FY2568,Q.House Lumpini - retail (Life Center),96,%  (ณ 31 ธ.ค. 2568),QHBREIT_2568_56REIT.pdf,116
+occupancy_pct,FY2568,Wave Place - office,68,%  (ณ 31 ธ.ค. 2568),QHBREIT_2568_56REIT.pdf,116
+occupancy_pct,FY2568,Wave Place - retail (incl. HomePro),99,%  (ณ 31 ธ.ค. 2568),QHBREIT_2568_56REIT.pdf,116
+occupancy_pct,FY2568,Q.House Ploenchit - office,44,%  (ณ 31 ธ.ค. 2568),QHBREIT_2568_56REIT.pdf,116
+occupancy_pct,H12569,Q.House Lumpini - office,NA,%,(ไม่มีในเอกสารที่เก็บ),NA
+occupancy_pct,H12569,Q.House Lumpini - retail (Life Center),NA,%,(ไม่มีในเอกสารที่เก็บ),NA
+occupancy_pct,H12569,Wave Place - office,NA,%,(ไม่มีในเอกสารที่เก็บ),NA
+occupancy_pct,H12569,Wave Place - retail (incl. HomePro),NA,%,(ไม่มีในเอกสารที่เก็บ),NA
+occupancy_pct,H12569,Q.House Ploenchit - office,NA,%,(ไม่มีในเอกสารที่เก็บ),NA
+avg_rent_per_sqm,FY2565,Q.House Lumpini - office,890,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2565,Q.House Lumpini - retail (Life Center),706,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2565,Wave Place - office,818,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2565,Wave Place - retail (incl. HomePro),452,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2565,Q.House Ploenchit - office,681,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2566,Q.House Lumpini - office,884,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2566,Q.House Lumpini - retail (Life Center),863,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2566,Wave Place - office,824,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2566,Wave Place - retail (incl. HomePro),477,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2566,Q.House Ploenchit - office,700,THB/sqm/month (ค่าเฉลี่ยทั้งปี),QHPF_2566_Annual_Report.pdf,88
+avg_rent_per_sqm,FY2567,TOTAL blended (รายอาคารไม่เปิดเผย),796,THB/sqm/month (4-31 ธ.ค. 2567),QHBREIT_2568_56REIT.pdf,13
+avg_rent_per_sqm,FY2568,TOTAL blended (รายอาคารไม่เปิดเผย),804,THB/sqm/month (ทั้งปี 2568; ตัวเลขจากกราฟ),QHBREIT_2568_56REIT.pdf,13
+avg_rent_per_sqm,FY2567,Q.House Lumpini - office,NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2567,Q.House Lumpini - retail (Life Center),NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2567,Wave Place - office,NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2567,Wave Place - retail (incl. HomePro),NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2567,Q.House Ploenchit - office,NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2568,Q.House Lumpini - office,NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2568,Q.House Lumpini - retail (Life Center),NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2568,Wave Place - office,NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2568,Wave Place - retail (incl. HomePro),NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,FY2568,Q.House Ploenchit - office,NA,THB/sqm/month,(รายอาคารไม่เปิดเผยใน source; ผู้ประเมินใช้ช่วง 696-929 ทั้งกอง),note 6
+avg_rent_per_sqm,H12569,Q.House Lumpini - office,NA,THB/sqm/month,(ไม่มีในเอกสารที่เก็บ),NA
+avg_rent_per_sqm,H12569,Q.House Lumpini - retail (Life Center),NA,THB/sqm/month,(ไม่มีในเอกสารที่เก็บ),NA
+avg_rent_per_sqm,H12569,Wave Place - office,NA,THB/sqm/month,(ไม่มีในเอกสารที่เก็บ),NA
+avg_rent_per_sqm,H12569,Wave Place - retail (incl. HomePro),NA,THB/sqm/month,(ไม่มีในเอกสารที่เก็บ),NA
+avg_rent_per_sqm,H12569,Q.House Ploenchit - office,NA,THB/sqm/month,(ไม่มีในเอกสารที่เก็บ),NA
+leasable_area_sqm,FY2565,Q.House Lumpini - office,57215,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2565,Q.House Lumpini - retail (Life Center),9398,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2565,Wave Place - office,18972,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2565,Wave Place - retail (incl. HomePro),5858,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2565,Q.House Ploenchit - office,10880,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2566,Q.House Lumpini - office,57215,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2566,Q.House Lumpini - retail (Life Center),9398,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2566,Wave Place - office,18972,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2566,Wave Place - retail (incl. HomePro),5858,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2566,Q.House Ploenchit - office,10880,sqm,QHPF_2566_Annual_Report.pdf,"{'Q.House Lumpini - office': 26, 'Q.House Lumpini - retail (Life Center)': 26, 'Wave Place - office': 27, 'Wave Place - retail (incl. HomePro)': 27, 'Q.House Ploenchit - office': 25}"
+leasable_area_sqm,FY2567,Q.House Lumpini - office,57215,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2567,Q.House Lumpini - retail (Life Center),9398,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2567,Wave Place - office,18972,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2567,Wave Place - retail (incl. HomePro),5858,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2567,Q.House Ploenchit - office,10880,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2568,Q.House Lumpini - office,57215,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2568,Q.House Lumpini - retail (Life Center),9398,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2568,Wave Place - office,18972,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2568,Wave Place - retail (incl. HomePro),5858,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,FY2568,Q.House Ploenchit - office,10880,sqm,QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,H12569,Q.House Lumpini - office,57215,sqm (ใช้พื้นที่ตาม 56-REIT FY2568; ไม่มีเอกสาร H1 2569 ระบุพื้นที่),QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,H12569,Q.House Lumpini - retail (Life Center),9398,sqm (ใช้พื้นที่ตาม 56-REIT FY2568; ไม่มีเอกสาร H1 2569 ระบุพื้นที่),QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,H12569,Wave Place - office,18972,sqm (ใช้พื้นที่ตาม 56-REIT FY2568; ไม่มีเอกสาร H1 2569 ระบุพื้นที่),QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,H12569,Wave Place - retail (incl. HomePro),5858,sqm (ใช้พื้นที่ตาม 56-REIT FY2568; ไม่มีเอกสาร H1 2569 ระบุพื้นที่),QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+leasable_area_sqm,H12569,Q.House Ploenchit - office,10880,sqm (ใช้พื้นที่ตาม 56-REIT FY2568; ไม่มีเอกสาร H1 2569 ระบุพื้นที่),QHBREIT_2568_56REIT.pdf,"{'Q.House Lumpini - office': 33, 'Q.House Lumpini - retail (Life Center)': 33, 'Wave Place - office': 35, 'Wave Place - retail (incl. HomePro)': 35, 'Q.House Ploenchit - office': 32}"
+lease_expiry_date,FY2565,Q.House Lumpini - office,2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,26
+lease_expiry_date,FY2565,Q.House Lumpini - retail (Life Center),2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,26
+lease_expiry_date,FY2565,Wave Place - office,2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,27
+lease_expiry_date,FY2565,Wave Place - retail (incl. HomePro),2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,27
+lease_expiry_date,FY2565,Q.House Ploenchit - office,2036-12-07,date_CE (พ.ศ. 2579-12-07; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,25
+lease_expiry_date,FY2566,Q.House Lumpini - office,2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,26
+lease_expiry_date,FY2566,Q.House Lumpini - retail (Life Center),2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,26
+lease_expiry_date,FY2566,Wave Place - office,2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,27
+lease_expiry_date,FY2566,Wave Place - retail (incl. HomePro),2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,27
+lease_expiry_date,FY2566,Q.House Ploenchit - office,2036-12-07,date_CE (พ.ศ. 2579-12-07; สิ้นสุดสัญญาเช่าที่ดิน),QHPF_2566_Annual_Report.pdf,25
+lease_expiry_date,FY2567,Q.House Lumpini - office,2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,34
+lease_expiry_date,FY2567,Q.House Lumpini - retail (Life Center),2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,34
+lease_expiry_date,FY2567,Wave Place - office,2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,36
+lease_expiry_date,FY2567,Wave Place - retail (incl. HomePro),2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,36
+lease_expiry_date,FY2567,Q.House Ploenchit - office,2036-12-07,date_CE (พ.ศ. 2579-12-07; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,32
+lease_expiry_date,FY2568,Q.House Lumpini - office,2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,34
+lease_expiry_date,FY2568,Q.House Lumpini - retail (Life Center),2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,34
+lease_expiry_date,FY2568,Wave Place - office,2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,36
+lease_expiry_date,FY2568,Wave Place - retail (incl. HomePro),2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,36
+lease_expiry_date,FY2568,Q.House Ploenchit - office,2036-12-07,date_CE (พ.ศ. 2579-12-07; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2568_56REIT.pdf,32
+lease_expiry_date,H12569,Q.House Lumpini - office,2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2569_Property_Details_Q2.pdf; QHBREIT_2568_56REIT.pdf,1; 34
+lease_expiry_date,H12569,Q.House Lumpini - retail (Life Center),2035-12-31,date_CE (พ.ศ. 2578-12-31; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2569_Property_Details_Q2.pdf; QHBREIT_2568_56REIT.pdf,1; 34
+lease_expiry_date,H12569,Wave Place - office,2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2569_Property_Details_Q2.pdf; QHBREIT_2568_56REIT.pdf,1; 36
+lease_expiry_date,H12569,Wave Place - retail (incl. HomePro),2030-10-01,date_CE (พ.ศ. 2573-10-01; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2569_Property_Details_Q2.pdf; QHBREIT_2568_56REIT.pdf,1; 36
+lease_expiry_date,H12569,Q.House Ploenchit - office,2036-12-07,date_CE (พ.ศ. 2579-12-07; สิ้นสุดสัญญาเช่าที่ดิน),QHBREIT_2569_Property_Details_Q2.pdf; QHBREIT_2568_56REIT.pdf,1; 32
+appraised_value,FY2565,Q.House Lumpini - office,5364000000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2565 (Nexus Property Consultant),QHPF_2565_Annual_Report.pdf,6
+appraised_value,FY2565,Q.House Lumpini - retail (Life Center),incl. in office row,THB (31 ธ.ค. 2565 (Nexus Property Consultant)),QHPF_2565_Annual_Report.pdf,6
+appraised_value,FY2565,Wave Place - office,1002000000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2565 (Nexus Property Consultant),QHPF_2565_Annual_Report.pdf,6
+appraised_value,FY2565,Wave Place - retail (incl. HomePro),incl. in office row,THB (31 ธ.ค. 2565 (Nexus Property Consultant)),QHPF_2565_Annual_Report.pdf,6
+appraised_value,FY2565,Q.House Ploenchit - office,798000000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2565 (Nexus Property Consultant),QHPF_2565_Annual_Report.pdf,6
+appraised_value,FY2566,Q.House Lumpini - office,4991000000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2566 (Nexus),QHPF_2566_Annual_Report.pdf,91
+appraised_value,FY2566,Q.House Lumpini - retail (Life Center),incl. in office row,THB (31 ธ.ค. 2566 (Nexus)),QHPF_2566_Annual_Report.pdf,91
+appraised_value,FY2566,Wave Place - office,882000000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2566 (Nexus),QHPF_2566_Annual_Report.pdf,91
+appraised_value,FY2566,Wave Place - retail (incl. HomePro),incl. in office row,THB (31 ธ.ค. 2566 (Nexus)),QHPF_2566_Annual_Report.pdf,91
+appraised_value,FY2566,Q.House Ploenchit - office,743000000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2566 (Nexus),QHPF_2566_Annual_Report.pdf,91
+appraised_value,FY2567,Q.House Lumpini - office,4345200000,"THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2567 (KTAC); 56-REIT แสดง 4,345.0/694.0/683.0 ล้านบาท",QHBREIT_2567_Property_Details_FY.pdf,1
+appraised_value,FY2567,Q.House Lumpini - retail (Life Center),incl. in office row,"THB (31 ธ.ค. 2567 (KTAC); 56-REIT แสดง 4,345.0/694.0/683.0 ล้านบาท)",QHBREIT_2567_Property_Details_FY.pdf,1
+appraised_value,FY2567,Wave Place - office,693800000,"THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2567 (KTAC); 56-REIT แสดง 4,345.0/694.0/683.0 ล้านบาท",QHBREIT_2567_Property_Details_FY.pdf,1
+appraised_value,FY2567,Wave Place - retail (incl. HomePro),incl. in office row,"THB (31 ธ.ค. 2567 (KTAC); 56-REIT แสดง 4,345.0/694.0/683.0 ล้านบาท)",QHBREIT_2567_Property_Details_FY.pdf,1
+appraised_value,FY2567,Q.House Ploenchit - office,682700000,"THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2567 (KTAC); 56-REIT แสดง 4,345.0/694.0/683.0 ล้านบาท",QHBREIT_2567_Property_Details_FY.pdf,1
+appraised_value,FY2568,Q.House Lumpini - office,3890800000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2568 (KTAC),QHBREIT_2568_56REIT.pdf,118
+appraised_value,FY2568,Q.House Lumpini - retail (Life Center),incl. in office row,THB (31 ธ.ค. 2568 (KTAC)),QHBREIT_2568_56REIT.pdf,118
+appraised_value,FY2568,Wave Place - office,569900000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2568 (KTAC),QHBREIT_2568_56REIT.pdf,118
+appraised_value,FY2568,Wave Place - retail (incl. HomePro),incl. in office row,THB (31 ธ.ค. 2568 (KTAC)),QHBREIT_2568_56REIT.pdf,118
+appraised_value,FY2568,Q.House Ploenchit - office,585700000,THB ทั้งโครงการ (office+retail) 31 ธ.ค. 2568 (KTAC),QHBREIT_2568_56REIT.pdf,118
+appraised_value,H12569,Q.House Lumpini - office,3536000000,"THB ทั้งโครงการ (office+retail) 30 มิ.ย. 2569 (Asian Engineering Valuation); หนังสือ 9 ก.ค. 2569 ใช้ ณ 29 พ.ค. 2569 = 3,548/526/531 ล้านบาท",QHBREIT_2569_Property_Details_Q2.pdf,1
+appraised_value,H12569,Q.House Lumpini - retail (Life Center),incl. in office row,"THB (30 มิ.ย. 2569 (Asian Engineering Valuation); หนังสือ 9 ก.ค. 2569 ใช้ ณ 29 พ.ค. 2569 = 3,548/526/531 ล้านบาท)",QHBREIT_2569_Property_Details_Q2.pdf,1
+appraised_value,H12569,Wave Place - office,520000000,"THB ทั้งโครงการ (office+retail) 30 มิ.ย. 2569 (Asian Engineering Valuation); หนังสือ 9 ก.ค. 2569 ใช้ ณ 29 พ.ค. 2569 = 3,548/526/531 ล้านบาท",QHBREIT_2569_Property_Details_Q2.pdf,1
+appraised_value,H12569,Wave Place - retail (incl. HomePro),incl. in office row,"THB (30 มิ.ย. 2569 (Asian Engineering Valuation); หนังสือ 9 ก.ค. 2569 ใช้ ณ 29 พ.ค. 2569 = 3,548/526/531 ล้านบาท)",QHBREIT_2569_Property_Details_Q2.pdf,1
+appraised_value,H12569,Q.House Ploenchit - office,533000000,"THB ทั้งโครงการ (office+retail) 30 มิ.ย. 2569 (Asian Engineering Valuation); หนังสือ 9 ก.ค. 2569 ใช้ ณ 29 พ.ค. 2569 = 3,548/526/531 ล้านบาท",QHBREIT_2569_Property_Details_Q2.pdf,1
+total_income,Q32569,3M to 30 ก.ย. 2569 (ค่าเช่า+บริการ 241.36 + อื่น 3.25),244610000,THB,QHBREIT_2569_MDA_Q3_screenshot.png,1
+rental_service_income,Q32569,3M to 30 ก.ย. 2569 (Q3/68 254.06),241360000,THB,QHBREIT_2569_MDA_Q3_screenshot.png,1
+total_expenses,Q32569,3M to 30 ก.ย. 2569 (Q3/68 94.78; ต้นทุนค่าเช่า+บริการ 63.52; ขายและบริหาร 5.26),100000000,THB,QHBREIT_2569_MDA_Q3_screenshot.png,1
+net_investment_income,Q32569,3M to 30 ก.ย. 2569 (Q3/68 166.25; -13.02%),144610000,THB,QHBREIT_2569_MDA_Q3_screenshot.png,1
+fv_loss,Q32569,3M to 30 ก.ย. 2569 ขาดทุนจากการเปลี่ยนแปลงมูลค่ายุติธรรม,-50000000,THB,QHBREIT_2569_MDA_Q3_screenshot.png,1
+net_change_in_assets,Q32569,3M to 30 ก.ย. 2569 (Q3/68 42.57) [ต่างจาก NII-FV = 94.61 อยู่ 1.15 ลบ. ไม่ระบุรายการ],95760000,THB,QHBREIT_2569_MDA_Q3_screenshot.png; QHBREIT_2569_F45_Q3_screenshot.png,1; 1
+net_change_in_assets,9M2569,9M to 30 ก.ย. 2569 (9M/68 +126.273) สอบทาน ไม่มีเงื่อนไข,-68791000,THB,QHBREIT_2569_F45_Q3_screenshot.png,1
