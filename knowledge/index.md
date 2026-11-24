@@ -13,6 +13,7 @@
 | RJH - 56-1/MD&A vs Oppday Analysis | `c129191b-6ea4-4df8-80e8-6bef26cf6e2f` | RJH.BK (Rajthanee Hospital, Ayutthaya) — MD&A รายไตรมาส 1/2568-1/2569 (5 ไฟล์) + 56-1 One Report 2568 + Oppday YouTube 2 คลิป (Q3/2567, YE/2568) ใช้กับ `trendlongtun-brief` สำหรับ RJH_deepdive.html — verified เป็น Rajthanee Hospital PCL จริง (ไม่ใช่ Ratchaphruek/RPH ที่ชื่อพ้องเสียง) |
 | VIH - 56-1/MD&A vs Oppday Analysis | `481d175f-8903-4903-acd7-8bea51ed2cbc` | VIH (ศรีวิชัยเวชวิวัฒน์ / Vichaivej International Hospital Group — ไม่ใช่ Vibhavadi/VIBHA) — 56-1 One Report FY2024/FY2025 + MD&A FY2022-FY2025 (4 ฉบับ) + งบการเงิน FY2024-Q1/2026 (3 ฉบับ) + Oppday YouTube (Q2/2568, YE/2025) ใช้กับ `trendlongtun-brief` สำหรับ VIH_deepdive.html |
 | CHG - 56-1/MD&A vs Oppday Analysis | `cf58c3b2-63db-48f8-83ca-d9e57cc6050c` | CHG.BK (Chularat Hospital) — MD&A รายไตรมาส 1/2565-1/2569 (22 ไฟล์) + 56-1 One Report 2565-2568 (4 ฉบับ, FY2024/FY2025 split เป็น part1/part2 เพราะไฟล์ใหญ่เกิน) + Oppday YouTube 6 คลิป (2567-2568) ใช้กับ `trendlongtun-brief` สำหรับ CHG_deepdive.html |
+| QHBREIT - 56-REIT/MD&A (no Oppday) Analysis | `668ed1bc-8f7e-4f20-8dc7-825e9e82ce8f` | QHBREIT = **ทรัสต์เพื่อการลงทุนในสิทธิการเช่าอสังหาริมทรัพย์ ควอลิตี้ เฮ้าส์ บิสซิเนส คอมเพล็กซ์** (ผู้จัดการ = บลจ. แลนด์ แอนด์ เฮ้าส์) — **ระวัง: ไม่ใช่ QHHRREIT/QHHR (กองโรงแรมและเรซิเดนซ์ คนละกอง)**. แปลงสภาพจากกองทุนรวม QHPF: ก่อตั้งทรัสต์ 30 ต.ค. 2567, โอนทรัพย์สิน 4 ธ.ค. 2567, เลิก QHPF 6 ธ.ค. 2567 — เอกสารก่อน 2567 เป็นของ QHPF (กองทุน). Sources (34, ready ทั้งหมด; โฟลเดอร์ `source/QHBREIT/` พร้อม manifest.csv + gaps.md): 56-REIT FY2567+FY2568 + รายงานประจำปี QHBREIT FY2567/FY2568 + รายงานประจำปี QHPF FY2565/FY2566 + MD&A/หนังสือชี้แจง (QHPF FY2565, FY2566; QHBREIT FY2567, Q1-Q3/2568, FY2568, Q1/2569 (change explanation), Q2/2569) + งบ QHPF ณ วันเลิกกองทุน (6 ธ.ค. 2567) + งบ QHBREIT FY2568 (แปลงจาก ZIP docx/xlsx เป็น txt 3 ไฟล์ ชื่อลงท้าย `_from_docx/_from_xlsx`) + Property Details FY2567/FY2568/Q2-2569 + แจ้งผลประเมิน 2568/2569 + แก้ไขสัญญาเช่าลุมพินี 2568 + Two-way communication 2567/2568 + สัญญาก่อตั้งทรัสต์ฉบับลงนาม + หนังสือชี้ชวน QHPF (7 มี.ค./5 มิ.ย. 2567) + เอกสารประชุมแปลงสภาพ QHPF 2567 (เชิญ/แจ้ง/รายงาน) + หนังสือแจ้งโอนทรัพย์สิน. **หมายเหตุ: ไฟล์ MD&A/Property/Appraisal/Lease/Asset-transfer/Minutes/Notice/FS-dissolution/Two-way 2568 เป็นภาพสแกนไม่มี text layer — NotebookLM อ่านได้จากภาพ (ทดสอบ MDA_FY2568 และ MDA_Q1/2568 ตรงกับต้นฉบับ). ช่องว่าง: (1) ไม่มี Oppday/YouTube (หน้า presentdoc ว่าง, ค้นไม่พบ) และไม่มีบทสัมภาษณ์; (2) ไม่มีหนังสือชี้ชวน QHBREIT ฉบับเต็ม (มีแค่ของ QHPF + สัญญาทรัสต์; ตัดไฟล์ Conversion_Filing_Attachment ที่เป็นร่างซ้ำสัญญาทรัสต์ 141 หน้าออก); (3) รายงานประเมินฉบับเต็ม 2565-2568 ลิงก์ 404 (ได้แต่หนังสือแจ้งผลประเมิน 2568-2569); (4) ไม่มีงบแยกรายไตรมาส (มีแค่ FY2568 + งบวันเลิก QHPF; งบรายปีอื่นอยู่ในรายงานประจำปี); MD&A ไม่ครบทุกไตรมาส (ไม่มี Q1-Q3/2567, Q4 แยก, 2569 ครบแค่ Q1-Q2); (5) ไม่มีรายงานประจำปี QHPF FY2567 แยกฉบับ และ FY2569 ยังไม่ออก**. ใช้กับ `trendlongtun-brief` |
 
 ## Sources ใน AI Leading Indicator Notebook
 
@@ -37,6 +38,7 @@
 | `knowledge/insights/RJH_atoms.md` | RJH.BK | ✅ extracted from MD&A + 56-1 One Report 2568 (2026-07-26) |
 | `knowledge/insights/VIH_atoms.md` | VIH.BK | ✅ created from fresh source download + notebook (2026-07-26) |
 | `knowledge/insights/CHG_atoms.md` | CHG.BK | ✅ extracted from source/CHG/ raw MD&A+One Report + NotebookLM notebook + thaivi.org sector thread (2026-07-26) |
+| `knowledge/insights/QHBREIT_atoms.md` | QHBREIT (แปลงสภาพจาก QHPF) | ✅ office leasehold trust 3 อาคาร, created from source/QHBREIT/ (56-REIT 2567-68 + งบ FY2568 + MD&A ถึง Q2/2569 + งบวันเลิก QHPF) + NotebookLM cross-check (2026-11-04); อัปเดต Q3/2569 (MD&A+F45 ภาพหน้าจอ, occupancy รายไตรมาสจากเว็บกอง) 2026-11-10 — ภาพ Q3 เพิ่มเข้า NotebookLM แล้ว; มูลค่าใหม่ใน valuation.md §7 |
 
 ## Sources ใน RJH Notebook
 
@@ -145,6 +147,8 @@ Deliverable: `/Users/alonsi/Desktop/studio/reports/RJH_deepdive.html` (Trendlong
 Deliverable: `/Users/alonsi/Desktop/studio/reports/VIH_deepdive.html` (Trendlongtun-Brief deep dive, เผยแพร่ 2569-07-26)
 
 Deliverable: `/Users/alonsi/Desktop/studio/reports/CHG_deepdive.html` (Trendlongtun-Brief deep dive, เผยแพร่ 2569-07-26)
+
+Deliverable: `/Users/alonsi/Desktop/studio/reports/QHBREIT_deepdive.html` (Trendlongtun-Brief deep dive, สร้าง 2569-11-04 — ไม่มี Oppday; **ยังไม่เผยแพร่ขึ้นเว็บ**; Atoms: `knowledge/insights/QHBREIT_atoms.md`; ไฟล์ประกอบ `reports/_drafts/QHBREIT_numbers.csv` + `reports/_drafts/QHBREIT_valuation.md`)
 
 ## Structured Chapter Docs (local, for knowledge index)
 
