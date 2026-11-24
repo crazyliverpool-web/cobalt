@@ -5,7 +5,7 @@ _Single source of truth for stock research in studio. Supersedes the global `res
 
 ## Design Principles
 
-1. **Phases, not spawns.** Run the full pipeline as sequential phases in ONE model context. Do NOT spawn 6 sub-agents. Only exception: Vera, only when research drives a real decision (run by Codex, see Phase 4; sub-agent is the fallback).
+1. **Phases, not spawns.** Run the full pipeline as sequential phases in ONE model context. Do NOT spawn 6 sub-agents. Only exception: Vera, only when research drives a real decision (run by agy, see Phase 4; sub-agent is the fallback).
 2. **Cite-or-flag (anti-hallucination).** Every number/claim must carry a source (NotebookLM citation, filing, or local file). No source → mark `[UNVERIFIED]`. Conflicting numbers → `[CONFLICT]`. If no source exists at all → STOP and tell the user to add sources first.
 3. **No duplication.** This file is the only workflow definition for studio. ONE knowledge base (`studio/knowledge/`), ONE set of playbooks.
 4. **Cost discipline.** One context; don't re-read sources already in context; use partial pipelines for simple asks (see routing table); only run a separate Vera when it matters.
@@ -41,8 +41,8 @@ _Adapted from Company Discovery agent — condensed to plain-language briefing o
 | | |
 |---|---|
 | **Input** | Idea Card questions, stock's NotebookLM notebook ID from `knowledge/index.md` |
-| **Action** | Query the stock's OWN NotebookLM notebook one question at a time, following the question playbook rules: state the year, name the document to force citation, separate fact vs sentiment. |
-| **Output** | Q&A doc with citations. |
+| **Action** | Query the stock's OWN NotebookLM notebook one question at a time, following the question playbook rules: state the year, name the document to force citation, separate fact vs sentiment. **Thai (SET) stocks — also run the numbers snapshot first:** `~/.venvs/thaifin/bin/python -I tools/thaifin_fetch.py <TICKER>` (5 yrs + 6 qtrs: revenue, net profit, YoY, GPM/NPM, ROE/ROA, D/E, EPS, CFO, P/E, P/BV). Exit 2 = not on SET → skip. Use it to spot trends worth asking NotebookLM about, and paste the table into the Q&A doc. |
+| **Output** | Q&A doc with citations (+ thaifin snapshot for SET stocks). |
 | **STOP condition** | If there is no notebook or no sources for this stock → tell the user to add sources first; do not proceed to Phase 3. |
 
 ---
@@ -51,7 +51,7 @@ _Adapted from Company Discovery agent — condensed to plain-language briefing o
 | | |
 |---|---|
 | **Input** | Q&A doc from Phase 2 |
-| **Action** | Write a Research Doc: Summary (≤3 bullets), Bull Case, Bear Case, Key Metrics table. Every number must be cited. Mark `[UNVERIFIED]` for anything without a source. Mark `[CONFLICT]` for contradictions. |
+| **Action** | Write a Research Doc: Summary (≤3 bullets), Bull Case, Bear Case, Key Metrics table. Every number must be cited. Mark `[UNVERIFIED]` for anything without a source. Mark `[CONFLICT]` for contradictions. **thaifin numbers** are a secondary aggregator (Finnomena), not a filing: cite them as `(thaifin/Finnomena)`. They may fill trend/ratio rows, but any headline number the thesis leans on (latest revenue, net profit, dividend) must also be cited to a filing; if they differ → `[CONFLICT]`, filing wins. Never use thaifin's Div Yield when the script flags it. thaifin alone never satisfies the "no source → STOP" rule. |
 | **Output** | Research Doc saved to `reports/<TICKER>_research_<date>.md`. |
 
 ---
@@ -60,8 +60,8 @@ _Adapted from Company Discovery agent — condensed to plain-language briefing o
 | | |
 |---|---|
 | **Input** | Research Doc from Phase 3 |
-| **Action** | **Chris** (same context): identify logic gaps, missing perspectives, imbalance in bull/bear. **Vera** (only for real decisions): independently re-verify every number against sources; flag `[UNVERIFIED]`/`[CONFLICT]`. Run it through Codex (`codex-cli/run.sh`, offline), pointing it at `source/<TICKER>/` and the report. For a blind valuation, withhold the report and forbid `reports/` and `knowledge/`. **Codex red-team** (same trigger, optional): Codex lists holes in the thesis; Claude weighs them and Codex's view never becomes the conclusion. Check every mismatch against the source yourself before accepting it. If Codex fails or is out of quota, use a sub-agent. For non-actionable or quick research, run Vera inline. |
-| **Output** | Annotated Research Doc with Chris's critique + Vera's fact-check (say whether Codex or a sub-agent ran it). |
+| **Action** | **Chris** (same context): identify logic gaps, missing perspectives, imbalance in bull/bear. **Vera** (only for real decisions): independently re-verify every number against sources; flag `[UNVERIFIED]`/`[CONFLICT]`. Recompute every derived number (ratios, YoY, valuation, market cap) with `python3 -I tools/fin_check.py` and compare multi-source figures with `fin_check.py cross-validate --ref <filing>` (exit 1 = conflict) — inline Vera too, never mental math. Run it through agy (`agy-cli/run.sh` with `--add-dir` for the source folder), pointing it at `source/<TICKER>/` and the report. For a blind valuation, withhold the report and forbid `reports/` and `knowledge/`. **agy red-team** (same trigger, optional): agy lists holes in the thesis; Claude weighs them and agy's view never becomes the conclusion. Check every mismatch against the source yourself before accepting it. If agy fails or is out of quota, use a sub-agent. For non-actionable or quick research, run Vera inline. |
+| **Output** | Annotated Research Doc with Chris's critique + Vera's fact-check (say whether agy or a sub-agent ran it). |
 
 ---
 
@@ -118,7 +118,7 @@ _Avoid running the full loop for everything._
 1. Read this WORKFLOW.md (already loaded if in studio).
 2. Check `knowledge/index.md` for the stock's NotebookLM notebook ID.
 3. If no notebook → STOP. Tell user to add sources first.
-4. Run on Sonnet (execution). Run Vera through Codex (Phase 4) only when user signals the research will drive a real decision.
+4. Run on Sonnet (execution). Run Vera through agy (Phase 4) only when user signals the research will drive a real decision.
 
 ---
 

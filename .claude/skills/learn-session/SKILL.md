@@ -11,7 +11,7 @@
 
 ## Prerequisites
 
-- `source/<topic>/session_X_structured.md` must exist (chapter-by-chapter breakdown with quotes). If missing, offer to run `tools/structure_transcript.py` first (uses Haiku, report cost estimate, confirm before running). Codex is on trial for this step (subscription, not API): try it on one session, compare with the Haiku output, and keep the script as the default until the user decides.
+- `source/<topic>/session_X_structured.md` must exist (chapter-by-chapter breakdown with quotes). If missing, offer to run `tools/structure_transcript.py` first (uses Haiku, report cost estimate, confirm before running). agy is on trial for this step (subscription, not API): try it on one session, compare with the Haiku output, and keep the script as the default until the user decides.
 - `source/<topic>/transcript_X.txt` (raw transcript) must exist for the same session — this is what Fact-checker reads, never NotebookLM.
 - NotebookLM notebook for `<topic>` registered in `knowledge/index.md` is **optional** — if absent, skip the NotebookLM gap-fill step and rely on the structured doc + transcript alone.
 
@@ -65,7 +65,7 @@ One **full session** per run (not one chapter at a time — chapter-level was tr
 
 This is a distinct pass, not Minnie double-checking itself.
 
-**Who runs it: Codex** (`codex-cli/run.sh`, offline), so the checker is a different model that never saw Minnie's reasoning. Give it the absolute paths of the draft, `transcript_X.txt` and the slide PDF, and tell it to follow steps 1-5 below, reading this section of the skill. Ask for a table: draft says / source says (with file and location) / verdict, plus a separate list of words that look mis-transcribed. Withhold the structured doc and NotebookLM. **Claude then greps every flagged item in both the transcript and the PDF before accepting it**: Codex's output is a list of leads, not a verdict. If Codex fails or is out of quota, run the check with a sub-agent as before and say so.
+**Who runs it: agy** (`agy-cli/run.sh` with `--add-dir` for the source folder), so the checker is a different model that never saw Minnie's reasoning. Give it the absolute paths of the draft, `transcript_X.txt` and the slide PDF, and tell it to follow steps 1-5 below, reading this section of the skill. Ask for a table: draft says / source says (with file and location) / verdict, plus a separate list of words that look mis-transcribed. Withhold the structured doc and NotebookLM. **Claude then greps every flagged item in both the transcript and the PDF before accepting it**: agy's output is a list of leads, not a verdict. If agy fails or is out of quota, run the check with a sub-agent as before and say so.
 
 1. Read `transcript_X.txt` directly — raw text, not NotebookLM, not the structured doc. This is what makes it independent (Minnie's draft and the structured doc both trace back through the same LLM-summarization step; the raw transcript doesn't). **Also get the slide PDF fulltext for the same session** (extract with `pdftotext`/`pypdf` if not already available as text) and read it alongside the transcript — not optional, see step 3.
 2. Scope of check is **fidelity, not truth**: does the draft match what the instructor actually said? Do not fact-check against the real world / real markets — that's out of scope and risks turning into an argument about whether the instructor is right, which isn't the job here.

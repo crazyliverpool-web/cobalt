@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Remove people/objects with LaMa + Codex (gpt-image) working together.
+"""Remove people/objects with LaMa + an image model working together.
+Since 2026-11-24 the image model is agy (agy-cli/run.sh, Gemini image-generator); `--worker codex` uses
+Codex (gpt-image) instead. "Codex" below and in flag names (--codex-box, --engine codex) means "the image model".
 
 LaMa fills every hole first (fast, free). Regions picked for Codex (big or complex: people behind
 railings, on decks, against structures) are cropped with context, sent to Codex with a magenta-marked
@@ -39,10 +41,12 @@ from PIL import Image
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from remove_people import load_upright, detect_people, add_extra, lama_model, inpaint, save_previews  # noqa: E402
 
-RUN_SH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "codex-cli", "run.sh")
+STUDIO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RUN_SH = {"agy": os.path.join(STUDIO, "agy-cli", "run.sh"),  # default since 2026-11-24
+          "codex": os.path.join(STUDIO, "codex-cli", "run.sh")}
 SIZES = [(1024, 1024), (1536, 1024), (1024, 1536)]  # gpt-image output shapes; crops use one of these aspects
-PROMPT = """Photo retouch (inpainting), not a new picture. Image 1 is a crop of a real photograph. Image 2 is
-the SAME crop with the area to remove painted solid magenta. Edit image 1: replace everything under the
+PROMPT = """Photo retouch (inpainting), not a new picture. Image 1 (the first reference file, *_crop.png) is a
+crop of a real photograph. Image 2 (the second reference file, *_marked.png) is the SAME crop with the area to remove painted solid magenta. Edit image 1: replace everything under the
 magenta area with what would naturally be behind it ({what}) so it blends seamlessly with the surroundings -
 same lighting, colour, grain, perspective and sharpness as the rest of the photo. Continue structures that
 pass through the area (railings, posts, planks, shoreline, water ripples) correctly. Remove the {what}
@@ -69,7 +73,7 @@ def context_box(x, y, w, h, W, H, pad_frac=1.2, min_side=640):
     return x0, y0, x0 + int(cw), y0 + int(ch), best
 
 
-def run_codex(job, crop, rmask, size, outdir, what):
+def run_codex(job, crop, rmask, size, outdir, what, worker="agy"):
     os.makedirs(outdir, exist_ok=True)
     out = os.path.join(outdir, f"{job}_codex.png")
     if os.path.exists(out):  # answer from an earlier run: reuse it, don't spend another generation
@@ -80,14 +84,14 @@ def run_codex(job, crop, rmask, size, outdir, what):
     mk = ci.copy(); mk[cm] = (255, 0, 255)
     Image.fromarray(ci).save(src); Image.fromarray(mk).save(marked)
     task = PROMPT.format(what=what, w=size[0], h=size[1])
-    # stdin must be closed: `codex exec` otherwise waits forever on "Reading additional input from stdin"
-    r = subprocess.run([RUN_SH, job, task, src, marked], capture_output=True, text=True, stdin=subprocess.DEVNULL)
+    # stdin closed: both runners' CLIs otherwise may wait on stdin
+    r = subprocess.run([RUN_SH[worker], "--role", "image", job, task, src, marked], capture_output=True, text=True, stdin=subprocess.DEVNULL)
     m = re.search(r"JOB: (\S+)", r.stdout)
     path = os.path.join(m.group(1), "filled.png") if m else None
     # Codex often reports "partial" because it can't keep pixels outside the mask identical - fine, we
     # only paste the masked pixels. Accept any run that produced the file.
     if not (path and os.path.exists(path)):
-        print(f"[{job}] Codex failed:\n{r.stdout[-800:]}", file=sys.stderr)
+        print(f"[{job}] {worker} failed:\n{r.stdout[-800:]}", file=sys.stderr)
         return None
     Image.open(path).convert("RGB").save(out)
     return out
@@ -138,6 +142,7 @@ def main():
     ap.add_argument("--fill-res", type=int, default=1024)
     ap.add_argument("--what", default="people", help="what is being removed (goes into the Codex prompt)")
     ap.add_argument("--jobs", type=int, default=3)
+    ap.add_argument("--worker", choices=["agy", "codex"], default="agy", help="who generates the big fills (default agy)")
     ap.add_argument("--mask-only", action="store_true")
     a = ap.parse_args()
 
@@ -180,7 +185,7 @@ def main():
         else:
             boxes.append(((max(x - 60, 0), max(y - 60, 0), min(x + w + 60, W), min(y + h + 60, H)), "lama"))
     with ThreadPoolExecutor(a.jobs) as ex:
-        answers = list(ex.map(lambda t: run_codex(t[0], img[t[2]:t[4], t[1]:t[3]], t[6], t[5], cdir, a.what), todo))
+        answers = list(ex.map(lambda t: run_codex(t[0], img[t[2]:t[4], t[1]:t[3]], t[6], t[5], cdir, a.what, a.worker), todo))
     for (job, x0, y0, x1, y1, size, rm), ans in zip(todo, answers):
         if ans is None:
             boxes.append(((x0, y0, x1, y1), "codex FAILED -> LaMa"))
