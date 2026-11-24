@@ -31,6 +31,58 @@ Gotchas this tool already handles (learned 2026-10-09):
   patches) -> ask the user; they chose to keep those. Small figures on thin railings also go blocky; despeckle /
   Telea made it worse. People cut by the frame edge leave a few-px strip -> trimming 40 px beat refilling.
   Output names: macOS is case-insensitive, so x_g.jpg and x_G.jpg are the SAME file.
+- (2026-10-14, "st mag", Santa Maddalena, Sony 6000x4000): default thresh missed ~half of the tiny (~30 px)
+  sunset-blurred walkers on far roads; pass 2 (--thresh 0.15 + reviewer boxes) got most. Widening --extra boxes
+  over fences/poles erased them -> keep boxes tight (pad ~8 px) near thin structures. Fills of long crowded
+  paths came out slightly lavender/blurry. "Keep people in zone X" = run normally, then paste original rows/box back
+  (only masked pixels change, so the paste is seamless). Cars/cyclists are user's call - ask.
+- (2026-10-21, "lake", Braies, 27 photos, 6 review rounds): --thresh 0.15 still missed most far-shore/cliff-path
+  walkers (5-20 px) -> expect 2-3 reviewer rounds of --extra boxes. Keep-zone pastes: paste the whole changed
+  component touching the box (diff orig vs edited > 25, dilate, connectedComponents), a fixed box cut a bride in half.
+  People IN small boats (user: keep boat): the detector mask eats the whole boat; LaMa leaves blobs. Paste the boat
+  back, then cover only the people above the hull with water copied from beside the boat at the SAME rows (lake
+  tone varies with x, not y), tone-matched per row to the box's left/right edge pixels, feather ~4 px. Poisson
+  (seamlessClone) bled the person's colours into the water. Check the source strip contains no post/pole.
+  Reflections of removed people stay in the water; LaMa then extends them up onto the sand like posts -> box them
+  too. Thin wire crossing a fill: fill over it, then redraw it by darkening its rows by the ratio measured on a
+  clean stretch (copying a stretch brought along mesh ticks). Rope crossing a fill: --protect-light keeps it.
+- (2026-10-21, "lake" round 2): the "edge strips" were a bug here - the multiple-of-8 crop dropped the last
+  rows/cols at the bottom/right frame edge, so a few px of person stayed. Fixed in inpaint(); trimming not needed.
+  People BEHIND a railing: subtract hand-placed rail lines/posts (cv2.line, width ~ bar thickness - 5) from the
+  person mask so LaMa fills only between the bars; colour-thresholding the wood failed (shadowed bars, skin).
+  A big group in a corner (seated by the hut wall) always smeared into boat texture at every --fill-res -> ask
+  whether that group must go; warping a clean plate from another frame failed (camera moved, boats moved).
+  Small hole next to a boat: LaMa extends the boat into a blob/ghost -> restore the boat from the original first.
+  Fill too smooth on gravel/sand: take a same-shape patch shifted sideways from clean ground at the same rows and
+  add only its fine detail (patch - GaussianBlur 12) on top of the fill's own blur, feathered -> grain matches,
+  no seam. Per-row shifted copies (row by row) made horizontal streaks; don't.
+- (2026-10-30, "dump", Seceda/Giau, crowded hiking paths): default --fill-res 512 smeared long crowded
+  paths into blurry blobs; re-running from the ORIGINAL with --thresh 0.15 --fill-res 2048 fixed it. Big
+  --extra rects sent to Codex (codex_fill.py) came back as visible tone-mismatched rectangles (sky, grass) -
+  don't. Far walkers (5-15 px) along a railing under a dark cliff are never detected: mask only blobs that
+  differ from a 21-px median inside a thin band above the rail line (open 3x3 kills the rail, so it survives),
+  then LaMa at full res (scratch script blobfill.py did this). That trick fails on light paths through grass
+  (the path itself is the blob). People LYING on grass are missed at every thresh -> --extra. Low thresh pass
+  also erased a dark hut + tree -> paste that box back from the original.
+- (2026-10-21, "lake" round 3, people seated against the hut wall behind 3 rail bars): every LaMa variant left
+  ghosts. What worked: a CLEAN PLATE from another frame where that corner is empty - SIFT homography fitted only
+  on background features near the hole (people, rails and the wall masked out), ECC translation refine on the
+  strip beside the hole, smooth low-frequency colour field from the border ring (+ Lab row match smoothed in y),
+  our own rails kept, and LaMa only for the other frame's wood-coloured bars (H 3-25, S>70) and pixels next to
+  our bars. A whole-frame homography misaligned it (camera moved). Rows the person hid but which run horizontally
+  (far rail, bench top) rebuild best by a sideways shift / true-mirror tile of the same rows. Water next to a wall
+  from another frame still reads as a glass pane - tell the user.
+  A plate's painted box face never matched in tone/perspective (reviewer: "pink rectangle"). Better: rebuild
+  a horizontal band (bench box face) from THIS frame - only her mask pixels, each row-run blended from mirrored
+  edge strips on both sides - then flatten the smeared letters inside to the local median. Reviewer at 2-3x
+  zoom will always find something here; show the user a before/after sheet and let them decide.
+- (2026-10-27, "tre cime", 23 photos, 5 review rounds): false detections removed a fog-wrapped tower face,
+  a fog edge and face stickers on signposts -> paste the original back in those boxes. Reviewer boxes for tiny
+  figures were often 30-60 px off, so fills hit grass/bushes and missed the person -> locate on a gridded zoom
+  yourself before filling. Refugio yards/terraces: --fill-res 1024 beat 512 (fences, sheds, flagpole kept).
+  Rows of 3-6 px heads above a pale wall: mask only pixels darker than a medianBlur(31) background by >22,
+  dilate 5, LaMa -> wall untouched (a rect over the strip smeared it). Walkers against a rock face that the
+  detector misses even at --thresh 0.15: a same-row sideways shift (tone-matched to the box edges) beat LaMa.
 """
 import argparse
 import hashlib
@@ -115,7 +167,11 @@ def inpaint(img, mask, model, pad=200, max_side=512):
         x, y, w, h = stats[i][:4]
         x0, y0 = max(x - pad, 0), max(y - pad, 0)
         x1, y1 = min(x + w + pad, W), min(y + h + pad, H)
-        x1, y1 = x0 + (x1 - x0) // 8 * 8, y0 + (y1 - y0) // 8 * 8  # LaMa needs multiples of 8
+        # LaMa needs multiples of 8: trim the side away from the frame edge, or a hole touching the
+        # bottom/right edge keeps its last few rows of person (the old "edge strips")
+        w8, h8 = (x1 - x0) // 8 * 8, (y1 - y0) // 8 * 8
+        x0, x1 = (x1 - w8, x1) if x1 == W else (x0, x0 + w8)
+        y0, y1 = (y1 - h8, y1) if y1 == H else (y0, y0 + h8)
         m = (mask[y0:y1, x0:x1] > 0).astype(np.float32)
         crop = img[y0:y1, x0:x1]
         # LaMa was trained ~512 px: big holes at 24 MP come out as smudges, so fill a downscaled
@@ -129,7 +185,7 @@ def inpaint(img, mask, model, pad=200, max_side=512):
         o = cv2.resize(np.clip(o * 255, 0, 255), crop.shape[1::-1], interpolation=cv2.INTER_CUBIC)
         alpha = np.maximum(cv2.GaussianBlur(m, (0, 0), 3), m)[..., None]  # replace masked, feather edges
         out[y0:y1, x0:x1] = alpha * o + (1 - alpha) * out[y0:y1, x0:x1]
-    return out.round().astype(np.uint8), n - 1
+    return out.round().clip(0, 255).astype(np.uint8), n - 1  # bicubic overshoot wrapped to speckles
 
 
 def save_previews(img, result, mask, base):
@@ -176,6 +232,13 @@ def main():
         save_previews(img, None, mask, base)
         print("mask preview:", base + "_overlay.jpg")
         return
+    # (2026-10-31 copenlake) a crowded bench group (~700x230 px hole) smeared to dark patches at every LaMa
+    # fill-res and two LaMa passes; Codex filled it cleanly on the first try. Point big holes at codex_fill.
+    n_lab, _, st, _ = cv2.connectedComponentsWithStats((mask > 0).astype(np.uint8))
+    big = [tuple(st[i][:4]) for i in range(1, n_lab) if max(st[i][2], st[i][3]) >= 250]
+    if big:
+        print(f"WARNING: {len(big)} hole(s) >= 250 px (x,y,w,h): {big}\n"
+              "  LaMa smears big/crowded holes -> use tools/codex_fill.py for these (CLAUDE.md rule)", file=sys.stderr)
     result, regions = inpaint(img, mask, lama_model(), max_side=a.fill_res)
     Image.fromarray(result).save(out, quality=95, subsampling=0)
     save_previews(img, result, mask, base)

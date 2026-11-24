@@ -48,9 +48,24 @@ cheapest model that fits: haiku for mechanical work, sonnet for research, **opus
 | ตรวจงานแต่งรูปก่อนส่ง (บังคับ) | `photo-reviewer` | sonnet |
 
 ## Layout
-Desktop has ONE folder: `studio/`. `projects/`, `courses/` (teaching, ltd-ai-101) and
+Work folder on Desktop: `studio/` (`~/Desktop/codex` is only a shortcut to `studio/codex-cli/`). `projects/`, `courses/` (teaching, ltd-ai-101) and
 `inbox/` (loose files to sort) are gitignored. **No video/audio on this Mac** — all media lives
 on `/Volumes/Acici Sanitsakul/studio-archive/media/` (see `source/README_media.md`).
+
+## agy ลูกน้อง (Google Antigravity CLI; แทน Codex ตั้งแต่ 2026-11-24)
+Delegate via `agy-cli/run.sh [--role image|checker|extractor|reviewer|editor] [--add-dir <dir>] <job> "<task>" [ref-file]` — never call `agy` directly.
+Rules: `agy-cli/AGENTS.md` (role files in `agy-cli/roles/`). Offline only (sandbox, no network). Permissions live in
+`~/.gemini/antigravity-cli/settings.json` (writes only under `agy-cli/outputs/`); never run it with `--dangerously-skip-permissions`.
+Open every file in its FILES report before use; after `--add-dir` jobs check `git status` of that dir. Send work on your own
+initiative, no need to ask, when checking is cheaper than doing:
+- **Always:** image generation (agy's image-generator; files come back as PNG in the job folder).
+- **Trial:** blind-check of stock numbers and red-team of the thesis for real decisions (`research/WORKFLOW.md` Phase 4),
+  course fact-check against the raw transcript (`learn-session` Phase B), independent answer keys, review of Claude's code.
+- **Also:** tables from filings → CSV, small standalone scripts/tests.
+- **Still on Codex** (`codex-cli/run.sh`): jobs that need `--web`/`--net`; `codex_fill.py --worker codex` as fallback.
+- **Never to agy:** patient data (`projects/tussaneem`, clinic), logins/cookies/tokens (so no NotebookLM), bots, deep-dive and
+  lesson writing, git commits, final sign-off, plain web research (do it yourself). agy may argue against a thesis, but Claude
+  weighs it and the investment judgement stays with Claude and the user.
 
 ## Opus ↔ Sonnet handoff
 At session start read **`todos.md`** (one file, all work). Each task is a list of stages with a model
@@ -65,11 +80,13 @@ which reads only the matching file in `guides/bots/` (one per launchd bot).
 ## Photo: remove people / sun flare
 `python3 -I tools/remove_people.py <image> [--extra x0,y0,x1,y1 ...]` (HEIC ok). Read its docstring;
 always inspect the `_overlay`/`_compare` previews — reflections in water need `--extra`.
+Big/complex holes (people behind railings, on decks, against buildings) → `tools/codex_fill.py` (LaMa for
+small holes + agy (default; `--worker codex` fallback) for regions picked by `--codex-box`; only masked pixels pasted back, full-res). Docstring has usage.
 Sun streaks / light beams: `python3 -I tools/remove_flare.py <image> --line x0,y0,x1,y1 [...]` — read its
 docstring (start lines below the sun disk; `--patch-safe-below` = treeline row); zoom into ridges in `_compare`.
 **Before telling the user any photo edit is done:** run `photo-reviewer` agent on the outputs; fix every FAIL and
 re-run until all PASS (user rule 2026-10-11, from poteto's verify stage). Self-check: `tools/photo_check.py`.
-Video grade / remove people (SAM2 + ProPainter, installed) → read `guides/video-edit.md` first.
+Video grade / remove people (`tools/video_retouch.py`) → read `guides/video-edit.md` first.
 
 ## Learning loop (`/reflect`, `/ruminate`, `/meditate`)
 After a long task, a user correction, or a tool workaround → `/reflect`. Monthly → `/ruminate` then `/meditate`.

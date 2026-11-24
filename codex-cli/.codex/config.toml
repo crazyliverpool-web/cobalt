@@ -1,0 +1,5 @@
+# โหลดเมื่อรัน Codex จาก codex-cli/ (ทั้ง run.sh และ `cd codex-cli && codex`)
+hide_agent_reasoning = true
+model_reasoning_summary = "none"
+model_auto_compact_token_limit = 100000
+compact_prompt = "สรุปบทสนทนาให้สั้นที่สุด เก็บเฉพาะ: คำสั่งงานและข้อห้ามตรงตัว, NETWORK MODE, path ไฟล์, ตัวเลขและที่มาที่ได้แล้ว, สิ่งที่ทำเสร็จ, สิ่งที่ต้องทำต่อ ตัดคำอธิบาย ผลลัพธ์คำสั่ง และการลองผิดลองถูกทิ้ง"
